@@ -7,6 +7,7 @@ module Settings exposing
     , locale
     , logoImageForSeo
     , logoUrl
+    , logosForManifest
     , subtitle
     , title
     , xId
@@ -15,6 +16,8 @@ module Settings exposing
 import Head.Seo
 import LanguageTag.Language as Language
 import LanguageTag.Region as Region
+import MimeType exposing (MimeImage)
+import Pages.Manifest as Manifest
 import Pages.Url exposing (Url)
 import UrlPath
 
@@ -46,6 +49,40 @@ logoImageForSeo =
     , dimensions = Just { width = 500, height = 333 }
     , mimeType = Nothing
     }
+
+
+logosForManifest : List Manifest.Icon
+logosForManifest =
+    let
+        webpMimeType : MimeImage
+        webpMimeType =
+            MimeType.OtherImage "image/webp"
+
+        purposes : List Manifest.IconPurpose
+        purposes =
+            [ Manifest.IconPurposeAny, Manifest.IconPurposeMaskable ]
+    in
+    [ { src = [ "images", "logos", "logo-192x192.png" ] |> UrlPath.join |> Pages.Url.fromPath
+      , sizes = [ ( 192, 192 ) ]
+      , mimeType = Just MimeType.Png
+      , purposes = purposes
+      }
+    , { src = [ "images", "logos", "logo-192x192.webp" ] |> UrlPath.join |> Pages.Url.fromPath
+      , sizes = [ ( 192, 192 ) ]
+      , mimeType = Just webpMimeType
+      , purposes = purposes
+      }
+    , { src = [ "images", "logos", "logo-512x512.png" ] |> UrlPath.join |> Pages.Url.fromPath
+      , sizes = [ ( 512, 512 ) ]
+      , mimeType = Just MimeType.Png
+      , purposes = purposes
+      }
+    , { src = [ "images", "logos", "logo-512x512.webp" ] |> UrlPath.join |> Pages.Url.fromPath
+      , sizes = [ ( 512, 512 ) ]
+      , mimeType = Just webpMimeType
+      , purposes = purposes
+      }
+    ]
 
 
 locale : Maybe ( Language.Language, Region.Region )
