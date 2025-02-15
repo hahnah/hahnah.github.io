@@ -89,4 +89,5 @@ Hahnah (Natsuki Harai)
 
 ## LICENSE
 
-See [LICENSE](LICENSE) file.
+All codes, contents and other things in this repository is licensed under CC BY-NC-ND 4.0.  
+See [LICENSE](LICENSE) file for more details.
