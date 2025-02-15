@@ -4,9 +4,9 @@
 
 This is a tempalte for building a blog as static site with elm-pages, forked from [https://github.com/kraklin/elm-pages-blog-starter](https://github.com/kraklin/elm-pages-blog-starter).
 
-## Demo
+## Hosted URL
 
-[https://hahnah-blog-template.netlify.app/](https://hahnah-blog-template.netlify.app/)
+[https://hahnah.github.io](https://hahnah.github.io)
 
 ## Features
 
