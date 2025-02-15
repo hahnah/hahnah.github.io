@@ -1,20 +1,12 @@
-# Hahnah's Blog Template with Elm Pages
+# Hahnah's Site
 
-This is a tempalte for building a blog as static site with elm-pages, forked from [https://github.com/kraklin/elm-pages-blog-starter](https://github.com/kraklin/elm-pages-blog-starter).
+This is source code and contents of my site.
+
+Using [https://github.com/hahnah/elm-pages-blog-template](https://github.com/hahnah/elm-pages-blog-template) as template.
 
 ## Hosting URL
 
 [https://hahnah.github.io](https://hahnah.github.io)
-
-## Features
-
-- Static Site Generation
-- Blog posts with markdown
-- Tags
-- Categories (Tech and Life)
-- Mutiple authors
-- Pagination
-- Sitemap feed
 
 ## What is used?
 
@@ -30,12 +22,8 @@ See package.json for more details.
    - _OPTION_: You can replace Volta with any other manager what you like, or can just install Node.js directory.
 2. Install and set Node.js and npm with Volta like below.
    ```bash
-   volta install node@22 # Intall Node.js v22.x, or you can choose newer version
-   volta list node # Check the installed version of Node.js
-   volta pin node@22.13.0 # Specify the installed version you saw above command
-   volta install npm@11 # Intall npm v11.x, or you can choose newer version
-   volta list npm # Check the installed version of npm
-   volta pin npm@11.0.0 # Specify the installed version you saw above command
+   volta install node@22 # See accurate version in package.json. Or you can use newer version by own.
+   volta install npm@11 # See accurate version in package.json. Or you can use newer version by own.
    ```
 3. Install Node modules
    ```bash
