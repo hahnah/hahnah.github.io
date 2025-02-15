@@ -2,7 +2,7 @@
 
 This is a tempalte for building a blog as static site with elm-pages, forked from [https://github.com/kraklin/elm-pages-blog-starter](https://github.com/kraklin/elm-pages-blog-starter).
 
-## Hosted URL
+## Hosting URL
 
 [https://hahnah.github.io](https://hahnah.github.io)
 
