@@ -56,10 +56,6 @@ Then open `http://localhost:1234` in your browser.
 
 Add a new markdown file in `content/tech-blog/<any slug what to want>/index.md` or `content/life-blog/<any slug what to want>/index.md`.
 
-## Deploying on Netlify
-
-Just make sure your repository is conneted to Netlify.
-
 ## Deploying on GitHub Pages
 
 1. Make sure your repositgory name is same as your github username. If not, change it.
