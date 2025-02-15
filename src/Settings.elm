@@ -21,16 +21,7 @@ import UrlPath
 
 domain : String
 domain =
-    -- or like "hahnah.github.io"
-    "hahnah-blog-template.netlify.app"
-
-
-
-{-
-   NOTE: basePath except "/" doesn't work for GitHub Pages hosting, because of elm-pages bug.
-     SEE: https://github.com/dillonkearns/elm-pages/issues/404
-   NOTE: If you set basePath, you need to set --base option in "elm-pages dev" and "elm-pages build" commands.
--}
+    "hahnah.github.io"
 
 
 basePath : String
