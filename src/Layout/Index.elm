@@ -1,12 +1,16 @@
-module Layout.Index exposing (view)
+module Layout.Index exposing (updatedAt, view)
 
 import Content.BlogpostCommon exposing (Metadata)
 import Html exposing (Html)
 import Html.Attributes as Attrs
-import Pages.Url as Url
 import Phosphor
 import Route
 import Settings
+
+
+updatedAt : String
+updatedAt =
+    "2025-02-16T00:00:00Z"
 
 
 view : List Metadata -> List (Html msg)
