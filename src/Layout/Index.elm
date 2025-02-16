@@ -65,12 +65,12 @@ codeLink =
 
 blogLink : Html msg
 blogLink =
-    Html.a
-        [ Attrs.href "/blog" -- TODO: Use Route.link
-        , Attrs.class "flex gap-2 justify-center items-center bg-teal-500 hover:bg-teal-600 rounded-full w-full py-3 md:w-auto md:px-10"
+    Route.link
+        [ Attrs.class "flex gap-2 justify-center items-center bg-teal-500 hover:bg-teal-600 rounded-full w-full py-3 md:w-auto md:px-10"
         ]
         [ Phosphor.books Phosphor.Regular
             |> Phosphor.withClass "fill-current text-white h-8 w-8"
             |> Phosphor.toHtml []
         , Html.div [ Attrs.class "text-2xl font-semibold text-white align-middle" ] [ Html.text "Blog" ]
         ]
+        Route.Blog
