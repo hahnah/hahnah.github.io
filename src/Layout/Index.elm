@@ -12,7 +12,7 @@ import Settings
 view : List Metadata -> List (Html msg)
 view blogpostMetadata =
     [ Html.div [ Attrs.class "space-y-6 md:space-y-8 pb-8 pt-6" ]
-        [ Html.div [ Attrs.class "flex justify-center" ] [ author ]
+        [ Route.link [ Attrs.class "flex justify-center" ] [ author ] Route.About
         , Html.h1 [ Attrs.class "flex justify-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:leading-14" ] [ Html.text Settings.title ]
         , Html.p [ Attrs.class "flex justify-center text-lg leading-10 text-gray-600 dark:text-gray-400" ] [ Html.text Settings.subtitle ]
         , Html.div [ Attrs.class "flex flex-wrap justify-center gap-x-8 gap-y-8" ] [ appsLink, codeLink, blogLink ]
