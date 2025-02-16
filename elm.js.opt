@@ -1944,7 +1944,7 @@
         return {
             dh: func(record.dh),
             hg: record.hg,
-            g1: record.g1
+            g2: record.g2
         };
     }, _VirtualDom_mapEventRecord = F2(_VirtualDom_mapEventRecord_fn);
     function _VirtualDom_organizeFacts(factList) {
@@ -2094,7 +2094,7 @@
             var message = !tag ? value : tag < 3 ? value.a : value.dh;
             var stopPropagation = tag == 1 ? value.b : tag == 3 && value.hg;
             var currentEventNode = (stopPropagation && event.stopPropagation(),
-                (tag == 2 ? value.b : tag == 3 && value.g1) && event.preventDefault(),
+                (tag == 2 ? value.b : tag == 3 && value.g2) && event.preventDefault(),
                 eventNode);
             var tagger;
             var i;
@@ -2912,7 +2912,7 @@
     var _Debugger_document;
     var _Browser_document = _Debugger_document || F4(function (impl, flagDecoder, debugMetadata, args) {
         return _Platform_initialize(flagDecoder, args, impl.a6, impl.aS, impl.bj, function (sendToApp, initialModel) {
-            var divertHrefToApp = impl.hb && impl.hb(sendToApp);
+            var divertHrefToApp = impl.hc && impl.hc(sendToApp);
             var view = impl.s;
             var title = _VirtualDom_doc.title;
             var bodyNode = _VirtualDom_doc.body;
@@ -2920,7 +2920,7 @@
             return _Browser_makeAnimator(initialModel, function (model) {
                 _VirtualDom_divertHrefToApp = divertHrefToApp;
                 var doc = view(model);
-                var nextNode = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "body")(_List_Nil)(doc.f7);
+                var nextNode = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "body")(_List_Nil)(doc.f8);
                 var patches = _VirtualDom_diff(currNode, nextNode);
                 bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
                 currNode = nextNode;
@@ -2957,7 +2957,7 @@
         var onUrlRequest = impl.kw;
         var key = function () { key.a(onUrlChange(_Browser_getUrl())); };
         return _Browser_document({
-            hb: function (sendToApp) {
+            hc: function (sendToApp) {
                 key.a = sendToApp;
                 _Browser_window.addEventListener("popstate", key);
                 _Browser_window.navigator.userAgent.indexOf("Trident") < 0 || _Browser_window.addEventListener("hashchange", key);
@@ -3132,7 +3132,7 @@
                     lk: _Browser_doc.documentElement.clientWidth,
                     jR: _Browser_doc.documentElement.clientHeight
                 },
-                gq: {
+                gr: {
                     dL: x + rect.left,
                     dM: y + rect.top,
                     lk: rect.width,
@@ -3167,14 +3167,14 @@
             xhr.addEventListener("load", function () { done(_Http_toResponse(request.h_.b, xhr)); });
             $elm$core$Maybe$isJust(request.hw) && _Http_track(router, xhr, request.hw.a);
             try {
-                xhr.open(request.gQ, request.le, true);
+                xhr.open(request.gR, request.le, true);
             }
             catch (e) {
                 return done($elm$http$Http$BadUrl_(request.le));
             }
             _Http_configureRequest(xhr, request);
-            request.f7.a && xhr.setRequestHeader("Content-Type", request.f7.a);
-            xhr.send(request.f7.b);
+            request.f8.a && xhr.setRequestHeader("Content-Type", request.f8.a);
+            xhr.send(request.f8.b);
             return function () { xhr.c = true; xhr.abort(); };
         });
     }, _Http_toTask = F3(_Http_toTask_fn);
@@ -3536,7 +3536,7 @@
     }, $elm$core$Basics$apR = F2($elm$core$Basics$apR_fn);
     var $dillonkearns$elm_pages$Server$Response$plainText = function (string) {
         return $dillonkearns$elm_pages$PageServerResponse$ServerResponse({
-            f7: $elm$core$Maybe$Just(string),
+            f8: $elm$core$Maybe$Just(string),
             jP: _List_fromArray([
                 _Utils_Tuple2("Content-Type", "text/plain")
             ]),
@@ -3875,7 +3875,7 @@
         var view = _v0.s;
         var record = builderState;
         return {
-            fN: record.fN,
+            fO: record.fO,
             o: record.o,
             bv: record.bv,
             aV: record.aV,
@@ -3907,7 +3907,7 @@
         return info;
     };
     var $dillonkearns$elm_pages$FatalError$fromString = function (string) {
-        return $dillonkearns$elm_pages$FatalError$build({ f7: string, lb: "Custom Error" });
+        return $dillonkearns$elm_pages$FatalError$build({ f8: string, lb: "Custom Error" });
     };
     var $dillonkearns$elm_pages$Pages$Url$Internal = function (a) {
         return { $: 0, a: a };
@@ -4194,46 +4194,46 @@
                     var details = card.a;
                     return _List_fromArray([
                         _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.lb))),
-                        _Utils_Tuple2("twitter:site", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.hc)),
+                        _Utils_Tuple2("twitter:site", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.hd)),
                         _Utils_Tuple2("twitter:description", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.jq)),
                         _Utils_Tuple2("twitter:image", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$urlAttribute, $elm$core$Maybe$map_fn(function ($) {
                             return $.le;
-                        }, details.gC))),
+                        }, details.gD))),
                         _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn(function ($) {
                             return $.i0;
-                        }, details.gC)))
+                        }, details.gD)))
                     ]);
                 case 1:
                     var details = card.a;
                     return _List_fromArray([
                         _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.lb))),
-                        _Utils_Tuple2("twitter:site", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.hc))),
+                        _Utils_Tuple2("twitter:site", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.hd))),
                         _Utils_Tuple2("twitter:description", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.jq)),
                         _Utils_Tuple2("twitter:image", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$urlAttribute, $elm$core$Maybe$map_fn(function ($) {
                             return $.le;
-                        }, details.gC))),
+                        }, details.gD))),
                         _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn(function ($) {
                             return $.i0;
-                        }, details.gC))),
-                        _Utils_Tuple2("twitter:app:name:iphone", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fU)),
-                        _Utils_Tuple2("twitter:app:name:ipad", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fT)),
-                        _Utils_Tuple2("twitter:app:name:googleplay", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fS)),
-                        _Utils_Tuple2("twitter:app:id:iphone", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, details.fR))),
-                        _Utils_Tuple2("twitter:app:id:ipad", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, details.fQ))),
-                        _Utils_Tuple2("twitter:app:id:googleplay", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fP)),
-                        _Utils_Tuple2("twitter:app:url:iphone", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fX)),
-                        _Utils_Tuple2("twitter:app:url:ipad", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fW)),
-                        _Utils_Tuple2("twitter:app:url:googleplay", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fV)),
-                        _Utils_Tuple2("twitter:app:country", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fO))
+                        }, details.gD))),
+                        _Utils_Tuple2("twitter:app:name:iphone", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fV)),
+                        _Utils_Tuple2("twitter:app:name:ipad", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fU)),
+                        _Utils_Tuple2("twitter:app:name:googleplay", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fT)),
+                        _Utils_Tuple2("twitter:app:id:iphone", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, details.fS))),
+                        _Utils_Tuple2("twitter:app:id:ipad", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, details.fR))),
+                        _Utils_Tuple2("twitter:app:id:googleplay", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fQ)),
+                        _Utils_Tuple2("twitter:app:url:iphone", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fY)),
+                        _Utils_Tuple2("twitter:app:url:ipad", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fX)),
+                        _Utils_Tuple2("twitter:app:url:googleplay", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fW)),
+                        _Utils_Tuple2("twitter:app:country", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.fP))
                     ]);
                 default:
                     var details = card.a;
                     return _List_fromArray([
                         _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.lb))),
-                        _Utils_Tuple2("twitter:site", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.hc))),
+                        _Utils_Tuple2("twitter:site", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.hd))),
                         _Utils_Tuple2("twitter:description", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.jq)),
-                        _Utils_Tuple2("twitter:image", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(details.gC.le))),
-                        _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.gC.i0)))
+                        _Utils_Tuple2("twitter:image", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(details.gD.le))),
+                        _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.gD.i0)))
                     ]);
             }
         }());
@@ -4360,7 +4360,7 @@
         ]);
     };
     var $dillonkearns$elm_pages$Head$Seo$tagsForCommon = function (common) {
-        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$tagsForImage(common.gC), _Utils_ap($elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$tagsForAudio, common.bO)), _Utils_ap($elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$tagsForVideo, common.cg)), _Utils_ap(_List_fromArray([
+        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$tagsForImage(common.gD), _Utils_ap($elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$tagsForAudio, common.bO)), _Utils_ap($elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$tagsForVideo, common.cg)), _Utils_ap(_List_fromArray([
             _Utils_Tuple2("og:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.lb))),
             _Utils_Tuple2("og:url", $elm$core$Maybe$Just($elm$core$Maybe$withDefault_fn($dillonkearns$elm_pages$Head$currentPageFullUrl, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, common.jc)))),
             _Utils_Tuple2("og:description", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.jq))),
@@ -4666,14 +4666,14 @@
         var rd = _v0;
         var y = $justinmimbs$date$Date$year(rd);
         return {
-            gZ: rd - $justinmimbs$date$Date$daysBeforeYear(y),
+            g_: rd - $justinmimbs$date$Date$daysBeforeYear(y),
             iX: y
         };
     };
     var $justinmimbs$date$Date$toCalendarDate = function (_v0) {
         var rd = _v0;
         var date = $justinmimbs$date$Date$toOrdinalDate(rd);
-        return $justinmimbs$date$Date$toCalendarDateHelp_fn(date.iX, 0, date.gZ);
+        return $justinmimbs$date$Date$toCalendarDateHelp_fn(date.iX, 0, date.g_);
     };
     var $justinmimbs$date$Date$day_a0 = $justinmimbs$date$Date$toCalendarDate, $justinmimbs$date$Date$day_a1 = function ($) {
         return $.hS;
@@ -4686,7 +4686,7 @@
     }, $justinmimbs$date$Date$month = A2($elm$core$Basics$composeR, $justinmimbs$date$Date$month_a0, $justinmimbs$date$Date$month_a1);
     var $justinmimbs$date$Date$monthNumber_a0 = $justinmimbs$date$Date$month, $justinmimbs$date$Date$monthNumber_a1 = $justinmimbs$date$Date$monthToNumber, $justinmimbs$date$Date$monthNumber = A2($elm$core$Basics$composeR, $justinmimbs$date$Date$monthNumber_a0, $justinmimbs$date$Date$monthNumber_a1);
     var $justinmimbs$date$Date$ordinalDay_a0 = $justinmimbs$date$Date$toOrdinalDate, $justinmimbs$date$Date$ordinalDay_a1 = function ($) {
-        return $.gZ;
+        return $.g_;
     }, $justinmimbs$date$Date$ordinalDay = A2($elm$core$Basics$composeR, $justinmimbs$date$Date$ordinalDay_a0, $justinmimbs$date$Date$ordinalDay_a1);
     var $elm$core$Basics$abs = function (n) {
         return (n < 0) ? (-n) : n;
@@ -4820,7 +4820,7 @@
                     case 3:
                         return language.e1($elm$core$Basics$composeR_fn($justinmimbs$date$Date$month_a0, $justinmimbs$date$Date$month_a1, date));
                     case 4:
-                        return language.gR($elm$core$Basics$composeR_fn($justinmimbs$date$Date$month_a0, $justinmimbs$date$Date$month_a1, date));
+                        return language.gS($elm$core$Basics$composeR_fn($justinmimbs$date$Date$month_a0, $justinmimbs$date$Date$month_a1, date));
                     case 5:
                         return $elm$core$String$left_fn(1, language.e1($elm$core$Basics$composeR_fn($justinmimbs$date$Date$month_a0, $justinmimbs$date$Date$month_a1, date)));
                     default:
@@ -4842,7 +4842,7 @@
                     case 2:
                         return $elm$core$String$padLeft_fn(2, "0", $elm$core$String$fromInt($elm$core$Basics$composeR_fn($justinmimbs$date$Date$day_a0, $justinmimbs$date$Date$day_a1, date)));
                     case 3:
-                        return language.gi($elm$core$Basics$composeR_fn($justinmimbs$date$Date$day_a0, $justinmimbs$date$Date$day_a1, date));
+                        return language.gj($elm$core$Basics$composeR_fn($justinmimbs$date$Date$day_a0, $justinmimbs$date$Date$day_a1, date));
                     default:
                         return "";
                 }
@@ -5024,7 +5024,7 @@
         return { $: 1, a: a, b: b };
     }, $elm$parser$Parser$Advanced$AddRight = F2($elm$parser$Parser$Advanced$AddRight_fn);
     var $elm$parser$Parser$Advanced$DeadEnd_fn = function (row, col, problem, contextStack) {
-        return { eL: col, gf: contextStack, kI: problem, kV: row };
+        return { eL: col, gg: contextStack, kI: problem, kV: row };
     }, $elm$parser$Parser$Advanced$DeadEnd = F4($elm$parser$Parser$Advanced$DeadEnd_fn);
     var $elm$parser$Parser$Advanced$Empty = { $: 0 };
     var $elm$parser$Parser$Advanced$fromState_fn = function (s, x) {
@@ -5040,11 +5040,11 @@
         var expecting = _v0.b;
         var progress = !$elm$core$String$isEmpty(str);
         return function (s) {
-            var _v1 = _Parser_isSubString_fn(str, s.e6, s.kV, s.eL, s.he);
+            var _v1 = _Parser_isSubString_fn(str, s.e6, s.kV, s.eL, s.fy);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, k: s.k, d4: s.d4, e6: newOffset, kV: newRow, he: s.he });
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, k: s.k, d4: s.d4, e6: newOffset, kV: newRow, fy: s.fy });
         };
     };
     var $elm$parser$Parser$token = function (str) {
@@ -5055,8 +5055,8 @@
     var $elm$parser$Parser$Advanced$isSubChar = _Parser_isSubChar;
     var $elm$parser$Parser$Advanced$chompIf_fn = function (isGood, expecting) {
         return function (s) {
-            var newOffset = _Parser_isSubChar_fn(isGood, s.e6, s.he);
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : (newOffset === -2 ? $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: 1, k: s.k, d4: s.d4, e6: s.e6 + 1, kV: s.kV + 1, he: s.he }) : $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: s.eL + 1, k: s.k, d4: s.d4, e6: newOffset, kV: s.kV, he: s.he }));
+            var newOffset = _Parser_isSubChar_fn(isGood, s.e6, s.fy);
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : (newOffset === -2 ? $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: 1, k: s.k, d4: s.d4, e6: s.e6 + 1, kV: s.kV + 1, fy: s.fy }) : $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: s.eL + 1, k: s.k, d4: s.d4, e6: newOffset, kV: s.kV, fy: s.fy }));
         };
     }, $elm$parser$Parser$Advanced$chompIf = F2($elm$parser$Parser$Advanced$chompIf_fn);
     var $elm$parser$Parser$chompIf = function (isGood) {
@@ -5067,9 +5067,9 @@
     }, $justinmimbs$date$Pattern$Field = F2($justinmimbs$date$Pattern$Field_fn);
     var $elm$parser$Parser$Advanced$chompWhileHelp_fn = function (isGood, offset, row, col, s0) {
         chompWhileHelp: while (true) {
-            var newOffset = _Parser_isSubChar_fn(isGood, offset, s0.he);
+            var newOffset = _Parser_isSubChar_fn(isGood, offset, s0.fy);
             if (newOffset === -1) {
-                return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s0.e6, offset) < 0, 0, { eL: col, k: s0.k, d4: s0.d4, e6: offset, kV: row, he: s0.he });
+                return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s0.e6, offset) < 0, 0, { eL: col, k: s0.k, d4: s0.d4, e6: offset, kV: row, fy: s0.fy });
             }
             else {
                 if (newOffset === -2) {
@@ -5142,7 +5142,7 @@
                 var p = _v1.a;
                 var a = _v1.b;
                 var s1 = _v1.c;
-                return $elm$parser$Parser$Advanced$Good_fn(p, A2(func, _String_slice_fn(s0.e6, s1.e6, s0.he), a), s1);
+                return $elm$parser$Parser$Advanced$Good_fn(p, A2(func, _String_slice_fn(s0.e6, s1.e6, s0.fy), a), s1);
             }
         };
     }, $elm$parser$Parser$Advanced$mapChompedString_fn_unwrapped = function (func, _v0) {
@@ -5158,7 +5158,7 @@
                 var p = _v1.a;
                 var a = _v1.b;
                 var s1 = _v1.c;
-                return $elm$parser$Parser$Advanced$Good_fn(p, func(_String_slice_fn(s0.e6, s1.e6, s0.he), a), s1);
+                return $elm$parser$Parser$Advanced$Good_fn(p, func(_String_slice_fn(s0.e6, s1.e6, s0.fy), a), s1);
             }
         };
     }, $elm$parser$Parser$Advanced$mapChompedString = F2($elm$parser$Parser$Advanced$mapChompedString_fn);
@@ -5252,7 +5252,7 @@
     var $elm$parser$Parser$ExpectingEnd = { $: 10 };
     var $elm$parser$Parser$Advanced$end = function (x) {
         return function (s) {
-            return _Utils_eq($elm$core$String$length(s.he), s.e6) ? $elm$parser$Parser$Advanced$Good_fn(false, 0, s) : $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, x));
+            return _Utils_eq($elm$core$String$length(s.fy), s.e6) ? $elm$parser$Parser$Advanced$Good_fn(false, 0, s) : $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, x));
         };
     };
     var $elm$parser$Parser$end = $elm$parser$Parser$Advanced$end($elm$parser$Parser$ExpectingEnd);
@@ -5311,7 +5311,7 @@
     }, $elm$parser$Parser$Advanced$bagToList = F2($elm$parser$Parser$Advanced$bagToList_fn);
     var $elm$parser$Parser$Advanced$run_fn = function (_v0, src) {
         var parse = _v0;
-        var _v1 = parse({ eL: 1, k: _List_Nil, d4: 1, e6: 0, kV: 1, he: src });
+        var _v1 = parse({ eL: 1, k: _List_Nil, d4: 1, e6: 0, kV: 1, fy: src });
         if (!_v1.$) {
             var value = _v1.b;
             return $elm$core$Result$Ok(value);
@@ -5397,8 +5397,8 @@
         }
     };
     var $justinmimbs$date$Date$language_en = {
-        gi: $justinmimbs$date$Date$withOrdinalSuffix,
-        gR: $justinmimbs$date$Date$monthToName,
+        gj: $justinmimbs$date$Date$withOrdinalSuffix,
+        gS: $justinmimbs$date$Date$monthToName,
         e1: A2($elm$core$Basics$composeR, $justinmimbs$date$Date$monthToName, $elm$core$String$left(3)),
         hC: $justinmimbs$date$Date$weekdayToName,
         cK: A2($elm$core$Basics$composeR, $justinmimbs$date$Date$weekdayToName, $elm$core$String$left(3))
@@ -5450,8 +5450,8 @@
                     var bookDetails = details.a;
                     return _Utils_ap(_List_fromArray([
                         _Utils_Tuple2("og:type", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw("book"))),
-                        _Utils_Tuple2("og:isbn", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, bookDetails.gI)),
-                        _Utils_Tuple2("og:release_date", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_date_or_date_time$DateOrDateTime$toIso8601, $dillonkearns$elm_pages$Head$raw), bookDetails.g6))
+                        _Utils_Tuple2("og:isbn", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, bookDetails.gJ)),
+                        _Utils_Tuple2("og:release_date", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_date_or_date_time$DateOrDateTime$toIso8601, $dillonkearns$elm_pages$Head$raw), bookDetails.g7))
                     ]), $elm$core$List$map_fn(function (tag) {
                         return _Utils_Tuple2("book:tag", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(tag)));
                     }, bookDetails.hr));
@@ -5459,8 +5459,8 @@
                     var songDetails = details.a;
                     return _List_fromArray([
                         _Utils_Tuple2("og:type", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw("music.song"))),
-                        _Utils_Tuple2("music:duration", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, songDetails.gp))),
-                        _Utils_Tuple2("music:album:disc", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, songDetails.gm))),
+                        _Utils_Tuple2("music:duration", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, songDetails.gq))),
+                        _Utils_Tuple2("music:album:disc", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, songDetails.gn))),
                         _Utils_Tuple2("music:album:track", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, songDetails.hv)))
                     ]);
                 default:
@@ -5486,21 +5486,21 @@
         var siteName = _v0.k4;
         var description = _v0.jq;
         var canonicalUrlOverride = _v0.jc;
-        var image = _v0.gC;
+        var image = _v0.gD;
         var title = _v0.lb;
         return {
             cj: _List_Nil,
             bO: $elm$core$Maybe$Nothing,
             jc: canonicalUrlOverride,
             jq: description,
-            gC: image,
+            gD: image,
             j5: locale,
             k4: siteName,
             lb: title,
             cG: $dillonkearns$elm_pages$Head$Twitter$Summary({
                 jq: $elm$core$Maybe$Just(description),
-                gC: $elm$core$Maybe$Just({ i0: image.i0, le: image.le }),
-                hc: $elm$core$Maybe$Nothing,
+                gD: $elm$core$Maybe$Just({ i0: image.i0, le: image.le }),
+                hd: $elm$core$Maybe$Nothing,
                 k6: summarySize,
                 lb: title
             }),
@@ -5510,19 +5510,20 @@
     var $dillonkearns$elm_pages$Head$Seo$summary = function (config) {
         return $dillonkearns$elm_pages$Head$Seo$buildSummary_fn(config, 0);
     };
+    var $author$project$Settings$symbolAndLogoUrl = $dillonkearns$elm_pages$Pages$Url$fromPath($dillonkearns$elm_pages$UrlPath$join(_List_fromArray(["images", "symbols-and-logos", "symbol-and-logo.png"])));
     var $author$project$Settings$title = "Hahnah's elm-pages Blog Template";
     var $author$project$Layout$About$seoHeaders = function (author) {
-        var imageUrl = $elm$core$Maybe$withDefault_fn($dillonkearns$elm_pages$Pages$Url$fromPath($dillonkearns$elm_pages$UrlPath$join(_List_fromArray(["media", "blog-image.png"]))), $elm$core$Maybe$map_fn(function (authorAvatar) {
+        var imageUrl = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoUrl, $elm$core$Maybe$map_fn(function (authorAvatar) {
             return $dillonkearns$elm_pages$Pages$Url$fromPath($dillonkearns$elm_pages$UrlPath$fromString(authorAvatar));
-        }, author.f2));
+        }, author.f3));
         return $dillonkearns$elm_pages$Head$Seo$profile_fn({
             jD: author.kh,
             j2: "",
             lg: $elm$core$Maybe$Just(author.kh)
         }, $dillonkearns$elm_pages$Head$Seo$summary({
             jc: $elm$core$Maybe$Nothing,
-            jq: author.kh + (" - " + $elm$core$Maybe$withDefault_fn("Author of blogposts on " + $author$project$Settings$title, author.gW)),
-            gC: {
+            jq: author.kh + (" - " + $elm$core$Maybe$withDefault_fn("Author of blogposts on " + $author$project$Settings$title, author.gX)),
+            gD: {
                 i0: author.kh,
                 jr: $elm$core$Maybe$Just({ jR: 300, lk: 300 }),
                 ka: $elm$core$Maybe$Nothing,
@@ -5547,7 +5548,7 @@
         var head = _v0.aV;
         var data = _v0.o;
         return {
-            fN: F2(function (_v1, _v2) {
+            fO: F2(function (_v1, _v2) {
                 return $dillonkearns$elm_pages$BackendTask$fail($dillonkearns$elm_pages$FatalError$fromString("Internal Error - actions should never be called for statically generated pages."));
             }),
             o: F2(function (_v3, _v4) {
@@ -5606,7 +5607,7 @@
         cD: "em"
     };
     var $phosphor_icons$phosphor_elm$Phosphor$makeBuilder = function (src) {
-        return { aT: $phosphor_icons$phosphor_elm$Phosphor$defaultAttributes, he: src };
+        return { aT: $phosphor_icons$phosphor_elm$Phosphor$defaultAttributes, fy: src };
     };
     var $elm$svg$Svg$Attributes$opacity_a0 = "opacity", $elm$svg$Svg$Attributes$opacity = _VirtualDom_attribute($elm$svg$Svg$Attributes$opacity_a0);
     var $elm$svg$Svg$trustedNode_a0 = "http://www.w3.org/2000/svg", $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS($elm$svg$Svg$trustedNode_a0);
@@ -5976,7 +5977,7 @@
     };
     var $phosphor_icons$phosphor_elm$Phosphor$toHtml_fn = function (attributes, _v0) {
         var attrs = _v0.aT;
-        var src = _v0.he;
+        var src = _v0.fy;
         var strSize = $elm$core$String$fromFloat(attrs.k6);
         var baseAttributes = _List_fromArray([
             $phosphor_icons$phosphor_elm$Phosphor$xmlns("http://www.w3.org/2000/svg"),
@@ -6048,13 +6049,13 @@
         return $phosphor_icons$phosphor_elm$Phosphor$makeBuilder(elements);
     };
     var $phosphor_icons$phosphor_elm$Phosphor$withClass_fn = function (_class, _v0) {
-        var src = _v0.he;
+        var src = _v0.fy;
         var attrs = _v0.aT;
         return {
             aT: _Utils_update(attrs, {
                 cY: $elm$core$Maybe$Just(_class)
             }),
-            he: src
+            fy: src
         };
     }, $phosphor_icons$phosphor_elm$Phosphor$withClass = F2($phosphor_icons$phosphor_elm$Phosphor$withClass_fn);
     var $phosphor_icons$phosphor_elm$Phosphor$xLogo = function (weight) {
@@ -7293,12 +7294,12 @@
     }), _List_Nil), $elm$parser$Parser$Advanced$loop_fn($elm$core$Dict$empty, $dillonkearns$elm_markdown$HtmlParser$attributesStep));
     var $elm$parser$Parser$Advanced$chompUntilEndOr = function (str) {
         return function (s) {
-            var _v0 = _Parser_findSubString_fn(str, s.e6, s.kV, s.eL, s.he);
+            var _v0 = _Parser_findSubString_fn(str, s.e6, s.kV, s.eL, s.fy);
             var newOffset = _v0.a;
             var newRow = _v0.b;
             var newCol = _v0.c;
-            var adjustedOffset = (newOffset < 0) ? $elm$core$String$length(s.he) : newOffset;
-            return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, adjustedOffset) < 0, 0, { eL: newCol, k: s.k, d4: s.d4, e6: adjustedOffset, kV: newRow, he: s.he });
+            var adjustedOffset = (newOffset < 0) ? $elm$core$String$length(s.fy) : newOffset;
+            return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, adjustedOffset) < 0, 0, { eL: newCol, k: s.k, d4: s.d4, e6: adjustedOffset, kV: newRow, fy: s.fy });
         };
     };
     var $dillonkearns$elm_markdown$HtmlParser$cdata = $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity), $dillonkearns$elm_markdown$HtmlParser$symbol("<![CDATA[")), $elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$getChompedString($elm$parser$Parser$Advanced$chompUntilEndOr("]]>")), $dillonkearns$elm_markdown$HtmlParser$symbol("]]>")));
@@ -7474,7 +7475,7 @@
     }, $dillonkearns$elm_markdown$Helpers$chompUntilLineEndOrEnd);
     var $dillonkearns$elm_markdown$Markdown$Parser$openBlockOrParagraphParser = $elm$parser$Parser$Advanced$ignorer_fn($dillonkearns$elm_markdown$Markdown$Parser$innerParagraphParser, $dillonkearns$elm_markdown$Helpers$lineEndOrEnd);
     var $dillonkearns$elm_markdown$Markdown$OrderedList$ListItem_fn = function (order, intended, marker, body) {
-        return { f7: body, gF: intended, gN: marker, gX: order };
+        return { f8: body, gG: intended, gO: marker, gY: order };
     }, $dillonkearns$elm_markdown$Markdown$OrderedList$ListItem = F4($dillonkearns$elm_markdown$Markdown$OrderedList$ListItem_fn);
     var $elm$parser$Parser$Advanced$getCol = function (s) {
         return $elm$parser$Parser$Advanced$Good_fn(false, s.eL, s);
@@ -7559,7 +7560,7 @@
     };
     var $dillonkearns$elm_markdown$Markdown$Parser$orderedListBlock = function (previousWasBody) {
         return $elm$parser$Parser$Advanced$map_fn(function (item) {
-            return $dillonkearns$elm_markdown$Markdown$RawBlock$OrderedListBlock_fn(true, item.gF, item.gN, item.gX, _List_Nil, item.f7);
+            return $dillonkearns$elm_markdown$Markdown$RawBlock$OrderedListBlock_fn(true, item.gG, item.gO, item.gY, _List_Nil, item.f8);
         }, $dillonkearns$elm_markdown$Markdown$OrderedList$parser(previousWasBody));
     };
     var $dillonkearns$elm_markdown$Markdown$Inline$CodeInline = function (a) {
@@ -7702,7 +7703,7 @@
         return _String_contains_fn("&", string);
     };
     var $elm$regex$Regex$Match_fn = function (match, index, number, submatches) {
-        return { e: index, j7: match, gV: number, hj: submatches };
+        return { e: index, j7: match, gW: number, hj: submatches };
     }, $elm$regex$Regex$Match = F4($elm$regex$Regex$Match_fn);
     var $elm$regex$Regex$fromStringWith = _Regex_fromStringWith;
     var $elm$regex$Regex$fromString = function (string) {
@@ -8186,7 +8187,7 @@
             var maybeBackslashes = _v0.a;
             var _v1 = _v0.b;
             var backslashesLength = $elm$core$Maybe$withDefault_fn(0, $elm$core$Maybe$map_fn($elm$core$String$length, maybeBackslashes));
-            return $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gL: 1, l: $dillonkearns$elm_markdown$Markdown$InlineParser$AngleBracketOpen }) : $elm$core$Maybe$Nothing;
+            return $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gM: 1, l: $dillonkearns$elm_markdown$Markdown$InlineParser$AngleBracketOpen }) : $elm$core$Maybe$Nothing;
         }
         else {
             return $elm$core$Maybe$Nothing;
@@ -8209,7 +8210,7 @@
             var backslashesLength = $elm$core$Maybe$withDefault_fn(0, $elm$core$Maybe$map_fn($elm$core$String$length, maybeBackslashes));
             return $elm$core$Maybe$Just({
                 e: regMatch.e + backslashesLength,
-                gL: 1,
+                gM: 1,
                 l: $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $dillonkearns$elm_markdown$Markdown$InlineParser$AngleBracketClose(1) : $dillonkearns$elm_markdown$Markdown$InlineParser$AngleBracketClose(0)
             });
         }
@@ -8362,7 +8363,7 @@
                 var index = ((regMatch.e + backslashesLength) + leftFringeLength) + (isEscaped ? 1 : 0);
                 return $elm$core$Maybe$Just({
                     e: index,
-                    gL: delimiterLength,
+                    gM: delimiterLength,
                     l: $dillonkearns$elm_markdown$Markdown$InlineParser$EmphasisToken_fn(_char, { dd: lFringeRank, du: rFringeRank })
                 });
             }
@@ -8387,7 +8388,7 @@
             var backslashesLength = $elm$core$Maybe$withDefault_fn(0, $elm$core$Maybe$map_fn($elm$core$String$length, maybeBackslashes));
             return $elm$core$Maybe$Just({
                 e: regMatch.e + backslashesLength,
-                gL: $elm$core$String$length(backtick),
+                gM: $elm$core$String$length(backtick),
                 l: $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $dillonkearns$elm_markdown$Markdown$InlineParser$CodeToken(1) : $dillonkearns$elm_markdown$Markdown$InlineParser$CodeToken(0)
             });
         }
@@ -8407,14 +8408,14 @@
                 if (!_v0.a.$) {
                     var backslashes = _v0.a.a;
                     var backslashesLength = $elm$core$String$length(backslashes);
-                    return (!$dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength)) ? $elm$core$Maybe$Just({ e: (regMatch.e + backslashesLength) - 1, gL: 2, l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken }) : $elm$core$Maybe$Nothing;
+                    return (!$dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength)) ? $elm$core$Maybe$Just({ e: (regMatch.e + backslashesLength) - 1, gM: 2, l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken }) : $elm$core$Maybe$Nothing;
                 }
                 else {
                     if (_v0.b.b && (!_v0.b.a.$)) {
                         var _v1 = _v0.b;
                         return $elm$core$Maybe$Just({
                             e: regMatch.e,
-                            gL: $elm$core$String$length(regMatch.j7),
+                            gM: $elm$core$String$length(regMatch.j7),
                             l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken
                         });
                     }
@@ -8436,14 +8437,14 @@
                 if (!_v0.a.$) {
                     var backslashes = _v0.a.a;
                     var backslashesLength = $elm$core$String$length(backslashes);
-                    return $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gL: 1, l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken }) : $elm$core$Maybe$Just({ e: (regMatch.e + backslashesLength) - 1, gL: 2, l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken });
+                    return $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gM: 1, l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken }) : $elm$core$Maybe$Just({ e: (regMatch.e + backslashesLength) - 1, gM: 2, l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken });
                 }
                 else {
                     if (_v0.b.b) {
                         var _v1 = _v0.b;
                         return $elm$core$Maybe$Just({
                             e: regMatch.e,
-                            gL: $elm$core$String$length(regMatch.j7),
+                            gM: $elm$core$String$length(regMatch.j7),
                             l: $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakToken
                         });
                     }
@@ -8471,7 +8472,7 @@
             var maybeBackslashes = _v0.a;
             var _v1 = _v0.b;
             var backslashesLength = $elm$core$Maybe$withDefault_fn(0, $elm$core$Maybe$map_fn($elm$core$String$length, maybeBackslashes));
-            return $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gL: 1, l: $dillonkearns$elm_markdown$Markdown$InlineParser$SquareBracketClose }) : $elm$core$Maybe$Nothing;
+            return $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gM: 1, l: $dillonkearns$elm_markdown$Markdown$InlineParser$SquareBracketClose }) : $elm$core$Maybe$Nothing;
         }
         else {
             return $elm$core$Maybe$Nothing;
@@ -8500,7 +8501,7 @@
                 if (!maybeImageOpen.$) {
                     return $elm$core$Maybe$Just({
                         e: index,
-                        gL: 1,
+                        gM: 1,
                         l: $dillonkearns$elm_markdown$Markdown$InlineParser$LinkOpenToken(0)
                     });
                 }
@@ -8510,12 +8511,12 @@
             }
             else {
                 if (!maybeImageOpen.$) {
-                    return $elm$core$Maybe$Just({ e: index, gL: 2, l: $dillonkearns$elm_markdown$Markdown$InlineParser$ImageOpenToken });
+                    return $elm$core$Maybe$Just({ e: index, gM: 2, l: $dillonkearns$elm_markdown$Markdown$InlineParser$ImageOpenToken });
                 }
                 else {
                     return $elm$core$Maybe$Just({
                         e: index,
-                        gL: 1,
+                        gM: 1,
                         l: $dillonkearns$elm_markdown$Markdown$InlineParser$LinkOpenToken(0)
                     });
                 }
@@ -8541,7 +8542,7 @@
             var _v2 = $dillonkearns$elm_markdown$Markdown$Helpers$isEven(backslashesLength) ? _Utils_Tuple2($elm$core$String$length(tilde), $dillonkearns$elm_markdown$Markdown$InlineParser$StrikethroughToken(1)) : _Utils_Tuple2($elm$core$String$length(tilde), $dillonkearns$elm_markdown$Markdown$InlineParser$StrikethroughToken(0));
             var length = _v2.a;
             var meaning = _v2.b;
-            return $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gL: length, l: meaning });
+            return $elm$core$Maybe$Just({ e: regMatch.e + backslashesLength, gM: length, l: meaning });
         }
         else {
             return $elm$core$Maybe$Nothing;
@@ -8802,14 +8803,14 @@
     var $dillonkearns$elm_markdown$Markdown$InlineParser$htmlToToken_fn = function (rawText, _v0) {
         var match = _v0;
         var consumedCharacters = $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$succeed(F3(function (startOffset, htmlTag, endOffset) {
-            return { h9: htmlTag, gL: endOffset - startOffset };
+            return { h9: htmlTag, gM: endOffset - startOffset };
         })), $elm$parser$Parser$Advanced$getOffset), $dillonkearns$elm_markdown$HtmlParser$html), $elm$parser$Parser$Advanced$getOffset);
         var parsed = $elm$parser$Parser$Advanced$run_fn(consumedCharacters, $elm$core$String$dropLeft_fn(match.t, rawText));
         if (!parsed.$) {
-            var length = parsed.a.gL;
+            var length = parsed.a.gM;
             var htmlTag = parsed.a.h9;
             var htmlToken = $dillonkearns$elm_markdown$Markdown$InlineParser$HtmlToken_fn(0, htmlTag);
-            return $elm$core$Maybe$Just({ e: match.t, gL: length, l: htmlToken });
+            return $elm$core$Maybe$Just({ e: match.t, gM: length, l: htmlToken });
         }
         else {
             return $elm$core$Maybe$Nothing;
@@ -8829,11 +8830,11 @@
         if (!_v0.$) {
             if (!_v0.a) {
                 var _v1 = _v0.a;
-                return openToken.gL - 1 === closeToken.gL;
+                return openToken.gM - 1 === closeToken.gM;
             }
             else {
                 var _v2 = _v0.a;
-                return _Utils_eq(openToken.gL, closeToken.gL);
+                return _Utils_eq(openToken.gM, closeToken.gM);
             }
         }
         else {
@@ -8860,7 +8861,7 @@
             if (_v1.$ === 7) {
                 var closeChar = _v1.a;
                 var close = _v1.b;
-                return _Utils_eq(openChar, closeChar) ? ((_Utils_eq(open.dd, open.du) || _Utils_eq(close.dd, close.du)) ? ((!(!_Basics_modBy_fn(3, closeToken.gL + openToken.gL))) || ((!_Basics_modBy_fn(3, closeToken.gL)) && (!_Basics_modBy_fn(3, openToken.gL)))) : true) : false;
+                return _Utils_eq(openChar, closeChar) ? ((_Utils_eq(open.dd, open.du) || _Utils_eq(close.dd, close.du)) ? ((!(!_Basics_modBy_fn(3, closeToken.gM + openToken.gM))) || ((!_Basics_modBy_fn(3, closeToken.gM)) && (!_Basics_modBy_fn(3, openToken.gM)))) : true) : false;
             }
             else {
                 return false;
@@ -8876,11 +8877,11 @@
             if (_v1.$ === 9) {
                 if (!_v1.a) {
                     var _v2 = _v1.a;
-                    return _Utils_Tuple2(true, openToken.gL - 1);
+                    return _Utils_Tuple2(true, openToken.gM - 1);
                 }
                 else {
                     var _v3 = _v1.a;
-                    return _Utils_Tuple2(true, openToken.gL);
+                    return _Utils_Tuple2(true, openToken.gM);
                 }
             }
             else {
@@ -8894,11 +8895,11 @@
             if (_v5.$ === 9) {
                 if (!_v5.a) {
                     var _v6 = _v5.a;
-                    return _Utils_Tuple2(true, closeToken.gL - 1);
+                    return _Utils_Tuple2(true, closeToken.gM - 1);
                 }
                 else {
                     var _v7 = _v5.a;
-                    return _Utils_Tuple2(true, closeToken.gL);
+                    return _Utils_Tuple2(true, closeToken.gM);
                 }
             }
             else {
@@ -8911,7 +8912,7 @@
     }, $dillonkearns$elm_markdown$Markdown$InlineParser$isStrikethroughTokenPair = F2($dillonkearns$elm_markdown$Markdown$InlineParser$isStrikethroughTokenPair_fn);
     var $dillonkearns$elm_markdown$Markdown$InlineParser$HardLineBreakType = { $: 1 };
     var $dillonkearns$elm_markdown$Markdown$InlineParser$tokenToMatch_fn = function (token, type_) {
-        return { p: token.e + token.gL, eb: _List_Nil, t: token.e, z: "", al: 0, S: 0, K: type_ };
+        return { p: token.e + token.gM, eb: _List_Nil, t: token.e, z: "", al: 0, S: 0, K: type_ };
     }, $dillonkearns$elm_markdown$Markdown$InlineParser$tokenToMatch = F2($dillonkearns$elm_markdown$Markdown$InlineParser$tokenToMatch_fn);
     var $dillonkearns$elm_markdown$Markdown$InlineParser$lineBreakTTM_fn = function (remaining, matches) {
         lineBreakTTM: while (true) {
@@ -9052,7 +9053,7 @@
             var _v33 = openToken.l;
             if ((!_v33.$) && (!_v33.a)) {
                 var _v34 = _v33.a;
-                return _Utils_update(openToken, { e: openToken.e + 1, gL: openToken.gL - 1 });
+                return _Utils_update(openToken, { e: openToken.e + 1, gM: openToken.gM - 1 });
             }
             else {
                 return openToken;
@@ -9144,22 +9145,22 @@
         var openToken = _v25.a;
         var innerTokens = _v25.b;
         var remainTokens = _v25.c;
-        var remainLength = openToken.gL - closeToken.gL;
-        var updt = (!remainLength) ? { eK: closeToken, eg: openToken, fk: remainTokens, fH: tokensTail } : ((remainLength > 0) ? {
+        var remainLength = openToken.gM - closeToken.gM;
+        var updt = (!remainLength) ? { eK: closeToken, eg: openToken, fk: remainTokens, fI: tokensTail } : ((remainLength > 0) ? {
             eK: closeToken,
-            eg: _Utils_update(openToken, { e: openToken.e + remainLength, gL: closeToken.gL }),
-            fk: _List_Cons(_Utils_update(openToken, { gL: remainLength }), remainTokens),
-            fH: tokensTail
+            eg: _Utils_update(openToken, { e: openToken.e + remainLength, gM: closeToken.gM }),
+            fk: _List_Cons(_Utils_update(openToken, { gM: remainLength }), remainTokens),
+            fI: tokensTail
         } : {
-            eK: _Utils_update(closeToken, { gL: openToken.gL }),
+            eK: _Utils_update(closeToken, { gM: openToken.gM }),
             eg: openToken,
             fk: remainTokens,
-            fH: _List_Cons(_Utils_update(closeToken, { e: closeToken.e + openToken.gL, gL: -remainLength }), tokensTail)
+            fI: _List_Cons(_Utils_update(closeToken, { e: closeToken.e + openToken.gM, gM: -remainLength }), tokensTail)
         });
         var match = $dillonkearns$elm_markdown$Markdown$InlineParser$tokenPairToMatch_fn(references, rawText, function (s) {
             return s;
-        }, $dillonkearns$elm_markdown$Markdown$InlineParser$EmphasisType(updt.eg.gL), updt.eg, updt.eK, $elm$core$List$reverse(innerTokens));
-        return _Utils_Tuple3(updt.fH, match, updt.fk);
+        }, $dillonkearns$elm_markdown$Markdown$InlineParser$EmphasisType(updt.eg.gM), updt.eg, updt.eK, $elm$core$List$reverse(innerTokens));
+        return _Utils_Tuple3(updt.fI, match, updt.fk);
     }, $dillonkearns$elm_markdown$Markdown$InlineParser$emphasisToMatch = F5($dillonkearns$elm_markdown$Markdown$InlineParser$emphasisToMatch_fn);
     var $dillonkearns$elm_markdown$Markdown$InlineParser$htmlElementTTM_fn = function (remaining, tokens, matches, references, rawText) {
         htmlElementTTM: while (true) {
@@ -9347,7 +9348,7 @@
             var _v2 = openToken.l;
             if ((_v2.$ === 9) && (!_v2.a)) {
                 var _v3 = _v2.a;
-                return _Utils_update(openToken, { e: openToken.e + 1, gL: openToken.gL - 1 });
+                return _Utils_update(openToken, { e: openToken.e + 1, gM: openToken.gM - 1 });
             }
             else {
                 return openToken;
@@ -9357,11 +9358,11 @@
         return _Utils_Tuple2(remainTokens, _List_Cons(match, matches));
     }, $dillonkearns$elm_markdown$Markdown$InlineParser$strikethroughToMatch = F5($dillonkearns$elm_markdown$Markdown$InlineParser$strikethroughToMatch_fn);
     var $dillonkearns$elm_markdown$Markdown$InlineParser$tokenPairToMatch_fn = function (references, rawText, processText, type_, openToken, closeToken, innerTokens) {
-        var textStart = openToken.e + openToken.gL;
+        var textStart = openToken.e + openToken.gM;
         var textEnd = closeToken.e;
         var text = processText(_String_slice_fn(textStart, textEnd, rawText));
         var start = openToken.e;
-        var end = closeToken.e + closeToken.gL;
+        var end = closeToken.e + closeToken.gM;
         var match = { p: end, eb: _List_Nil, t: start, z: text, al: textEnd, S: textStart, K: type_ };
         var matches = $elm$core$List$map_fn(function (_v0) {
             var matchModel = _v0;
@@ -9459,7 +9460,7 @@
         }
     }, $dillonkearns$elm_markdown$Markdown$TableParser$parseHeader = F2($dillonkearns$elm_markdown$Markdown$TableParser$parseHeader_fn);
     var $dillonkearns$elm_markdown$Markdown$CodeBlock$CodeBlock_fn = function (language, body) {
-        return { f7: body, j0: language };
+        return { f8: body, j0: language };
     }, $dillonkearns$elm_markdown$Markdown$CodeBlock$CodeBlock = F2($dillonkearns$elm_markdown$Markdown$CodeBlock$CodeBlock_fn);
     var $dillonkearns$elm_markdown$Markdown$CodeBlock$infoString = function (fenceCharacter) {
         var toInfoString = F2(function (str, _v2) {
@@ -9523,7 +9524,7 @@
     var $dillonkearns$elm_markdown$Markdown$CodeBlock$openingFence = $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed(F2(function (indent, _v0) {
         var character = _v0.a;
         var length = _v0.b;
-        return { cX: character, d5: indent, gL: length };
+        return { cX: character, d5: indent, gM: length };
     })), $dillonkearns$elm_markdown$Whitespace$upToThreeSpaces), $elm$parser$Parser$Advanced$andThen_fn($dillonkearns$elm_markdown$Markdown$CodeBlock$colToIndentation, $elm$parser$Parser$Advanced$getCol)), $elm$parser$Parser$Advanced$oneOf(_List_fromArray([
         $dillonkearns$elm_markdown$Markdown$CodeBlock$fenceOfAtLeast_fn(3, $dillonkearns$elm_markdown$Markdown$CodeBlock$backtick),
         $dillonkearns$elm_markdown$Markdown$CodeBlock$fenceOfAtLeast_fn(3, $dillonkearns$elm_markdown$Markdown$CodeBlock$tilde)
@@ -9536,7 +9537,7 @@
         return $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity), $dillonkearns$elm_markdown$Parser$Extra$upTo_fn(indented, $dillonkearns$elm_markdown$Whitespace$space)), $elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$getOffset, $dillonkearns$elm_markdown$Helpers$chompUntilLineEndOrEnd), $dillonkearns$elm_markdown$Helpers$lineEndOrEnd));
     };
     var $elm$parser$Parser$Advanced$getSource = function (s) {
-        return $elm$parser$Parser$Advanced$Good_fn(false, s.he, s);
+        return $elm$parser$Parser$Advanced$Good_fn(false, s.fy, s);
     };
     var $dillonkearns$elm_markdown$Markdown$CodeBlock$remainingBlockHelp = function (_v0) {
         var fence = _v0.a;
@@ -9546,7 +9547,7 @@
             $elm$parser$Parser$Advanced$mapChompedString_fn_unwrapped(function (lineEnd, _v1) {
                 return $elm$parser$Parser$Advanced$Loop(_Utils_Tuple2(fence, _Utils_ap(body, lineEnd)));
             }, $dillonkearns$elm_markdown$Whitespace$lineEnd),
-            $elm$parser$Parser$Advanced$backtrackable($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed($elm$parser$Parser$Advanced$Done(body)), $dillonkearns$elm_markdown$Markdown$CodeBlock$closingFence_fn(fence.gL, fence.cX))),
+            $elm$parser$Parser$Advanced$backtrackable($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed($elm$parser$Parser$Advanced$Done(body)), $dillonkearns$elm_markdown$Markdown$CodeBlock$closingFence_fn(fence.gM, fence.cX))),
             $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$succeed(F3(function (start, end, source) {
                 return $elm$parser$Parser$Advanced$Loop(_Utils_Tuple2(fence, _Utils_ap(body, _String_slice_fn(start, end, source))));
             })), $dillonkearns$elm_markdown$Markdown$CodeBlock$codeBlockLine(fence.d5)), $elm$parser$Parser$Advanced$getOffset), $elm$parser$Parser$Advanced$getSource)
@@ -9610,11 +9611,11 @@
         var str = _v0.a;
         var expecting = _v0.b;
         return function (s) {
-            var _v1 = _Parser_findSubString_fn(str, s.e6, s.kV, s.eL, s.he);
+            var _v1 = _Parser_findSubString_fn(str, s.e6, s.kV, s.eL, s.fy);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromInfo_fn(newRow, newCol, expecting, s.k)) : $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, newOffset) < 0, 0, { eL: newCol, k: s.k, d4: s.d4, e6: newOffset, kV: newRow, he: s.he });
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromInfo_fn(newRow, newCol, expecting, s.k)) : $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, newOffset) < 0, 0, { eL: newCol, k: s.k, d4: s.d4, e6: newOffset, kV: newRow, fy: s.fy });
         };
     };
     var $dillonkearns$elm_markdown$Parser$Token$greaterThan = $elm$parser$Parser$Advanced$Token_fn(">", $elm$parser$Parser$Expecting("a `>`"));
@@ -9622,7 +9623,7 @@
         return { eL: col, k: context, kV: row };
     }, $elm$parser$Parser$Advanced$Located = F3($elm$parser$Parser$Advanced$Located_fn);
     var $elm$parser$Parser$Advanced$changeContext_fn = function (newContext, s) {
-        return { eL: s.eL, k: newContext, d4: s.d4, e6: s.e6, kV: s.kV, he: s.he };
+        return { eL: s.eL, k: newContext, d4: s.d4, e6: s.e6, kV: s.kV, fy: s.fy };
     }, $elm$parser$Parser$Advanced$changeContext = F2($elm$parser$Parser$Advanced$changeContext_fn);
     var $elm$parser$Parser$Advanced$inContext_fn = function (context, _v0) {
         var parse = _v0;
@@ -9688,7 +9689,7 @@
         ])));
     }();
     var $dillonkearns$elm_markdown$Markdown$LinkReferenceDefinition$parser = $elm$parser$Parser$Advanced$inContext_fn("link reference definition", $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed(F3(function (label, destination, title) {
-        return _Utils_Tuple2(label, { gl: destination, lb: title });
+        return _Utils_Tuple2(label, { gm: destination, lb: title });
     })), $dillonkearns$elm_markdown$Whitespace$upToThreeSpaces), $elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$ignorer_fn($dillonkearns$elm_markdown$Markdown$LinkReferenceDefinition$labelParser, $elm$parser$Parser$Advanced$chompWhile($dillonkearns$elm_markdown$Whitespace$isSpaceOrTab)), $elm$parser$Parser$Advanced$oneOf(_List_fromArray([
         $dillonkearns$elm_markdown$Whitespace$lineEnd,
         $elm$parser$Parser$Advanced$succeed(0)
@@ -10040,8 +10041,8 @@
                     var completion = unparsedListItem.a;
                     var body = unparsedListItem.b;
                     return {
-                        f7: body,
-                        gN: listmarker,
+                        f8: body,
+                        gO: listmarker,
                         P: $elm$core$Maybe$Just(function () {
                             if (completion === 1) {
                                 return true;
@@ -10053,9 +10054,9 @@
                     };
                 case 1:
                     var body = unparsedListItem.a;
-                    return { f7: body, gN: listmarker, P: $elm$core$Maybe$Nothing };
+                    return { f8: body, gO: listmarker, P: $elm$core$Maybe$Nothing };
                 default:
-                    return { f7: "", gN: listmarker, P: $elm$core$Maybe$Nothing };
+                    return { f8: "", gO: listmarker, P: $elm$core$Maybe$Nothing };
             }
         });
         return $elm$parser$Parser$Advanced$map_fn(function (_v0) {
@@ -10134,13 +10135,13 @@
                         var closeListItems = _v93.c;
                         var openListItem = _v93.d;
                         var rest = _v91.b;
-                        var _v94 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem.f7);
+                        var _v94 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem.f8);
                         if (!_v94.$) {
                             var value = _v94.a;
                             var tight2 = $elm$core$List$member_fn($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, value.b) ? false : tight;
                             return $elm$parser$Parser$Advanced$succeed({
                                 a: _Utils_ap(state.a, value.a),
-                                b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended, _List_Cons({ f7: value.b, P: openListItem.P }, closeListItems), openListItem), rest)
+                                b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended, _List_Cons({ f8: value.b, P: openListItem.P }, closeListItems), openListItem), rest)
                             });
                         }
                         else {
@@ -10181,13 +10182,13 @@
                                     var closeListItems = _v97.c;
                                     var openListItem = _v97.d;
                                     var rest = _v96.b;
-                                    var _v98 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem.f7);
+                                    var _v98 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem.f8);
                                     if (!_v98.$) {
                                         var value = _v98.a;
                                         var tight2 = $elm$core$List$member_fn($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, value.b) ? false : tight;
                                         return $elm$parser$Parser$Advanced$succeed({
                                             a: _Utils_ap(state.a, value.a),
-                                            b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended, _List_Cons({ f7: value.b, P: openListItem.P }, closeListItems), openListItem), rest)
+                                            b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended, _List_Cons({ f8: value.b, P: openListItem.P }, closeListItems), openListItem), rest)
                                         });
                                     }
                                     else {
@@ -10249,7 +10250,7 @@
                             return $elm$parser$Parser$Advanced$succeed({
                                 a: state.a,
                                 b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$CodeBlock({
-                                    f7: $dillonkearns$elm_markdown$Markdown$Parser$joinStringsPreserveAll_fn(block2.f7, block1.f7),
+                                    f8: $dillonkearns$elm_markdown$Markdown$Parser$joinStringsPreserveAll_fn(block2.f8, block1.f8),
                                     j0: $elm$core$Maybe$Nothing
                                 }), rest)
                             });
@@ -10396,16 +10397,16 @@
                             case 3:
                                 var intended2 = newRawBlock.b;
                                 var openListItem1 = newRawBlock.d;
-                                if (_Utils_eq(openListItem2.gN, openListItem1.gN)) {
-                                    var _v59 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f7);
+                                if (_Utils_eq(openListItem2.gO, openListItem1.gO)) {
+                                    var _v59 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f8);
                                     if (!_v59.$) {
                                         var value = _v59.a;
                                         return $elm$core$List$member_fn($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, value.b) ? $elm$parser$Parser$Advanced$succeed({
                                             a: _Utils_ap(state.a, value.a),
-                                            b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(false, intended2, _List_Cons({ f7: value.b, P: openListItem2.P }, closeListItems2), openListItem1), rest)
+                                            b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(false, intended2, _List_Cons({ f8: value.b, P: openListItem2.P }, closeListItems2), openListItem1), rest)
                                         }) : $elm$parser$Parser$Advanced$succeed({
                                             a: _Utils_ap(state.a, value.a),
-                                            b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended2, _List_Cons({ f7: value.b, P: openListItem2.P }, closeListItems2), openListItem1), rest)
+                                            b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended2, _List_Cons({ f8: value.b, P: openListItem2.P }, closeListItems2), openListItem1), rest)
                                         });
                                     }
                                     else {
@@ -10414,13 +10415,13 @@
                                     }
                                 }
                                 else {
-                                    var _v60 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f7);
+                                    var _v60 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f8);
                                     if (!_v60.$) {
                                         var value = _v60.a;
                                         var tight2 = $elm$core$List$member_fn($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, value.b) ? false : tight;
                                         return $elm$parser$Parser$Advanced$succeed({
                                             a: _Utils_ap(state.a, value.a),
-                                            b: _List_Cons(newRawBlock, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended1, _List_Cons({ f7: value.b, P: openListItem2.P }, closeListItems2), openListItem1), rest))
+                                            b: _List_Cons(newRawBlock, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended1, _List_Cons({ f8: value.b, P: openListItem2.P }, closeListItems2), openListItem1), rest))
                                         });
                                     }
                                     else {
@@ -10433,17 +10434,17 @@
                                 return $elm$parser$Parser$Advanced$succeed({
                                     a: state.a,
                                     b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended1, closeListItems2, _Utils_update(openListItem2, {
-                                        f7: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("\n", openListItem2.f7, body1)
+                                        f8: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("\n", openListItem2.f8, body1)
                                     })), rest)
                                 });
                             default:
-                                var _v61 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f7);
+                                var _v61 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f8);
                                 if (!_v61.$) {
                                     var value = _v61.a;
                                     var tight2 = $elm$core$List$member_fn($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, value.b) ? false : tight;
                                     return $elm$parser$Parser$Advanced$succeed({
                                         a: _Utils_ap(state.a, value.a),
-                                        b: _List_Cons(newRawBlock, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended1, _List_Cons({ f7: value.b, P: openListItem2.P }, closeListItems2), openListItem2), rest))
+                                        b: _List_Cons(newRawBlock, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight2, intended1, _List_Cons({ f8: value.b, P: openListItem2.P }, closeListItems2), openListItem2), rest))
                                     });
                                 }
                                 else {
@@ -10635,20 +10636,20 @@
                                     var closeListItems2 = _v88.c;
                                     var openListItem2 = _v88.d;
                                     var rest = _v87.b;
-                                    var _v89 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f7);
+                                    var _v89 = $elm$parser$Parser$Advanced$run_fn($dillonkearns$elm_markdown$Markdown$Parser$cyclic$rawBlockParser(), openListItem2.f8);
                                     if (!_v89.$) {
                                         var value = _v89.a;
                                         if (newRawBlock.$ === 3) {
                                             var openListItem = newRawBlock.d;
                                             return $elm$parser$Parser$Advanced$succeed({
                                                 a: _Utils_ap(state.a, value.a),
-                                                b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(false, intended1, _List_Cons({ f7: value.b, P: openListItem2.P }, closeListItems2), openListItem), rest)
+                                                b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(false, intended1, _List_Cons({ f8: value.b, P: openListItem2.P }, closeListItems2), openListItem), rest)
                                             });
                                         }
                                         else {
                                             return $elm$parser$Parser$Advanced$succeed({
                                                 a: _Utils_ap(state.a, value.a),
-                                                b: _List_Cons(newRawBlock, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended1, _List_Cons({ f7: value.b, P: openListItem2.P }, closeListItems2), openListItem2), rest)))
+                                                b: _List_Cons(newRawBlock, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended1, _List_Cons({ f8: value.b, P: openListItem2.P }, closeListItems2), openListItem2), rest)))
                                             });
                                         }
                                     }
@@ -10680,7 +10681,7 @@
         var unparsedInlines = _v36;
         var mappedReferencesDict = $elm$core$Dict$fromList($elm$core$List$map_fn($elm$core$Tuple$mapSecond(function (_v37) {
             var title = _v37.lb;
-            var destination = _v37.gl;
+            var destination = _v37.gm;
             return _Utils_Tuple2(destination, title);
         }), referencesDict));
         return $elm$core$List$map_fn($dillonkearns$elm_markdown$Markdown$Parser$mapInline, $dillonkearns$elm_markdown$Markdown$InlineParser$parse_fn(mappedReferencesDict, unparsedInlines));
@@ -10905,7 +10906,7 @@
                     return $dillonkearns$elm_markdown$Markdown$Block$ListItem_fn(blocksTask, blocks);
                 });
                 return $dillonkearns$elm_markdown$Markdown$Parser$ParsedBlock($dillonkearns$elm_markdown$Markdown$Block$UnorderedList_fn($dillonkearns$elm_markdown$Markdown$Parser$isTightBoolToListDisplay(tight), $elm$core$List$reverse($elm$core$List$map_fn(function (item) {
-                    return A2(parseItem, item.P, item.f7);
+                    return A2(parseItem, item.P, item.f8);
                 }, unparsedItems))));
             case 4:
                 var tight = rawBlock.a;
@@ -10944,7 +10945,7 @@
                 }
             case 6:
                 var codeBlockBody = rawBlock.a;
-                return $dillonkearns$elm_markdown$Markdown$Parser$ParsedBlock($dillonkearns$elm_markdown$Markdown$Block$CodeBlock({ f7: codeBlockBody, j0: $elm$core$Maybe$Nothing }));
+                return $dillonkearns$elm_markdown$Markdown$Parser$ParsedBlock($dillonkearns$elm_markdown$Markdown$Block$CodeBlock({ f8: codeBlockBody, j0: $elm$core$Maybe$Nothing }));
             case 8:
                 var _v22 = rawBlock.a;
                 var header = _v22.a;
@@ -11004,14 +11005,14 @@
                                 var completeOrMergeUnorderedListBlockBlankLine = F2(function (state, newString) {
                                     return _Utils_update(state, {
                                         b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended, closeListItems, _Utils_update(openListItem, {
-                                            f7: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("", openListItem.f7, newString)
+                                            f8: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("", openListItem.f8, newString)
                                         })), rest))
                                     });
                                 });
                                 var completeOrMergeUnorderedListBlock = F2(function (state, newString) {
                                     return _Utils_update(state, {
                                         b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended, closeListItems, _Utils_update(openListItem, {
-                                            f7: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("\n", openListItem.f7, newString)
+                                            f8: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("\n", openListItem.f8, newString)
                                         })), rest)
                                     });
                                 });
@@ -11075,18 +11076,18 @@
                                             var completeOrMergeUnorderedListBlockBlankLine = F2(function (state, newString) {
                                                 return _Utils_update(state, {
                                                     b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$BlankLine, _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended, closeListItems, _Utils_update(openListItem, {
-                                                        f7: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("", openListItem.f7, newString)
+                                                        f8: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("", openListItem.f8, newString)
                                                     })), rest))
                                                 });
                                             });
                                             var completeOrMergeUnorderedListBlock = F2(function (state, newString) {
                                                 return _Utils_update(state, {
                                                     b: _List_Cons($dillonkearns$elm_markdown$Markdown$RawBlock$UnorderedListBlock_fn(tight, intended, closeListItems, _Utils_update(openListItem, {
-                                                        f7: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("\n", openListItem.f7, newString)
+                                                        f8: $dillonkearns$elm_markdown$Markdown$Parser$joinRawStringsWith_fn("\n", openListItem.f8, newString)
                                                     })), rest)
                                                 });
                                             });
-                                            return ($elm$core$String$trim(openListItem.f7) === "") ? $elm$parser$Parser$Advanced$map_fn(function (block) {
+                                            return ($elm$core$String$trim(openListItem.f8) === "") ? $elm$parser$Parser$Advanced$map_fn(function (block) {
                                                 return $elm$parser$Parser$Advanced$Loop(block);
                                             }, $elm$parser$Parser$Advanced$andThen_fn($dillonkearns$elm_markdown$Markdown$Parser$completeOrMergeBlocks(revStmts), $dillonkearns$elm_markdown$Markdown$Parser$cyclic$mergeableBlockNotAfterOpenBlockOrParagraphParser())) : $elm$parser$Parser$Advanced$oneOf(_List_fromArray([
                                                 $elm$parser$Parser$Advanced$map_fn(function (block) {
@@ -11517,7 +11518,7 @@
                     $elm$core$List$concat($elm$core$List$map_fn($elm$core$List$map($dillonkearns$elm_markdown$Markdown$Block$extractInlineText), rows))
                 ])));
             case 7:
-                var body = block.a.f7;
+                var body = block.a.f8;
                 return body;
             default:
                 return "";
@@ -11606,7 +11607,7 @@
                     }, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, content)));
                 case 5:
                     var content = block.a;
-                    return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.g_, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, content)));
+                    return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.g$, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, content)));
                 case 0:
                     var html = block.a;
                     if (!html.$) {
@@ -11649,7 +11650,7 @@
                     var startingIndex = block.b;
                     var items = block.c;
                     return $elm$core$Maybe$Just($elm$core$Result$map_fn(function (listItems) {
-                        return A2(renderer.gY, startingIndex, $elm$core$List$map_fn(function (children) {
+                        return A2(renderer.gZ, startingIndex, $elm$core$List$map_fn(function (children) {
                             return $elm$core$List$concat(children);
                         }, listItems));
                     }, $elm$core$List$foldr_fn($dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a0, $dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a1, $elm$core$List$map_fn(function (itemsblocks) {
@@ -11674,7 +11675,7 @@
                     return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.ht));
                 case 3:
                     var nestedBlocks = block.a;
-                    return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.f4, $elm$core$List$foldr_fn($dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a0, $dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a1, $dillonkearns$elm_markdown$Markdown$Renderer$renderHelper_fn(renderer, nestedBlocks))));
+                    return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.f5, $elm$core$List$foldr_fn($dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a0, $dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a1, $dillonkearns$elm_markdown$Markdown$Renderer$renderHelper_fn(renderer, nestedBlocks))));
                 default:
                     var header = block.a;
                     var rows = block.b;
@@ -11684,7 +11685,7 @@
                         return $elm$core$Result$map_fn($elm$core$Tuple$pair(alignment), $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, label));
                     }, header));
                     var renderedHeader = $elm$core$Result$map_fn(function (listListView) {
-                        return renderer.ho($elm$core$List$singleton(renderer.fD($elm$core$List$map_fn(function (_v10) {
+                        return renderer.ho($elm$core$List$singleton(renderer.fE($elm$core$List$map_fn(function (_v10) {
                             var maybeAlignment = _v10.a;
                             var item = _v10.b;
                             return A2(renderer.hp, maybeAlignment, item);
@@ -11701,7 +11702,7 @@
                         }, $elm$core$List$head($elm$core$List$drop_fn(columnIndex, header)));
                     };
                     var renderRow = function (cells) {
-                        return $elm$core$Result$map_fn(renderer.fD, $elm$core$Result$map_fn($elm$core$List$indexedMap(F2(function (index, cell) {
+                        return $elm$core$Result$map_fn(renderer.fE, $elm$core$Result$map_fn($elm$core$List$indexedMap(F2(function (index, cell) {
                             return A2(renderer.hn, alignmentForColumn(index), cell);
                         })), $elm$core$List$foldr_fn($dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a0, $dillonkearns$elm_markdown$Markdown$Renderer$combineResults_a1, $elm$core$List$map_fn($dillonkearns$elm_markdown$Markdown$Renderer$renderStyled(renderer), cells))));
                     };
@@ -11713,7 +11714,7 @@
         };
     };
     var $dillonkearns$elm_markdown$Markdown$Renderer$renderHtmlNode_fn = function (renderer, tag, attributes, children) {
-        return $dillonkearns$elm_markdown$Markdown$Renderer$renderHtml_fn(tag, attributes, children, renderer.gA, $dillonkearns$elm_markdown$Markdown$Renderer$renderHelper_fn(renderer, children));
+        return $dillonkearns$elm_markdown$Markdown$Renderer$renderHtml_fn(tag, attributes, children, renderer.gB, $dillonkearns$elm_markdown$Markdown$Renderer$renderHelper_fn(renderer, children));
     }, $dillonkearns$elm_markdown$Markdown$Renderer$renderHtmlNode = F4($dillonkearns$elm_markdown$Markdown$Renderer$renderHtmlNode_fn);
     var $dillonkearns$elm_markdown$Markdown$Renderer$renderSingleInline_fn = function (renderer, inline) {
         switch (inline.$) {
@@ -11722,7 +11723,7 @@
                 return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.hi, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, innerInlines)));
             case 3:
                 var innerInlines = inline.a;
-                return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.gr, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, innerInlines)));
+                return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.gs, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, innerInlines)));
             case 5:
                 var innerInlines = inline.a;
                 return $elm$core$Maybe$Just($elm$core$Result$map_fn(renderer.hh, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, innerInlines)));
@@ -11730,9 +11731,9 @@
                 var src = inline.a;
                 var title = inline.b;
                 var children = inline.c;
-                return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gC({
+                return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gD({
                     i0: $dillonkearns$elm_markdown$Markdown$Block$extractInlineText(children),
-                    he: src,
+                    fy: src,
                     lb: title
                 })));
             case 7:
@@ -11740,16 +11741,16 @@
                 return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.z(string)));
             case 6:
                 var string = inline.a;
-                return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gc(string)));
+                return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gd(string)));
             case 1:
                 var destination = inline.a;
                 var title = inline.b;
                 var inlines = inline.c;
                 return $elm$core$Maybe$Just($elm$core$Result$andThen_fn(function (children) {
-                    return $elm$core$Result$Ok(A2(renderer.gM, { gl: destination, lb: title }, children));
+                    return $elm$core$Result$Ok(A2(renderer.gN, { gm: destination, lb: title }, children));
                 }, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, inlines)));
             case 8:
-                return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gy));
+                return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gz));
             default:
                 var html = inline.a;
                 if (!html.$) {
@@ -11866,10 +11867,10 @@
     var $elm$html$Html$ul = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "ul"), $elm$html$Html$ul_fn = $elm$html$Html$ul.a2;
     var $elm$core$String$words = _String_words;
     var $dillonkearns$elm_markdown$Markdown$Renderer$defaultHtmlRenderer = {
-        f4: $elm$html$Html$blockquote(_List_Nil),
+        f5: $elm$html$Html$blockquote(_List_Nil),
         jh: function (_v0) {
             var language = _v0.j0;
-            var body = _v0.f7;
+            var body = _v0.f8;
             var classes = function () {
                 var _v1 = $elm$core$Maybe$map_fn($elm$core$String$words, language);
                 if ((!_v1.$) && _v1.a.b) {
@@ -11889,15 +11890,15 @@
                 ]))
             ]));
         },
-        gc: function (content) {
+        gd: function (content) {
             return $elm$html$Html$code_fn(_List_Nil, _List_fromArray([
                 $elm$html$Html$text(content)
             ]));
         },
-        gr: function (children) {
+        gs: function (children) {
             return $elm$html$Html$em_fn(_List_Nil, children);
         },
-        gy: $elm$html$Html$br_fn(_List_Nil, _List_Nil),
+        gz: $elm$html$Html$br_fn(_List_Nil, _List_Nil),
         jQ: function (_v3) {
             var children = _v3.jf;
             var level = _v3.j3;
@@ -11916,40 +11917,40 @@
                     return $elm$html$Html$h6_fn(_List_Nil, children);
             }
         },
-        gA: $dillonkearns$elm_markdown$Markdown$Html$oneOf(_List_Nil),
-        gC: function (imageInfo) {
+        gB: $dillonkearns$elm_markdown$Markdown$Html$oneOf(_List_Nil),
+        gD: function (imageInfo) {
             var _v5 = imageInfo.lb;
             if (!_v5.$) {
                 var title = _v5.a;
                 return $elm$html$Html$img_fn(_List_fromArray([
-                    $elm$html$Html$Attributes$src(imageInfo.he),
+                    $elm$html$Html$Attributes$src(imageInfo.fy),
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, imageInfo.i0),
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$title_a0, title)
                 ]), _List_Nil);
             }
             else {
                 return $elm$html$Html$img_fn(_List_fromArray([
-                    $elm$html$Html$Attributes$src(imageInfo.he),
+                    $elm$html$Html$Attributes$src(imageInfo.fy),
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, imageInfo.i0)
                 ]), _List_Nil);
             }
         },
-        gM: F2(function (link, content) {
+        gN: F2(function (link, content) {
             var _v6 = link.lb;
             if (!_v6.$) {
                 var title = _v6.a;
                 return $elm$html$Html$a_fn(_List_fromArray([
-                    $elm$html$Html$Attributes$href(link.gl),
+                    $elm$html$Html$Attributes$href(link.gm),
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$title_a0, title)
                 ]), content);
             }
             else {
                 return $elm$html$Html$a_fn(_List_fromArray([
-                    $elm$html$Html$Attributes$href(link.gl)
+                    $elm$html$Html$Attributes$href(link.gm)
                 ]), content);
             }
         }),
-        gY: F2(function (startingIndex, items) {
+        gZ: F2(function (startingIndex, items) {
             return $elm$html$Html$ol_fn(function () {
                 if (startingIndex === 1) {
                     return _List_fromArray([
@@ -11963,7 +11964,7 @@
                 return $elm$html$Html$li_fn(_List_Nil, itemBlocks);
             }, items));
         }),
-        g_: $elm$html$Html$p(_List_Nil),
+        g$: $elm$html$Html$p(_List_Nil),
         hh: function (children) {
             return $elm$html$Html$del_fn(_List_Nil, children);
         },
@@ -11999,7 +12000,7 @@
             }, maybeAlignment))));
             return $elm$html$Html$th(attrs);
         },
-        fD: $elm$html$Html$tr(_List_Nil),
+        fE: $elm$html$Html$tr(_List_Nil),
         z: $elm$html$Html$text,
         ht: $elm$html$Html$hr_fn(_List_Nil, _List_Nil),
         hx: function (items) {
@@ -12086,25 +12087,25 @@
                         ]), _List_fromArray([
                             $elm$html$Html$text(occupation)
                         ]));
-                    }, author.gW),
+                    }, author.gX),
                     $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (company) {
                         return $elm$html$Html$div_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-500 dark:text-gray-400")
                         ]), _List_fromArray([
                             $elm$html$Html$text(company)
                         ]));
-                    }, author.gd),
-                    $author$project$Layout$About$socialsView(author.hd)
+                    }, author.ge),
+                    $author$project$Layout$About$socialsView(author.he)
                 ])),
                 $elm$html$Html$div_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2")
-                ]), $author$project$Layout$Markdown$toHtml(author.f7))
+                ]), $author$project$Layout$Markdown$toHtml(author.f8))
             ]))
         ]));
     };
     var $author$project$Route$About$view_fn = function (app, _v0) {
         return {
-            f7: _List_fromArray([
+            f8: _List_fromArray([
                 $author$project$Layout$About$view(app.o.dQ)
             ]),
             lb: "About"
@@ -12114,24 +12115,23 @@
         o: $dillonkearns$elm_pages$BackendTask$fail($dillonkearns$elm_pages$FatalError$fromString("")),
         aV: $author$project$Route$About$head
     }));
-    var $author$project$Settings$logoUrl = $dillonkearns$elm_pages$Pages$Url$fromPath($dillonkearns$elm_pages$UrlPath$join(_List_fromArray(["media", "blog-image.png"])));
-    var $author$project$Settings$logoImageForSeo = {
-        i0: "logo",
-        jr: $elm$core$Maybe$Just({ jR: 333, lk: 500 }),
-        ka: $elm$core$Maybe$Nothing,
-        le: $author$project$Settings$logoUrl
-    };
     var $author$project$Settings$subtitle = "A blog template created with elm-pages and TailwindCSS by Hahnah (Natsuki Harai).";
     var $dillonkearns$elm_pages$Head$Twitter$Large = 1;
     var $dillonkearns$elm_pages$Head$Seo$summaryLarge = function (config) {
         return $dillonkearns$elm_pages$Head$Seo$buildSummary_fn(config, 1);
+    };
+    var $author$project$Settings$symbolAndLogoForSeo = {
+        i0: "symbol",
+        jr: $elm$core$Maybe$Just({ jR: 333, lk: 500 }),
+        ka: $elm$core$Maybe$Nothing,
+        le: $author$project$Settings$symbolAndLogoUrl
     };
     var $dillonkearns$elm_pages$Head$Seo$Website = { $: 0 };
     var $dillonkearns$elm_pages$Head$Seo$website = function (common) {
         return $dillonkearns$elm_pages$Head$Seo$tags($dillonkearns$elm_pages$Head$Seo$Content_fn(common, $dillonkearns$elm_pages$Head$Seo$Website));
     };
     var $author$project$Route$Index$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: $author$project$Settings$subtitle, gC: $author$project$Settings$logoImageForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: $author$project$Settings$title }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: $author$project$Settings$subtitle, gD: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: $author$project$Settings$title }));
     };
     var $author$project$Route$LifeBlog__Slug_ = function (a) {
         return { $: 0, a: a };
@@ -13165,7 +13165,7 @@
                                 ]), _List_fromArray([
                                     $elm$html$Html$text(metadata.lb)
                                 ]), function () {
-                                    var _v0 = metadata.f9;
+                                    var _v0 = metadata.ga;
                                     switch (_v0) {
                                         case 0:
                                             return $author$project$Route$TechBlog__Slug_({ fv: metadata.fv });
@@ -13197,7 +13197,7 @@
                         ]), _List_fromArray([
                             $elm$html$Html$text("Read more \u2192")
                         ]), function () {
-                            var _v1 = metadata.f9;
+                            var _v1 = metadata.ga;
                             switch (_v1) {
                                 case 0:
                                     return $author$project$Route$TechBlog__Slug_({ fv: metadata.fv });
@@ -13233,7 +13233,7 @@
     };
     var $author$project$Route$Index$view_fn = function (app, _v0) {
         return {
-            f7: $author$project$Layout$Index$view(app.o.dS),
+            f8: $author$project$Layout$Index$view(app.o.dS),
             lb: $author$project$Settings$title
         };
     }, $author$project$Route$Index$view = F2($author$project$Route$Index$view_fn);
@@ -13242,7 +13242,7 @@
         aV: $author$project$Route$Index$head
     }));
     var $author$project$Route$LifeBlog$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Life Blog posts.", gC: $author$project$Settings$logoImageForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Life Blog" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Life Blog posts.", gD: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Life Blog" }));
     };
     var $author$project$Route$LifeBlog = { $: 4 };
     var $elm$core$Tuple$second = function (_v0) {
@@ -13348,7 +13348,7 @@
                                     ])),
                                     $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.lb)
                                 ]), _List_fromArray([
-                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
+                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gh) + ")")))
                                 ]), $author$project$Route$Tags__Slug_({ fv: tag.fv }))
                             ]));
                         }, tags))
@@ -13368,7 +13368,7 @@
     }, $author$project$Layout$LifeBlogpost$viewPostList = F3($author$project$Layout$LifeBlogpost$viewPostList_fn);
     var $author$project$Route$LifeBlog$view_fn = function (app, _v0) {
         return {
-            f7: $author$project$Layout$LifeBlogpost$viewPostList_fn(app.o.hr, app.o.f5, $elm$core$Maybe$Nothing),
+            f8: $author$project$Layout$LifeBlogpost$viewPostList_fn(app.o.hr, app.o.f6, $elm$core$Maybe$Nothing),
             lb: "Life Blog"
         };
     }, $author$project$Route$LifeBlog$view = F2($author$project$Route$LifeBlog$view_fn);
@@ -13382,9 +13382,10 @@
     var $dillonkearns$elm_pages$Head$Seo$article_fn = function (details, common) {
         return $dillonkearns$elm_pages$Head$Seo$tags($dillonkearns$elm_pages$Head$Seo$Content_fn(common, $dillonkearns$elm_pages$Head$Seo$Article(details)));
     }, $dillonkearns$elm_pages$Head$Seo$article = F2($dillonkearns$elm_pages$Head$Seo$article_fn);
+    var $author$project$Settings$symbolAndLogoPath = "/images/symbols-and-logos/symbol-and-logo.png";
     var $author$project$Settings$xId = $elm$core$Maybe$Nothing;
     var $author$project$Route$LifeBlog$Slug_$head = function (app) {
-        var imagePath = $elm$core$Maybe$withDefault_fn("/media/blog-image.png", app.o.ao.cz.gC);
+        var imagePath = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoPath, app.o.ao.cz.gD);
         var creatorHeader = function () {
             var _v1 = $author$project$Settings$xId;
             if (!_v1.$) {
@@ -13398,7 +13399,7 @@
             }
         }();
         var authorsHeader = function () {
-            var _v0 = app.o.ao.cz.f1;
+            var _v0 = app.o.ao.cz.f2;
             if (!_v0.b) {
                 return _List_Nil;
             }
@@ -13421,10 +13422,10 @@
                 }
             }
         }();
-        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.o.ao.cz.fK, kJ: app.o.ao.cz.el, k_: $elm$core$Maybe$Nothing, hr: app.o.ao.cz.hr }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
+        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.o.ao.cz.fL, kJ: app.o.ao.cz.el, k_: $elm$core$Maybe$Nothing, hr: app.o.ao.cz.hr }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
             jc: $elm$core$Maybe$Nothing,
             jq: $elm$core$Maybe$withDefault_fn($author$project$Settings$subtitle, app.o.ao.cz.jq),
-            gC: {
+            gD: {
                 i0: app.o.ao.cz.lb,
                 jr: $elm$core$Maybe$Nothing,
                 ka: $elm$core$Maybe$Nothing,
@@ -13439,7 +13440,7 @@
         ]))));
     };
     var $author$project$Content$BlogpostCommon$Blogpost_fn = function (metadata, body, previousPost, nextPost) {
-        return { f7: body, cz: metadata, ki: nextPost, kH: previousPost };
+        return { f8: body, cz: metadata, ki: nextPost, kH: previousPost };
     }, $author$project$Content$BlogpostCommon$Blogpost = F4($author$project$Content$BlogpostCommon$Blogpost_fn);
     var $author$project$Content$BlogpostCommon$Draft = { $: 0 };
     var $dillonkearns$elm_pages$BackendTask$mapError_fn = function (mapFn, requestInfo) {
@@ -13464,7 +13465,7 @@
         }, backendTask);
     };
     var $author$project$Content$About$Author_fn = function (body, name, avatar, socials, occupation, company, slug) {
-        return { f2: avatar, f7: body, gd: company, kh: name, gW: occupation, fv: slug, hd: socials };
+        return { f3: avatar, f8: body, ge: company, kh: name, gX: occupation, fv: slug, he: socials };
     }, $author$project$Content$About$Author = F7($author$project$Content$About$Author_fn);
     var $elm$json$Json$Decode$field = _Json_decodeField;
     var $elm$json$Json$Decode$keyValuePairs = _Json_decodeKeyValuePairs;
@@ -13689,7 +13690,7 @@
     };
     var $dillonkearns$elm_pages$BackendTask$Http$errorToString = function (error) {
         return {
-            f7: $dillonkearns$elm_pages$TerminalText$toString(function () {
+            f8: $dillonkearns$elm_pages$TerminalText$toString(function () {
                 switch (error.$) {
                     case 0:
                         var string = error.a;
@@ -14060,13 +14061,13 @@
     };
     var $elm$bytes$Bytes$Decode$unsignedInt8 = _Bytes_read_u8;
     var $danfishgold$base64_bytes$Decode$loopHelp = function (_v0) {
-        var string = _v0.fz;
+        var string = _v0.fA;
         var remaining = _v0.fl;
         if (remaining >= 18) {
             return $elm$bytes$Bytes$Decode$map_fn(function (result) {
                 return $elm$bytes$Bytes$Decode$Loop({
                     fl: remaining - 18,
-                    fz: _Utils_ap(string, result)
+                    fA: _Utils_ap(string, result)
                 });
             }, $danfishgold$base64_bytes$Decode$decode18Bytes);
         }
@@ -14076,7 +14077,7 @@
                     var combined = ((a << 16) | (b << 8)) | c;
                     return $elm$bytes$Bytes$Decode$Loop({
                         fl: remaining - 3,
-                        fz: _Utils_ap(string, $danfishgold$base64_bytes$Decode$bitsToChars_fn(combined, 0))
+                        fA: _Utils_ap(string, $danfishgold$base64_bytes$Decode$bitsToChars_fn(combined, 0))
                     });
                 });
                 return $elm$bytes$Bytes$Decode$map3_fn(helper, $elm$bytes$Bytes$Decode$unsignedInt8, $elm$bytes$Bytes$Decode$unsignedInt8, $elm$bytes$Bytes$Decode$unsignedInt8);
@@ -14103,7 +14104,7 @@
         }
     };
     var $danfishgold$base64_bytes$Decode$decoder = function (width) {
-        return $elm$bytes$Bytes$Decode$loop_fn({ fl: width, fz: "" }, $danfishgold$base64_bytes$Decode$loopHelp);
+        return $elm$bytes$Bytes$Decode$loop_fn({ fl: width, fA: "" }, $danfishgold$base64_bytes$Decode$loopHelp);
     };
     var $elm$bytes$Bytes$width = _Bytes_width;
     var $danfishgold$base64_bytes$Decode$fromBytes = function (bytes) {
@@ -14435,16 +14436,16 @@
     }, $elm$json$Json$Encode$list = F2($elm$json$Json$Encode$list_fn);
     var $dillonkearns$elm_pages$Pages$StaticHttp$Request$hash = function (requestDetails) {
         return $elm$core$String$fromInt($robinheghan$fnv1a$FNV1a$hash(_Json_encode_fn(0, $elm$json$Json$Encode$object(_List_fromArray([
-            _Utils_Tuple2("method", $elm$json$Json$Encode$string(requestDetails.gQ)),
+            _Utils_Tuple2("method", $elm$json$Json$Encode$string(requestDetails.gR)),
             _Utils_Tuple2("url", $elm$json$Json$Encode$string(requestDetails.le)),
             _Utils_Tuple2("headers", $elm$json$Json$Encode$list_fn($dillonkearns$elm_pages$Pages$StaticHttp$Request$hashHeader, requestDetails.jP)),
-            _Utils_Tuple2("body", $dillonkearns$elm_pages$Pages$Internal$StaticHttpBody$encode(requestDetails.f7))
+            _Utils_Tuple2("body", $dillonkearns$elm_pages$Pages$Internal$StaticHttpBody$encode(requestDetails.f8))
         ])))));
     };
     var $dillonkearns$elm_pages$FatalError$recoverable_fn = function (info, value) {
         return {
             jB: $dillonkearns$elm_pages$FatalError$build(info),
-            g3: value
+            g4: value
         };
     }, $dillonkearns$elm_pages$FatalError$recoverable = F2($dillonkearns$elm_pages$FatalError$recoverable_fn);
     var $dillonkearns$elm_pages$BackendTask$Http$toResultThing = function (_v0) {
@@ -14512,12 +14513,12 @@
     };
     var $dillonkearns$elm_pages$BackendTask$Http$requestRaw_fn = function (request__, expect) {
         var request_ = {
-            f7: request__.f7,
+            f8: request__.f8,
             eH: request__.eH,
             hW: _List_Nil,
             hX: $elm$core$Dict$empty,
             jP: _List_Cons(_Utils_Tuple2("elm-pages-internal", $dillonkearns$elm_pages$BackendTask$Http$expectToString(expect)), request__.jP),
-            gQ: request__.gQ,
+            gR: request__.gR,
             kK: false,
             le: request__.le
         };
@@ -14593,12 +14594,12 @@
     }, $dillonkearns$elm_pages$BackendTask$Http$requestRaw = F2($dillonkearns$elm_pages$BackendTask$Http$requestRaw_fn);
     var $dillonkearns$elm_pages$BackendTask$Http$request_fn = function (request__, expect) {
         var request_ = {
-            f7: request__.f7,
+            f8: request__.f8,
             eH: $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$encodeOptions({ cT: $elm$core$Maybe$Nothing, cU: $elm$core$Maybe$Nothing, kT: request__.kT, la: request__.la })),
             hW: _List_Nil,
             hX: $elm$core$Dict$empty,
             jP: request__.jP,
-            gQ: request__.gQ,
+            gR: request__.gR,
             kK: false,
             le: request__.le
         };
@@ -14606,18 +14607,18 @@
     }, $dillonkearns$elm_pages$BackendTask$Http$request = F2($dillonkearns$elm_pages$BackendTask$Http$request_fn);
     var $dillonkearns$elm_pages$BackendTask$Internal$Request$request = function (params) {
         var expect = params.h_;
-        var body = params.f7;
+        var body = params.f8;
         var name = params.kh;
         return $dillonkearns$elm_pages$BackendTask$onError_fn(function (_v0) {
             return $dillonkearns$elm_pages$BackendTask$Internal$Request$request(params);
-        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f7: body, jP: _List_Nil, gQ: "GET", kT: $elm$core$Maybe$Nothing, la: $elm$core$Maybe$Nothing, le: "elm-pages-internal://" + name }, expect));
+        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f8: body, jP: _List_Nil, gR: "GET", kT: $elm$core$Maybe$Nothing, la: $elm$core$Maybe$Nothing, le: "elm-pages-internal://" + name }, expect));
     };
     var $dillonkearns$elm_pages$BackendTask$Internal$Glob$run_fn = function (fileStats, rawInput, captures, _v0) {
         var pattern = _v0.a;
         var applyCapture = _v0.b;
         return {
             j7: A3(applyCapture, fileStats, rawInput, $elm$core$List$reverse(captures)).a,
-            g0: pattern
+            g1: pattern
         };
     }, $dillonkearns$elm_pages$BackendTask$Internal$Glob$run = F4($dillonkearns$elm_pages$BackendTask$Internal$Glob$run_fn);
     var $dillonkearns$elm_pages$BackendTask$Internal$Glob$toPattern = function (_v0) {
@@ -14629,7 +14630,7 @@
         return $dillonkearns$elm_pages$BackendTask$onError_fn(function (_v1) {
             return $dillonkearns$elm_pages$BackendTask$succeed(_List_Nil);
         }, $dillonkearns$elm_pages$BackendTask$Internal$Request$request({
-            f7: $dillonkearns$elm_pages$BackendTask$Http$jsonBody($elm$json$Json$Encode$object(_List_fromArray([
+            f8: $dillonkearns$elm_pages$BackendTask$Http$jsonBody($elm$json$Json$Encode$object(_List_fromArray([
                 _Utils_Tuple2("pattern", $elm$json$Json$Encode$string(_String_startsWith_fn("./", pattern) ? $elm$core$String$dropLeft_fn(2, pattern) : pattern)),
                 _Utils_Tuple2("options", $dillonkearns$elm_pages$BackendTask$Glob$encodeOptions(options))
             ]))),
@@ -14675,7 +14676,7 @@
     };
     var $dillonkearns$elm_pages$BackendTask$File$errorDecoder = function (filePath) {
         return $elm$json$Json$Decode$succeed($dillonkearns$elm_pages$FatalError$recoverable_fn({
-            f7: $dillonkearns$elm_pages$TerminalText$toString(_List_fromArray([
+            f8: $dillonkearns$elm_pages$TerminalText$toString(_List_fromArray([
                 $dillonkearns$elm_pages$TerminalText$text("Couldn't find file at path `"),
                 $dillonkearns$elm_pages$TerminalText$yellow(filePath),
                 $dillonkearns$elm_pages$TerminalText$text("`")
@@ -14720,7 +14721,7 @@
         var errorDecoder = _v0.hZ;
         var onError = _v0.it;
         var expect = _v0.h_;
-        var body = _v0.f7;
+        var body = _v0.f8;
         var name = _v0.kh;
         return $dillonkearns$elm_pages$BackendTask$andThen_fn(function (decodeValue) {
             var _v2 = _Json_run_fn(errorDecoder, decodeValue);
@@ -14741,7 +14742,7 @@
             }
         }, $dillonkearns$elm_pages$BackendTask$onError_fn(function (_v1) {
             return $dillonkearns$elm_pages$BackendTask$succeed($elm$json$Json$Encode$null);
-        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f7: body, jP: _List_Nil, gQ: "GET", kT: $elm$core$Maybe$Nothing, la: $elm$core$Maybe$Nothing, le: "elm-pages-internal://" + name }, $dillonkearns$elm_pages$BackendTask$Http$expectJson($elm$json$Json$Decode$value))));
+        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f8: body, jP: _List_Nil, gR: "GET", kT: $elm$core$Maybe$Nothing, la: $elm$core$Maybe$Nothing, le: "elm-pages-internal://" + name }, $dillonkearns$elm_pages$BackendTask$Http$expectJson($elm$json$Json$Decode$value))));
     };
     var $dillonkearns$elm_pages$Pages$Internal$StaticHttpBody$StringBody_fn = function (a, b) {
         return { $: 1, a: a, b: b };
@@ -14751,7 +14752,7 @@
     }, $dillonkearns$elm_pages$BackendTask$Http$stringBody = F2($dillonkearns$elm_pages$BackendTask$Http$stringBody_fn);
     var $dillonkearns$elm_pages$BackendTask$File$bodyWithFrontmatter_fn = function (frontmatterDecoder, filePath) {
         return $dillonkearns$elm_pages$BackendTask$Internal$Request$request2({
-            f7: $dillonkearns$elm_pages$BackendTask$Http$stringBody_fn("", filePath),
+            f8: $dillonkearns$elm_pages$BackendTask$Http$stringBody_fn("", filePath),
             hZ: _Json_decodeField_fn("errorCode", $dillonkearns$elm_pages$BackendTask$File$errorDecoder(filePath)),
             h_: _Json_andThen_fn(function (bodyString) {
                 return $dillonkearns$elm_pages$BackendTask$File$frontmatter(frontmatterDecoder(bodyString));
@@ -14760,10 +14761,10 @@
             it: function (frontmatterDecodeError) {
                 return {
                     jB: $dillonkearns$elm_pages$FatalError$build({
-                        f7: "I encountered a Json Decoder error from a call to BackendTask.File.bodyWithFrontmatter.\n\n" + (("I was trying to process `" + (filePath + "`.\n\n")) + $elm$json$Json$Decode$errorToString(frontmatterDecodeError)),
+                        f8: "I encountered a Json Decoder error from a call to BackendTask.File.bodyWithFrontmatter.\n\n" + (("I was trying to process `" + (filePath + "`.\n\n")) + $elm$json$Json$Decode$errorToString(frontmatterDecodeError)),
                         lb: "BackendTask.File Decoder Error"
                     }),
-                    g3: $dillonkearns$elm_pages$BackendTask$File$DecodingError(frontmatterDecodeError)
+                    g4: $dillonkearns$elm_pages$BackendTask$File$DecodingError(frontmatterDecodeError)
                 };
             }
         });
@@ -14966,7 +14967,7 @@
     };
     var $dillonkearns$elm_pages$BackendTask$Env$get = function (envVariableName) {
         return $dillonkearns$elm_pages$BackendTask$Internal$Request$request({
-            f7: $dillonkearns$elm_pages$BackendTask$Http$jsonBody($elm$json$Json$Encode$string(envVariableName)),
+            f8: $dillonkearns$elm_pages$BackendTask$Http$jsonBody($elm$json$Json$Encode$string(envVariableName)),
             h_: $dillonkearns$elm_pages$BackendTask$Http$expectJson($elm$json$Json$Decode$nullable($elm$json$Json$Decode$string)),
             kh: "env"
         });
@@ -15049,7 +15050,7 @@
                                     return function (publishedAt) {
                                         return function (updatedAt) {
                                             return function (readingTimeInMin) {
-                                                return { f1: authors, f9: category, jq: description, gC: image, el: publishedAt, kM: readingTimeInMin, fv: slug, hf: status, hr: tags, lb: title, fK: updatedAt };
+                                                return { f2: authors, ga: category, jq: description, gD: image, el: publishedAt, kM: readingTimeInMin, fv: slug, hf: status, hr: tags, lb: title, fL: updatedAt };
                                             };
                                         };
                                     };
@@ -15303,7 +15304,7 @@
             });
             return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (blogpost) {
                 return _Utils_update(blogpost, {
-                    cz: A2(updatedMetadata, blogpost.f7, blogpost.cz)
+                    cz: A2(updatedMetadata, blogpost.f8, blogpost.cz)
                 });
             }), blogposts);
         };
@@ -15374,7 +15375,7 @@
         var head = _v0.aV;
         var data = _v0.o;
         return {
-            fN: F2(function (_v1, _v2) {
+            fO: F2(function (_v1, _v2) {
                 return $dillonkearns$elm_pages$BackendTask$fail($dillonkearns$elm_pages$FatalError$fromString("Internal Error - actions should never be called for statically generated pages."));
             }),
             o: function (_v3) {
@@ -15399,7 +15400,7 @@
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex -space-x-2")
         ]), $elm$core$List$map_fn(function (_v0) {
-            var image = _v0.gC;
+            var image = _v0.gD;
             return $elm$html$Html$img_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, "avatar"),
                 $elm$virtual_dom$VirtualDom$attribute_fn("loading", "lazy"),
@@ -16329,13 +16330,13 @@
         var expecting = _v0.b;
         var progress = !$elm$core$String$isEmpty(kwd);
         return function (s) {
-            var _v1 = _Parser_isSubString_fn(kwd, s.e6, s.kV, s.eL, s.he);
+            var _v1 = _Parser_isSubString_fn(kwd, s.e6, s.kV, s.eL, s.fy);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
             return (newOffset === -1 || (0 <= _Parser_isSubChar_fn(function (c) {
                 return $elm$core$Char$isAlphaNum(c) || (c === "_");
-            }, newOffset, s.he))) ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, k: s.k, d4: s.d4, e6: newOffset, kV: newRow, he: s.he });
+            }, newOffset, s.fy))) ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, k: s.k, d4: s.d4, e6: newOffset, kV: newRow, fy: s.fy });
         };
     };
     var $elm$parser$Parser$keyword = function (kwd) {
@@ -16516,7 +16517,7 @@
     var $elm$parser$Parser$Advanced$consumeBase = _Parser_consumeBase;
     var $elm$parser$Parser$Advanced$consumeBase16 = _Parser_consumeBase16;
     var $elm$parser$Parser$Advanced$bumpOffset_fn = function (newOffset, s) {
-        return { eL: s.eL + (newOffset - s.e6), k: s.k, d4: s.d4, e6: newOffset, kV: s.kV, he: s.he };
+        return { eL: s.eL + (newOffset - s.e6), k: s.k, d4: s.d4, e6: newOffset, kV: s.kV, fy: s.fy };
     }, $elm$parser$Parser$Advanced$bumpOffset = F2($elm$parser$Parser$Advanced$bumpOffset_fn);
     var $elm$parser$Parser$Advanced$chompBase10 = _Parser_chompBase10;
     var $elm$parser$Parser$Advanced$isAsciiCode = _Parser_isAsciiCode;
@@ -16549,7 +16550,7 @@
     var $elm$core$String$toFloat = _String_toFloat;
     var $elm$parser$Parser$Advanced$finalizeFloat_fn = function (invalid, expecting, intSettings, floatSettings, intPair, s) {
         var intOffset = intPair.a;
-        var floatOffset = $elm$parser$Parser$Advanced$consumeDotAndExp_fn(intOffset, s.he);
+        var floatOffset = $elm$parser$Parser$Advanced$consumeDotAndExp_fn(intOffset, s.fy);
         if (floatOffset < 0) {
             return $elm$parser$Parser$Advanced$Bad_fn(true, $elm$parser$Parser$Advanced$fromInfo_fn(s.kV, s.eL - (floatOffset + s.e6), invalid, s.k));
         }
@@ -16568,7 +16569,7 @@
                     }
                     else {
                         var toValue = floatSettings.a;
-                        var _v1 = $elm$core$String$toFloat(_String_slice_fn(s.e6, floatOffset, s.he));
+                        var _v1 = $elm$core$String$toFloat(_String_slice_fn(s.e6, floatOffset, s.fy));
                         if (_v1.$ === 1) {
                             return $elm$parser$Parser$Advanced$Bad_fn(true, $elm$parser$Parser$Advanced$fromState_fn(s, invalid));
                         }
@@ -16583,13 +16584,13 @@
     }, $elm$parser$Parser$Advanced$finalizeFloat = F6($elm$parser$Parser$Advanced$finalizeFloat_fn);
     var $elm$parser$Parser$Advanced$number = function (c) {
         return function (s) {
-            if (_Parser_isAsciiCode_fn(48, s.e6, s.he)) {
+            if (_Parser_isAsciiCode_fn(48, s.e6, s.fy)) {
                 var zeroOffset = s.e6 + 1;
                 var baseOffset = zeroOffset + 1;
-                return _Parser_isAsciiCode_fn(120, zeroOffset, s.he) ? $elm$parser$Parser$Advanced$finalizeInt_fn(c.da, c.jS, baseOffset, _Parser_consumeBase16_fn(baseOffset, s.he), s) : (_Parser_isAsciiCode_fn(111, zeroOffset, s.he) ? $elm$parser$Parser$Advanced$finalizeInt_fn(c.da, c.ir, baseOffset, _Parser_consumeBase_fn(8, baseOffset, s.he), s) : (_Parser_isAsciiCode_fn(98, zeroOffset, s.he) ? $elm$parser$Parser$Advanced$finalizeInt_fn(c.da, c.hK, baseOffset, _Parser_consumeBase_fn(2, baseOffset, s.he), s) : $elm$parser$Parser$Advanced$finalizeFloat_fn(c.da, c.h$, c.ie, c.h7, _Utils_Tuple2(zeroOffset, 0), s)));
+                return _Parser_isAsciiCode_fn(120, zeroOffset, s.fy) ? $elm$parser$Parser$Advanced$finalizeInt_fn(c.da, c.jS, baseOffset, _Parser_consumeBase16_fn(baseOffset, s.fy), s) : (_Parser_isAsciiCode_fn(111, zeroOffset, s.fy) ? $elm$parser$Parser$Advanced$finalizeInt_fn(c.da, c.ir, baseOffset, _Parser_consumeBase_fn(8, baseOffset, s.fy), s) : (_Parser_isAsciiCode_fn(98, zeroOffset, s.fy) ? $elm$parser$Parser$Advanced$finalizeInt_fn(c.da, c.hK, baseOffset, _Parser_consumeBase_fn(2, baseOffset, s.fy), s) : $elm$parser$Parser$Advanced$finalizeFloat_fn(c.da, c.h$, c.ie, c.h7, _Utils_Tuple2(zeroOffset, 0), s)));
             }
             else {
-                return $elm$parser$Parser$Advanced$finalizeFloat_fn(c.da, c.h$, c.ie, c.h7, _Parser_consumeBase_fn(10, s.e6, s.he), s);
+                return $elm$parser$Parser$Advanced$finalizeFloat_fn(c.da, c.h$, c.ie, c.h7, _Parser_consumeBase_fn(10, s.e6, s.fy), s);
             }
         };
     };
@@ -17754,7 +17755,7 @@
         ]));
     };
     var $author$project$Layout$Markdown$syntaxHighlight = function (codeBlock) {
-        var sanitiseCodeBlock = _String_endsWith_fn("\n", codeBlock.f7) ? $elm$core$String$dropRight_fn(1, codeBlock.f7) : codeBlock.f7;
+        var sanitiseCodeBlock = _String_endsWith_fn("\n", codeBlock.f8) ? $elm$core$String$dropRight_fn(1, codeBlock.f8) : codeBlock.f8;
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "no-prose")
         ]), _List_fromArray([
@@ -17914,7 +17915,7 @@
     var $author$project$Layout$LifeBlogpost$viewBlogpost = function (_v0) {
         var nextPost = _v0.ki;
         var previousPost = _v0.kH;
-        var body = _v0.f7;
+        var body = _v0.f8;
         var metadata = _v0.cz;
         var bottomLink = F2(function (slug, title) {
             return $author$project$Route$link_fn(_List_fromArray([
@@ -17949,10 +17950,10 @@
         }, previousPost);
         var blogpostAuthors = $elm$core$List$map_fn(function (author) {
             return {
-                gC: $elm$core$Maybe$withDefault_fn("/images/authors/default.png", author.f2),
+                gD: $elm$core$Maybe$withDefault_fn("/images/authors/default.png", author.f3),
                 kh: author.kh
             };
-        }, metadata.f1);
+        }, metadata.f2);
         var authorsView = $elm$html$Html$dl_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "max-w-[65ch] py-4 xl:pb-8 xl:pt-12")
         ]), _List_fromArray([
@@ -18026,7 +18027,7 @@
                         ]))
                     ]))
                 ]));
-            }, metadata.gC)
+            }, metadata.gD)
         ]));
         return $elm$html$Html$div_fn(_List_Nil, _List_fromArray([
             header,
@@ -18051,7 +18052,7 @@
     };
     var $author$project$Route$LifeBlog$Slug_$view_fn = function (app, _v0) {
         return {
-            f7: _List_fromArray([
+            f8: _List_fromArray([
                 $author$project$Layout$LifeBlogpost$viewBlogpost(app.o.ao)
             ]),
             lb: app.o.ao.cz.lb
@@ -18065,11 +18066,11 @@
         kA: $author$project$Route$LifeBlog$Slug_$pages
     }));
     var $author$project$Route$Tags$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "List of Tags.", gC: $author$project$Settings$logoImageForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Tags" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "List of Tags.", gD: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Tags" }));
     };
     var $elm$html$Html$main_ = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "main"), $elm$html$Html$main__fn = $elm$html$Html$main_.a2;
     var $author$project$Layout$Tags$viewTagWithCount = function (_v0) {
-        var count = _v0.gg;
+        var count = _v0.gh;
         var title = _v0.lb;
         var slug = _v0.fv;
         return $elm$html$Html$div_fn(_List_fromArray([
@@ -18114,7 +18115,7 @@
     };
     var $author$project$Route$Tags$view_fn = function (app, _v0) {
         return {
-            f7: _List_fromArray([
+            f8: _List_fromArray([
                 $author$project$Layout$Tags$view(app.o)
             ]),
             lb: "Tags"
@@ -18137,7 +18138,7 @@
                     return "";
                 }
             }(),
-            gC: $author$project$Settings$logoImageForSeo,
+            gD: $author$project$Settings$symbolAndLogoForSeo,
             j5: $author$project$Settings$locale,
             k4: $author$project$Settings$title,
             lb: function () {
@@ -18285,7 +18286,7 @@
             });
             return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (blogpost) {
                 return _Utils_update(blogpost, {
-                    cz: A2(updatedMetadata, blogpost.f7, blogpost.cz)
+                    cz: A2(updatedMetadata, blogpost.f8, blogpost.cz)
                 });
             }), blogposts);
         };
@@ -18393,16 +18394,16 @@
         return _Utils_Tuple2($elm$core$Dict$fromList(tags), $elm$core$List$map_fn(function (_v1) {
             var slug = _v1.a;
             var frequency = _v1.b;
-            return { gg: frequency, fv: slug };
+            return { gh: frequency, fv: slug };
         }, $elm_community$list_extra$List$Extra$frequencies($elm$core$List$map_fn($elm$core$Tuple$first, tags))));
     }, function (_v2) {
         var names = _v2.a;
         var slugCount = _v2.b;
         return $elm$core$List$map_fn(function (_v3) {
-            var count = _v3.gg;
+            var count = _v3.gh;
             var slug = _v3.fv;
             return {
-                gg: count,
+                gh: count,
                 fv: slug,
                 lb: $elm$core$Maybe$withDefault_fn(slug, $elm$core$Dict$get_fn(slug, names))
             };
@@ -18431,7 +18432,7 @@
                         ]), _List_fromArray([
                             $elm$html$Html$text(metadata.lb)
                         ]), function () {
-                            var _v0 = metadata.f9;
+                            var _v0 = metadata.ga;
                             switch (_v0) {
                                 case 0:
                                     return $author$project$Route$TechBlog__Slug_({ fv: metadata.fv });
@@ -18519,7 +18520,7 @@
                                     ])),
                                     $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.lb)
                                 ]), _List_fromArray([
-                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
+                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gh) + ")")))
                                 ]), $author$project$Route$Tags__Slug_({ fv: tag.fv }))
                             ]));
                         }, tags))
@@ -18539,7 +18540,7 @@
     }, $author$project$Layout$Blogpost$viewPostList = F3($author$project$Layout$Blogpost$viewPostList_fn);
     var $author$project$Route$Tags$Slug_$view_fn = function (app, _v0) {
         return {
-            f7: $author$project$Layout$Blogpost$viewPostList_fn(app.o.hr, app.o.f5, app.o.dz),
+            f8: $author$project$Layout$Blogpost$viewPostList_fn(app.o.hr, app.o.f6, app.o.dz),
             lb: "Tag: TODO"
         };
     }, $author$project$Route$Tags$Slug_$view = F2($author$project$Route$Tags$Slug_$view_fn);
@@ -18551,7 +18552,7 @@
         kA: $author$project$Route$Tags$Slug_$pages
     }));
     var $author$project$Route$TechBlog$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Tech Blog posts.", gC: $author$project$Settings$logoImageForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Tech Blog" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Tech Blog posts.", gD: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Tech Blog" }));
     };
     var $author$project$Layout$TechBlogpost$viewPublishedDate = $author$project$Layout$Blogpost$viewPublishedDate;
     var $author$project$Layout$TechBlogpost$viewBlogpostMetadata = function (metadata) {
@@ -18649,7 +18650,7 @@
                                     ])),
                                     $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.lb)
                                 ]), _List_fromArray([
-                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
+                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gh) + ")")))
                                 ]), $author$project$Route$Tags__Slug_({ fv: tag.fv }))
                             ]));
                         }, tags))
@@ -18669,7 +18670,7 @@
     }, $author$project$Layout$TechBlogpost$viewPostList = F3($author$project$Layout$TechBlogpost$viewPostList_fn);
     var $author$project$Route$TechBlog$view_fn = function (app, _v0) {
         return {
-            f7: $author$project$Layout$TechBlogpost$viewPostList_fn(app.o.hr, app.o.f5, $elm$core$Maybe$Nothing),
+            f8: $author$project$Layout$TechBlogpost$viewPostList_fn(app.o.hr, app.o.f6, $elm$core$Maybe$Nothing),
             lb: "Tech Blog"
         };
     }, $author$project$Route$TechBlog$view = F2($author$project$Route$TechBlog$view_fn);
@@ -18678,7 +18679,7 @@
         aV: $author$project$Route$TechBlog$head
     }));
     var $author$project$Route$TechBlog$Slug_$head = function (app) {
-        var imagePath = $elm$core$Maybe$withDefault_fn("/media/blog-image.png", app.o.ao.cz.gC);
+        var imagePath = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoPath, app.o.ao.cz.gD);
         var creatorHeader = function () {
             var _v1 = $author$project$Settings$xId;
             if (!_v1.$) {
@@ -18692,7 +18693,7 @@
             }
         }();
         var authorsHeader = function () {
-            var _v0 = app.o.ao.cz.f1;
+            var _v0 = app.o.ao.cz.f2;
             if (!_v0.b) {
                 return _List_Nil;
             }
@@ -18715,10 +18716,10 @@
                 }
             }
         }();
-        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.o.ao.cz.fK, kJ: app.o.ao.cz.el, k_: $elm$core$Maybe$Nothing, hr: app.o.ao.cz.hr }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
+        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.o.ao.cz.fL, kJ: app.o.ao.cz.el, k_: $elm$core$Maybe$Nothing, hr: app.o.ao.cz.hr }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
             jc: $elm$core$Maybe$Nothing,
             jq: $elm$core$Maybe$withDefault_fn($author$project$Settings$subtitle, app.o.ao.cz.jq),
-            gC: {
+            gD: {
                 i0: app.o.ao.cz.lb,
                 jr: $elm$core$Maybe$Nothing,
                 ka: $elm$core$Maybe$Nothing,
@@ -18746,7 +18747,7 @@
             });
             return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (blogpost) {
                 return _Utils_update(blogpost, {
-                    cz: A2(updatedMetadata, blogpost.f7, blogpost.cz)
+                    cz: A2(updatedMetadata, blogpost.f8, blogpost.cz)
                 });
             }), blogposts);
         };
@@ -18813,7 +18814,7 @@
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex -space-x-2")
         ]), $elm$core$List$map_fn(function (_v0) {
-            var image = _v0.gC;
+            var image = _v0.gD;
             return $elm$html$Html$img_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, "avatar"),
                 $elm$virtual_dom$VirtualDom$attribute_fn("loading", "lazy"),
@@ -18831,7 +18832,7 @@
     var $author$project$Layout$TechBlogpost$viewBlogpost = function (_v0) {
         var nextPost = _v0.ki;
         var previousPost = _v0.kH;
-        var body = _v0.f7;
+        var body = _v0.f8;
         var metadata = _v0.cz;
         var bottomLink = F2(function (slug, title) {
             return $author$project$Route$link_fn(_List_fromArray([
@@ -18866,10 +18867,10 @@
         }, previousPost);
         var blogpostAuthors = $elm$core$List$map_fn(function (author) {
             return {
-                gC: $elm$core$Maybe$withDefault_fn("/images/authors/default.png", author.f2),
+                gD: $elm$core$Maybe$withDefault_fn("/images/authors/default.png", author.f3),
                 kh: author.kh
             };
-        }, metadata.f1);
+        }, metadata.f2);
         var authorsView = $elm$html$Html$dl_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "max-w-[65ch] py-4 xl:pb-8 xl:pt-12")
         ]), _List_fromArray([
@@ -18943,7 +18944,7 @@
                         ]))
                     ]))
                 ]));
-            }, metadata.gC)
+            }, metadata.gD)
         ]));
         return $elm$html$Html$div_fn(_List_Nil, _List_fromArray([
             header,
@@ -18968,7 +18969,7 @@
     };
     var $author$project$Route$TechBlog$Slug_$view_fn = function (app, _v0) {
         return {
-            f7: _List_fromArray([
+            f8: _List_fromArray([
                 $author$project$Layout$TechBlogpost$viewBlogpost(app.o.ao)
             ]),
             lb: app.o.ao.cz.lb
@@ -18990,23 +18991,23 @@
             switch (justRoute.$) {
                 case 0:
                     var routeParams = justRoute.a;
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataLifeBlog__Slug_), A2($author$project$Route$LifeBlog$Slug_$route.fN, requestPayload, routeParams));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataLifeBlog__Slug_), A2($author$project$Route$LifeBlog$Slug_$route.fO, requestPayload, routeParams));
                 case 1:
                     var routeParams = justRoute.a;
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTags__Slug_), A2($author$project$Route$Tags$Slug_$route.fN, requestPayload, routeParams));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTags__Slug_), A2($author$project$Route$Tags$Slug_$route.fO, requestPayload, routeParams));
                 case 2:
                     var routeParams = justRoute.a;
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTechBlog__Slug_), A2($author$project$Route$TechBlog$Slug_$route.fN, requestPayload, routeParams));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTechBlog__Slug_), A2($author$project$Route$TechBlog$Slug_$route.fO, requestPayload, routeParams));
                 case 3:
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataAbout), A2($author$project$Route$About$route.fN, requestPayload, {}));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataAbout), A2($author$project$Route$About$route.fO, requestPayload, {}));
                 case 4:
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataLifeBlog), A2($author$project$Route$LifeBlog$route.fN, requestPayload, {}));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataLifeBlog), A2($author$project$Route$LifeBlog$route.fO, requestPayload, {}));
                 case 5:
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTags), A2($author$project$Route$Tags$route.fN, requestPayload, {}));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTags), A2($author$project$Route$Tags$route.fO, requestPayload, {}));
                 case 6:
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTechBlog), A2($author$project$Route$TechBlog$route.fN, requestPayload, {}));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataTechBlog), A2($author$project$Route$TechBlog$route.fO, requestPayload, {}));
                 default:
-                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataIndex), A2($author$project$Route$Index$route.fN, requestPayload, {}));
+                    return $dillonkearns$elm_pages$BackendTask$map_fn($dillonkearns$elm_pages$Server$Response$map($author$project$Main$ActionDataIndex), A2($author$project$Route$Index$route.fO, requestPayload, {}));
             }
         }
     }, $author$project$Main$action = F2($author$project$Main$action_fn);
@@ -19365,7 +19366,7 @@
     };
     var $dillonkearns$elm_pages$Pages$Internal$NotFoundReason$document_fn = function (pathPatterns, payload) {
         return {
-            f7: _List_fromArray([
+            f8: _List_fromArray([
                 $elm$html$Html$div_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$id_a0, "not-found-reason"),
                     _VirtualDom_style_fn("padding", "30px")
@@ -19483,7 +19484,7 @@
             else {
                 var error = _v1.a;
                 return {
-                    f7: _List_fromArray([
+                    f8: _List_fromArray([
                         $elm$html$Html$div_fn(_List_Nil, _List_fromArray([
                             $elm$html$Html$text(error)
                         ]))
@@ -19645,10 +19646,10 @@
     var $dillonkearns$elm_pages$Pages$Internal$Platform$appendFormQueryParams = function (fields) {
         return _Utils_ap($elm$core$Maybe$withDefault_fn("/", $elm$core$Maybe$map_fn(function ($) {
             return $.kC;
-        }, $elm$url$Url$fromString(fields.fN))), function () {
-            var _v0 = fields.gQ;
+        }, $elm$url$Url$fromString(fields.fO))), function () {
+            var _v0 = fields.gR;
             if (!_v0) {
-                return "?" + $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData(fields.gt);
+                return "?" + $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData(fields.gu);
             }
             else {
                 return "";
@@ -19660,7 +19661,7 @@
         return { $: 0, a: a };
     };
     var $elm$http$Http$State_fn = function (reqs, subs) {
-        return { fn: reqs, fC: subs };
+        return { fn: reqs, fD: subs };
     }, $elm$http$Http$State = F2($elm$http$Http$State_fn);
     var $elm$http$Http$init = $elm$core$Task$succeed($elm$http$Http$State_fn($elm$core$Dict$empty, _List_Nil));
     var $elm$http$Http$BadStatus__fn = function (a, b) {
@@ -19745,7 +19746,7 @@
         var progress = _v0.b;
         return _Scheduler_andThen_fn(function (_v1) {
             return $elm$core$Task$succeed(state);
-        }, $elm$core$Task$sequence($elm$core$List$filterMap_fn(A3($elm$http$Http$maybeSend, router, tracker, progress), state.fC)));
+        }, $elm$core$Task$sequence($elm$core$List$filterMap_fn(A3($elm$http$Http$maybeSend, router, tracker, progress), state.fD)));
     }, $elm$http$Http$onSelfMsg = F3($elm$http$Http$onSelfMsg_fn);
     var $elm$http$Http$Request = function (a) {
         return { $: 1, a: a };
@@ -19759,10 +19760,10 @@
             var r = cmd.a;
             return $elm$http$Http$Request({
                 i$: r.i$,
-                f7: r.f7,
+                f8: r.f8,
                 h_: _Http_mapExpect_fn(func, r.h_),
                 jP: r.jP,
-                gQ: r.gQ,
+                gR: r.gR,
                 hu: r.hu,
                 hw: r.hw,
                 le: r.le
@@ -19832,18 +19833,18 @@
         }
     };
     var $elm$http$Http$request = function (r) {
-        return $elm$http$Http$command($elm$http$Http$Request({ i$: false, f7: r.f7, h_: r.h_, jP: r.jP, gQ: r.gQ, hu: r.hu, hw: r.hw, le: r.le }));
+        return $elm$http$Http$command($elm$http$Http$Request({ i$: false, f8: r.f8, h_: r.h_, jP: r.jP, gR: r.gR, hu: r.hu, hw: r.hw, le: r.le }));
     };
     var $elm$http$Http$stringBody = _Http_pair;
     var $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn = function (transitionKey, toMsg, config, url, details) {
         var formMethod = $elm$core$Maybe$withDefault_fn(0, $elm$core$Maybe$map_fn(function ($) {
-            return $.gQ;
+            return $.gR;
         }, details));
         return $elm$http$Http$request({
-            f7: function () {
+            f8: function () {
                 if (formMethod === 1) {
                     var urlEncodedFields = $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, function ($) {
-                        return $.gt;
+                        return $.gu;
                     }, $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData), details);
                     return $elm$core$Maybe$withDefault_fn($elm$http$Http$emptyBody, $elm$core$Maybe$map_fn(function (encoded) {
                         return _Http_pair_fn("application/x-www-form-urlencoded", encoded);
@@ -19877,15 +19878,15 @@
                 }
             }),
             jP: _List_Nil,
-            gQ: $elm$core$Maybe$withDefault_fn("GET", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, function ($) {
-                return $.gQ;
+            gR: $elm$core$Maybe$withDefault_fn("GET", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, function ($) {
+                return $.gR;
             }, $dillonkearns$elm_pages$Pages$Internal$Platform$methodToString), details)),
             hu: $elm$core$Maybe$Nothing,
             hw: $elm$core$Maybe$Just($elm$core$String$fromInt(transitionKey)),
             le: "/" + ($elm$core$String$join_fn("/", function (l) {
                 return _Utils_ap(l, _List_fromArray(["content.dat"]));
             }($elm$core$List$filter_fn($elm$core$Basics$neq(""), $elm$core$String$split_fn("/", $elm$core$Basics$composeR_fn($dillonkearns$elm_pages$Pages$Internal$Platform$chopForwardSlashes_a0, $dillonkearns$elm_pages$Pages$Internal$Platform$chopForwardSlashes_a1, $elm$core$Maybe$withDefault_fn(url, $elm$core$Maybe$andThen_fn($elm$url$Url$fromString, $elm$core$Maybe$map_fn(function ($) {
-                return $.fN;
+                return $.fO;
             }, details))).kC))))) + (function () {
                 if (formMethod === 1) {
                     return "/";
@@ -19894,7 +19895,7 @@
                     return $elm$core$Maybe$withDefault_fn("", $elm$core$Maybe$map_fn(function (encoded) {
                         return "?" + encoded;
                     }, $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, function ($) {
-                        return $.gt;
+                        return $.gu;
                     }, $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData), details)));
                 }
             }() + function () {
@@ -19956,17 +19957,17 @@
     var $elm$time$Time$now = _Time_now($elm$time$Time$millisToPosix);
     var $dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher_fn = function (fetcherKey, transitionId, options, model) {
         var formData = {
-            fN: $elm$core$Maybe$withDefault_fn(model.le.kC, options.le),
-            gt: options.gt,
-            gB: $elm$core$Maybe$Nothing,
-            gQ: 0
+            fO: $elm$core$Maybe$withDefault_fn(model.le.kC, options.le),
+            gu: options.gu,
+            gC: $elm$core$Maybe$Nothing,
+            gR: 0
         };
-        var encodedBody = $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData(options.gt);
+        var encodedBody = $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData(options.gu);
         return $elm$core$Platform$Cmd$batch(_List_fromArray([
             $dillonkearns$elm_pages$Pages$Internal$Platform$cancelStaleFetchers(model),
             $elm$core$Task$perform_fn($elm$core$Basics$identity, $elm$core$Task$map_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherStarted, fetcherKey, transitionId, formData), $elm$time$Time$now)),
             $elm$http$Http$request({
-                f7: _Http_pair_fn("application/x-www-form-urlencoded", encodedBody),
+                f8: _Http_pair_fn("application/x-www-form-urlencoded", encodedBody),
                 h_: $elm$http$Http$expectBytesResponse_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherComplete, false, fetcherKey, model.aD), function (bytes) {
                     switch (bytes.$) {
                         case 4:
@@ -19989,7 +19990,7 @@
                     var value = _v1.b;
                     return $elm$http$Http$Header_fn(name, value);
                 }, options.jP),
-                gQ: "POST",
+                gR: "POST",
                 hu: $elm$core$Maybe$Nothing,
                 hw: $elm$core$Maybe$Nothing,
                 le: $elm$core$Maybe$withDefault_fn($dillonkearns$elm_pages$UrlPath$toAbsolute($dillonkearns$elm_pages$UrlPath$join(_List_fromArray([model.le.kC, "content.dat"]))), options.le)
@@ -20000,7 +20001,7 @@
         return { $: 1, a: a };
     };
     var $dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher2_fn = function (config, fromPageReload, fetcherKey, transitionId, formData, model) {
-        var encodedBody = $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData(formData.gt);
+        var encodedBody = $dillonkearns$elm_pages$Pages$Internal$Platform$encodeFormData(formData.gu);
         return $elm$core$Platform$Cmd$batch(_List_fromArray([
             $dillonkearns$elm_pages$Pages$Internal$Platform$cancelStaleFetchers(model),
             function () {
@@ -20016,7 +20017,7 @@
             }(),
             $elm$core$Task$perform_fn($elm$core$Basics$identity, $elm$core$Task$map_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherStarted, fetcherKey, transitionId, formData), $elm$time$Time$now)),
             $elm$http$Http$request({
-                f7: _Http_pair_fn("application/x-www-form-urlencoded", encodedBody),
+                f8: _Http_pair_fn("application/x-www-form-urlencoded", encodedBody),
                 h_: $elm$http$Http$expectBytesResponse_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherComplete, fromPageReload, fetcherKey, model.aD), function (bytes) {
                     switch (bytes.$) {
                         case 4:
@@ -20063,19 +20064,19 @@
                     }
                 }),
                 jP: _List_Nil,
-                gQ: $dillonkearns$elm_pages$Pages$Internal$Platform$methodToString(formData.gQ),
+                gR: $dillonkearns$elm_pages$Pages$Internal$Platform$methodToString(formData.gR),
                 hu: $elm$core$Maybe$Nothing,
                 hw: $elm$core$Maybe$Just($elm$core$String$fromInt(transitionId)),
                 le: $elm$core$Maybe$withDefault_fn("/", $elm$core$Maybe$map_fn(function (_v6) {
                     var path = _v6.kC;
                     return $dillonkearns$elm_pages$UrlPath$toAbsolute($dillonkearns$elm_pages$UrlPath$join(_List_fromArray([path, "content.dat"])));
-                }, $elm$url$Url$fromString(formData.fN)))
+                }, $elm$url$Url$fromString(formData.fO)))
             })
         ]));
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher2 = F6($dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher2_fn);
     var $dillonkearns$elm_pages$Pages$Internal$Platform$urlFromAction_fn = function (currentUrl, fetchInfo) {
         return $elm$core$Maybe$withDefault_fn(currentUrl, $elm$core$Maybe$andThen_fn($elm$url$Url$fromString, $elm$core$Maybe$map_fn(function ($) {
-            return $.fN;
+            return $.fO;
         }, fetchInfo)));
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$urlFromAction = F2($dillonkearns$elm_pages$Pages$Internal$Platform$urlFromAction_fn);
     var $dillonkearns$elm_pages$Pages$Internal$Platform$perform_fn = function (config, model, effect) {
@@ -20113,7 +20114,7 @@
                 return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(transitionKey, toMsg, config, url, maybeRequestInfo);
             case 6:
                 var fields = effect.a;
-                if (!fields.gQ) {
+                if (!fields.gR) {
                     return $elm$core$Maybe$withDefault_fn($elm$core$Platform$Cmd$none, $elm$core$Maybe$map_fn(function (key) {
                         return _Browser_pushUrl_fn(key, $dillonkearns$elm_pages$Pages$Internal$Platform$appendFormQueryParams(fields));
                     }, model.j$));
@@ -20149,7 +20150,7 @@
                             return $elm$core$Platform$Cmd$none;
                         },
                         G: function (fetchInfo) {
-                            return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, prepare(fetchInfo.ev), config, $elm$core$Maybe$withDefault_fn(model.le, $elm$url$Url$fromString(fetchInfo.iS.fN)), $elm$core$Maybe$Just(fetchInfo.iS));
+                            return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, prepare(fetchInfo.ev), config, $elm$core$Maybe$withDefault_fn(model.le, $elm$url$Url$fromString(fetchInfo.iS.fO)), $elm$core$Maybe$Just(fetchInfo.iS));
                         }
                     }, cmd);
                 }
@@ -20406,7 +20407,7 @@
             effect
         ])));
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad = F3($dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn);
-    var $dillonkearns$elm_form$Form$initSingle = { gt: $elm$core$Dict$empty, ai: false };
+    var $dillonkearns$elm_form$Form$initSingle = { gu: $elm$core$Dict$empty, ai: false };
     var $dillonkearns$elm_form$Form$setSubmitAttempted_fn = function (fieldId, pageFormState) {
         return $elm$core$Dict$update_fn(fieldId, function (maybeForm) {
             if (!maybeForm.$) {
@@ -20439,7 +20440,7 @@
     }, $dillonkearns$elm_form$Form$increaseStatusTo = F2($dillonkearns$elm_form$Form$increaseStatusTo_fn);
     var $dillonkearns$elm_form$Form$updateForm_fn = function (fieldEvent, formState) {
         return _Utils_update(formState, {
-            gt: $elm$core$Dict$update_fn(fieldEvent.kh, function (previousValue_) {
+            gu: $elm$core$Dict$update_fn(fieldEvent.kh, function (previousValue_) {
                 var previousValue = $elm$core$Maybe$withDefault_fn({ hf: 0, li: fieldEvent.li }, previousValue_);
                 return $elm$core$Maybe$Just(function () {
                     var _v0 = fieldEvent.jx;
@@ -20460,7 +20461,7 @@
                             });
                     }
                 }());
-            }, formState.gt)
+            }, formState.gu)
         });
     }, $dillonkearns$elm_form$Form$updateForm = F2($dillonkearns$elm_form$Form$updateForm_fn);
     var $dillonkearns$elm_form$Form$updateInternal_fn = function (fieldEvent, pageFormState) {
@@ -20480,7 +20481,7 @@
             default:
                 var formData = formMsg.a;
                 var maybeMsg = formMsg.b;
-                return _Utils_Tuple2($dillonkearns$elm_form$Form$setSubmitAttempted_fn($elm$core$Maybe$withDefault_fn("form", formData.gB), formModel), $elm$core$Maybe$withDefault_fn($elm$core$Platform$Cmd$none, $elm$core$Maybe$map_fn(function (userMsg) {
+                return _Utils_Tuple2($dillonkearns$elm_form$Form$setSubmitAttempted_fn($elm$core$Maybe$withDefault_fn("form", formData.gC), formModel), $elm$core$Maybe$withDefault_fn($elm$core$Platform$Cmd$none, $elm$core$Maybe$map_fn(function (userMsg) {
                     return $elm$core$Task$perform_fn($elm$core$Basics$identity, $elm$core$Task$succeed(userMsg));
                 }, maybeMsg)));
         }
@@ -20580,14 +20581,14 @@
                             return $dillonkearns$elm_pages$Pages$Internal$Platform$performUserMsg_fn(userMsg, config, _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
                         case 1:
                             var fields = userMsg_.a;
-                            if (fields.fM) {
+                            if (fields.fN) {
                                 var payload = {
-                                    fN: fields.fN,
-                                    gt: fields.gt,
-                                    gB: $elm$core$Maybe$Just(fields.gB),
-                                    gQ: fields.gQ
+                                    fO: fields.fO,
+                                    gu: fields.gu,
+                                    gC: $elm$core$Maybe$Just(fields.gC),
+                                    gR: fields.gR
                                 };
-                                return fields.fL ? function () {
+                                return fields.fM ? function () {
                                     var _v13 = fields.e2;
                                     if (!_v13.$) {
                                         var justUserMsg = _v13.a;
@@ -20596,7 +20597,7 @@
                                     else {
                                         return $elm$core$Basics$identity;
                                     }
-                                }()(_Utils_Tuple2(_Utils_update(model, { aD: model.aD + 1 }), $dillonkearns$elm_pages$Pages$Internal$Platform$SubmitFetcher_fn(fields.gB, model.aD, payload))) : function () {
+                                }()(_Utils_Tuple2(_Utils_update(model, { aD: model.aD + 1 }), $dillonkearns$elm_pages$Pages$Internal$Platform$SubmitFetcher_fn(fields.gC, model.aD, payload))) : function () {
                                     var _v14 = fields.e2;
                                     if (!_v14.$) {
                                         var justUserMsg = _v14.a;
@@ -20878,10 +20879,10 @@
     };
     var $dillonkearns$elm_pages$Pages$Internal$Platform$view_fn = function (config, model) {
         var _v0 = $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, model);
-        var body = _v0.f7;
+        var body = _v0.f8;
         var title = _v0.lb;
         return {
-            f7: _Utils_ap(_List_fromArray([
+            f8: _Utils_ap(_List_fromArray([
                 $dillonkearns$elm_pages$Pages$Internal$Platform$onViewChangeElement(model.le),
                 $dillonkearns$elm_pages$AriaLiveAnnouncer$view(model.bN)
             ]), $elm$core$List$map_fn($elm$html$Html$map($dillonkearns$elm_pages$Pages$Internal$Platform$UserMsg), body)),
@@ -21022,7 +21023,7 @@
     };
     var $lamdera$codecs$Lamdera$Wire3$decodeString = $elm$bytes$Bytes$Decode$andThen_fn($elm$bytes$Bytes$Decode$string, $lamdera$codecs$Lamdera$Wire3$decodeInt64);
     var $author$project$Content$About$w3_decode_Author = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($lamdera$codecs$Lamdera$Wire3$decodePair_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$decodeString)), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$succeedDecode(F7(function (avatar0, body0, company0, name0, occupation0, slug0, socials0) {
-        return { f2: avatar0, f7: body0, gd: company0, kh: name0, gW: occupation0, fv: slug0, hd: socials0 };
+        return { f3: avatar0, f8: body0, ge: company0, kh: name0, gX: occupation0, fv: slug0, he: socials0 };
     })))))))));
     var $author$project$Route$About$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$About$w3_decode_Author, $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (author0) {
         return { dQ: author0 };
@@ -21090,7 +21091,7 @@
                                     return function (tags0) {
                                         return function (title0) {
                                             return function (updatedAt0) {
-                                                return { f1: authors0, f9: category0, jq: description0, gC: image0, el: publishedAt0, kM: readingTimeInMin0, fv: slug0, hf: status0, hr: tags0, lb: title0, fK: updatedAt0 };
+                                                return { f2: authors0, ga: category0, jq: description0, gD: image0, el: publishedAt0, kM: readingTimeInMin0, fv: slug0, hf: status0, hr: tags0, lb: title0, fL: updatedAt0 };
                                             };
                                         };
                                     };
@@ -21106,21 +21107,21 @@
         return { dS: blogpostMetadata0 };
     }));
     var $author$project$Content$BlogpostCommon$w3_decode_TagWithCount = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeInt, $lamdera$codecs$Lamdera$Wire3$succeedDecode(F3(function (count0, slug0, title0) {
-        return { gg: count0, fv: slug0, lb: title0 };
+        return { gh: count0, fv: slug0, lb: title0 };
     })))));
     var $author$project$Route$BlogCommon$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_TagWithCount), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_Metadata), $lamdera$codecs$Lamdera$Wire3$succeedDecode(F2(function (blogposts0, tags0) {
-        return { f5: blogposts0, hr: tags0 };
+        return { f6: blogposts0, hr: tags0 };
     }))));
     var $author$project$Route$LifeBlog$w3_decode_Data = $author$project$Route$BlogCommon$w3_decode_Data;
     var $author$project$Content$BlogpostCommon$w3_decode_Blogpost = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($author$project$Content$BlogpostCommon$w3_decode_Metadata), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($author$project$Content$BlogpostCommon$w3_decode_Metadata), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Metadata, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$succeedDecode(F4(function (body0, metadata0, nextPost0, previousPost0) {
-        return { f7: body0, cz: metadata0, ki: nextPost0, kH: previousPost0 };
+        return { f8: body0, cz: metadata0, ki: nextPost0, kH: previousPost0 };
     }))))));
     var $author$project$Route$LifeBlog$Slug_$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Blogpost, $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (blogpost0) {
         return { ao: blogpost0 };
     }));
     var $author$project$Route$Tags$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_TagWithCount);
     var $author$project$Route$Tags$Slug_$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_TagWithCount), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($author$project$Content$BlogpostCommon$w3_decode_TagWithCount), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_Metadata), $lamdera$codecs$Lamdera$Wire3$succeedDecode(F3(function (blogposts0, selectedTag0, tags0) {
-        return { f5: blogposts0, dz: selectedTag0, hr: tags0 };
+        return { f6: blogposts0, dz: selectedTag0, hr: tags0 };
     })))));
     var $author$project$Route$TechBlog$w3_decode_Data = $author$project$Route$BlogCommon$w3_decode_Data;
     var $author$project$Route$TechBlog$Slug_$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Blogpost, $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (blogpost0) {
@@ -21222,13 +21223,13 @@
     };
     var $author$project$Content$About$w3_encode_Author = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.f2),
-            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.f7),
-            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.gd),
+            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.f3),
+            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.f8),
+            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.ge),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.kh),
-            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.gW),
+            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.gX),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.fv),
-            $lamdera$codecs$Lamdera$Wire3$encodeList_fn(A2($lamdera$codecs$Lamdera$Wire3$encodePair, $lamdera$codecs$Lamdera$Wire3$encodeString, $lamdera$codecs$Lamdera$Wire3$encodeString), w3_rec_var0.hd)
+            $lamdera$codecs$Lamdera$Wire3$encodeList_fn(A2($lamdera$codecs$Lamdera$Wire3$encodePair, $lamdera$codecs$Lamdera$Wire3$encodeString, $lamdera$codecs$Lamdera$Wire3$encodeString), w3_rec_var0.he)
         ]));
     };
     var $author$project$Route$About$w3_encode_Data = function (w3_rec_var0) {
@@ -21297,17 +21298,17 @@
     };
     var $author$project$Content$BlogpostCommon$w3_encode_Metadata = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$About$w3_encode_Author, w3_rec_var0.f1),
-            $author$project$Content$BlogpostCommon$w3_encode_Category(w3_rec_var0.f9),
+            $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$About$w3_encode_Author, w3_rec_var0.f2),
+            $author$project$Content$BlogpostCommon$w3_encode_Category(w3_rec_var0.ga),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.jq),
-            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.gC),
+            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.gD),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_encode_DateOrDateTime, w3_rec_var0.el),
             $lamdera$codecs$Lamdera$Wire3$encodeInt(w3_rec_var0.kM),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.fv),
             $author$project$Content$BlogpostCommon$w3_encode_Status(w3_rec_var0.hf),
             $lamdera$codecs$Lamdera$Wire3$encodeList_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.hr),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.lb),
-            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_encode_DateOrDateTime, w3_rec_var0.fK)
+            $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_encode_DateOrDateTime, w3_rec_var0.fL)
         ]));
     };
     var $author$project$Route$Index$w3_encode_Data = function (w3_rec_var0) {
@@ -21317,21 +21318,21 @@
     };
     var $author$project$Content$BlogpostCommon$w3_encode_TagWithCount = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $lamdera$codecs$Lamdera$Wire3$encodeInt(w3_rec_var0.gg),
+            $lamdera$codecs$Lamdera$Wire3$encodeInt(w3_rec_var0.gh),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.fv),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.lb)
         ]));
     };
     var $author$project$Route$BlogCommon$w3_encode_Data = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$BlogpostCommon$w3_encode_Metadata, w3_rec_var0.f5),
+            $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$BlogpostCommon$w3_encode_Metadata, w3_rec_var0.f6),
             $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$BlogpostCommon$w3_encode_TagWithCount, w3_rec_var0.hr)
         ]));
     };
     var $author$project$Route$LifeBlog$w3_encode_Data = $author$project$Route$BlogCommon$w3_encode_Data;
     var $author$project$Content$BlogpostCommon$w3_encode_Blogpost = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.f7),
+            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.f8),
             $author$project$Content$BlogpostCommon$w3_encode_Metadata(w3_rec_var0.cz),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($author$project$Content$BlogpostCommon$w3_encode_Metadata, w3_rec_var0.ki),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($author$project$Content$BlogpostCommon$w3_encode_Metadata, w3_rec_var0.kH)
@@ -21345,7 +21346,7 @@
     var $author$project$Route$Tags$w3_encode_Data_a0 = $author$project$Content$BlogpostCommon$w3_encode_TagWithCount, $author$project$Route$Tags$w3_encode_Data = $lamdera$codecs$Lamdera$Wire3$encodeList($author$project$Route$Tags$w3_encode_Data_a0);
     var $author$project$Route$Tags$Slug_$w3_encode_Data = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$BlogpostCommon$w3_encode_Metadata, w3_rec_var0.f5),
+            $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$BlogpostCommon$w3_encode_Metadata, w3_rec_var0.f6),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($author$project$Content$BlogpostCommon$w3_encode_TagWithCount, w3_rec_var0.dz),
             $lamdera$codecs$Lamdera$Wire3$encodeList_fn($author$project$Content$BlogpostCommon$w3_encode_TagWithCount, w3_rec_var0.hr)
         ]));
@@ -22175,7 +22176,7 @@
                     return $elm$core$Result$fromMaybe_fn($elm$http$Http$BadBody("Couldn't decode bytes."), $elm$bytes$Bytes$Decode$decode_fn(byteDecoder, okBytes));
                 }, bytesResult);
             },
-            gt: options.gt,
+            gu: options.gu,
             jP: _List_Cons(_Utils_Tuple2("elm-pages-action-only", "true"), options.jP),
             le: $elm$core$Maybe$Nothing
         };
@@ -22228,29 +22229,16 @@
     var $author$project$Settings$copyrightYear = "2025";
     var $elm$html$Html$footer = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "footer"), $elm$html$Html$footer_fn = $elm$html$Html$footer.a2;
     var $elm$html$Html$header = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "header"), $elm$html$Html$header_fn = $elm$html$Html$header.a2;
-    var $elm$svg$Svg$Attributes$fillRule_a0 = "fill-rule", $elm$svg$Svg$Attributes$fillRule = _VirtualDom_attribute($elm$svg$Svg$Attributes$fillRule_a0);
-    var $elm$svg$Svg$g = _VirtualDom_nodeNS_fn($elm$svg$Svg$trustedNode_a0, "g"), $elm$svg$Svg$g_fn = $elm$svg$Svg$g.a2;
-    var $author$project$Layout$logo = $elm$html$Html$div_fn(_List_fromArray([
-        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "mr-1 text-primary-600 dark:text-primary-500")
-    ]), _List_fromArray([
-        $elm$svg$Svg$svg_fn(_List_fromArray([
-            _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$width_a0, "80"),
-            _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$height_a0, "80"),
-            _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$viewBox_a0, "0 0 700 351")
-        ]), _List_fromArray([
-            $elm$svg$Svg$g_fn(_List_fromArray([
-                _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$fill_a0, "currentColor"),
-                _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$fillRule_a0, "evenodd")
-            ]), _List_fromArray([
-                $elm$svg$Svg$path_fn(_List_fromArray([
-                    _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$d_a0, "M529.5 169 700 0H359zM349.7 349l79.7-79H270zM266.2 86.5l79 79.7V6.8zM352 180h168l-82 82H270zM175.77 176.5l84.85-84.85 84.85 84.85-84.85 84.85zM353.03 173.3l166.87-1.4L354.44 6.42zM170.5 182 341 351H0z")
-                ]), _List_Nil)
-            ]))
-        ]))
-    ]));
+    var $author$project$Settings$symbolPath = "/images/symbols-and-logos/symbol.svg";
+    var $author$project$Layout$symbol = $elm$html$Html$img_fn(_List_fromArray([
+        $elm$html$Html$Attributes$src($author$project$Settings$symbolPath),
+        $elm$html$Html$Attributes$width(32),
+        $elm$html$Html$Attributes$height(32)
+    ]), _List_Nil);
     var $author$project$Route$Index = { $: 7 };
     var $elm$html$Html$button = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "button"), $elm$html$Html$button_fn = $elm$html$Html$button.a2;
     var $elm$svg$Svg$Attributes$clipRule_a0 = "clip-rule", $elm$svg$Svg$Attributes$clipRule = _VirtualDom_attribute($elm$svg$Svg$Attributes$clipRule_a0);
+    var $elm$svg$Svg$Attributes$fillRule_a0 = "fill-rule", $elm$svg$Svg$Attributes$fillRule = _VirtualDom_attribute($elm$svg$Svg$Attributes$fillRule_a0);
     var $author$project$Route$About = { $: 3 };
     var $author$project$Route$Tags = { $: 5 };
     var $author$project$Layout$menu = _List_fromArray([
@@ -22370,7 +22358,7 @@
                                 $elm$html$Html$div_fn(_List_fromArray([
                                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex items-center justify-between")
                                 ]), _List_fromArray([
-                                    $author$project$Layout$logo,
+                                    $author$project$Layout$symbol,
                                     $elm$html$Html$div_fn(_List_fromArray([
                                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "h-6 text-2xl font-semibold dark:text-white")
                                     ]), _List_fromArray([
@@ -22428,7 +22416,7 @@
     }, $author$project$Layout$view = F3($author$project$Layout$view_fn);
     var $author$project$Shared$view_fn = function (_v0, _v1, model, toMsg, pageView) {
         return {
-            f7: $author$project$Layout$view_fn(model.cC, toMsg(0), pageView.f7),
+            f8: $author$project$Layout$view_fn(model.cC, toMsg(0), pageView.f8),
             lb: pageView.lb
         };
     }, $author$project$Shared$view = F5($author$project$Shared$view_fn);
@@ -22465,7 +22453,7 @@
                                 var routeParams = _v3.a.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelLifeBlog__Slug_, $author$project$Effect$map($author$project$Main$MsgLifeBlog__Slug_), A2($author$project$Route$LifeBlog$Slug_$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (!andThenUnpack.$) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22495,7 +22483,7 @@
                                 var routeParams = _v3.a.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelTags__Slug_, $author$project$Effect$map($author$project$Main$MsgTags__Slug_), A2($author$project$Route$Tags$Slug_$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 1) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22525,7 +22513,7 @@
                                 var routeParams = _v3.a.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelTechBlog__Slug_, $author$project$Effect$map($author$project$Main$MsgTechBlog__Slug_), A2($author$project$Route$TechBlog$Slug_$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 2) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22555,7 +22543,7 @@
                                 var _v7 = _v3.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelAbout, $author$project$Effect$map($author$project$Main$MsgAbout), A2($author$project$Route$About$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 3) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22585,7 +22573,7 @@
                                 var _v9 = _v3.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelLifeBlog, $author$project$Effect$map($author$project$Main$MsgLifeBlog), A2($author$project$Route$LifeBlog$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 4) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22615,7 +22603,7 @@
                                 var _v11 = _v3.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelTags, $author$project$Effect$map($author$project$Main$MsgTags), A2($author$project$Route$Tags$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 5) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22645,7 +22633,7 @@
                                 var _v13 = _v3.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelTechBlog, $author$project$Effect$map($author$project$Main$MsgTechBlog), A2($author$project$Route$TechBlog$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 6) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -22675,7 +22663,7 @@
                                 var _v15 = _v3.a;
                                 var thisPageData = _v3.b.a;
                                 return $elm$core$Tuple$mapBoth_fn($author$project$Main$ModelIndex, $author$project$Effect$map($author$project$Main$MsgIndex), A2($author$project$Route$Index$route.a6, sharedModel, {
-                                    fN: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
+                                    fO: $elm$core$Maybe$andThen_fn(function (andThenUnpack) {
                                         if (andThenUnpack.$ === 7) {
                                             var thisActionData = andThenUnpack.a;
                                             return $elm$core$Maybe$Just(thisActionData);
@@ -23084,7 +23072,7 @@
                     var pageUrl = _v8.b;
                     var justPage = _v8.c;
                     var _v9 = $author$project$Main$fooFn_fn($author$project$Main$ModelLifeBlog__Slug_, $author$project$Main$MsgLifeBlog__Slug_, model, A4($author$project$Route$LifeBlog$Slug_$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (!mapUnpack0.$) {
@@ -23138,7 +23126,7 @@
                     var pageUrl = _v13.b;
                     var justPage = _v13.c;
                     var _v14 = $author$project$Main$fooFn_fn($author$project$Main$ModelTags__Slug_, $author$project$Main$MsgTags__Slug_, model, A4($author$project$Route$Tags$Slug_$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 1) {
@@ -23192,7 +23180,7 @@
                     var pageUrl = _v18.b;
                     var justPage = _v18.c;
                     var _v19 = $author$project$Main$fooFn_fn($author$project$Main$ModelTechBlog__Slug_, $author$project$Main$MsgTechBlog__Slug_, model, A4($author$project$Route$TechBlog$Slug_$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 2) {
@@ -23246,7 +23234,7 @@
                     var pageUrl = _v23.b;
                     var justPage = _v23.c;
                     var _v25 = $author$project$Main$fooFn_fn($author$project$Main$ModelAbout, $author$project$Main$MsgAbout, model, A4($author$project$Route$About$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 3) {
@@ -23300,7 +23288,7 @@
                     var pageUrl = _v29.b;
                     var justPage = _v29.c;
                     var _v31 = $author$project$Main$fooFn_fn($author$project$Main$ModelLifeBlog, $author$project$Main$MsgLifeBlog, model, A4($author$project$Route$LifeBlog$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 4) {
@@ -23354,7 +23342,7 @@
                     var pageUrl = _v35.b;
                     var justPage = _v35.c;
                     var _v37 = $author$project$Main$fooFn_fn($author$project$Main$ModelTags, $author$project$Main$MsgTags, model, A4($author$project$Route$Tags$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 5) {
@@ -23408,7 +23396,7 @@
                     var pageUrl = _v41.b;
                     var justPage = _v41.c;
                     var _v43 = $author$project$Main$fooFn_fn($author$project$Main$ModelTechBlog, $author$project$Main$MsgTechBlog, model, A4($author$project$Route$TechBlog$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 6) {
@@ -23462,7 +23450,7 @@
                     var pageUrl = _v47.b;
                     var justPage = _v47.c;
                     var _v49 = $author$project$Main$fooFn_fn($author$project$Main$ModelIndex, $author$project$Main$MsgIndex, model, A4($author$project$Route$Index$route.aS, {
-                        fN: $elm$core$Maybe$Nothing,
+                        fO: $elm$core$Maybe$Nothing,
                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(function (mapUnpack0) {
                                 if (mapUnpack0.$ === 7) {
@@ -23597,13 +23585,13 @@
             case 1:
                 var info = msg.a;
                 return $dillonkearns$elm_pages$Pages$Internal$Msg$Submit({
-                    fN: info.fN,
-                    gt: info.gt,
-                    gB: info.gB,
-                    gQ: info.gQ,
+                    fO: info.fO,
+                    gu: info.gu,
+                    gC: info.gC,
+                    gR: info.gR,
                     e2: $elm$core$Maybe$map_fn(mapFn, info.e2),
-                    fL: info.fL,
-                    fM: info.fM
+                    fM: info.fM,
+                    fN: info.fN
                 });
             case 2:
                 var value = msg.a;
@@ -23617,12 +23605,12 @@
     }, $dillonkearns$elm_pages$PagesMsg$map = F2($dillonkearns$elm_pages$PagesMsg$map_fn);
     var $author$project$View$map_fn = function (fn, doc) {
         return {
-            f7: $elm$core$List$map_fn($elm$html$Html$map(fn), doc.f7),
+            f8: $elm$core$List$map_fn($elm$html$Html$map(fn), doc.f8),
             lb: doc.lb
         };
     }, $author$project$View$map = F2($author$project$View$map_fn);
     var $author$project$Main$modelMismatchView = {
-        f7: _List_fromArray([
+        f8: _List_fromArray([
             $elm$html$Html$text("Model mismatch")
         ]),
         lb: "Model mismatch"
@@ -23630,7 +23618,7 @@
     var $author$project$ErrorPage$view_fn = function (error, _v0) {
         if (!error.$) {
             return {
-                f7: _List_fromArray([
+                f8: _List_fromArray([
                     $elm$html$Html$div_fn(_List_Nil, _List_fromArray([
                         $elm$html$Html$p_fn(_List_Nil, _List_fromArray([
                             $elm$html$Html$text("Page not found. Maybe try another URL?")
@@ -23643,7 +23631,7 @@
         else {
             var reason = error.a;
             return {
-                f7: _List_fromArray([
+                f8: _List_fromArray([
                     $elm$html$Html$div_fn(_List_Nil, _List_fromArray([
                         $elm$html$Html$p_fn(_List_Nil, _List_fromArray([
                             $elm$html$Html$text("Internal error: " + reason)
@@ -23699,7 +23687,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgLifeBlog__Slug_), A3($author$project$Route$LifeBlog$Slug_$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -23744,7 +23732,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgTags__Slug_), A3($author$project$Route$Tags$Slug_$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -23789,7 +23777,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgTechBlog__Slug_), A3($author$project$Route$TechBlog$Slug_$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -23834,7 +23822,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgAbout), A3($author$project$Route$About$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -23879,7 +23867,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgLifeBlog), A3($author$project$Route$LifeBlog$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -23924,7 +23912,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgTags), A3($author$project$Route$Tags$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -23969,7 +23957,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgTechBlog), A3($author$project$Route$TechBlog$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -24014,7 +24002,7 @@
                                     return A5($author$project$Shared$template.s, globalData, page, model.f, function (myMsg) {
                                         return $dillonkearns$elm_pages$PagesMsg$fromMsg($author$project$Main$MsgGlobal(myMsg));
                                     }, $author$project$View$map_fn($dillonkearns$elm_pages$PagesMsg$map($author$project$Main$MsgIndex), A3($author$project$Route$Index$route.s, model.f, subModel, {
-                                        fN: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
+                                        fO: $elm$core$Maybe$andThen_fn(actionDataOrNothing, actionData),
                                         B: $elm$core$Dict$map_fn(function (mapUnpack) {
                                             return $dillonkearns$elm_pages$Pages$ConcurrentSubmission$map(actionDataOrNothing);
                                         }, concurrentSubmissions),
@@ -24045,7 +24033,7 @@
             aV: _List_Nil,
             s: function (_v23) {
                 return {
-                    f7: _List_fromArray([
+                    f8: _List_fromArray([
                         $elm$html$Html$div_fn(_List_Nil, _List_fromArray([
                             $elm$html$Html$text("This page could not be found.")
                         ]))
@@ -24056,7 +24044,7 @@
         };
     }, $author$project$Main$view = F8($author$project$Main$view_fn);
     var $author$project$Main$main = $dillonkearns$elm_pages$Pages$Internal$Platform$application({
-        fN: $author$project$Main$action,
+        fO: $author$project$Main$action,
         i2: function (htmlToString) {
             return _List_Nil;
         },
