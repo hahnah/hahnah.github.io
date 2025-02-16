@@ -109,7 +109,7 @@ title =
 
 subtitle : String
 subtitle =
-    "A blog template created with elm-pages and TailwindCSS by Hahnah (Natsuki Harai)."
+    "これは原井夏樹の人生の記録"
 
 
 author : String
