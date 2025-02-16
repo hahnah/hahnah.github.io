@@ -35,7 +35,7 @@ manifest =
         { name = Settings.title
         , description = Settings.subtitle
         , startUrl = Route.Index |> Route.toPath
-        , icons = Settings.logosForManifest
+        , icons = Settings.symbolsForManifest
         }
 
 

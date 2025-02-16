@@ -5,10 +5,11 @@ module Settings exposing
     , copyrightYear
     , domain
     , locale
-    , logoImageForSeo
-    , logoUrl
-    , logosForManifest
     , subtitle
+    , symbolAndLogoForSeo
+    , symbolAndLogoPath
+    , symbolAndLogoUrl
+    , symbolsForManifest
     , title
     , xId
     )
@@ -37,22 +38,27 @@ baseUrl =
     "https://" ++ domain ++ basePath
 
 
-logoUrl : Url
-logoUrl =
-    [ "media", "blog-image.png" ] |> UrlPath.join |> Pages.Url.fromPath
+symbolAndLogoPath : String
+symbolAndLogoPath =
+    "/images/symbols-and-logos/symbol-and-logo.png"
 
 
-logoImageForSeo : Head.Seo.Image
-logoImageForSeo =
-    { url = logoUrl
-    , alt = "logo"
+symbolAndLogoUrl : Url
+symbolAndLogoUrl =
+    [ "images", "symbols-and-logos", "symbol-and-logo.png" ] |> UrlPath.join |> Pages.Url.fromPath
+
+
+symbolAndLogoForSeo : Head.Seo.Image
+symbolAndLogoForSeo =
+    { url = symbolAndLogoUrl
+    , alt = "symbol"
     , dimensions = Just { width = 500, height = 333 }
     , mimeType = Nothing
     }
 
 
-logosForManifest : List Manifest.Icon
-logosForManifest =
+symbolsForManifest : List Manifest.Icon
+symbolsForManifest =
     let
         webpMimeType : MimeImage
         webpMimeType =
@@ -62,22 +68,22 @@ logosForManifest =
         purposes =
             [ Manifest.IconPurposeAny, Manifest.IconPurposeMaskable ]
     in
-    [ { src = [ "images", "logos", "logo-192x192.png" ] |> UrlPath.join |> Pages.Url.fromPath
+    [ { src = [ "images", "symbols-and-logos", "symbol-192x192.png" ] |> UrlPath.join |> Pages.Url.fromPath
       , sizes = [ ( 192, 192 ) ]
       , mimeType = Just MimeType.Png
       , purposes = purposes
       }
-    , { src = [ "images", "logos", "logo-192x192.webp" ] |> UrlPath.join |> Pages.Url.fromPath
+    , { src = [ "images", "symbols-and-logos", "symbol-192x192.webp" ] |> UrlPath.join |> Pages.Url.fromPath
       , sizes = [ ( 192, 192 ) ]
       , mimeType = Just webpMimeType
       , purposes = purposes
       }
-    , { src = [ "images", "logos", "logo-512x512.png" ] |> UrlPath.join |> Pages.Url.fromPath
+    , { src = [ "images", "symbols-and-logos", "symbol-512x512.png" ] |> UrlPath.join |> Pages.Url.fromPath
       , sizes = [ ( 512, 512 ) ]
       , mimeType = Just MimeType.Png
       , purposes = purposes
       }
-    , { src = [ "images", "logos", "logo-512x512.webp" ] |> UrlPath.join |> Pages.Url.fromPath
+    , { src = [ "images", "symbols-and-logos", "symbol-512x512.webp" ] |> UrlPath.join |> Pages.Url.fromPath
       , sizes = [ ( 512, 512 ) ]
       , mimeType = Just webpMimeType
       , purposes = purposes

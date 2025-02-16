@@ -68,7 +68,7 @@ head app =
     let
         imagePath =
             app.data.blogpost.metadata.image
-                |> Maybe.withDefault "/media/blog-image.png"
+                |> Maybe.withDefault Settings.symbolAndLogoPath
 
         creatorHeader =
             case Settings.xId of
