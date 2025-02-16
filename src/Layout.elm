@@ -215,7 +215,7 @@ view showMenu onMenuToggle body =
                     [ Html.a
                         [ Attrs.target "_blank"
                         , Attrs.rel "noopener noreferrer"
-                        , Attrs.href "https://github.com/hahnah/elm-pages-blog-template"
+                        , Attrs.href "https://github.com/hahnah/hahnah.github.io"
                         , Attrs.class "hover:underline"
                         ]
                         [ Html.text "source code" ]
