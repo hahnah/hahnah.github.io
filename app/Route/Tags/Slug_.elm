@@ -98,7 +98,7 @@ head app =
     Seo.summary
         { canonicalUrlOverride = Nothing
         , siteName = Settings.title
-        , image = Settings.logoImageForSeo
+        , image = Settings.symbolAndLogoForSeo
         , description =
             case app.data.selectedTag of
                 Just tag ->

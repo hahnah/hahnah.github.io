@@ -25,14 +25,22 @@ routes getStaticRoutes htmlToString =
     [ sitemap <| makeSitemapEntries getStaticRoutes ]
 
 
+
+-- Manifest
+
+
 manifest : Manifest.Config
 manifest =
     Manifest.init
         { name = Settings.title
         , description = Settings.subtitle
         , startUrl = Route.Index |> Route.toPath
-        , icons = []
+        , icons = Settings.symbolsForManifest
         }
+
+
+
+-- Sitemap
 
 
 sitemap :

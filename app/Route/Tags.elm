@@ -56,7 +56,7 @@ head _ =
     Seo.summaryLarge
         { canonicalUrlOverride = Nothing
         , siteName = Settings.title
-        , image = Settings.logoImageForSeo
+        , image = Settings.symbolAndLogoForSeo
         , description = "List of Tags."
         , locale = Settings.locale
         , title = "Tags"
