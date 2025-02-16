@@ -18,8 +18,8 @@ menu =
     ]
 
 
-logo : Html msg
-logo =
+symbol : Html msg
+symbol =
     Html.div
         [ Attrs.class "mr-1 text-primary-600 dark:text-primary-500"
         ]
@@ -193,7 +193,7 @@ view showMenu onMenuToggle body =
                         [ Html.div
                             [ Attrs.class "flex items-center justify-between"
                             ]
-                            [ logo
+                            [ symbol
                             , Html.div
                                 [ Attrs.class "h-6 text-2xl font-semibold dark:text-white"
                                 ]
