@@ -178,7 +178,7 @@ view showMenu onMenuToggle body =
                         , Attrs.href Settings.basePath
                         ]
                         [ Html.div
-                            [ Attrs.class "flex items-center justify-between"
+                            [ Attrs.class "flex items-center justify-between gap-4"
                             ]
                             [ symbol
                             , Html.div
