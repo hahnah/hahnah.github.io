@@ -4,6 +4,7 @@ module Settings exposing
     , baseUrl
     , copyrightYear
     , domain
+    , githubUrl
     , locale
     , subtitle
     , symbolAndLogoForSeo
@@ -114,12 +115,17 @@ subtitle =
 
 author : String
 author =
-    "Hahnah"
+    "Natsuki Harai"
 
 
 copyrightYear : String
 copyrightYear =
     "2025"
+
+
+githubUrl : String
+githubUrl =
+    "https://github.com/hahnah"
 
 
 xId : Maybe String
