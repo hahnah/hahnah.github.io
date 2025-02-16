@@ -9,6 +9,7 @@ module Settings exposing
     , symbolAndLogoForSeo
     , symbolAndLogoPath
     , symbolAndLogoUrl
+    , symbolPath
     , symbolsForManifest
     , title
     , xId
@@ -36,6 +37,11 @@ basePath =
 baseUrl : String
 baseUrl =
     "https://" ++ domain ++ basePath
+
+
+symbolPath : String
+symbolPath =
+    "/images/symbols-and-logos/symbol.svg"
 
 
 symbolAndLogoPath : String

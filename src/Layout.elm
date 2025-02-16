@@ -20,25 +20,12 @@ menu =
 
 symbol : Html msg
 symbol =
-    Html.div
-        [ Attrs.class "mr-1 text-primary-600 dark:text-primary-500"
+    Html.img
+        [ Attrs.src Settings.symbolPath
+        , Attrs.width 32
+        , Attrs.height 32
         ]
-        [ Svg.svg
-            [ SvgAttrs.width "80"
-            , SvgAttrs.height "80"
-            , SvgAttrs.viewBox "0 0 700 351"
-            ]
-            [ Svg.g
-                [ SvgAttrs.fill "currentColor"
-                , SvgAttrs.fillRule "evenodd"
-                ]
-                [ Svg.path
-                    [ SvgAttrs.d "M529.5 169 700 0H359zM349.7 349l79.7-79H270zM266.2 86.5l79 79.7V6.8zM352 180h168l-82 82H270zM175.77 176.5l84.85-84.85 84.85 84.85-84.85 84.85zM353.03 173.3l166.87-1.4L354.44 6.42zM170.5 182 341 351H0z"
-                    ]
-                    []
-                ]
-            ]
-        ]
+        []
 
 
 viewMainMenuItem : { label : String, route : Route } -> Html msg
