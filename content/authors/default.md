@@ -1,17 +1,21 @@
 ---
-name: Default Author
-avatar: /images/authors/default.webp
-occupation: Professor of Functional Programming
-company: East Elm University
+name: Natsuki Harai
+avatar: /images/authors/natsuki-harai.jpg
+occupation: Webフルスタックエンジニア
+# company:
 socials:
-  email: defaultauthor.@example.com
-  x: https://x.com
-  facebook: https://www.facebook.com
-  linkedin: https://www.linkedin.com
-  youtube: https://youtube.com
-  github: https://github.com
+  github: https://github.com/hahnah
+  x: https://x.com/superhahnah
+  facebook: https://www.facebook.com/share/1T9KiWmfrL
+  instagram: https://www.instagram.com/hahnah8787
+  youtube: https://www.youtube.com/@hahnahgaming
+  twitch: https://www.twitch.tv/hahnah87
 ---
 
-# Hi there!
+# 原井 夏樹
 
-I'm Default Author.
+またの名を "Hahnah" (はーなー)といいます。
+
+他にも "なっちゃん" や "ナッツ" と呼ばれることもあります。
+
+（後でもうちょっとなんか書きます...出身地とか略歴とか。性格とかも。）
