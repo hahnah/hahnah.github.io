@@ -10,6 +10,7 @@ import Content.TechBlogpost
 import FatalError exposing (FatalError)
 import Html exposing (Html)
 import Iso8601
+import Layout.Index
 import Pages
 import Pages.Manifest as Manifest
 import Route exposing (Route(..))
@@ -74,6 +75,12 @@ makeSitemapEntries getStaticRoutes =
             in
             case route of
                 Index ->
+                    Just <| routeSource <| Just <| Layout.Index.updatedAt
+
+                About ->
+                    Just <| routeSource <| Just <| Content.About.updatedAt
+
+                Blog ->
                     Just <|
                         BackendTask.andThen routeSource <|
                             BackendTask.map
@@ -83,9 +90,6 @@ makeSitemapEntries getStaticRoutes =
                                         |> List.maximum
                                 )
                                 Content.AllBlogpost.allBlogposts
-
-                About ->
-                    Just <| routeSource <| Just <| Content.About.updatedAt
 
                 TechBlog ->
                     Just <|

@@ -4,6 +4,7 @@ module Settings exposing
     , baseUrl
     , copyrightYear
     , domain
+    , githubUrl
     , locale
     , subtitle
     , symbolAndLogoForSeo
@@ -104,22 +105,27 @@ locale =
 
 title : String
 title =
-    "Hahnah's elm-pages Blog Template"
+    "Hahnah Chronicle"
 
 
 subtitle : String
 subtitle =
-    "A blog template created with elm-pages and TailwindCSS by Hahnah (Natsuki Harai)."
+    "これは原井夏樹の人生の記録"
 
 
 author : String
 author =
-    "Hahnah"
+    "Natsuki Harai"
 
 
 copyrightYear : String
 copyrightYear =
     "2025"
+
+
+githubUrl : String
+githubUrl =
+    "https://github.com/hahnah"
 
 
 xId : Maybe String
