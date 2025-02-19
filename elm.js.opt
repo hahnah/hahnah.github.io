@@ -12076,7 +12076,7 @@
                         $elm$virtual_dom$VirtualDom$attribute_fn("decoding", "async"),
                         $elm$virtual_dom$VirtualDom$attribute_fn("data-nimg", "1"),
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "h-48 w-48 rounded-full"),
-                        $elm$html$Html$Attributes$src("/images/authors/default.webp"),
+                        $elm$html$Html$Attributes$src("/images/authors/natsuki-harai.jpg"),
                         _VirtualDom_style_fn("color", "transparent")
                     ]), _List_Nil),
                     $elm$html$Html$h3_fn(_List_fromArray([
