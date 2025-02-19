@@ -1,5 +1,5 @@
 ---
-name: Natsuki Harai
+name: 原井 夏樹
 avatar: /images/authors/natsuki-harai.jpg
 occupation: Webフルスタックエンジニア
 # company:
@@ -12,7 +12,7 @@ socials:
   twitch: https://www.twitch.tv/hahnah87
 ---
 
-# 原井 夏樹
+# Natsuki Harai
 
 またの名を "Hahnah" (はーなー)といいます。
 
