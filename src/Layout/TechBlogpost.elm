@@ -107,6 +107,11 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         [ Html.text metadata.title
                         ]
                     , authorsView
+                    , Html.div
+                        [ Attrs.class "flex flex-wrap space-x-4 sm:space-x-2"
+                        ]
+                      <|
+                        List.map Layout.Tags.viewTag metadata.tags
                     ]
                 , Html.Extra.viewMaybe
                     (\imagePath ->
