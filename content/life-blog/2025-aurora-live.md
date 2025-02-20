@@ -104,7 +104,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 
 新しい学校のリーダーズが歌うパートでは日本語版歌詞になっていて、かなりレアなものが見れた。この1曲のためだけにわざわざ来てくれたのか！？
 
-曲は "The River"。  
+曲は "Some Type Of Skin"。  
 これも盛り上がるやつで好き。
 
 ![新しい学校のリーダーズ](/images/life-blog/2025-aurora-live/aurora-with-atarashii-gakkou-no-leaders.jpg)
