@@ -94,10 +94,7 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         [ Html.span [ Attrs.class "text-lg font-bold text-black dark:text-white" ] [ Html.text <| String.join ", " <| List.map .name blogpostAuthors ]
                         , Html.div [ Attrs.class "flex space-x-4 text-base" ]
                             [ viewPublishedDate metadata.status
-                            , Html.span []
-                                [ Html.text <| String.fromInt metadata.readingTimeInMin
-                                , Html.text " min reading time"
-                                ]
+                            , viewUpdatedDate metadata.status
                             ]
                         ]
                     ]
@@ -113,6 +110,11 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         [ Html.text metadata.title
                         ]
                     , authorsView
+                    , Html.div
+                        [ Attrs.class "flex flex-wrap space-x-4 sm:space-x-2"
+                        ]
+                      <|
+                        List.map Layout.Tags.viewTag metadata.tags
                     ]
                 , Html.Extra.viewMaybe
                     (\imagePath ->
@@ -187,7 +189,7 @@ viewPublishedDate status =
                     [ Html.time
                         [ Attrs.datetime <| Date.toIsoString date
                         ]
-                        [ Html.text <| Date.format "MMM d, YYYY" date ]
+                        [ Html.text <| Date.format "YYYY年M月d日" date ]
                     ]
                 ]
 
@@ -203,7 +205,7 @@ viewPublishedDate status =
                     [ Html.time
                         [ Attrs.datetime <| Date.toIsoString publishedDate
                         ]
-                        [ Html.text <| Date.format "MMM d, YYYY" publishedDate ]
+                        [ Html.text <| Date.format "YYYY年M月d日" publishedDate ]
                     ]
                 ]
 
@@ -236,7 +238,7 @@ viewUpdatedDate status =
                             |> Phosphor.toHtml []
                         , Html.time
                             [ Attrs.datetime <| Date.toIsoString updatedDate ]
-                            [ Html.text <| Date.format "MMM d, YYYY" updatedDate ]
+                            [ Html.text <| Date.format "YYYY年M月d日" updatedDate ]
                         ]
                     ]
                 ]
@@ -274,7 +276,7 @@ viewBlogpostMetadata metadata =
                             [ Html.text metadata.title ]
                     ]
                 , Html.div
-                    [ Attrs.class "flex flex-wrap"
+                    [ Attrs.class "flex flex-wrap space-x-4 sm:space-x-2"
                     ]
                   <|
                     List.map Layout.Tags.viewTag metadata.tags

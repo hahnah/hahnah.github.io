@@ -92,10 +92,6 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         , Html.div [ Attrs.class "flex flex-wrap space-x-4 text-base" ]
                             [ viewPublishedDate metadata.status
                             , viewUpdatedDate metadata.status
-                            , Html.span []
-                                [ Html.text <| String.fromInt metadata.readingTimeInMin
-                                , Html.text " min reading time"
-                                ]
                             ]
                         ]
                     ]
@@ -111,6 +107,11 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         [ Html.text metadata.title
                         ]
                     , authorsView
+                    , Html.div
+                        [ Attrs.class "flex flex-wrap space-x-4 sm:space-x-2"
+                        ]
+                      <|
+                        List.map Layout.Tags.viewTag metadata.tags
                     ]
                 , Html.Extra.viewMaybe
                     (\imagePath ->
@@ -193,7 +194,7 @@ viewBlogpostMetadata metadata =
                             [ Html.text metadata.title ]
                     ]
                 , Html.div
-                    [ Attrs.class "flex flex-wrap"
+                    [ Attrs.class "flex flex-wrap space-x-4 sm:space-x-2"
                     ]
                   <|
                     List.map Layout.Tags.viewTag metadata.tags
@@ -277,7 +278,7 @@ viewPostList tags metadata selectedTag =
                     Html.h1
                         [ Attrs.class "sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
                         ]
-                        [ Html.text "All Posts" ]
+                        [ Html.text "Life Posts" ]
 
         allPostsLink =
             case selectedTag of
@@ -288,14 +289,14 @@ viewPostList tags metadata selectedTag =
                             [ Html.h3
                                 [ Attrs.class "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase"
                                 ]
-                                [ Html.text "All Posts" ]
+                                [ Html.text "Life Posts" ]
                             ]
 
                 Nothing ->
                     Html.h3
                         [ Attrs.class "text-primary-700 dark:text-primary-500 font-bold uppercase"
                         ]
-                        [ Html.text "All Posts" ]
+                        [ Html.text "Life Posts" ]
     in
     [ Html.div [ Attrs.class "pb-6 pt-6" ] [ header ]
     , Html.div [ Attrs.class "flex sm:space-x-2 md:space-x-12" ]

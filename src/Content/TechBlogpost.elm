@@ -69,14 +69,6 @@ allBlogposts =
                     )
                 |> BackendTask.map Array.toList
 
-        updateReadingTime blogposts =
-            let
-                updatedMetadata blogpost metadata =
-                    { metadata | readingTimeInMin = String.split " " blogpost |> List.length |> (\words -> words // 200) }
-            in
-            blogposts
-                |> BackendTask.map (List.map (\blogpost -> { blogpost | metadata = updatedMetadata blogpost.body blogpost.metadata }))
-
         addDraftTag metadata =
             case metadata.status of
                 Draft ->
@@ -120,7 +112,6 @@ allBlogposts =
         |> BackendTask.map
             (List.sortBy (.metadata >> Content.BlogpostCommon.getPublishedDate >> Date.toRataDie) >> List.reverse)
         |> addPreviousNextPosts
-        |> updateReadingTime
 
 
 allBlogpostsDict : BackendTask FatalError (Dict String Blogpost)
