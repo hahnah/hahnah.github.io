@@ -187,7 +187,7 @@ viewPublishedDate status =
                     [ Html.time
                         [ Attrs.datetime <| Date.toIsoString date
                         ]
-                        [ Html.text <| Date.format "MMM d, YYYY" date ]
+                        [ Html.text <| Date.format "YYYY年M月d日" date ]
                     ]
                 ]
 
@@ -203,7 +203,7 @@ viewPublishedDate status =
                     [ Html.time
                         [ Attrs.datetime <| Date.toIsoString publishedDate
                         ]
-                        [ Html.text <| Date.format "MMM d, YYYY" publishedDate ]
+                        [ Html.text <| Date.format "YYYY年M月d日" publishedDate ]
                     ]
                 ]
 
@@ -236,7 +236,7 @@ viewUpdatedDate status =
                             |> Phosphor.toHtml []
                         , Html.time
                             [ Attrs.datetime <| Date.toIsoString updatedDate ]
-                            [ Html.text <| Date.format "MMM d, YYYY" updatedDate ]
+                            [ Html.text <| Date.format "YYYY年M月d日" updatedDate ]
                         ]
                     ]
                 ]
