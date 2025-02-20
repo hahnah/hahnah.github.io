@@ -94,6 +94,7 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         [ Html.span [ Attrs.class "text-lg font-bold text-black dark:text-white" ] [ Html.text <| String.join ", " <| List.map .name blogpostAuthors ]
                         , Html.div [ Attrs.class "flex space-x-4 text-base" ]
                             [ viewPublishedDate metadata.status
+                            , viewUpdatedDate metadata.status
                             ]
                         ]
                     ]
