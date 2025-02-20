@@ -12135,10 +12135,10 @@
     var $author$project$Route$Blog$head = function (_v0) {
         return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: "Blog" }));
     };
+    var $author$project$Route$Blog = { $: 4 };
     var $author$project$Route$Tags__Slug_ = function (a) {
         return { $: 1, a: a };
     };
-    var $author$project$Route$TechBlog = { $: 7 };
     var $elm$core$Tuple$second = function (_v0) {
         var y = _v0.b;
         return y;
@@ -13219,7 +13219,7 @@
                     ]), _List_fromArray([
                         $elm$html$Html$text("All Posts")
                     ]))
-                ]), $author$project$Route$TechBlog);
+                ]), $author$project$Route$Blog);
             }
             else {
                 return $elm$html$Html$h3_fn(_List_fromArray([
@@ -13353,7 +13353,6 @@
         $elm$html$Html$Attributes$height(144),
         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "rounded-full")
     ]), _List_Nil);
-    var $author$project$Route$Blog = { $: 4 };
     var $phosphor_icons$phosphor_elm$Phosphor$books = function (weight) {
         var elements = function () {
             switch (weight) {
@@ -18605,6 +18604,7 @@
     var $author$project$Route$TechBlog$head = function (_v0) {
         return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Tech Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: "Tech Blog" }));
     };
+    var $author$project$Route$TechBlog = { $: 7 };
     var $author$project$Layout$TechBlogpost$viewPublishedDate = $author$project$Layout$Blogpost$viewPublishedDate;
     var $author$project$Layout$TechBlogpost$viewBlogpostMetadata = function (metadata) {
         return $elm$html$Html$article_fn(_List_fromArray([
