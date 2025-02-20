@@ -2925,7 +2925,7 @@
                 bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
                 currNode = nextNode;
                 _VirtualDom_divertHrefToApp = 0;
-                (title !== doc.lb) && (_VirtualDom_doc.title = title = doc.lb);
+                (title !== doc.la) && (_VirtualDom_doc.title = title = doc.la);
             });
         });
     });
@@ -3077,7 +3077,7 @@
             dJ: {
                 dL: _Browser_window.pageXOffset,
                 dM: _Browser_window.pageYOffset,
-                lk: _Browser_doc.documentElement.clientWidth,
+                lj: _Browser_doc.documentElement.clientWidth,
                 jR: _Browser_doc.documentElement.clientHeight
             }
         };
@@ -3086,7 +3086,7 @@
         var body = _Browser_doc.body;
         var elem = _Browser_doc.documentElement;
         return {
-            lk: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+            lj: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
             jR: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
         };
     }
@@ -3100,13 +3100,13 @@
         return _Browser_withNode(id, function (node) {
             return {
                 dw: {
-                    lk: node.scrollWidth,
+                    lj: node.scrollWidth,
                     jR: node.scrollHeight
                 },
                 dJ: {
                     dL: node.scrollLeft,
                     dM: node.scrollTop,
-                    lk: node.clientWidth,
+                    lj: node.clientWidth,
                     jR: node.clientHeight
                 }
             };
@@ -3129,13 +3129,13 @@
                 dJ: {
                     dL: x,
                     dM: y,
-                    lk: _Browser_doc.documentElement.clientWidth,
+                    lj: _Browser_doc.documentElement.clientWidth,
                     jR: _Browser_doc.documentElement.clientHeight
                 },
                 gq: {
                     dL: x + rect.left,
                     dM: y + rect.top,
-                    lk: rect.width,
+                    lj: rect.width,
                     jR: rect.height
                 }
             };
@@ -3167,10 +3167,10 @@
             xhr.addEventListener("load", function () { done(_Http_toResponse(request.hZ.b, xhr)); });
             $elm$core$Maybe$isJust(request.hv) && _Http_track(router, xhr, request.hv.a);
             try {
-                xhr.open(request.gQ, request.le, true);
+                xhr.open(request.gQ, request.ld, true);
             }
             catch (e) {
-                return done($elm$http$Http$BadUrl_(request.le));
+                return done($elm$http$Http$BadUrl_(request.ld));
             }
             _Http_configureRequest(xhr, request);
             request.f7.a && xhr.setRequestHeader("Content-Type", request.f7.a);
@@ -3191,7 +3191,7 @@
     }
     function _Http_toMetadata(xhr) {
         return {
-            le: xhr.responseURL,
+            ld: xhr.responseURL,
             ab: xhr.status,
             ak: xhr.statusText,
             jP: _Http_parseHeaders(xhr.getAllResponseHeaders())
@@ -3255,8 +3255,8 @@
                 return;
             }
             _Scheduler_rawSpawn(_Platform_sendToSelf_fn(router, _Utils_Tuple2(tracker, $elm$http$Http$Sending({
-                k0: event.loaded,
-                k6: event.total
+                k$: event.loaded,
+                k5: event.total
             }))));
         });
         xhr.addEventListener("progress", function (event) {
@@ -3264,8 +3264,8 @@
                 return;
             }
             _Scheduler_rawSpawn(_Platform_sendToSelf_fn(router, _Utils_Tuple2(tracker, $elm$http$Http$Receiving({
-                kN: event.loaded,
-                k6: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
+                kM: event.loaded,
+                k5: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
             }))));
         });
     }
@@ -3910,7 +3910,7 @@
         return info;
     };
     var $dillonkearns$elm_pages$FatalError$fromString = function (string) {
-        return $dillonkearns$elm_pages$FatalError$build({ f7: string, lb: "Custom Error" });
+        return $dillonkearns$elm_pages$FatalError$build({ f7: string, la: "Custom Error" });
     };
     var $dillonkearns$elm_pages$Pages$Url$Internal = function (a) {
         return { $: 0, a: a };
@@ -4171,7 +4171,7 @@
         switch (card.$) {
             case 0:
                 var details = card.a;
-                var _v1 = details.k6;
+                var _v1 = details.k5;
                 if (!_v1) {
                     return "summary";
                 }
@@ -4196,11 +4196,11 @@
                 case 0:
                     var details = card.a;
                     return _List_fromArray([
-                        _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.lb))),
+                        _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.la))),
                         _Utils_Tuple2("twitter:site", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.hc)),
                         _Utils_Tuple2("twitter:description", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.jq)),
                         _Utils_Tuple2("twitter:image", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$urlAttribute, $elm$core$Maybe$map_fn(function ($) {
-                            return $.le;
+                            return $.ld;
                         }, details.gC))),
                         _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn(function ($) {
                             return $.i$;
@@ -4209,11 +4209,11 @@
                 case 1:
                     var details = card.a;
                     return _List_fromArray([
-                        _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.lb))),
+                        _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.la))),
                         _Utils_Tuple2("twitter:site", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.hc))),
                         _Utils_Tuple2("twitter:description", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.jq)),
                         _Utils_Tuple2("twitter:image", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$urlAttribute, $elm$core$Maybe$map_fn(function ($) {
-                            return $.le;
+                            return $.ld;
                         }, details.gC))),
                         _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn(function ($) {
                             return $.i$;
@@ -4232,10 +4232,10 @@
                 default:
                     var details = card.a;
                     return _List_fromArray([
-                        _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.lb))),
+                        _Utils_Tuple2("twitter:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.la))),
                         _Utils_Tuple2("twitter:site", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.hc))),
                         _Utils_Tuple2("twitter:description", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, details.jq)),
-                        _Utils_Tuple2("twitter:image", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(details.gC.le))),
+                        _Utils_Tuple2("twitter:image", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(details.gC.ld))),
                         _Utils_Tuple2("twitter:image:alt", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(details.gC.i$)))
                     ]);
             }
@@ -4331,18 +4331,18 @@
     };
     var $dillonkearns$elm_pages$Head$Seo$tagsForAudio = function (audio) {
         return _List_fromArray([
-            _Utils_Tuple2("og:audio", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(audio.le))),
-            _Utils_Tuple2("og:audio:secure_url", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(audio.le))),
+            _Utils_Tuple2("og:audio", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(audio.ld))),
+            _Utils_Tuple2("og:audio:secure_url", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(audio.ld))),
             _Utils_Tuple2("og:audio:type", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, $danyx23$elm_mimetype$MimeType$toString, $dillonkearns$elm_pages$Head$raw), audio.ka))
         ]);
     };
     var $dillonkearns$elm_pages$Head$Seo$tagsForImage = function (image) {
         return _List_fromArray([
-            _Utils_Tuple2("og:image", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(image.le))),
-            _Utils_Tuple2("og:image:secure_url", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(image.le))),
+            _Utils_Tuple2("og:image", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(image.ld))),
+            _Utils_Tuple2("og:image:secure_url", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$urlAttribute(image.ld))),
             _Utils_Tuple2("og:image:alt", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(image.i$))),
             _Utils_Tuple2("og:image:width", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, $elm$core$Maybe$map_fn(function ($) {
-                return $.lk;
+                return $.lj;
             }, image.jr)))),
             _Utils_Tuple2("og:image:height", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, $elm$core$Maybe$map_fn(function ($) {
                 return $.jR;
@@ -4351,10 +4351,10 @@
     };
     var $dillonkearns$elm_pages$Head$Seo$tagsForVideo = function (video) {
         return _List_fromArray([
-            _Utils_Tuple2("og:video", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(video.le))),
-            _Utils_Tuple2("og:video:secure_url", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(video.le))),
+            _Utils_Tuple2("og:video", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(video.ld))),
+            _Utils_Tuple2("og:video:secure_url", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(video.ld))),
             _Utils_Tuple2("og:video:width", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, $elm$core$Maybe$map_fn(function ($) {
-                return $.lk;
+                return $.lj;
             }, video.jr)))),
             _Utils_Tuple2("og:video:height", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($elm$core$String$fromInt, $elm$core$Maybe$map_fn(function ($) {
                 return $.jR;
@@ -4364,10 +4364,10 @@
     };
     var $dillonkearns$elm_pages$Head$Seo$tagsForCommon = function (common) {
         return _Utils_ap($dillonkearns$elm_pages$Head$Seo$tagsForImage(common.gC), _Utils_ap($elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$tagsForAudio, common.bS)), _Utils_ap($elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$tagsForVideo, common.cg)), _Utils_ap(_List_fromArray([
-            _Utils_Tuple2("og:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.lb))),
+            _Utils_Tuple2("og:title", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.la))),
             _Utils_Tuple2("og:url", $elm$core$Maybe$Just($elm$core$Maybe$withDefault_fn($dillonkearns$elm_pages$Head$currentPageFullUrl, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, common.jc)))),
             _Utils_Tuple2("og:description", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.jq))),
-            _Utils_Tuple2("og:site_name", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.k4))),
+            _Utils_Tuple2("og:site_name", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(common.k3))),
             _Utils_Tuple2("og:locale", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$Seo$localeToString, common.j5)))
         ]), _Utils_ap($elm$core$List$map_fn(function (alternateLocale) {
             return _Utils_Tuple2("og:locale:alternate", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw($dillonkearns$elm_pages$Head$Seo$localeToString(alternateLocale))));
@@ -4753,7 +4753,7 @@
         return {
             iU: 1 + (((rd - week1Day1) / 7) | 0),
             iV: wy,
-            lj: $justinmimbs$date$Date$numberToWeekday(wdn)
+            li: $justinmimbs$date$Date$numberToWeekday(wdn)
         };
     };
     var $justinmimbs$date$Date$weekNumber_a0 = $justinmimbs$date$Date$toWeekDate, $justinmimbs$date$Date$weekNumber_a1 = function ($) {
@@ -5027,11 +5027,11 @@
         return { $: 1, a: a, b: b };
     }, $elm$parser$Parser$Advanced$AddRight = F2($elm$parser$Parser$Advanced$AddRight_fn);
     var $elm$parser$Parser$Advanced$DeadEnd_fn = function (row, col, problem, contextStack) {
-        return { eL: col, gf: contextStack, kI: problem, kV: row };
+        return { eL: col, gf: contextStack, kI: problem, kU: row };
     }, $elm$parser$Parser$Advanced$DeadEnd = F4($elm$parser$Parser$Advanced$DeadEnd_fn);
     var $elm$parser$Parser$Advanced$Empty = { $: 0 };
     var $elm$parser$Parser$Advanced$fromState_fn = function (s, x) {
-        return $elm$parser$Parser$Advanced$AddRight_fn($elm$parser$Parser$Advanced$Empty, $elm$parser$Parser$Advanced$DeadEnd_fn(s.kV, s.eL, x, s.l));
+        return $elm$parser$Parser$Advanced$AddRight_fn($elm$parser$Parser$Advanced$Empty, $elm$parser$Parser$Advanced$DeadEnd_fn(s.kU, s.eL, x, s.l));
     }, $elm$parser$Parser$Advanced$fromState = F2($elm$parser$Parser$Advanced$fromState_fn);
     var $elm$core$String$isEmpty = function (string) {
         return string === "";
@@ -5043,11 +5043,11 @@
         var expecting = _v0.b;
         var progress = !$elm$core$String$isEmpty(str);
         return function (s) {
-            var _v1 = _Parser_isSubString_fn(str, s.e6, s.kV, s.eL, s.fy);
+            var _v1 = _Parser_isSubString_fn(str, s.e6, s.kU, s.eL, s.fy);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, l: s.l, d4: s.d4, e6: newOffset, kV: newRow, fy: s.fy });
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, l: s.l, d4: s.d4, e6: newOffset, kU: newRow, fy: s.fy });
         };
     };
     var $elm$parser$Parser$token = function (str) {
@@ -5059,7 +5059,7 @@
     var $elm$parser$Parser$Advanced$chompIf_fn = function (isGood, expecting) {
         return function (s) {
             var newOffset = _Parser_isSubChar_fn(isGood, s.e6, s.fy);
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : (newOffset === -2 ? $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: 1, l: s.l, d4: s.d4, e6: s.e6 + 1, kV: s.kV + 1, fy: s.fy }) : $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: s.eL + 1, l: s.l, d4: s.d4, e6: newOffset, kV: s.kV, fy: s.fy }));
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : (newOffset === -2 ? $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: 1, l: s.l, d4: s.d4, e6: s.e6 + 1, kU: s.kU + 1, fy: s.fy }) : $elm$parser$Parser$Advanced$Good_fn(true, 0, { eL: s.eL + 1, l: s.l, d4: s.d4, e6: newOffset, kU: s.kU, fy: s.fy }));
         };
     }, $elm$parser$Parser$Advanced$chompIf = F2($elm$parser$Parser$Advanced$chompIf_fn);
     var $elm$parser$Parser$chompIf = function (isGood) {
@@ -5072,7 +5072,7 @@
         chompWhileHelp: while (true) {
             var newOffset = _Parser_isSubChar_fn(isGood, offset, s0.fy);
             if (newOffset === -1) {
-                return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s0.e6, offset) < 0, 0, { eL: col, l: s0.l, d4: s0.d4, e6: offset, kV: row, fy: s0.fy });
+                return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s0.e6, offset) < 0, 0, { eL: col, l: s0.l, d4: s0.d4, e6: offset, kU: row, fy: s0.fy });
             }
             else {
                 if (newOffset === -2) {
@@ -5093,7 +5093,7 @@
     }, $elm$parser$Parser$Advanced$chompWhileHelp = F5($elm$parser$Parser$Advanced$chompWhileHelp_fn);
     var $elm$parser$Parser$Advanced$chompWhile = function (isGood) {
         return function (s) {
-            return $elm$parser$Parser$Advanced$chompWhileHelp_fn(isGood, s.e6, s.kV, s.eL, s);
+            return $elm$parser$Parser$Advanced$chompWhileHelp_fn(isGood, s.e6, s.kU, s.eL, s);
         };
     };
     var $elm$parser$Parser$chompWhile = $elm$parser$Parser$Advanced$chompWhile;
@@ -5285,10 +5285,10 @@
         ]));
     };
     var $elm$parser$Parser$DeadEnd_fn = function (row, col, problem) {
-        return { eL: col, kI: problem, kV: row };
+        return { eL: col, kI: problem, kU: row };
     }, $elm$parser$Parser$DeadEnd = F3($elm$parser$Parser$DeadEnd_fn);
     var $elm$parser$Parser$problemToDeadEnd = function (p) {
-        return $elm$parser$Parser$DeadEnd_fn(p.kV, p.eL, p.kI);
+        return $elm$parser$Parser$DeadEnd_fn(p.kU, p.eL, p.kI);
     };
     var $elm$parser$Parser$Advanced$bagToList_fn = function (bag, list) {
         bagToList: while (true) {
@@ -5314,7 +5314,7 @@
     }, $elm$parser$Parser$Advanced$bagToList = F2($elm$parser$Parser$Advanced$bagToList_fn);
     var $elm$parser$Parser$Advanced$run_fn = function (_v0, src) {
         var parse = _v0;
-        var _v1 = parse({ eL: 1, l: _List_Nil, d4: 1, e6: 0, kV: 1, fy: src });
+        var _v1 = parse({ eL: 1, l: _List_Nil, d4: 1, e6: 0, kU: 1, fy: src });
         if (!_v1.$) {
             var value = _v1.b;
             return $elm$core$Result$Ok(value);
@@ -5442,7 +5442,7 @@
                     var articleDetails = details.a;
                     return _Utils_ap(_List_fromArray([
                         _Utils_Tuple2("og:type", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw("article"))),
-                        _Utils_Tuple2("article:section", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, articleDetails.k_)),
+                        _Utils_Tuple2("article:section", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, articleDetails.kZ)),
                         _Utils_Tuple2("article:published_time", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_date_or_date_time$DateOrDateTime$toIso8601, $dillonkearns$elm_pages$Head$raw), articleDetails.kJ)),
                         _Utils_Tuple2("article:modified_time", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_date_or_date_time$DateOrDateTime$toIso8601, $dillonkearns$elm_pages$Head$raw), articleDetails.ke)),
                         _Utils_Tuple2("article:expiration_time", $elm$core$Maybe$map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_date_or_date_time$DateOrDateTime$toIso8601, $dillonkearns$elm_pages$Head$raw), articleDetails.jz))
@@ -5472,7 +5472,7 @@
                         _Utils_Tuple2("og:type", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw("profile"))),
                         _Utils_Tuple2("profile:first_name", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(profileDetails.jD))),
                         _Utils_Tuple2("profile:last_name", $elm$core$Maybe$Just($dillonkearns$elm_pages$Head$raw(profileDetails.j2))),
-                        _Utils_Tuple2("profile:username", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, profileDetails.lg))
+                        _Utils_Tuple2("profile:username", $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Head$raw, profileDetails.lf))
                     ]);
             }
         }())));
@@ -5486,11 +5486,11 @@
     };
     var $dillonkearns$elm_pages$Head$Seo$buildSummary_fn = function (_v0, summarySize) {
         var locale = _v0.j5;
-        var siteName = _v0.k4;
+        var siteName = _v0.k3;
         var description = _v0.jq;
         var canonicalUrlOverride = _v0.jc;
         var image = _v0.gC;
-        var title = _v0.lb;
+        var title = _v0.la;
         return {
             cj: _List_Nil,
             bS: $elm$core$Maybe$Nothing,
@@ -5498,14 +5498,14 @@
             jq: description,
             gC: image,
             j5: locale,
-            k4: siteName,
-            lb: title,
+            k3: siteName,
+            la: title,
             cG: $dillonkearns$elm_pages$Head$Twitter$Summary({
                 jq: $elm$core$Maybe$Just(description),
-                gC: $elm$core$Maybe$Just({ i$: image.i$, le: image.le }),
+                gC: $elm$core$Maybe$Just({ i$: image.i$, ld: image.ld }),
                 hc: $elm$core$Maybe$Nothing,
-                k6: summarySize,
-                lb: title
+                k5: summarySize,
+                la: title
             }),
             cg: $elm$core$Maybe$Nothing
         };
@@ -5522,19 +5522,19 @@
         return $dillonkearns$elm_pages$Head$Seo$profile_fn({
             jD: author.kh,
             j2: "",
-            lg: $elm$core$Maybe$Just(author.kh)
+            lf: $elm$core$Maybe$Just(author.kh)
         }, $dillonkearns$elm_pages$Head$Seo$summary({
             jc: $elm$core$Maybe$Nothing,
             jq: author.kh + (" - " + $elm$core$Maybe$withDefault_fn("Author of blogposts on " + $author$project$Settings$title, author.gW)),
             gC: {
                 i$: author.kh,
-                jr: $elm$core$Maybe$Just({ jR: 300, lk: 300 }),
+                jr: $elm$core$Maybe$Just({ jR: 300, lj: 300 }),
                 ka: $elm$core$Maybe$Nothing,
-                le: imageUrl
+                ld: imageUrl
             },
             j5: $author$project$Settings$locale,
-            k4: $author$project$Settings$title,
-            lb: author.kh
+            k3: $author$project$Settings$title,
+            la: author.kh
         }));
     };
     var $author$project$Route$About$head = function (app) {
@@ -5606,7 +5606,7 @@
     var $phosphor_icons$phosphor_elm$Phosphor$IconVariant = $elm$core$Basics$identity;
     var $phosphor_icons$phosphor_elm$Phosphor$defaultAttributes = {
         cY: $elm$core$Maybe$Just("ph-icon"),
-        k6: 1,
+        k5: 1,
         cD: "em"
     };
     var $phosphor_icons$phosphor_elm$Phosphor$makeBuilder = function (src) {
@@ -5981,7 +5981,7 @@
     var $phosphor_icons$phosphor_elm$Phosphor$toHtml_fn = function (attributes, _v0) {
         var attrs = _v0.aU;
         var src = _v0.fy;
-        var strSize = $elm$core$String$fromFloat(attrs.k6);
+        var strSize = $elm$core$String$fromFloat(attrs.k5);
         var baseAttributes = _List_fromArray([
             $phosphor_icons$phosphor_elm$Phosphor$xmlns("http://www.w3.org/2000/svg"),
             _VirtualDom_attribute_fn($elm$svg$Svg$Attributes$fill_a0, "currentColor"),
@@ -6502,7 +6502,7 @@
         }
     };
     var $dillonkearns$elm_markdown$Markdown$Parser$deadEndToString = function (deadEnd) {
-        return "Problem at row " + ($elm$core$String$fromInt(deadEnd.kV) + ("\n" + $dillonkearns$elm_markdown$Markdown$Parser$problemToString(deadEnd.kI)));
+        return "Problem at row " + ($elm$core$String$fromInt(deadEnd.kU) + ("\n" + $dillonkearns$elm_markdown$Markdown$Parser$problemToString(deadEnd.kI)));
     };
     var $dillonkearns$elm_markdown$Markdown$Parser$deadEndsToString = function (deadEnds) {
         return $elm$core$String$join_fn("\n", $elm$core$List$map_fn($dillonkearns$elm_markdown$Markdown$Parser$deadEndToString, deadEnds));
@@ -7293,16 +7293,16 @@
         }
     }, $elm$core$Dict$foldl = F3($elm$core$Dict$foldl_fn);
     var $dillonkearns$elm_markdown$HtmlParser$attributes = $elm$parser$Parser$Advanced$map_fn(A2($elm$core$Dict$foldl, F3(function (key, value, accum) {
-        return _List_Cons({ kh: key, li: value }, accum);
+        return _List_Cons({ kh: key, lh: value }, accum);
     }), _List_Nil), $elm$parser$Parser$Advanced$loop_fn($elm$core$Dict$empty, $dillonkearns$elm_markdown$HtmlParser$attributesStep));
     var $elm$parser$Parser$Advanced$chompUntilEndOr = function (str) {
         return function (s) {
-            var _v0 = _Parser_findSubString_fn(str, s.e6, s.kV, s.eL, s.fy);
+            var _v0 = _Parser_findSubString_fn(str, s.e6, s.kU, s.eL, s.fy);
             var newOffset = _v0.a;
             var newRow = _v0.b;
             var newCol = _v0.c;
             var adjustedOffset = (newOffset < 0) ? $elm$core$String$length(s.fy) : newOffset;
-            return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, adjustedOffset) < 0, 0, { eL: newCol, l: s.l, d4: s.d4, e6: adjustedOffset, kV: newRow, fy: s.fy });
+            return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, adjustedOffset) < 0, 0, { eL: newCol, l: s.l, d4: s.d4, e6: adjustedOffset, kU: newRow, fy: s.fy });
         };
     };
     var $dillonkearns$elm_markdown$HtmlParser$cdata = $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity), $dillonkearns$elm_markdown$HtmlParser$symbol("<![CDATA[")), $elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$getChompedString($elm$parser$Parser$Advanced$chompUntilEndOr("]]>")), $dillonkearns$elm_markdown$HtmlParser$symbol("]]>")));
@@ -9614,24 +9614,24 @@
         var str = _v0.a;
         var expecting = _v0.b;
         return function (s) {
-            var _v1 = _Parser_findSubString_fn(str, s.e6, s.kV, s.eL, s.fy);
+            var _v1 = _Parser_findSubString_fn(str, s.e6, s.kU, s.eL, s.fy);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromInfo_fn(newRow, newCol, expecting, s.l)) : $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, newOffset) < 0, 0, { eL: newCol, l: s.l, d4: s.d4, e6: newOffset, kV: newRow, fy: s.fy });
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromInfo_fn(newRow, newCol, expecting, s.l)) : $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s.e6, newOffset) < 0, 0, { eL: newCol, l: s.l, d4: s.d4, e6: newOffset, kU: newRow, fy: s.fy });
         };
     };
     var $dillonkearns$elm_markdown$Parser$Token$greaterThan = $elm$parser$Parser$Advanced$Token_fn(">", $elm$parser$Parser$Expecting("a `>`"));
     var $elm$parser$Parser$Advanced$Located_fn = function (row, col, context) {
-        return { eL: col, l: context, kV: row };
+        return { eL: col, l: context, kU: row };
     }, $elm$parser$Parser$Advanced$Located = F3($elm$parser$Parser$Advanced$Located_fn);
     var $elm$parser$Parser$Advanced$changeContext_fn = function (newContext, s) {
-        return { eL: s.eL, l: newContext, d4: s.d4, e6: s.e6, kV: s.kV, fy: s.fy };
+        return { eL: s.eL, l: newContext, d4: s.d4, e6: s.e6, kU: s.kU, fy: s.fy };
     }, $elm$parser$Parser$Advanced$changeContext = F2($elm$parser$Parser$Advanced$changeContext_fn);
     var $elm$parser$Parser$Advanced$inContext_fn = function (context, _v0) {
         var parse = _v0;
         return function (s0) {
-            var _v1 = parse($elm$parser$Parser$Advanced$changeContext_fn(_List_Cons($elm$parser$Parser$Advanced$Located_fn(s0.kV, s0.eL, context), s0.l), s0));
+            var _v1 = parse($elm$parser$Parser$Advanced$changeContext_fn(_List_Cons($elm$parser$Parser$Advanced$Located_fn(s0.kU, s0.eL, context), s0.l), s0));
             if (!_v1.$) {
                 var p = _v1.a;
                 var a = _v1.b;
@@ -9692,7 +9692,7 @@
         ])));
     }();
     var $dillonkearns$elm_markdown$Markdown$LinkReferenceDefinition$parser = $elm$parser$Parser$Advanced$inContext_fn("link reference definition", $elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$keeper_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$succeed(F3(function (label, destination, title) {
-        return _Utils_Tuple2(label, { gl: destination, lb: title });
+        return _Utils_Tuple2(label, { gl: destination, la: title });
     })), $dillonkearns$elm_markdown$Whitespace$upToThreeSpaces), $elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$ignorer_fn($elm$parser$Parser$Advanced$ignorer_fn($dillonkearns$elm_markdown$Markdown$LinkReferenceDefinition$labelParser, $elm$parser$Parser$Advanced$chompWhile($dillonkearns$elm_markdown$Whitespace$isSpaceOrTab)), $elm$parser$Parser$Advanced$oneOf(_List_fromArray([
         $dillonkearns$elm_markdown$Whitespace$lineEnd,
         $elm$parser$Parser$Advanced$succeed(0)
@@ -10683,7 +10683,7 @@
     var $dillonkearns$elm_markdown$Markdown$Parser$inlineParseHelper_fn = function (referencesDict, _v36) {
         var unparsedInlines = _v36;
         var mappedReferencesDict = $elm$core$Dict$fromList($elm$core$List$map_fn($elm$core$Tuple$mapSecond(function (_v37) {
-            var title = _v37.lb;
+            var title = _v37.la;
             var destination = _v37.gl;
             return _Utils_Tuple2(destination, title);
         }), referencesDict));
@@ -11737,7 +11737,7 @@
                 return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gC({
                     i$: $dillonkearns$elm_markdown$Markdown$Block$extractInlineText(children),
                     fy: src,
-                    lb: title
+                    la: title
                 })));
             case 7:
                 var string = inline.a;
@@ -11750,7 +11750,7 @@
                 var title = inline.b;
                 var inlines = inline.c;
                 return $elm$core$Maybe$Just($elm$core$Result$andThen_fn(function (children) {
-                    return $elm$core$Result$Ok(A2(renderer.gM, { gl: destination, lb: title }, children));
+                    return $elm$core$Result$Ok(A2(renderer.gM, { gl: destination, la: title }, children));
                 }, $dillonkearns$elm_markdown$Markdown$Renderer$renderStyled_fn(renderer, inlines)));
             case 8:
                 return $elm$core$Maybe$Just($elm$core$Result$Ok(renderer.gy));
@@ -11813,7 +11813,7 @@
     }, $dillonkearns$elm_markdown$Markdown$Html$resultOr = F2($dillonkearns$elm_markdown$Markdown$Html$resultOr_fn);
     var $dillonkearns$elm_markdown$Markdown$Html$attributesToString = function (attributes) {
         return $elm$core$String$join_fn(" ", $elm$core$List$map_fn(function (_v0) {
-            var value = _v0.li;
+            var value = _v0.lh;
             var name = _v0.kh;
             return name + ("=\"" + (value + "\""));
         }, attributes));
@@ -11922,7 +11922,7 @@
         },
         gA: $dillonkearns$elm_markdown$Markdown$Html$oneOf(_List_Nil),
         gC: function (imageInfo) {
-            var _v5 = imageInfo.lb;
+            var _v5 = imageInfo.la;
             if (!_v5.$) {
                 var title = _v5.a;
                 return $elm$html$Html$img_fn(_List_fromArray([
@@ -11939,7 +11939,7 @@
             }
         },
         gM: F2(function (link, content) {
-            var _v6 = link.lb;
+            var _v6 = link.la;
             if (!_v6.$) {
                 var title = _v6.a;
                 return $elm$html$Html$a_fn(_List_fromArray([
@@ -12111,7 +12111,7 @@
             f7: _List_fromArray([
                 $author$project$Layout$About$view(app.j.dQ)
             ]),
-            lb: "About"
+            la: "About"
         };
     }, $author$project$Route$About$view = F2($author$project$Route$About$view_fn);
     var $author$project$Route$About$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$About$view }, $author$project$RouteBuilder$single({
@@ -12124,16 +12124,16 @@
     };
     var $author$project$Settings$symbolAndLogoForSeo = {
         i$: "symbol",
-        jr: $elm$core$Maybe$Just({ jR: 333, lk: 500 }),
+        jr: $elm$core$Maybe$Just({ jR: 333, lj: 500 }),
         ka: $elm$core$Maybe$Nothing,
-        le: $author$project$Settings$symbolAndLogoUrl
+        ld: $author$project$Settings$symbolAndLogoUrl
     };
     var $dillonkearns$elm_pages$Head$Seo$Website = { $: 0 };
     var $dillonkearns$elm_pages$Head$Seo$website = function (common) {
         return $dillonkearns$elm_pages$Head$Seo$tags($dillonkearns$elm_pages$Head$Seo$Content_fn(common, $dillonkearns$elm_pages$Head$Seo$Website));
     };
     var $author$project$Route$Blog$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Blog" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: "Blog" }));
     };
     var $author$project$Route$Tags__Slug_ = function (a) {
         return { $: 1, a: a };
@@ -12247,7 +12247,7 @@
                         $elm$html$Html$time_fn(_List_fromArray([
                             _VirtualDom_attribute_fn($elm$html$Html$Attributes$datetime_a0, $justinmimbs$date$Date$toIsoString(date))
                         ]), _List_fromArray([
-                            $elm$html$Html$text(A2($justinmimbs$date$Date$format, "MMM d, YYYY", date))
+                            $elm$html$Html$text(A2($justinmimbs$date$Date$format, "YYYY\u5E74M\u6708d\u65E5", date))
                         ]))
                     ]))
                 ]));
@@ -12265,7 +12265,7 @@
                         $elm$html$Html$time_fn(_List_fromArray([
                             _VirtualDom_attribute_fn($elm$html$Html$Attributes$datetime_a0, $justinmimbs$date$Date$toIsoString(publishedDate))
                         ]), _List_fromArray([
-                            $elm$html$Html$text(A2($justinmimbs$date$Date$format, "MMM d, YYYY", publishedDate))
+                            $elm$html$Html$text(A2($justinmimbs$date$Date$format, "YYYY\u5E74M\u6708d\u65E5", publishedDate))
                         ]))
                     ]))
                 ]));
@@ -13166,7 +13166,7 @@
                         $author$project$Route$link_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100")
                         ]), _List_fromArray([
-                            $elm$html$Html$text(metadata.lb)
+                            $elm$html$Html$text(metadata.la)
                         ]), function () {
                             var _v0 = metadata.f9;
                             switch (_v0) {
@@ -13180,7 +13180,7 @@
                         }())
                     ])),
                     $elm$html$Html$div_fn(_List_fromArray([
-                        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap")
+                        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 sm:space-x-2")
                     ]), $elm$core$List$map_fn($author$project$Layout$Tags$viewTag, metadata.hq))
                 ])),
                 $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (description) {
@@ -13200,7 +13200,7 @@
                 return $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14")
                 ]), _List_fromArray([
-                    $elm$html$Html$text(tag.lb)
+                    $elm$html$Html$text(tag.la)
                 ]));
             }
             else {
@@ -13254,9 +13254,9 @@
                                             return $.fv;
                                         }, selectedTag)))
                                     ])),
-                                    $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.lb)
+                                    $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.la)
                                 ]), _List_fromArray([
-                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
+                                    $elm$html$Html$text(tag.la + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
                                 ]), $author$project$Route$Tags__Slug_({ fv: tag.fv }))
                             ]));
                         }, tags))
@@ -13277,7 +13277,7 @@
     var $author$project$Route$Blog$view_fn = function (app, _v0) {
         return {
             f7: $author$project$Layout$Blogpost$viewPostList_fn(app.j.hq, app.j.i7, $elm$core$Maybe$Nothing),
-            lb: "Blog"
+            la: "Blog"
         };
     }, $author$project$Route$Blog$view = F2($author$project$Route$Blog$view_fn);
     var $author$project$Route$Blog$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$Blog$view }, $author$project$RouteBuilder$single({
@@ -13286,7 +13286,7 @@
     }));
     var $author$project$Settings$subtitle = "\u3053\u308C\u306F\u539F\u4E95\u590F\u6A39\u306E\u4EBA\u751F\u306E\u8A18\u9332";
     var $author$project$Route$Index$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: $author$project$Settings$subtitle, gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: $author$project$Settings$title }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: $author$project$Settings$subtitle, gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: $author$project$Settings$title }));
     };
     var $author$project$Route$About = { $: 3 };
     var $phosphor_icons$phosphor_elm$Phosphor$appStoreLogo = function (weight) {
@@ -13450,7 +13450,7 @@
     var $author$project$Route$Index$view_fn = function (app, _v0) {
         return {
             f7: $author$project$Layout$Index$view(app.j.dS),
-            lb: $author$project$Settings$title
+            la: $author$project$Settings$title
         };
     }, $author$project$Route$Index$view = F2($author$project$Route$Index$view_fn);
     var $author$project$Route$Index$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$Index$view }, $author$project$RouteBuilder$single({
@@ -13458,7 +13458,7 @@
         aM: $author$project$Route$Index$head
     }));
     var $author$project$Route$LifeBlog$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Life Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Life Blog" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Life Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: "Life Blog" }));
     };
     var $author$project$Route$LifeBlog = { $: 5 };
     var $author$project$Layout$LifeBlogpost$viewPublishedDate = $author$project$Layout$Blogpost$viewPublishedDate;
@@ -13477,11 +13477,11 @@
                         $author$project$Route$link_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100")
                         ]), _List_fromArray([
-                            $elm$html$Html$text(metadata.lb)
+                            $elm$html$Html$text(metadata.la)
                         ]), $author$project$Route$LifeBlog__Slug_({ fv: metadata.fv }))
                     ])),
                     $elm$html$Html$div_fn(_List_fromArray([
-                        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap")
+                        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 sm:space-x-2")
                     ]), $elm$core$List$map_fn($author$project$Layout$Tags$viewTag, metadata.hq))
                 ])),
                 $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (description) {
@@ -13501,14 +13501,14 @@
                 return $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14")
                 ]), _List_fromArray([
-                    $elm$html$Html$text(tag.lb)
+                    $elm$html$Html$text(tag.la)
                 ]));
             }
             else {
                 return $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14")
                 ]), _List_fromArray([
-                    $elm$html$Html$text("All Posts")
+                    $elm$html$Html$text("Life Posts")
                 ]));
             }
         }();
@@ -13518,7 +13518,7 @@
                     $elm$html$Html$h3_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase")
                     ]), _List_fromArray([
-                        $elm$html$Html$text("All Posts")
+                        $elm$html$Html$text("Life Posts")
                     ]))
                 ]), $author$project$Route$LifeBlog);
             }
@@ -13526,7 +13526,7 @@
                 return $elm$html$Html$h3_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-primary-700 dark:text-primary-500 font-bold uppercase")
                 ]), _List_fromArray([
-                    $elm$html$Html$text("All Posts")
+                    $elm$html$Html$text("Life Posts")
                 ]));
             }
         }();
@@ -13555,9 +13555,9 @@
                                             return $.fv;
                                         }, selectedTag)))
                                     ])),
-                                    $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.lb)
+                                    $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.la)
                                 ]), _List_fromArray([
-                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
+                                    $elm$html$Html$text(tag.la + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
                                 ]), $author$project$Route$Tags__Slug_({ fv: tag.fv }))
                             ]));
                         }, tags))
@@ -13578,7 +13578,7 @@
     var $author$project$Route$LifeBlog$view_fn = function (app, _v0) {
         return {
             f7: $author$project$Layout$LifeBlogpost$viewPostList_fn(app.j.hq, app.j.i7, $elm$core$Maybe$Nothing),
-            lb: "Life Blog"
+            la: "Life Blog"
         };
     }, $author$project$Route$LifeBlog$view = F2($author$project$Route$LifeBlog$view_fn);
     var $author$project$Route$LifeBlog$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$LifeBlog$view }, $author$project$RouteBuilder$single({
@@ -13594,7 +13594,7 @@
     var $author$project$Settings$symbolAndLogoPath = "/images/symbols-and-logos/symbol-and-logo.png";
     var $author$project$Settings$xId = $elm$core$Maybe$Nothing;
     var $author$project$Route$LifeBlog$Slug_$head = function (app) {
-        var imagePath = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoPath, app.j.ao.cz.gC);
+        var imagePath = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoPath, app.j.aw.cz.gC);
         var creatorHeader = function () {
             var _v1 = $author$project$Settings$xId;
             if (!_v1.$) {
@@ -13608,7 +13608,7 @@
             }
         }();
         var authorsHeader = function () {
-            var _v0 = app.j.ao.cz.f2;
+            var _v0 = app.j.aw.cz.f2;
             if (!_v0.b) {
                 return _List_Nil;
             }
@@ -13631,22 +13631,19 @@
                 }
             }
         }();
-        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.j.ao.cz.fL, kJ: app.j.ao.cz.el, k_: $elm$core$Maybe$Nothing, hq: app.j.ao.cz.hq }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
+        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.j.aw.cz.fL, kJ: app.j.aw.cz.el, kZ: $elm$core$Maybe$Nothing, hq: app.j.aw.cz.hq }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
             jc: $elm$core$Maybe$Nothing,
-            jq: $elm$core$Maybe$withDefault_fn($author$project$Settings$subtitle, app.j.ao.cz.jq),
+            jq: $elm$core$Maybe$withDefault_fn($author$project$Settings$subtitle, app.j.aw.cz.jq),
             gC: {
-                i$: app.j.ao.cz.lb,
+                i$: app.j.aw.cz.la,
                 jr: $elm$core$Maybe$Nothing,
                 ka: $elm$core$Maybe$Nothing,
-                le: $dillonkearns$elm_pages$Pages$Url$fromPath(_List_fromArray([imagePath]))
+                ld: $dillonkearns$elm_pages$Pages$Url$fromPath(_List_fromArray([imagePath]))
             },
             j5: $author$project$Settings$locale,
-            k4: $author$project$Settings$title,
-            lb: app.j.ao.cz.lb
-        })), _Utils_ap(creatorHeader, _Utils_ap(authorsHeader, _List_fromArray([
-            $dillonkearns$elm_pages$Head$metaName_fn("twitter:label2", $dillonkearns$elm_pages$Head$raw("Reading time")),
-            $dillonkearns$elm_pages$Head$metaName_fn("twitter:data2", $dillonkearns$elm_pages$Head$raw($elm$core$String$fromInt(app.j.ao.cz.kM) + " min"))
-        ]))));
+            k3: $author$project$Settings$title,
+            la: app.j.aw.cz.la
+        })), _Utils_ap(creatorHeader, authorsHeader));
     };
     var $author$project$Content$BlogpostCommon$Blogpost_fn = function (metadata, body, previousPost, nextPost) {
         return { f7: body, cz: metadata, ki: nextPost, kH: previousPost };
@@ -13832,8 +13829,8 @@
                         return "only-if-cached";
                 }
             }, options.cU))),
-            _Utils_Tuple2("retry", $elm$core$Maybe$map_fn($elm$json$Json$Encode$int, options.kT)),
-            _Utils_Tuple2("timeout", $elm$core$Maybe$map_fn($elm$json$Json$Encode$int, options.la)),
+            _Utils_Tuple2("retry", $elm$core$Maybe$map_fn($elm$json$Json$Encode$int, options.kS)),
+            _Utils_Tuple2("timeout", $elm$core$Maybe$map_fn($elm$json$Json$Encode$int, options.k9)),
             _Utils_Tuple2("cachePath", $elm$core$Maybe$map_fn($elm$json$Json$Encode$string, options.cT))
         ])));
     };
@@ -13928,7 +13925,7 @@
                         ]);
                 }
             }()),
-            lb: "HTTP Error"
+            la: "HTTP Error"
         };
     };
     var $dillonkearns$elm_pages$BackendTask$Http$expectToString = function (expect) {
@@ -13943,7 +13940,7 @@
                 return "ExpectWhatever";
             default:
                 var toExpect = expect.a;
-                return $dillonkearns$elm_pages$BackendTask$Http$expectToString(toExpect({ jP: $elm$core$Dict$empty, ab: 123, ak: "", le: "" }));
+                return $dillonkearns$elm_pages$BackendTask$Http$expectToString(toExpect({ jP: $elm$core$Dict$empty, ab: 123, ak: "", ld: "" }));
         }
     };
     var $elm$bytes$Bytes$Encode$getWidth = function (builder) {
@@ -14560,7 +14557,7 @@
         }());
     }, _Json_decodeField_fn("bodyKind", $elm$json$Json$Decode$string));
     var $dillonkearns$elm_pages$RequestsAndPending$RawResponse_fn = function (statusCode, statusText, headers, url) {
-        return { jP: headers, ab: statusCode, ak: statusText, le: url };
+        return { jP: headers, ab: statusCode, ak: statusText, ld: url };
     }, $dillonkearns$elm_pages$RequestsAndPending$RawResponse = F4($dillonkearns$elm_pages$RequestsAndPending$RawResponse_fn);
     var $elm$json$Json$Decode$dict = function (decoder) {
         return _Json_map1_fn($elm$core$Dict$fromList, $elm$json$Json$Decode$keyValuePairs(decoder));
@@ -14646,7 +14643,7 @@
     var $dillonkearns$elm_pages$Pages$StaticHttp$Request$hash = function (requestDetails) {
         return $elm$core$String$fromInt($robinheghan$fnv1a$FNV1a$hash(_Json_encode_fn(0, $elm$json$Json$Encode$object(_List_fromArray([
             _Utils_Tuple2("method", $elm$json$Json$Encode$string(requestDetails.gQ)),
-            _Utils_Tuple2("url", $elm$json$Json$Encode$string(requestDetails.le)),
+            _Utils_Tuple2("url", $elm$json$Json$Encode$string(requestDetails.ld)),
             _Utils_Tuple2("headers", $elm$json$Json$Encode$list_fn($dillonkearns$elm_pages$Pages$StaticHttp$Request$hashHeader, requestDetails.jP)),
             _Utils_Tuple2("body", $dillonkearns$elm_pages$Pages$Internal$StaticHttpBody$encode(requestDetails.f7))
         ])))));
@@ -14669,7 +14666,7 @@
                         if (!_v1.c.$) {
                             var toExpect = _v1.a.a;
                             var rawResponse = _v1.c.a;
-                            var asMetadata = { jP: rawResponse.jP, ab: rawResponse.ab, ak: rawResponse.ak, le: rawResponse.le };
+                            var asMetadata = { jP: rawResponse.jP, ab: rawResponse.ab, ak: rawResponse.ak, ld: rawResponse.ld };
                             var $temp$_v0 = _Utils_Tuple3(toExpect(asMetadata), body, maybeResponse);
                             _v0 = $temp$_v0;
                             continue toResultThing;
@@ -14729,7 +14726,7 @@
             jP: _List_Cons(_Utils_Tuple2("elm-pages-internal", $dillonkearns$elm_pages$BackendTask$Http$expectToString(expect)), request__.jP),
             gQ: request__.gQ,
             kK: false,
-            le: request__.le
+            ld: request__.ld
         };
         return $dillonkearns$elm_pages$Pages$StaticHttpRequest$Request_fn(_List_fromArray([request_]), F2(function (maybeMockResolver, rawResponseDict) {
             return $dillonkearns$elm_pages$BackendTask$mapError_fn(function (error) {
@@ -14744,15 +14741,15 @@
                             switch (body.$) {
                                 case 1:
                                     var s = body.a;
-                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, le: response.le }, s));
+                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, ld: response.ld }, s));
                                 case 0:
                                     var bytes = body.a;
-                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, le: response.le }, $elm$core$Maybe$withDefault_fn("", $danfishgold$base64_bytes$Base64$fromBytes(bytes))));
+                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, ld: response.ld }, $elm$core$Maybe$withDefault_fn("", $danfishgold$base64_bytes$Base64$fromBytes(bytes))));
                                 case 2:
                                     var value = body.a;
-                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, le: response.le }, _Json_encode_fn(0, value)));
+                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, ld: response.ld }, _Json_encode_fn(0, value)));
                                 default:
-                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, le: response.le }, ""));
+                                    return $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$BadStatus_fn({ jP: response.jP, ab: response.ab, ak: response.ak, ld: response.ld }, ""));
                             }
                         }
                         else {
@@ -14772,7 +14769,7 @@
                 }
             }, function (maybeResponse) {
                 if (maybeResponse.$ === 1) {
-                    return $elm$core$Result$Err($dillonkearns$elm_pages$BackendTask$Http$BadBody_fn($elm$core$Maybe$Nothing, "INTERNAL ERROR - expected request " + request_.le));
+                    return $elm$core$Result$Err($dillonkearns$elm_pages$BackendTask$Http$BadBody_fn($elm$core$Maybe$Nothing, "INTERNAL ERROR - expected request " + request_.ld));
                 }
                 else {
                     if (!maybeResponse.a.$) {
@@ -14804,13 +14801,13 @@
     var $dillonkearns$elm_pages$BackendTask$Http$request_fn = function (request__, expect) {
         var request_ = {
             f7: request__.f7,
-            eH: $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$encodeOptions({ cT: $elm$core$Maybe$Nothing, cU: $elm$core$Maybe$Nothing, kT: request__.kT, la: request__.la })),
+            eH: $elm$core$Maybe$Just($dillonkearns$elm_pages$BackendTask$Http$encodeOptions({ cT: $elm$core$Maybe$Nothing, cU: $elm$core$Maybe$Nothing, kS: request__.kS, k9: request__.k9 })),
             hV: _List_Nil,
             hW: $elm$core$Dict$empty,
             jP: request__.jP,
             gQ: request__.gQ,
             kK: false,
-            le: request__.le
+            ld: request__.ld
         };
         return $dillonkearns$elm_pages$BackendTask$Http$requestRaw_fn(request_, expect);
     }, $dillonkearns$elm_pages$BackendTask$Http$request = F2($dillonkearns$elm_pages$BackendTask$Http$request_fn);
@@ -14820,7 +14817,7 @@
         var name = params.kh;
         return $dillonkearns$elm_pages$BackendTask$onError_fn(function (_v0) {
             return $dillonkearns$elm_pages$BackendTask$Internal$Request$request(params);
-        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f7: body, jP: _List_Nil, gQ: "GET", kT: $elm$core$Maybe$Nothing, la: $elm$core$Maybe$Nothing, le: "elm-pages-internal://" + name }, expect));
+        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f7: body, jP: _List_Nil, gQ: "GET", kS: $elm$core$Maybe$Nothing, k9: $elm$core$Maybe$Nothing, ld: "elm-pages-internal://" + name }, expect));
     };
     var $dillonkearns$elm_pages$BackendTask$Internal$Glob$run_fn = function (fileStats, rawInput, captures, _v0) {
         var pattern = _v0.a;
@@ -14890,7 +14887,7 @@
                 $dillonkearns$elm_pages$TerminalText$yellow(filePath),
                 $dillonkearns$elm_pages$TerminalText$text("`")
             ])),
-            lb: "File Doesn't Exist"
+            la: "File Doesn't Exist"
         }, $dillonkearns$elm_pages$BackendTask$File$FileDoesntExist));
     };
     var $dillonkearns$elm_pages$BackendTask$File$frontmatter = function (frontmatterDecoder) {
@@ -14951,7 +14948,7 @@
             }
         }, $dillonkearns$elm_pages$BackendTask$onError_fn(function (_v1) {
             return $dillonkearns$elm_pages$BackendTask$succeed($elm$json$Json$Encode$null);
-        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f7: body, jP: _List_Nil, gQ: "GET", kT: $elm$core$Maybe$Nothing, la: $elm$core$Maybe$Nothing, le: "elm-pages-internal://" + name }, $dillonkearns$elm_pages$BackendTask$Http$expectJson($elm$json$Json$Decode$value))));
+        }, $dillonkearns$elm_pages$BackendTask$Http$request_fn({ f7: body, jP: _List_Nil, gQ: "GET", kS: $elm$core$Maybe$Nothing, k9: $elm$core$Maybe$Nothing, ld: "elm-pages-internal://" + name }, $dillonkearns$elm_pages$BackendTask$Http$expectJson($elm$json$Json$Decode$value))));
     };
     var $dillonkearns$elm_pages$Pages$Internal$StaticHttpBody$StringBody_fn = function (a, b) {
         return { $: 1, a: a, b: b };
@@ -14971,7 +14968,7 @@
                 return {
                     jB: $dillonkearns$elm_pages$FatalError$build({
                         f7: "I encountered a Json Decoder error from a call to BackendTask.File.bodyWithFrontmatter.\n\n" + (("I was trying to process `" + (filePath + "`.\n\n")) + $elm$json$Json$Decode$errorToString(frontmatterDecodeError)),
-                        lb: "BackendTask.File Decoder Error"
+                        la: "BackendTask.File Decoder Error"
                     }),
                     g3: $dillonkearns$elm_pages$BackendTask$File$DecodingError(frontmatterDecodeError)
                 };
@@ -15258,9 +15255,7 @@
                                 return function (status) {
                                     return function (publishedAt) {
                                         return function (updatedAt) {
-                                            return function (readingTimeInMin) {
-                                                return { f2: authors, f9: category, jq: description, gC: image, el: publishedAt, kM: readingTimeInMin, fv: slug, he: status, hq: tags, lb: title, fL: updatedAt };
-                                            };
+                                            return { f2: authors, f9: category, jq: description, gC: image, el: publishedAt, fv: slug, he: status, hq: tags, la: title, fL: updatedAt };
                                         };
                                     };
                                 };
@@ -15492,31 +15487,17 @@
         return $author$project$Content$BlogpostCommon$Draft;
     }), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("published", _Json_map1_fn(A2($elm$core$Basics$composeL, $elm$core$Result$withDefault($justinmimbs$date$Date$fromRataDie(1)), $justinmimbs$date$Date$fromIsoString), $elm$json$Json$Decode$string))), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("updated", _Json_map1_fn(A2($elm$core$Basics$composeL, $elm$core$Result$withDefault($justinmimbs$date$Date$fromRataDie(1)), $justinmimbs$date$Date$fromIsoString), $elm$json$Json$Decode$string))), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("status", $elm$json$Json$Decode$string)));
     var $author$project$Content$BlogpostCommon$metadataDecoder_fn = function (authorsDict, slug) {
-        return _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$succeed(1), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("updated", $author$project$Content$BlogpostCommon$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("published", $author$project$Content$BlogpostCommon$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$BlogpostCommon$decodeStatus, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(function (authors) {
+        return _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("updated", $author$project$Content$BlogpostCommon$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("published", $author$project$Content$BlogpostCommon$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$BlogpostCommon$decodeStatus, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(function (authors) {
             return $elm$core$List$filterMap_fn(function (authorSlug) {
                 return $elm$core$Dict$get_fn(authorSlug, authorsDict);
             }, authors);
-        }, _Json_map1_fn($elm$core$Maybe$withDefault(_List_fromArray(["default"])), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("authors", $elm$json$Json$Decode$list($elm$json$Json$Decode$string))))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn($elm$core$Maybe$withDefault(_List_Nil), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("tags", $elm$json$Json$Decode$list($elm$json$Json$Decode$string)))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$BlogpostCommon$decodeCategory, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("description", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("image", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(A2($elm$core$Basics$composeR, $elm$core$Maybe$withDefault(slug), $kuon$elm_string_normalize$String$Normalize$slug), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("slug", $elm$json$Json$Decode$string))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_decodeField_fn("title", $elm$json$Json$Decode$string), $elm$json$Json$Decode$succeed($author$project$Content$BlogpostCommon$Metadata))))))))))));
+        }, _Json_map1_fn($elm$core$Maybe$withDefault(_List_fromArray(["default"])), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("authors", $elm$json$Json$Decode$list($elm$json$Json$Decode$string))))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn($elm$core$Maybe$withDefault(_List_Nil), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("tags", $elm$json$Json$Decode$list($elm$json$Json$Decode$string)))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$BlogpostCommon$decodeCategory, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("description", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("image", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(A2($elm$core$Basics$composeR, $elm$core$Maybe$withDefault(slug), $kuon$elm_string_normalize$String$Normalize$slug), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("slug", $elm$json$Json$Decode$string))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_decodeField_fn("title", $elm$json$Json$Decode$string), $elm$json$Json$Decode$succeed($author$project$Content$BlogpostCommon$Metadata)))))))))));
     }, $author$project$Content$BlogpostCommon$metadataDecoder = F2($author$project$Content$BlogpostCommon$metadataDecoder_fn);
     var $justinmimbs$date$Date$toRataDie = function (_v0) {
         var rd = _v0;
         return rd;
     };
     var $author$project$Content$LifeBlogpost$allBlogposts = function () {
-        var updateReadingTime = function (blogposts) {
-            var updatedMetadata = F2(function (blogpost, metadata) {
-                return _Utils_update(metadata, {
-                    kM: function (words) {
-                        return (words / 200) | 0;
-                    }($elm$core$List$length($elm$core$String$split_fn(" ", blogpost)))
-                });
-            });
-            return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (blogpost) {
-                return _Utils_update(blogpost, {
-                    cz: A2(updatedMetadata, blogpost.f7, blogpost.cz)
-                });
-            }), blogposts);
-        };
         var addPreviousNextPosts = function (orderedBlogposts) {
             return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$Array$toList, $dillonkearns$elm_pages$BackendTask$map_fn(function (blogposts) {
                 return $elm$core$Array$indexedMap_fn(F2(function (index, blogpost) {
@@ -15542,7 +15523,7 @@
                 return metadata;
             }
         };
-        return updateReadingTime(addPreviousNextPosts($dillonkearns$elm_pages$BackendTask$map_fn(A2($elm$core$Basics$composeR, $elm$core$List$sortBy(A2($elm$core$Basics$composeR, function ($) {
+        return addPreviousNextPosts($dillonkearns$elm_pages$BackendTask$map_fn(A2($elm$core$Basics$composeR, $elm$core$List$sortBy(A2($elm$core$Basics$composeR, function ($) {
             return $.cz;
         }, A2($elm$core$Basics$composeR, $author$project$Content$BlogpostCommon$getPublishedDate, $justinmimbs$date$Date$toRataDie))), $elm$core$List$reverse), $dillonkearns$elm_pages$BackendTask$andThen_fn(function (blogposts) {
             return $dillonkearns$elm_pages$BackendTask$map_fn(function (includeDrafts) {
@@ -15568,7 +15549,7 @@
                     }), $author$project$Content$BlogpostCommon$metadataDecoder_fn(authorsDict, file.fv), $elm$json$Json$Decode$succeed(markdownString));
                 }, file.h4)));
             }, blogposts);
-        }), $author$project$Content$LifeBlogpost$lifeBlogPostFiles, $author$project$Content$About$allAuthors))))));
+        }), $author$project$Content$LifeBlogpost$lifeBlogPostFiles, $author$project$Content$About$allAuthors)))));
     }();
     var $author$project$Route$LifeBlog$Slug_$pages = $dillonkearns$elm_pages$BackendTask$map_fn(function (blogposts) {
         return $elm$core$List$map_fn(function (_v0) {
@@ -15706,17 +15687,17 @@
         var text = _v0.b;
         switch (syntax.$) {
             case 0:
-                return { iY: "", kQ: 0, F: text };
+                return { iY: "", kP: 0, F: text };
             case 1:
-                return { iY: "", kQ: 1, F: text };
+                return { iY: "", kP: 1, F: text };
             case 2:
-                return { iY: "", kQ: 0, F: text };
+                return { iY: "", kP: 0, F: text };
             default:
                 var c = syntax.a;
                 var _v2 = toStyle(c);
                 var requiredStyle = _v2.a;
                 var additionalClass = _v2.b;
-                return { iY: additionalClass, kQ: requiredStyle, F: text };
+                return { iY: additionalClass, kP: requiredStyle, F: text };
         }
     }, $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Helpers$toFragment = F2($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Helpers$toFragment_fn);
     var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Helpers$toLinesHelp_fn = function (toStyle, _v0, _v1) {
@@ -16539,13 +16520,13 @@
         var expecting = _v0.b;
         var progress = !$elm$core$String$isEmpty(kwd);
         return function (s) {
-            var _v1 = _Parser_isSubString_fn(kwd, s.e6, s.kV, s.eL, s.fy);
+            var _v1 = _Parser_isSubString_fn(kwd, s.e6, s.kU, s.eL, s.fy);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
             return (newOffset === -1 || (0 <= _Parser_isSubChar_fn(function (c) {
                 return $elm$core$Char$isAlphaNum(c) || (c === "_");
-            }, newOffset, s.fy))) ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, l: s.l, d4: s.d4, e6: newOffset, kV: newRow, fy: s.fy });
+            }, newOffset, s.fy))) ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eL: newCol, l: s.l, d4: s.d4, e6: newOffset, kU: newRow, fy: s.fy });
         };
     };
     var $elm$parser$Parser$keyword = function (kwd) {
@@ -16726,7 +16707,7 @@
     var $elm$parser$Parser$Advanced$consumeBase = _Parser_consumeBase;
     var $elm$parser$Parser$Advanced$consumeBase16 = _Parser_consumeBase16;
     var $elm$parser$Parser$Advanced$bumpOffset_fn = function (newOffset, s) {
-        return { eL: s.eL + (newOffset - s.e6), l: s.l, d4: s.d4, e6: newOffset, kV: s.kV, fy: s.fy };
+        return { eL: s.eL + (newOffset - s.e6), l: s.l, d4: s.d4, e6: newOffset, kU: s.kU, fy: s.fy };
     }, $elm$parser$Parser$Advanced$bumpOffset = F2($elm$parser$Parser$Advanced$bumpOffset_fn);
     var $elm$parser$Parser$Advanced$chompBase10 = _Parser_chompBase10;
     var $elm$parser$Parser$Advanced$isAsciiCode = _Parser_isAsciiCode;
@@ -16761,7 +16742,7 @@
         var intOffset = intPair.a;
         var floatOffset = $elm$parser$Parser$Advanced$consumeDotAndExp_fn(intOffset, s.fy);
         if (floatOffset < 0) {
-            return $elm$parser$Parser$Advanced$Bad_fn(true, $elm$parser$Parser$Advanced$fromInfo_fn(s.kV, s.eL - (floatOffset + s.e6), invalid, s.l));
+            return $elm$parser$Parser$Advanced$Bad_fn(true, $elm$parser$Parser$Advanced$fromInfo_fn(s.kU, s.eL - (floatOffset + s.e6), invalid, s.l));
         }
         else {
             if (_Utils_eq(s.e6, floatOffset)) {
@@ -17707,7 +17688,7 @@
         er: $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Style$textColor($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Style$Hex("#d19a66")),
         es: $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Style$textColor($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Style$Hex("#abb2bf"))
     };
-    var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Theme$OneDark$theme = { jn: _List_Nil, kR: $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Theme$OneDark$requiredStyles };
+    var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Theme$OneDark$theme = { jn: _List_Nil, kQ: $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Theme$OneDark$requiredStyles };
     var $elm$core$List$intersperse_fn = function (sep, xs) {
         if (!xs.b) {
             return xs;
@@ -17845,7 +17826,7 @@
     };
     var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Theme$Type$toCss = function (_v0) {
         var customStyles = _v0.jn;
-        var requiredStyles = _v0.kR;
+        var requiredStyles = _v0.kQ;
         return $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Style$toCss(_Utils_ap(_List_fromArray([
             _Utils_Tuple2(".elmsh", requiredStyles.dX),
             _Utils_Tuple2(".elmsh-hl", requiredStyles.c6),
@@ -17893,7 +17874,7 @@
     };
     var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$fragmentView = function (_v0) {
         var additionalClass = _v0.iY;
-        var requiredStyle = _v0.kQ;
+        var requiredStyle = _v0.kP;
         var text = _v0.F;
         return ((!requiredStyle) && $elm$core$String$isEmpty(additionalClass)) ? $elm$html$Html$text(text) : $elm$html$Html$span_fn(_List_fromArray([
             $elm$html$Html$Attributes$classList(_List_fromArray([
@@ -18111,7 +18092,7 @@
                             $elm$html$Html$time_fn(_List_fromArray([
                                 _VirtualDom_attribute_fn($elm$html$Html$Attributes$datetime_a0, $justinmimbs$date$Date$toIsoString(updatedDate))
                             ]), _List_fromArray([
-                                $elm$html$Html$text(A2($justinmimbs$date$Date$format, "MMM d, YYYY", updatedDate))
+                                $elm$html$Html$text(A2($justinmimbs$date$Date$format, "YYYY\u5E74M\u6708d\u65E5", updatedDate))
                             ]))
                         ]))
                     ]))
@@ -18135,7 +18116,7 @@
         });
         var next = $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (_v2) {
             var slug = _v2.fv;
-            var title = _v2.lb;
+            var title = _v2.la;
             return $elm$html$Html$div_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:col-start-2 flex flex-col sm:text-right mt-4 xl:mt-8")
             ]), _List_fromArray([
@@ -18147,7 +18128,7 @@
         }, nextPost);
         var previous = $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (_v1) {
             var slug = _v1.fv;
-            var title = _v1.lb;
+            var title = _v1.la;
             return $elm$html$Html$div_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:col-start-1 flex flex-col mt-4 xl:mt-8")
             ]), _List_fromArray([
@@ -18189,11 +18170,7 @@
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 text-base")
                     ]), _List_fromArray([
                         $author$project$Layout$LifeBlogpost$viewPublishedDate(metadata.he),
-                        $author$project$Layout$LifeBlogpost$viewUpdatedDate(metadata.he),
-                        $elm$html$Html$span_fn(_List_Nil, _List_fromArray([
-                            $elm$html$Html$text($elm$core$String$fromInt(metadata.kM)),
-                            $elm$html$Html$text(" min reading time")
-                        ]))
+                        $author$project$Layout$LifeBlogpost$viewUpdatedDate(metadata.he)
                     ]))
                 ]))
             ]))
@@ -18205,9 +18182,12 @@
                 $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "mt-8 pb-4 font-bold text-3xl md:text-5xl text-gray-900 dark:text-gray-100")
                 ]), _List_fromArray([
-                    $elm$html$Html$text(metadata.lb)
+                    $elm$html$Html$text(metadata.la)
                 ])),
-                authorsView
+                authorsView,
+                $elm$html$Html$div_fn(_List_fromArray([
+                    $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 sm:space-x-2")
+                ]), $elm$core$List$map_fn($author$project$Layout$Tags$viewTag, metadata.hq))
             ])),
             $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (imagePath) {
                 return $elm$html$Html$div_fn(_List_fromArray([
@@ -18220,7 +18200,7 @@
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "aspect-[2/1] w-full relative")
                         ]), _List_fromArray([
                             $elm$html$Html$img_fn(_List_fromArray([
-                                $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, metadata.lb),
+                                $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, metadata.la),
                                 $elm$virtual_dom$VirtualDom$attribute_fn("loading", "lazy"),
                                 $elm$virtual_dom$VirtualDom$attribute_fn("decoding", "async"),
                                 $elm$virtual_dom$VirtualDom$attribute_fn("data-nimg", "fill"),
@@ -18262,9 +18242,9 @@
     var $author$project$Route$LifeBlog$Slug_$view_fn = function (app, _v0) {
         return {
             f7: _List_fromArray([
-                $author$project$Layout$LifeBlogpost$viewBlogpost(app.j.ao)
+                $author$project$Layout$LifeBlogpost$viewBlogpost(app.j.aw)
             ]),
-            lb: app.j.ao.cz.lb
+            la: app.j.aw.cz.la
         };
     }, $author$project$Route$LifeBlog$Slug_$view = F2($author$project$Route$LifeBlog$Slug_$view_fn);
     var $author$project$Route$LifeBlog$Slug_$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$LifeBlog$Slug_$view }, $author$project$RouteBuilder$preRender({
@@ -18275,12 +18255,12 @@
         kA: $author$project$Route$LifeBlog$Slug_$pages
     }));
     var $author$project$Route$Tags$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "List of Tags.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Tags" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "List of Tags.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: "Tags" }));
     };
     var $elm$html$Html$main_ = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "main"), $elm$html$Html$main__fn = $elm$html$Html$main_.a2;
     var $author$project$Layout$Tags$viewTagWithCount = function (_v0) {
         var count = _v0.gg;
-        var title = _v0.lb;
+        var title = _v0.la;
         var slug = _v0.fv;
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "mb-2 mr-5 mt-2")
@@ -18327,7 +18307,7 @@
             f7: _List_fromArray([
                 $author$project$Layout$Tags$view(app.j)
             ]),
-            lb: "Tags"
+            la: "Tags"
         };
     }, $author$project$Route$Tags$view = F2($author$project$Route$Tags$view_fn);
     var $author$project$Route$Tags$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$Tags$view }, $author$project$RouteBuilder$single({
@@ -18341,7 +18321,7 @@
                 var _v0 = app.j.dz;
                 if (!_v0.$) {
                     var tag = _v0.a;
-                    return "List of posts with tag: " + tag.lb;
+                    return "List of posts with tag: " + tag.la;
                 }
                 else {
                     return "";
@@ -18349,12 +18329,12 @@
             }(),
             gC: $author$project$Settings$symbolAndLogoForSeo,
             j5: $author$project$Settings$locale,
-            k4: $author$project$Settings$title,
-            lb: function () {
+            k3: $author$project$Settings$title,
+            la: function () {
                 var _v1 = app.j.dz;
                 if (!_v1.$) {
                     var tag = _v1.a;
-                    return tag.lb + " Posts";
+                    return tag.la + " Posts";
                 }
                 else {
                     return "";
@@ -18478,27 +18458,13 @@
         return $author$project$Content$BlogpostCommon$Draft;
     }), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("published", _Json_map1_fn(A2($elm$core$Basics$composeL, $elm$core$Result$withDefault($justinmimbs$date$Date$fromRataDie(1)), $justinmimbs$date$Date$fromIsoString), $elm$json$Json$Decode$string))), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("updated", _Json_map1_fn(A2($elm$core$Basics$composeL, $elm$core$Result$withDefault($justinmimbs$date$Date$fromRataDie(1)), $justinmimbs$date$Date$fromIsoString), $elm$json$Json$Decode$string))), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("status", $elm$json$Json$Decode$string)));
     var $author$project$Content$AllBlogpost$metadataDecoder_fn = function (authorsDict, slug) {
-        return _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$succeed(1), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("updated", $author$project$Content$AllBlogpost$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("published", $author$project$Content$AllBlogpost$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$AllBlogpost$decodeStatus, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(function (authors) {
+        return _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("updated", $author$project$Content$AllBlogpost$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("published", $author$project$Content$AllBlogpost$dateOrDateTimeDecoder)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$AllBlogpost$decodeStatus, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(function (authors) {
             return $elm$core$List$filterMap_fn(function (authorSlug) {
                 return $elm$core$Dict$get_fn(authorSlug, authorsDict);
             }, authors);
-        }, _Json_map1_fn($elm$core$Maybe$withDefault(_List_fromArray(["default"])), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("authors", $elm$json$Json$Decode$list($elm$json$Json$Decode$string))))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn($elm$core$Maybe$withDefault(_List_Nil), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("tags", $elm$json$Json$Decode$list($elm$json$Json$Decode$string)))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$AllBlogpost$decodeCategory, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("description", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("image", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(A2($elm$core$Basics$composeR, $elm$core$Maybe$withDefault(slug), $kuon$elm_string_normalize$String$Normalize$slug), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("slug", $elm$json$Json$Decode$string))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_decodeField_fn("title", $elm$json$Json$Decode$string), $elm$json$Json$Decode$succeed($author$project$Content$BlogpostCommon$Metadata))))))))))));
+        }, _Json_map1_fn($elm$core$Maybe$withDefault(_List_fromArray(["default"])), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("authors", $elm$json$Json$Decode$list($elm$json$Json$Decode$string))))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn($elm$core$Maybe$withDefault(_List_Nil), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("tags", $elm$json$Json$Decode$list($elm$json$Json$Decode$string)))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $author$project$Content$AllBlogpost$decodeCategory, _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("description", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, $elm$json$Json$Decode$maybe(_Json_decodeField_fn("image", $elm$json$Json$Decode$string)), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_map1_fn(A2($elm$core$Basics$composeR, $elm$core$Maybe$withDefault(slug), $kuon$elm_string_normalize$String$Normalize$slug), $elm$json$Json$Decode$maybe(_Json_decodeField_fn("slug", $elm$json$Json$Decode$string))), _Json_map2_fn($elm_community$json_extra$Json$Decode$Extra$andMap_a0, _Json_decodeField_fn("title", $elm$json$Json$Decode$string), $elm$json$Json$Decode$succeed($author$project$Content$BlogpostCommon$Metadata)))))))))));
     }, $author$project$Content$AllBlogpost$metadataDecoder = F2($author$project$Content$AllBlogpost$metadataDecoder_fn);
     var $author$project$Content$AllBlogpost$allBlogposts = function () {
-        var updateReadingTime = function (blogposts) {
-            var updatedMetadata = F2(function (blogpost, metadata) {
-                return _Utils_update(metadata, {
-                    kM: function (words) {
-                        return (words / 200) | 0;
-                    }($elm$core$List$length($elm$core$String$split_fn(" ", blogpost)))
-                });
-            });
-            return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (blogpost) {
-                return _Utils_update(blogpost, {
-                    cz: A2(updatedMetadata, blogpost.f7, blogpost.cz)
-                });
-            }), blogposts);
-        };
         var addPreviousNextPosts = function (orderedBlogposts) {
             return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$Array$toList, $dillonkearns$elm_pages$BackendTask$map_fn(function (blogposts) {
                 return $elm$core$Array$indexedMap_fn(F2(function (index, blogpost) {
@@ -18524,7 +18490,7 @@
                 return metadata;
             }
         };
-        return updateReadingTime(addPreviousNextPosts($dillonkearns$elm_pages$BackendTask$map_fn(A2($elm$core$Basics$composeR, $elm$core$List$sortBy(A2($elm$core$Basics$composeR, function ($) {
+        return addPreviousNextPosts($dillonkearns$elm_pages$BackendTask$map_fn(A2($elm$core$Basics$composeR, $elm$core$List$sortBy(A2($elm$core$Basics$composeR, function ($) {
             return $.cz;
         }, A2($elm$core$Basics$composeR, $author$project$Content$AllBlogpost$getPublishedDate, $justinmimbs$date$Date$toRataDie))), $elm$core$List$reverse), $dillonkearns$elm_pages$BackendTask$andThen_fn(function (blogposts) {
             return $dillonkearns$elm_pages$BackendTask$map_fn(function (includeDrafts) {
@@ -18550,7 +18516,7 @@
                     }), $author$project$Content$AllBlogpost$metadataDecoder_fn(authorsDict, file.fv), $elm$json$Json$Decode$succeed(markdownString));
                 }, file.h4)));
             }, blogposts);
-        }), $author$project$Content$AllBlogpost$allBlogPostFiles, $author$project$Content$About$allAuthors))))));
+        }), $author$project$Content$AllBlogpost$allBlogPostFiles, $author$project$Content$About$allAuthors)))));
     }();
     var $elm_community$list_extra$List$Extra$groupWhile_fn = function (isSameGroup, items) {
         return $elm$core$List$foldr_fn(F2(function (x, acc) {
@@ -18614,19 +18580,19 @@
             return {
                 gg: count,
                 fv: slug,
-                lb: $elm$core$Maybe$withDefault_fn(slug, $elm$core$Dict$get_fn(slug, names))
+                la: $elm$core$Maybe$withDefault_fn(slug, $elm$core$Dict$get_fn(slug, names))
             };
         }, slugCount);
     })), $author$project$Content$AllBlogpost$allBlogposts);
     var $author$project$Route$Tags$Slug_$pages = $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (tag) {
         return {
-            fv: $elm$url$Url$percentEncode($kuon$elm_string_normalize$String$Normalize$slug(tag.lb))
+            fv: $elm$url$Url$percentEncode($kuon$elm_string_normalize$String$Normalize$slug(tag.la))
         };
     }), $author$project$Content$AllBlogpost$allTags);
     var $author$project$Route$Tags$Slug_$view_fn = function (app, _v0) {
         return {
             f7: $author$project$Layout$Blogpost$viewPostList_fn(app.j.hq, app.j.i7, app.j.dz),
-            lb: "Tag: TODO"
+            la: "Tag: TODO"
         };
     }, $author$project$Route$Tags$Slug_$view = F2($author$project$Route$Tags$Slug_$view_fn);
     var $author$project$Route$Tags$Slug_$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$Tags$Slug_$view }, $author$project$RouteBuilder$preRender({
@@ -18637,7 +18603,7 @@
         kA: $author$project$Route$Tags$Slug_$pages
     }));
     var $author$project$Route$TechBlog$head = function (_v0) {
-        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Tech Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k4: $author$project$Settings$title, lb: "Tech Blog" }));
+        return $dillonkearns$elm_pages$Head$Seo$website($dillonkearns$elm_pages$Head$Seo$summaryLarge({ jc: $elm$core$Maybe$Nothing, jq: "Tech Blog posts.", gC: $author$project$Settings$symbolAndLogoForSeo, j5: $author$project$Settings$locale, k3: $author$project$Settings$title, la: "Tech Blog" }));
     };
     var $author$project$Layout$TechBlogpost$viewPublishedDate = $author$project$Layout$Blogpost$viewPublishedDate;
     var $author$project$Layout$TechBlogpost$viewBlogpostMetadata = function (metadata) {
@@ -18655,11 +18621,11 @@
                         $author$project$Route$link_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100")
                         ]), _List_fromArray([
-                            $elm$html$Html$text(metadata.lb)
+                            $elm$html$Html$text(metadata.la)
                         ]), $author$project$Route$TechBlog__Slug_({ fv: metadata.fv }))
                     ])),
                     $elm$html$Html$div_fn(_List_fromArray([
-                        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap")
+                        $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 sm:space-x-2")
                     ]), $elm$core$List$map_fn($author$project$Layout$Tags$viewTag, metadata.hq))
                 ])),
                 $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (description) {
@@ -18679,14 +18645,14 @@
                 return $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14")
                 ]), _List_fromArray([
-                    $elm$html$Html$text(tag.lb)
+                    $elm$html$Html$text(tag.la)
                 ]));
             }
             else {
                 return $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14")
                 ]), _List_fromArray([
-                    $elm$html$Html$text("All Posts")
+                    $elm$html$Html$text("Tech Posts")
                 ]));
             }
         }();
@@ -18696,7 +18662,7 @@
                     $elm$html$Html$h3_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase")
                     ]), _List_fromArray([
-                        $elm$html$Html$text("All Posts")
+                        $elm$html$Html$text("Tech Posts")
                     ]))
                 ]), $author$project$Route$TechBlog);
             }
@@ -18704,7 +18670,7 @@
                 return $elm$html$Html$h3_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-primary-700 dark:text-primary-500 font-bold uppercase")
                 ]), _List_fromArray([
-                    $elm$html$Html$text("All Posts")
+                    $elm$html$Html$text("Tech Posts")
                 ]));
             }
         }();
@@ -18733,9 +18699,9 @@
                                             return $.fv;
                                         }, selectedTag)))
                                     ])),
-                                    $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.lb)
+                                    $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + tag.la)
                                 ]), _List_fromArray([
-                                    $elm$html$Html$text(tag.lb + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
+                                    $elm$html$Html$text(tag.la + (" (" + ($elm$core$String$fromInt(tag.gg) + ")")))
                                 ]), $author$project$Route$Tags__Slug_({ fv: tag.fv }))
                             ]));
                         }, tags))
@@ -18756,7 +18722,7 @@
     var $author$project$Route$TechBlog$view_fn = function (app, _v0) {
         return {
             f7: $author$project$Layout$TechBlogpost$viewPostList_fn(app.j.hq, app.j.i7, $elm$core$Maybe$Nothing),
-            lb: "Tech Blog"
+            la: "Tech Blog"
         };
     }, $author$project$Route$TechBlog$view = F2($author$project$Route$TechBlog$view_fn);
     var $author$project$Route$TechBlog$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$TechBlog$view }, $author$project$RouteBuilder$single({
@@ -18764,7 +18730,7 @@
         aM: $author$project$Route$TechBlog$head
     }));
     var $author$project$Route$TechBlog$Slug_$head = function (app) {
-        var imagePath = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoPath, app.j.ao.cz.gC);
+        var imagePath = $elm$core$Maybe$withDefault_fn($author$project$Settings$symbolAndLogoPath, app.j.aw.cz.gC);
         var creatorHeader = function () {
             var _v1 = $author$project$Settings$xId;
             if (!_v1.$) {
@@ -18778,7 +18744,7 @@
             }
         }();
         var authorsHeader = function () {
-            var _v0 = app.j.ao.cz.f2;
+            var _v0 = app.j.aw.cz.f2;
             if (!_v0.b) {
                 return _List_Nil;
             }
@@ -18801,41 +18767,24 @@
                 }
             }
         }();
-        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.j.ao.cz.fL, kJ: app.j.ao.cz.el, k_: $elm$core$Maybe$Nothing, hq: app.j.ao.cz.hq }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
+        return _Utils_ap($dillonkearns$elm_pages$Head$Seo$article_fn({ jz: $elm$core$Maybe$Nothing, ke: app.j.aw.cz.fL, kJ: app.j.aw.cz.el, kZ: $elm$core$Maybe$Nothing, hq: app.j.aw.cz.hq }, $dillonkearns$elm_pages$Head$Seo$summaryLarge({
             jc: $elm$core$Maybe$Nothing,
-            jq: $elm$core$Maybe$withDefault_fn($author$project$Settings$subtitle, app.j.ao.cz.jq),
+            jq: $elm$core$Maybe$withDefault_fn($author$project$Settings$subtitle, app.j.aw.cz.jq),
             gC: {
-                i$: app.j.ao.cz.lb,
+                i$: app.j.aw.cz.la,
                 jr: $elm$core$Maybe$Nothing,
                 ka: $elm$core$Maybe$Nothing,
-                le: $dillonkearns$elm_pages$Pages$Url$fromPath(_List_fromArray([imagePath]))
+                ld: $dillonkearns$elm_pages$Pages$Url$fromPath(_List_fromArray([imagePath]))
             },
             j5: $author$project$Settings$locale,
-            k4: $author$project$Settings$title,
-            lb: app.j.ao.cz.lb
-        })), _Utils_ap(creatorHeader, _Utils_ap(authorsHeader, _List_fromArray([
-            $dillonkearns$elm_pages$Head$metaName_fn("twitter:label2", $dillonkearns$elm_pages$Head$raw("Reading time")),
-            $dillonkearns$elm_pages$Head$metaName_fn("twitter:data2", $dillonkearns$elm_pages$Head$raw($elm$core$String$fromInt(app.j.ao.cz.kM) + " min"))
-        ]))));
+            k3: $author$project$Settings$title,
+            la: app.j.aw.cz.la
+        })), _Utils_ap(creatorHeader, authorsHeader));
     };
     var $author$project$Content$TechBlogpost$techBlogPostFiles = $dillonkearns$elm_pages$BackendTask$Glob$toBackendTask($dillonkearns$elm_pages$BackendTask$Glob$match_fn($dillonkearns$elm_pages$BackendTask$Glob$literal(".md"), $dillonkearns$elm_pages$BackendTask$Glob$capture_fn($dillonkearns$elm_pages$BackendTask$Glob$wildcard, $dillonkearns$elm_pages$BackendTask$Glob$match_fn($dillonkearns$elm_pages$BackendTask$Glob$literal("/"), $dillonkearns$elm_pages$BackendTask$Glob$capture_fn($dillonkearns$elm_pages$BackendTask$Glob$recursiveWildcard, $dillonkearns$elm_pages$BackendTask$Glob$match_fn($dillonkearns$elm_pages$BackendTask$Glob$literal("content/tech-blog/"), $dillonkearns$elm_pages$BackendTask$Glob$capture_fn($dillonkearns$elm_pages$BackendTask$Glob$captureFilePath_a0, $dillonkearns$elm_pages$BackendTask$Glob$succeed(F3(function (filePath, path, fileName) {
         return { h4: filePath, kC: path, fv: fileName };
     })))))))));
     var $author$project$Content$TechBlogpost$allBlogposts = function () {
-        var updateReadingTime = function (blogposts) {
-            var updatedMetadata = F2(function (blogpost, metadata) {
-                return _Utils_update(metadata, {
-                    kM: function (words) {
-                        return (words / 200) | 0;
-                    }($elm$core$List$length($elm$core$String$split_fn(" ", blogpost)))
-                });
-            });
-            return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$List$map(function (blogpost) {
-                return _Utils_update(blogpost, {
-                    cz: A2(updatedMetadata, blogpost.f7, blogpost.cz)
-                });
-            }), blogposts);
-        };
         var addPreviousNextPosts = function (orderedBlogposts) {
             return $dillonkearns$elm_pages$BackendTask$map_fn($elm$core$Array$toList, $dillonkearns$elm_pages$BackendTask$map_fn(function (blogposts) {
                 return $elm$core$Array$indexedMap_fn(F2(function (index, blogpost) {
@@ -18861,7 +18810,7 @@
                 return metadata;
             }
         };
-        return updateReadingTime(addPreviousNextPosts($dillonkearns$elm_pages$BackendTask$map_fn(A2($elm$core$Basics$composeR, $elm$core$List$sortBy(A2($elm$core$Basics$composeR, function ($) {
+        return addPreviousNextPosts($dillonkearns$elm_pages$BackendTask$map_fn(A2($elm$core$Basics$composeR, $elm$core$List$sortBy(A2($elm$core$Basics$composeR, function ($) {
             return $.cz;
         }, A2($elm$core$Basics$composeR, $author$project$Content$BlogpostCommon$getPublishedDate, $justinmimbs$date$Date$toRataDie))), $elm$core$List$reverse), $dillonkearns$elm_pages$BackendTask$andThen_fn(function (blogposts) {
             return $dillonkearns$elm_pages$BackendTask$map_fn(function (includeDrafts) {
@@ -18887,7 +18836,7 @@
                     }), $author$project$Content$BlogpostCommon$metadataDecoder_fn(authorsDict, file.fv), $elm$json$Json$Decode$succeed(markdownString));
                 }, file.h4)));
             }, blogposts);
-        }), $author$project$Content$TechBlogpost$techBlogPostFiles, $author$project$Content$About$allAuthors))))));
+        }), $author$project$Content$TechBlogpost$techBlogPostFiles, $author$project$Content$About$allAuthors)))));
     }();
     var $author$project$Route$TechBlog$Slug_$pages = $dillonkearns$elm_pages$BackendTask$map_fn(function (blogposts) {
         return $elm$core$List$map_fn(function (_v0) {
@@ -18928,7 +18877,7 @@
         });
         var next = $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (_v2) {
             var slug = _v2.fv;
-            var title = _v2.lb;
+            var title = _v2.la;
             return $elm$html$Html$div_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:col-start-2 flex flex-col sm:text-right mt-4 xl:mt-8")
             ]), _List_fromArray([
@@ -18940,7 +18889,7 @@
         }, nextPost);
         var previous = $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (_v1) {
             var slug = _v1.fv;
-            var title = _v1.lb;
+            var title = _v1.la;
             return $elm$html$Html$div_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "sm:col-start-1 flex flex-col mt-4 xl:mt-8")
             ]), _List_fromArray([
@@ -18982,11 +18931,7 @@
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 text-base")
                     ]), _List_fromArray([
                         $author$project$Layout$TechBlogpost$viewPublishedDate(metadata.he),
-                        $author$project$Layout$TechBlogpost$viewUpdatedDate(metadata.he),
-                        $elm$html$Html$span_fn(_List_Nil, _List_fromArray([
-                            $elm$html$Html$text($elm$core$String$fromInt(metadata.kM)),
-                            $elm$html$Html$text(" min reading time")
-                        ]))
+                        $author$project$Layout$TechBlogpost$viewUpdatedDate(metadata.he)
                     ]))
                 ]))
             ]))
@@ -18998,9 +18943,12 @@
                 $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "mt-8 pb-4 font-bold text-3xl md:text-5xl text-gray-900 dark:text-gray-100")
                 ]), _List_fromArray([
-                    $elm$html$Html$text(metadata.lb)
+                    $elm$html$Html$text(metadata.la)
                 ])),
-                authorsView
+                authorsView,
+                $elm$html$Html$div_fn(_List_fromArray([
+                    $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex flex-wrap space-x-4 sm:space-x-2")
+                ]), $elm$core$List$map_fn($author$project$Layout$Tags$viewTag, metadata.hq))
             ])),
             $elm_community$html_extra$Html$Extra$viewMaybe_fn(function (imagePath) {
                 return $elm$html$Html$div_fn(_List_fromArray([
@@ -19013,7 +18961,7 @@
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "aspect-[2/1] w-full relative")
                         ]), _List_fromArray([
                             $elm$html$Html$img_fn(_List_fromArray([
-                                $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, metadata.lb),
+                                $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, metadata.la),
                                 $elm$virtual_dom$VirtualDom$attribute_fn("loading", "lazy"),
                                 $elm$virtual_dom$VirtualDom$attribute_fn("decoding", "async"),
                                 $elm$virtual_dom$VirtualDom$attribute_fn("data-nimg", "fill"),
@@ -19055,9 +19003,9 @@
     var $author$project$Route$TechBlog$Slug_$view_fn = function (app, _v0) {
         return {
             f7: _List_fromArray([
-                $author$project$Layout$TechBlogpost$viewBlogpost(app.j.ao)
+                $author$project$Layout$TechBlogpost$viewBlogpost(app.j.aw)
             ]),
-            lb: app.j.ao.cz.lb
+            la: app.j.aw.cz.la
         };
     }, $author$project$Route$TechBlog$Slug_$view = F2($author$project$Route$TechBlog$Slug_$view_fn);
     var $author$project$Route$TechBlog$Slug_$route = $author$project$RouteBuilder$buildNoState_fn({ q: $author$project$Route$TechBlog$Slug_$view }, $author$project$RouteBuilder$preRender({
@@ -19278,7 +19226,7 @@
         ]);
     };
     var $dillonkearns$elm_pages$BuildError$errorToString = function (error) {
-        return $dillonkearns$elm_pages$TerminalText$toString(_Utils_ap($dillonkearns$elm_pages$BuildError$banner(error.lb), error.dh));
+        return $dillonkearns$elm_pages$TerminalText$toString(_Utils_ap($dillonkearns$elm_pages$BuildError$banner(error.la), error.dh));
     };
     var $dillonkearns$elm_pages$QueryParams$addToParametersHelp_fn = function (value, maybeList) {
         if (maybeList.$ === 1) {
@@ -19511,7 +19459,7 @@
                     }
                 }())
             ]),
-            lb: "Page not found"
+            la: "Page not found"
         };
     }, $dillonkearns$elm_pages$Pages$Internal$NotFoundReason$document = F2($dillonkearns$elm_pages$Pages$Internal$NotFoundReason$document_fn);
     var $dillonkearns$elm_pages$Pages$Internal$String$chopForwardSlashes_a0 = $dillonkearns$elm_pages$Pages$Internal$String$chopStart("/"), $dillonkearns$elm_pages$Pages$Internal$String$chopForwardSlashes_a1 = $dillonkearns$elm_pages$Pages$Internal$String$chopEnd("/"), $dillonkearns$elm_pages$Pages$Internal$String$chopForwardSlashes = A2($elm$core$Basics$composeR, $dillonkearns$elm_pages$Pages$Internal$String$chopForwardSlashes_a0, $dillonkearns$elm_pages$Pages$Internal$String$chopForwardSlashes_a1);
@@ -19561,11 +19509,11 @@
             var _v1 = model.s;
             if (!_v1.$) {
                 var pageData = _v1.a;
-                var urls = { i5: config.i5, jm: model.le };
-                var currentUrl = model.le;
+                var urls = { i5: config.i5, jm: model.ld };
+                var currentUrl = model.ld;
                 return A8(config.q, model.w, $dillonkearns$elm_pages$Pages$Internal$Platform$toFetcherState(model.P), $elm$core$Maybe$map_fn($elm$core$Tuple$second, model.ac), {
                     kC: $dillonkearns$elm_pages$UrlPath$join($dillonkearns$elm_pages$Pages$ContentCache$pathForUrl(urls)),
-                    cB: config.lf(_Utils_update(currentUrl, { kC: model.cn }))
+                    cB: config.le(_Utils_update(currentUrl, { kC: model.cn }))
                 }, $elm$core$Maybe$Nothing, pageData.t, pageData.s, pageData.bQ).q(pageData.ad);
             }
             else {
@@ -19576,7 +19524,7 @@
                             $elm$html$Html$text(error)
                         ]))
                     ]),
-                    lb: "Page Data Error"
+                    la: "Page Data Error"
                 };
             }
         }
@@ -19590,7 +19538,7 @@
                     $dillonkearns$elm_pages$TerminalText$text(decodeErrorMessage)
                 ]),
                 kC: path,
-                lb: "Static Http Decoding Error"
+                la: "Static Http Decoding Error"
             };
         }
         else {
@@ -19601,7 +19549,7 @@
                     $dillonkearns$elm_pages$TerminalText$text("I ran into a call to `BackendTask.fail` with message: " + decodeErrorMessage)
                 ]),
                 kC: path,
-                lb: "Called Static Http Fail"
+                la: "Called Static Http Fail"
             };
         }
     }, $dillonkearns$elm_pages$Pages$StaticHttpRequest$toBuildError = F2($dillonkearns$elm_pages$Pages$StaticHttpRequest$toBuildError_fn);
@@ -19646,7 +19594,7 @@
                 var urls = { i5: config.i5, jm: url };
                 var pagePath = $dillonkearns$elm_pages$Pages$Internal$Platform$urlsToPagePath(urls);
                 var _v2 = A5(config.aW, userFlags, sharedData, pageData, actionData, $elm$core$Maybe$Just({
-                    cz: config.lf(url),
+                    cz: config.le(url),
                     O: $elm$core$Maybe$Just({
                         a5: url.a5,
                         eW: url.eW,
@@ -19672,11 +19620,11 @@
                     b7: $elm$core$Maybe$Nothing,
                     aP: false,
                     ac: $elm$core$Maybe$Nothing,
-                    le: url,
+                    ld: url,
                     ew: flags
                 };
                 return _Utils_Tuple2(_Utils_update(initialModel, {
-                    bR: $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, initialModel).lb
+                    bR: $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, initialModel).la
                 }), cmd);
             }
             else {
@@ -19693,7 +19641,7 @@
                     b7: $elm$core$Maybe$Nothing,
                     aP: false,
                     ac: $elm$core$Maybe$Nothing,
-                    le: url,
+                    ld: url,
                     ew: flags
                 }, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect);
             }
@@ -19712,7 +19660,7 @@
                 b7: $elm$core$Maybe$Nothing,
                 aP: false,
                 ac: $elm$core$Maybe$Nothing,
-                le: url,
+                ld: url,
                 ew: flags
             }, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect);
         }
@@ -19853,7 +19801,7 @@
                 gQ: r.gQ,
                 ht: r.ht,
                 hv: r.hv,
-                le: r.le
+                ld: r.ld
             });
         }
     }, $elm$http$Http$cmdMap = F2($elm$http$Http$cmdMap_fn);
@@ -19920,7 +19868,7 @@
         }
     };
     var $elm$http$Http$request = function (r) {
-        return $elm$http$Http$command($elm$http$Http$Request({ i_: false, f7: r.f7, hZ: r.hZ, jP: r.jP, gQ: r.gQ, ht: r.ht, hv: r.hv, le: r.le }));
+        return $elm$http$Http$command($elm$http$Http$Request({ i_: false, f7: r.f7, hZ: r.hZ, jP: r.jP, gQ: r.gQ, ht: r.ht, hv: r.hv, ld: r.ld }));
     };
     var $elm$http$Http$stringBody = _Http_pair;
     var $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn = function (transitionKey, toMsg, config, url, details) {
@@ -19970,7 +19918,7 @@
             }, $dillonkearns$elm_pages$Pages$Internal$Platform$methodToString), details)),
             ht: $elm$core$Maybe$Nothing,
             hv: $elm$core$Maybe$Just($elm$core$String$fromInt(transitionKey)),
-            le: "/" + ($elm$core$String$join_fn("/", function (l) {
+            ld: "/" + ($elm$core$String$join_fn("/", function (l) {
                 return _Utils_ap(l, _List_fromArray(["content.dat"]));
             }($elm$core$List$filter_fn($elm$core$Basics$neq(""), $elm$core$String$split_fn("/", $elm$core$Basics$composeR_fn($dillonkearns$elm_pages$Pages$Internal$Platform$chopForwardSlashes_a0, $dillonkearns$elm_pages$Pages$Internal$Platform$chopForwardSlashes_a1, $elm$core$Maybe$withDefault_fn(url, $elm$core$Maybe$andThen_fn($elm$url$Url$fromString, $elm$core$Maybe$map_fn(function ($) {
                 return $.fO;
@@ -20044,7 +19992,7 @@
     var $elm$time$Time$now = _Time_now($elm$time$Time$millisToPosix);
     var $dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher_fn = function (fetcherKey, transitionId, options, model) {
         var formData = {
-            fO: $elm$core$Maybe$withDefault_fn(model.le.kC, options.le),
+            fO: $elm$core$Maybe$withDefault_fn(model.ld.kC, options.ld),
             gt: options.gt,
             gB: $elm$core$Maybe$Nothing,
             gQ: 0
@@ -20080,7 +20028,7 @@
                 gQ: "POST",
                 ht: $elm$core$Maybe$Nothing,
                 hv: $elm$core$Maybe$Nothing,
-                le: $elm$core$Maybe$withDefault_fn($dillonkearns$elm_pages$UrlPath$toAbsolute($dillonkearns$elm_pages$UrlPath$join(_List_fromArray([model.le.kC, "content.dat"]))), options.le)
+                ld: $elm$core$Maybe$withDefault_fn($dillonkearns$elm_pages$UrlPath$toAbsolute($dillonkearns$elm_pages$UrlPath$join(_List_fromArray([model.ld.kC, "content.dat"]))), options.ld)
             })
         ]));
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher = F4($dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher_fn);
@@ -20154,7 +20102,7 @@
                 gQ: $dillonkearns$elm_pages$Pages$Internal$Platform$methodToString(formData.gQ),
                 ht: $elm$core$Maybe$Nothing,
                 hv: $elm$core$Maybe$Just($elm$core$String$fromInt(transitionId)),
-                le: $elm$core$Maybe$withDefault_fn("/", $elm$core$Maybe$map_fn(function (_v6) {
+                ld: $elm$core$Maybe$withDefault_fn("/", $elm$core$Maybe$map_fn(function (_v6) {
                     var path = _v6.kC;
                     return $dillonkearns$elm_pages$UrlPath$toAbsolute($dillonkearns$elm_pages$UrlPath$join(_List_fromArray([path, "content.dat"])));
                 }, $elm$url$Url$fromString(formData.fO)))
@@ -20207,8 +20155,8 @@
                     }, model.j$));
                 }
                 else {
-                    var urlToSubmitTo = model.le;
-                    return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.le, $elm$core$Maybe$Nothing), config, urlToSubmitTo, $elm$core$Maybe$Just(fields));
+                    var urlToSubmitTo = model.ld;
+                    return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.ld, $elm$core$Maybe$Nothing), config, urlToSubmitTo, $elm$core$Maybe$Just(fields));
                 }
             case 7:
                 var fetcherKey = effect.a;
@@ -20221,23 +20169,23 @@
                 if (!_v2.$) {
                     var key = _v2.a;
                     var prepare = F2(function (toMsg, info) {
-                        return $dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew_fn(false, model.le, $elm$core$Maybe$Just(toMsg($elm$core$Result$map_fn($elm$core$Tuple$first, info))), info);
+                        return $dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew_fn(false, model.ld, $elm$core$Maybe$Just(toMsg($elm$core$Result$map_fn($elm$core$Tuple$first, info))), info);
                     });
                     return A2(config.kE, {
                         jC: function (fetchInfo) {
-                            return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, prepare(fetchInfo.ev), config, $dillonkearns$elm_pages$Pages$Internal$Platform$urlFromAction_fn(model.le, fetchInfo.j), fetchInfo.j);
+                            return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, prepare(fetchInfo.ev), config, $dillonkearns$elm_pages$Pages$Internal$Platform$urlFromAction_fn(model.ld, fetchInfo.j), fetchInfo.j);
                         },
                         jK: A2($elm$core$Basics$composeR, $dillonkearns$elm_pages$Pages$Internal$Msg$UserMsg, $dillonkearns$elm_pages$Pages$Internal$Platform$UserMsg),
                         j$: key,
-                        kW: function (_v3) {
+                        kV: function (_v3) {
                             var options = _v3;
                             return $dillonkearns$elm_pages$Pages$Internal$Platform$startFetcher_fn("TODO", -1, options, model);
                         },
-                        k1: function (_v4) {
+                        k0: function (_v4) {
                             return $elm$core$Platform$Cmd$none;
                         },
                         z: function (fetchInfo) {
-                            return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, prepare(fetchInfo.ev), config, $elm$core$Maybe$withDefault_fn(model.le, $elm$url$Url$fromString(fetchInfo.iR.fO)), $elm$core$Maybe$Just(fetchInfo.iR));
+                            return $dillonkearns$elm_pages$Pages$Internal$Platform$fetchRouteData_fn(-1, prepare(fetchInfo.ev), config, $elm$core$Maybe$withDefault_fn(model.ld, $elm$url$Url$fromString(fetchInfo.iR.fO)), $elm$core$Maybe$Just(fetchInfo.iR));
                         }
                     }, cmd);
                 }
@@ -20300,7 +20248,7 @@
         });
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$clearLoadingFetchersAfterDataLoad = F2($dillonkearns$elm_pages$Pages$Internal$Platform$clearLoadingFetchersAfterDataLoad_fn);
     var $dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn = function (path, _v0) {
-        var url = _v0.le;
+        var url = _v0.ld;
         return _Utils_update(url, { kC: path });
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath = F2($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn);
     var $elm$url$Url$addPort_fn = function (maybePort, starter) {
@@ -20365,11 +20313,11 @@
             var onActionMsg = $elm$core$Maybe$andThen_fn(config.ku, newActionData);
             var _v2 = A8(config.aI, model.w, $dillonkearns$elm_pages$Pages$Internal$Platform$toFetcherState(model.P), $elm$core$Maybe$map_fn($elm$core$Tuple$second, model.ac), newSharedData, newPageData, model.j$, config.it({
                 a5: urlWithoutRedirectResolution.a5,
-                eW: model.le.eW,
-                cz: config.lf(urlWithoutRedirectResolution),
+                eW: model.ld.eW,
+                cz: config.le(urlWithoutRedirectResolution),
                 kC: $dillonkearns$elm_pages$Pages$Internal$Platform$urlPathToPath(urlWithoutRedirectResolution),
-                fa: model.le.fa,
-                fe: model.le.fe,
+                fa: model.ld.fa,
+                fe: model.ld.fe,
                 bl: urlWithoutRedirectResolution.bl
             }), previousPageData.ad);
             var userModel = _v2.a;
@@ -20380,14 +20328,14 @@
                 b7: $elm$core$Maybe$Nothing,
                 aP: false,
                 ac: $elm$core$Maybe$Nothing,
-                le: newUrl
+                ld: newUrl
             }) : _Utils_update(model, {
                 P: $elm$core$Dict$empty,
                 s: $elm$core$Result$Ok(updatedPageData),
                 b7: $elm$core$Maybe$Nothing,
                 aP: false,
                 ac: $elm$core$Maybe$Nothing,
-                le: newUrl
+                ld: newUrl
             });
             return function () {
                 if (!onActionMsg.$) {
@@ -20406,7 +20354,7 @@
                     return $elm$core$Basics$identity;
                 }
             }()(_Utils_Tuple2(_Utils_update(updatedModel, {
-                bR: $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, updatedModel).lb,
+                bR: $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, updatedModel).la,
                 cn: newUrl.kC
             }), $dillonkearns$elm_pages$Pages$Internal$Platform$ScrollToTop)));
         }
@@ -20528,7 +20476,7 @@
     var $dillonkearns$elm_form$Form$updateForm_fn = function (fieldEvent, formState) {
         return _Utils_update(formState, {
             gt: $elm$core$Dict$update_fn(fieldEvent.kh, function (previousValue_) {
-                var previousValue = $elm$core$Maybe$withDefault_fn({ he: 0, li: fieldEvent.li }, previousValue_);
+                var previousValue = $elm$core$Maybe$withDefault_fn({ he: 0, lh: fieldEvent.lh }, previousValue_);
                 return $elm$core$Maybe$Just(function () {
                     var _v0 = fieldEvent.jx;
                     switch (_v0.$) {
@@ -20536,7 +20484,7 @@
                             var newValue = _v0.a;
                             return _Utils_update(previousValue, {
                                 he: $dillonkearns$elm_form$Form$increaseStatusTo_fn(2, previousValue.he),
-                                li: newValue
+                                lh: newValue
                             });
                         case 1:
                             return _Utils_update(previousValue, {
@@ -20586,7 +20534,7 @@
                     var urlRequest = appMsg.a;
                     if (!urlRequest.$) {
                         var url = urlRequest.a;
-                        var navigatingToSamePage = _Utils_eq(url.kC, model.le.kC) && (_Utils_eq(url.bl, model.le.bl) && (!_Utils_eq(url.a5, $elm$core$Maybe$Nothing)));
+                        var navigatingToSamePage = _Utils_eq(url.kC, model.ld.kC) && (_Utils_eq(url.bl, model.ld.bl) && (!_Utils_eq(url.a5, $elm$core$Maybe$Nothing)));
                         return navigatingToSamePage ? _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$BrowserLoadUrl($elm$url$Url$toString(url))) : _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$BrowserPushUrl($elm$url$Url$toString(url)));
                     }
                     else {
@@ -20604,7 +20552,7 @@
                         return $dillonkearns$elm_pages$Pages$Internal$Platform$loadDataAndUpdateUrl_fn(_Utils_Tuple3(newPageData, newSharedData, newActionData), $elm$core$Maybe$Nothing, url, url, false, config, model);
                     }
                     else {
-                        return (_Utils_eq(model.le.kC, url.kC) && _Utils_eq(model.le.bl, url.bl)) ? (_Utils_eq(url.a5, $elm$core$Maybe$Nothing) ? _Utils_Tuple2(_Utils_update(model, { le: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$ScrollToTop) : _Utils_Tuple2(_Utils_update(model, { le: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect)) : $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn(url, A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, true, url, $elm$core$Maybe$Nothing), _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
+                        return (_Utils_eq(model.ld.kC, url.kC) && _Utils_eq(model.ld.bl, url.bl)) ? (_Utils_eq(url.a5, $elm$core$Maybe$Nothing) ? _Utils_Tuple2(_Utils_update(model, { ld: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$ScrollToTop) : _Utils_Tuple2(_Utils_update(model, { ld: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect)) : $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn(url, A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, true, url, $elm$core$Maybe$Nothing), _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
                     }
                 case 5:
                     var fetcherKey = appMsg.b;
@@ -20615,7 +20563,7 @@
                         var actionOrRedirect = _v6.b;
                         if (!actionOrRedirect.$) {
                             var maybeFetcherDoneActionData = actionOrRedirect.a;
-                            return $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn(model.le.kC, model), A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.le, $elm$core$Maybe$Nothing), function () {
+                            return $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn(model.ld.kC, model), A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.ld, $elm$core$Maybe$Nothing), function () {
                                 if (!userMsg.$) {
                                     var justUserMsg = userMsg.a;
                                     return A2($dillonkearns$elm_pages$Pages$Internal$Platform$performUserMsg, justUserMsg, config);
@@ -20635,14 +20583,14 @@
                         }
                         else {
                             var redirectTo = actionOrRedirect.a;
-                            return $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn(redirectTo, model), A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.le, $elm$core$Maybe$Nothing), _Utils_Tuple2(_Utils_update(model, {
+                            return $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn(redirectTo, model), A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.ld, $elm$core$Maybe$Nothing), _Utils_Tuple2(_Utils_update(model, {
                                 P: $elm$core$Dict$remove_fn(fetcherKey, model.P),
                                 aP: true
                             }), $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
                         }
                     }
                     else {
-                        return $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn(model.le.kC, model), A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.le, $elm$core$Maybe$Nothing), _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
+                        return $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn($dillonkearns$elm_pages$Pages$Internal$Platform$currentUrlWithPath_fn(model.ld.kC, model), A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, false, model.ld, $elm$core$Maybe$Nothing), _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
                     }
                 case 9:
                     var transitionId = appMsg.a;
@@ -20754,7 +20702,7 @@
                             }), $dillonkearns$elm_pages$Pages$Internal$Platform$BrowserReplaceUrl(newUrl.kC));
                         }
                         else {
-                            var stayingOnSamePath = _Utils_eq(newUrl.kC, model.le.kC);
+                            var stayingOnSamePath = _Utils_eq(newUrl.kC, model.ld.kC);
                             var _v22 = function () {
                                 switch (newData.$) {
                                     case 0:
@@ -20776,11 +20724,11 @@
                             var onActionMsg = $elm$core$Maybe$andThen_fn(config.ku, newActionData);
                             var _v24 = stayingOnSamePath ? _Utils_Tuple2(previousPageData.ad, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect) : $elm$core$Tuple$mapSecond_fn($dillonkearns$elm_pages$Pages$Internal$Platform$UserCmd, A8(config.aI, model.w, $dillonkearns$elm_pages$Pages$Internal$Platform$toFetcherState(model.P), $elm$core$Maybe$map_fn($elm$core$Tuple$second, model.ac), newSharedData, newPageData, model.j$, config.it({
                                 a5: urlWithoutRedirectResolution.a5,
-                                eW: model.le.eW,
-                                cz: config.lf(urlWithoutRedirectResolution),
+                                eW: model.ld.eW,
+                                cz: config.le(urlWithoutRedirectResolution),
                                 kC: $dillonkearns$elm_pages$Pages$Internal$Platform$urlPathToPath(urlWithoutRedirectResolution),
-                                fa: model.le.fa,
-                                fe: model.le.fe,
+                                fa: model.ld.fa,
+                                fe: model.ld.fe,
                                 bl: urlWithoutRedirectResolution.bl
                             }), previousPageData.ad));
                             var userModel = _v24.a;
@@ -20791,12 +20739,12 @@
                                 w: $elm$core$Dict$empty,
                                 aP: false,
                                 ac: $elm$core$Maybe$Nothing,
-                                le: newUrl
+                                ld: newUrl
                             }) : _Utils_update(model, {
                                 s: $elm$core$Result$Ok(updatedPageData),
                                 aP: false,
                                 ac: $elm$core$Maybe$Nothing,
-                                le: newUrl
+                                ld: newUrl
                             });
                             return function () {
                                 if (!onActionMsg.$) {
@@ -20815,7 +20763,7 @@
                                     return $elm$core$Basics$identity;
                                 }
                             }()(_Utils_Tuple2(_Utils_update(updatedModel, {
-                                bR: $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, updatedModel).lb,
+                                bR: $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, updatedModel).la,
                                 cn: newUrl.kC
                             }), ((!stayingOnSamePath) && scrollToTopWhenDone) ? $dillonkearns$elm_pages$Pages$Internal$Platform$Batch(_List_fromArray([$dillonkearns$elm_pages$Pages$Internal$Platform$ScrollToTop, userEffect])) : userEffect)));
                         }
@@ -20861,19 +20809,19 @@
                             var pageData = _v31.b;
                             var actionData = _v31.c;
                             var userFlags = $dillonkearns$elm_pages$Pages$Flags$BrowserFlags($elm$core$Result$withDefault_fn($elm$json$Json$Encode$null, _Json_run_fn(_Json_decodeField_fn("userFlags", $elm$json$Json$Decode$value), model.ew)));
-                            var urls = { i5: config.i5, jm: model.le };
+                            var urls = { i5: config.i5, jm: model.ld };
                             var pagePath = $dillonkearns$elm_pages$Pages$Internal$Platform$urlsToPagePath(urls);
                             var _v32 = A5(config.aW, userFlags, sharedData, pageData, actionData, $elm$core$Maybe$Just({
-                                cz: config.lf(model.le),
+                                cz: config.le(model.ld),
                                 O: $elm$core$Maybe$Just({
-                                    a5: model.le.a5,
-                                    eW: model.le.eW,
+                                    a5: model.ld.a5,
+                                    eW: model.ld.eW,
                                     kC: pagePath,
-                                    fa: model.le.fa,
-                                    fe: model.le.fe,
-                                    bl: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$QueryParams$fromString, model.le.bl))
+                                    fa: model.ld.fa,
+                                    fe: model.ld.fe,
+                                    bl: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$QueryParams$fromString, model.ld.bl))
                                 }),
-                                kC: { a5: model.le.a5, kC: pagePath, bl: model.le.bl }
+                                kC: { a5: model.ld.a5, kC: pagePath, bl: model.ld.bl }
                             }));
                             var userModel = _v32.a;
                             var userCmd = _v32.b;
@@ -20967,13 +20915,13 @@
     var $dillonkearns$elm_pages$Pages$Internal$Platform$view_fn = function (config, model) {
         var _v0 = $dillonkearns$elm_pages$Pages$Internal$Platform$mainView_fn(config, model);
         var body = _v0.f7;
-        var title = _v0.lb;
+        var title = _v0.la;
         return {
             f7: _Utils_ap(_List_fromArray([
-                $dillonkearns$elm_pages$Pages$Internal$Platform$onViewChangeElement(model.le),
+                $dillonkearns$elm_pages$Pages$Internal$Platform$onViewChangeElement(model.ld),
                 $dillonkearns$elm_pages$AriaLiveAnnouncer$view(model.bR)
             ]), $elm$core$List$map_fn($elm$html$Html$map($dillonkearns$elm_pages$Pages$Internal$Platform$UserMsg), body)),
-            lb: title
+            la: title
         };
     }, $dillonkearns$elm_pages$Pages$Internal$Platform$view = F2($dillonkearns$elm_pages$Pages$Internal$Platform$view_fn);
     var $dillonkearns$elm_pages$Pages$Internal$Platform$application = function (config) {
@@ -20990,9 +20938,9 @@
                 var _v1 = model.s;
                 if (!_v1.$) {
                     var pageData = _v1.a;
-                    var urls = { jm: model.le };
+                    var urls = { jm: model.ld };
                     return $elm$core$Platform$Sub$batch(_List_fromArray([
-                        _Platform_map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_pages$Pages$Internal$Msg$UserMsg, $dillonkearns$elm_pages$Pages$Internal$Platform$UserMsg), A3(config.a0, config.lf(model.le), $dillonkearns$elm_pages$UrlPath$join(config.kU(config.lf(urls.jm))), pageData.ad)),
+                        _Platform_map_fn(A2($elm$core$Basics$composeR, $dillonkearns$elm_pages$Pages$Internal$Msg$UserMsg, $dillonkearns$elm_pages$Pages$Internal$Platform$UserMsg), A3(config.a0, config.le(model.ld), $dillonkearns$elm_pages$UrlPath$join(config.kT(config.le(urls.jm))), pageData.ad)),
                         _Platform_map_fn($dillonkearns$elm_pages$Pages$Internal$Platform$HotReloadCompleteNew, config.jU)
                     ]));
                 }
@@ -21118,7 +21066,6 @@
     var $author$project$Route$About$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$About$w3_decode_Author, $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (author0) {
         return { dQ: author0 };
     }));
-    var $lamdera$codecs$Lamdera$Wire3$decodeInt = $lamdera$codecs$Lamdera$Wire3$decodeInt64;
     var $lamdera$codecs$Lamdera$Wire3$andThenDecode = $elm$bytes$Bytes$Decode$andThen;
     var $author$project$Content$BlogpostCommon$w3_decode_Category = $elm$bytes$Bytes$Decode$andThen_fn(function (w3v) {
         switch (w3v) {
@@ -21135,6 +21082,7 @@
     var $dillonkearns$elm_date_or_date_time$DateOrDateTime$DateTime = function (a) {
         return { $: 1, a: a };
     };
+    var $lamdera$codecs$Lamdera$Wire3$decodeInt = $lamdera$codecs$Lamdera$Wire3$decodeInt64;
     var $justinmimbs$date$Date$w3_decode_RataDie = $lamdera$codecs$Lamdera$Wire3$decodeInt;
     var $justinmimbs$date$Date$w3_decode_Date = $elm$bytes$Bytes$Decode$andThen_fn(function (w3v) {
         if (!w3v) {
@@ -21170,19 +21118,17 @@
                 return $lamdera$codecs$Lamdera$Wire3$failDecode;
         }
     }, $elm$bytes$Bytes$Decode$unsignedInt8);
-    var $author$project$Content$BlogpostCommon$w3_decode_Metadata = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_decode_DateOrDateTime), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Status, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeInt, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_decode_DateOrDateTime), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Category, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$About$w3_decode_Author), $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (authors0) {
+    var $author$project$Content$BlogpostCommon$w3_decode_Metadata = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_decode_DateOrDateTime), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Status, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_decode_DateOrDateTime), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($lamdera$codecs$Lamdera$Wire3$decodeString), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Category, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$About$w3_decode_Author), $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (authors0) {
         return function (category0) {
             return function (description0) {
                 return function (image0) {
                     return function (publishedAt0) {
-                        return function (readingTimeInMin0) {
-                            return function (slug0) {
-                                return function (status0) {
-                                    return function (tags0) {
-                                        return function (title0) {
-                                            return function (updatedAt0) {
-                                                return { f2: authors0, f9: category0, jq: description0, gC: image0, el: publishedAt0, kM: readingTimeInMin0, fv: slug0, he: status0, hq: tags0, lb: title0, fL: updatedAt0 };
-                                            };
+                        return function (slug0) {
+                            return function (status0) {
+                                return function (tags0) {
+                                    return function (title0) {
+                                        return function (updatedAt0) {
+                                            return { f2: authors0, f9: category0, jq: description0, gC: image0, el: publishedAt0, fv: slug0, he: status0, hq: tags0, la: title0, fL: updatedAt0 };
                                         };
                                     };
                                 };
@@ -21192,9 +21138,9 @@
                 };
             };
         };
-    }))))))))))));
+    })))))))))));
     var $author$project$Content$BlogpostCommon$w3_decode_TagWithCount = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeString, $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeInt, $lamdera$codecs$Lamdera$Wire3$succeedDecode(F3(function (count0, slug0, title0) {
-        return { gg: count0, fv: slug0, lb: title0 };
+        return { gg: count0, fv: slug0, la: title0 };
     })))));
     var $author$project$Route$BlogCommon$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_TagWithCount), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_Metadata), $lamdera$codecs$Lamdera$Wire3$succeedDecode(F2(function (blogposts0, tags0) {
         return { i7: blogposts0, hq: tags0 };
@@ -21208,7 +21154,7 @@
         return { f7: body0, cz: metadata0, ki: nextPost0, kH: previousPost0 };
     }))))));
     var $author$project$Route$LifeBlog$Slug_$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Blogpost, $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (blogpost0) {
-        return { ao: blogpost0 };
+        return { aw: blogpost0 };
     }));
     var $author$project$Route$Tags$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_TagWithCount);
     var $author$project$Route$Tags$Slug_$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_TagWithCount), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeMaybe($author$project$Content$BlogpostCommon$w3_decode_TagWithCount), $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($lamdera$codecs$Lamdera$Wire3$decodeList($author$project$Content$BlogpostCommon$w3_decode_Metadata), $lamdera$codecs$Lamdera$Wire3$succeedDecode(F3(function (blogposts0, selectedTag0, tags0) {
@@ -21216,7 +21162,7 @@
     })))));
     var $author$project$Route$TechBlog$w3_decode_Data = $author$project$Route$BlogCommon$w3_decode_Data;
     var $author$project$Route$TechBlog$Slug_$w3_decode_Data = $lamdera$codecs$Lamdera$Wire3$andMapDecode_fn($author$project$Content$BlogpostCommon$w3_decode_Blogpost, $lamdera$codecs$Lamdera$Wire3$succeedDecode(function (blogpost0) {
-        return { ao: blogpost0 };
+        return { aw: blogpost0 };
     }));
     var $author$project$Main$byteDecodePageData = function (maybeRoute) {
         if (maybeRoute.$ === 1) {
@@ -21330,7 +21276,6 @@
             $author$project$Content$About$w3_encode_Author(w3_rec_var0.dQ)
         ]));
     };
-    var $lamdera$codecs$Lamdera$Wire3$encodeInt = $lamdera$codecs$Lamdera$Wire3$encodeInt64;
     var $author$project$Content$BlogpostCommon$w3_encode_Category = function (w3v) {
         switch (w3v) {
             case 1:
@@ -21341,6 +21286,7 @@
                 return $elm$bytes$Bytes$Encode$unsignedInt8(2);
         }
     };
+    var $lamdera$codecs$Lamdera$Wire3$encodeInt = $lamdera$codecs$Lamdera$Wire3$encodeInt64;
     var $justinmimbs$date$Date$w3_encode_RataDie = $lamdera$codecs$Lamdera$Wire3$encodeInt;
     var $justinmimbs$date$Date$w3_encode_Date = function (w3v) {
         var v0 = w3v;
@@ -21396,11 +21342,10 @@
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.jq),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.gC),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_encode_DateOrDateTime, w3_rec_var0.el),
-            $lamdera$codecs$Lamdera$Wire3$encodeInt(w3_rec_var0.kM),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.fv),
             $author$project$Content$BlogpostCommon$w3_encode_Status(w3_rec_var0.he),
             $lamdera$codecs$Lamdera$Wire3$encodeList_fn($lamdera$codecs$Lamdera$Wire3$encodeString, w3_rec_var0.hq),
-            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.lb),
+            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.la),
             $lamdera$codecs$Lamdera$Wire3$encodeMaybe_fn($dillonkearns$elm_date_or_date_time$DateOrDateTime$w3_encode_DateOrDateTime, w3_rec_var0.fL)
         ]));
     };
@@ -21408,7 +21353,7 @@
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
             $lamdera$codecs$Lamdera$Wire3$encodeInt(w3_rec_var0.gg),
             $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.fv),
-            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.lb)
+            $lamdera$codecs$Lamdera$Wire3$encodeString(w3_rec_var0.la)
         ]));
     };
     var $author$project$Route$BlogCommon$w3_encode_Data = function (w3_rec_var0) {
@@ -21434,7 +21379,7 @@
     };
     var $author$project$Route$LifeBlog$Slug_$w3_encode_Data = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $author$project$Content$BlogpostCommon$w3_encode_Blogpost(w3_rec_var0.ao)
+            $author$project$Content$BlogpostCommon$w3_encode_Blogpost(w3_rec_var0.aw)
         ]));
     };
     var $author$project$Route$Tags$w3_encode_Data_a0 = $author$project$Content$BlogpostCommon$w3_encode_TagWithCount, $author$project$Route$Tags$w3_encode_Data = $lamdera$codecs$Lamdera$Wire3$encodeList($author$project$Route$Tags$w3_encode_Data_a0);
@@ -21448,7 +21393,7 @@
     var $author$project$Route$TechBlog$w3_encode_Data = $author$project$Route$BlogCommon$w3_encode_Data;
     var $author$project$Route$TechBlog$Slug_$w3_encode_Data = function (w3_rec_var0) {
         return $lamdera$codecs$Lamdera$Wire3$encodeSequenceWithoutLength(_List_fromArray([
-            $author$project$Content$BlogpostCommon$w3_encode_Blogpost(w3_rec_var0.ao)
+            $author$project$Content$BlogpostCommon$w3_encode_Blogpost(w3_rec_var0.aw)
         ]));
     };
     var $author$project$ErrorPage$w3_encode_ErrorPage = function (w3v) {
@@ -22316,7 +22261,7 @@
             },
             gt: options.gt,
             jP: _List_Cons(_Utils_Tuple2("elm-pages-action-only", "true"), options.jP),
-            le: $elm$core$Maybe$Nothing
+            ld: $elm$core$Maybe$Nothing
         };
     }, $dillonkearns$elm_pages$Pages$Fetcher$submit = F2($dillonkearns$elm_pages$Pages$Fetcher$submit_fn);
     var $author$project$Shared$init_fn = function (_v0, _v1) {
@@ -22520,7 +22465,7 @@
     var $author$project$Shared$view_fn = function (_v0, _v1, model, toMsg, pageView) {
         return {
             f7: $author$project$Layout$view_fn(model.cC, toMsg(0), pageView.f7),
-            lb: pageView.lb
+            la: pageView.la
         };
     }, $author$project$Shared$view = F5($author$project$Shared$view_fn);
     var $author$project$Shared$template = {
@@ -22573,7 +22518,7 @@
                                     x: routeParams,
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$LifeBlog$Slug_$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22603,7 +22548,7 @@
                                     x: routeParams,
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Tags$Slug_$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22633,7 +22578,7 @@
                                     x: routeParams,
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$TechBlog$Slug_$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22663,7 +22608,7 @@
                                     x: {},
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$About$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22693,7 +22638,7 @@
                                     x: {},
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Blog$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22723,7 +22668,7 @@
                                     x: {},
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$LifeBlog$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22753,7 +22698,7 @@
                                     x: {},
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Tags$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22783,7 +22728,7 @@
                                     x: {},
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$TechBlog$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -22813,7 +22758,7 @@
                                     x: {},
                                     t: sharedData,
                                     z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Index$w3_decode_ActionData),
-                                    le: $elm$core$Maybe$andThen_fn(function ($) {
+                                    ld: $elm$core$Maybe$andThen_fn(function ($) {
                                         return $.O;
                                     }, maybePagePath)
                                 }));
@@ -23246,7 +23191,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$LifeBlog$Slug_$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v9.a;
                     var pageCmd = _v9.b;
@@ -23300,7 +23245,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$Tags$Slug_$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v14.a;
                     var pageCmd = _v14.b;
@@ -23354,7 +23299,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$TechBlog$Slug_$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v19.a;
                     var pageCmd = _v19.b;
@@ -23408,7 +23353,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$About$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v25.a;
                     var pageCmd = _v25.b;
@@ -23462,7 +23407,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$Blog$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v31.a;
                     var pageCmd = _v31.b;
@@ -23516,7 +23461,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$LifeBlog$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v37.a;
                     var pageCmd = _v37.b;
@@ -23570,7 +23515,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$Tags$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v43.a;
                     var pageCmd = _v43.b;
@@ -23624,7 +23569,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$TechBlog$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v49.a;
                     var pageCmd = _v49.b;
@@ -23678,7 +23623,7 @@
                         z: function (options) {
                             return $dillonkearns$elm_pages$Pages$Fetcher$submit_fn($author$project$Route$Index$w3_decode_ActionData, options);
                         },
-                        le: $elm$core$Maybe$Just(pageUrl)
+                        ld: $elm$core$Maybe$Just(pageUrl)
                     }, msg_, pageModel, model.e));
                     var updatedPageModel = _v55.a;
                     var pageCmd = _v55.b;
@@ -23815,14 +23760,14 @@
     var $author$project$View$map_fn = function (fn, doc) {
         return {
             f7: $elm$core$List$map_fn($elm$html$Html$map(fn), doc.f7),
-            lb: doc.lb
+            la: doc.la
         };
     }, $author$project$View$map = F2($author$project$View$map_fn);
     var $author$project$Main$modelMismatchView = {
         f7: _List_fromArray([
             $elm$html$Html$text("Model mismatch")
         ]),
-        lb: "Model mismatch"
+        la: "Model mismatch"
     };
     var $author$project$ErrorPage$view_fn = function (error, _v0) {
         if (!error.$) {
@@ -23834,7 +23779,7 @@
                         ]))
                     ]))
                 ]),
-                lb: "This is a NotFound Error"
+                la: "This is a NotFound Error"
             };
         }
         else {
@@ -23847,7 +23792,7 @@
                         ]))
                     ]))
                 ]),
-                lb: "This is an Internal Error"
+                la: "This is an Internal Error"
             };
         }
     }, $author$project$ErrorPage$view = F2($author$project$ErrorPage$view_fn);
@@ -23907,7 +23852,7 @@
                                         x: routeParams,
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$LifeBlog$Slug_$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -23952,7 +23897,7 @@
                                         x: routeParams,
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Tags$Slug_$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -23997,7 +23942,7 @@
                                         x: routeParams,
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$TechBlog$Slug_$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24042,7 +23987,7 @@
                                         x: {},
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$About$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24087,7 +24032,7 @@
                                         x: {},
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Blog$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24132,7 +24077,7 @@
                                         x: {},
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$LifeBlog$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24177,7 +24122,7 @@
                                         x: {},
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Tags$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24222,7 +24167,7 @@
                                         x: {},
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$TechBlog$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24267,7 +24212,7 @@
                                         x: {},
                                         t: globalData,
                                         z: $dillonkearns$elm_pages$Pages$Fetcher$submit($author$project$Route$Index$w3_decode_ActionData),
-                                        le: maybePageUrl
+                                        ld: maybePageUrl
                                     })));
                                 }
                                 else {
@@ -24292,7 +24237,7 @@
                             $elm$html$Html$text("This page could not be found.")
                         ]))
                     ]),
-                    lb: "Page not found"
+                    la: "Page not found"
                 };
             }
         };
@@ -24326,16 +24271,16 @@
         it: $author$project$Main$OnPageChange,
         kD: $author$project$Main$routePatterns3,
         kE: $author$project$Effect$perform,
-        kU: function (route) {
+        kT: function (route) {
             return $elm$core$Maybe$withDefault_fn(_List_Nil, $elm$core$Maybe$map_fn($author$project$Route$routeToPath, route));
         },
-        k$: $author$project$Main$sendPageData,
+        k_: $author$project$Main$sendPageData,
         t: $author$project$Shared$template.j,
-        k3: $elm$core$Maybe$Nothing,
+        k2: $elm$core$Maybe$Nothing,
         a0: $author$project$Main$subscriptions,
-        lc: $author$project$Main$toJsPort,
+        lb: $author$project$Main$toJsPort,
         aI: $author$project$Main$update,
-        lf: $author$project$Route$urlToRoute,
+        le: $author$project$Route$urlToRoute,
         q: $author$project$Main$view
     });
     _Platform_export({ "Main": { "init": $author$project$Main$main($elm$json$Json$Decode$value)(0) } });
