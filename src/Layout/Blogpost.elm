@@ -383,7 +383,7 @@ viewPostList tags metadata selectedTag =
         allPostsLink =
             case selectedTag of
                 Just _ ->
-                    Route.TechBlog
+                    Route.Blog
                         |> Route.link
                             []
                             [ Html.h3
