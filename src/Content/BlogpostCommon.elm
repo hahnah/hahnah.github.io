@@ -47,7 +47,6 @@ type alias Metadata =
     , status : Status
     , publishedAt : Maybe DateOrDateTime
     , updatedAt : Maybe DateOrDateTime
-    , readingTimeInMin : Int
     }
 
 
@@ -140,7 +139,6 @@ metadataDecoder authorsDict slug =
         |> Decode.andMap decodeStatus
         |> Decode.andMap (Decode.maybe (Decode.field "published" dateOrDateTimeDecoder))
         |> Decode.andMap (Decode.maybe (Decode.field "updated" dateOrDateTimeDecoder))
-        |> Decode.andMap (Decode.succeed 1)
 
 
 getPublishedDate : Metadata -> Date

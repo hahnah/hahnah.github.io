@@ -130,7 +130,6 @@ metadataDecoder authorsDict slug =
         |> Decode.andMap decodeStatus
         |> Decode.andMap (Decode.maybe (Decode.field "published" dateOrDateTimeDecoder))
         |> Decode.andMap (Decode.maybe (Decode.field "updated" dateOrDateTimeDecoder))
-        |> Decode.andMap (Decode.succeed 1)
 
 
 getPublishedDate : Metadata -> Date
@@ -161,14 +160,6 @@ allBlogposts =
                             blogposts
                     )
                 |> BackendTask.map Array.toList
-
-        updateReadingTime blogposts =
-            let
-                updatedMetadata blogpost metadata =
-                    { metadata | readingTimeInMin = String.split " " blogpost |> List.length |> (\words -> words // 200) }
-            in
-            blogposts
-                |> BackendTask.map (List.map (\blogpost -> { blogpost | metadata = updatedMetadata blogpost.body blogpost.metadata }))
 
         addDraftTag metadata =
             case metadata.status of
@@ -213,7 +204,6 @@ allBlogposts =
         |> BackendTask.map
             (List.sortBy (.metadata >> getPublishedDate >> Date.toRataDie) >> List.reverse)
         |> addPreviousNextPosts
-        |> updateReadingTime
 
 
 allBlogpostsDict : BackendTask FatalError (Dict String Blogpost)

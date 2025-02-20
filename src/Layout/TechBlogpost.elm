@@ -92,10 +92,6 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                         , Html.div [ Attrs.class "flex flex-wrap space-x-4 text-base" ]
                             [ viewPublishedDate metadata.status
                             , viewUpdatedDate metadata.status
-                            , Html.span []
-                                [ Html.text <| String.fromInt metadata.readingTimeInMin
-                                , Html.text " min reading time"
-                                ]
                             ]
                         ]
                     ]
