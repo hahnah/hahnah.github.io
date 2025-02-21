@@ -5,7 +5,7 @@ description: "2025年2月17(月)に東京ガーデンシアターで行われた
 published: "2025-02-20"
 updated: "2025-02-22"
 category: "life"
-tags: ["music", "AURORA"]
+tags: ["music", "aurora"]
 ---
 
 ## ライブコンサートというものを経験したことがない
