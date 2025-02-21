@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://hahnah.github.io/life-blog/0000-template</loc>
-<lastmod>2025-02-19T00:00:00.000Z</lastmod>
-</url>
-<url>
 <loc>https://hahnah.github.io/life-blog/2025-start-hahnah-chronicle</loc>
 <lastmod>2025-02-20T00:00:00.000Z</lastmod>
 </url>
@@ -16,23 +12,10 @@
 <loc>https://hahnah.github.io/tags/aurora</loc>
 </url>
 <url>
-<loc>https://hahnah.github.io/tags/elm</loc>
-</url>
-<url>
 <loc>https://hahnah.github.io/tags/hahnah-chronicle</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/music</loc>
-</url>
-<url>
-<loc>https://hahnah.github.io/tags/my-life</loc>
-</url>
-<url>
-<loc>https://hahnah.github.io/tags/static-site</loc>
-</url>
-<url>
-<loc>https://hahnah.github.io/tech-blog/0000-template</loc>
-<lastmod>2025-02-19T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/about</loc>
@@ -51,7 +34,6 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog</loc>
-<lastmod>2025-02-19T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/</loc>
