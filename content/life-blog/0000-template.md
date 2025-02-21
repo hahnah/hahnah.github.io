@@ -6,7 +6,7 @@ published: "2025-02-19"
 # updated: "2025-02-20"
 category: "life"
 tags: ["hahnah-chronicle", "my-life"]
-draft: true
+status: "draft"
 ---
 
 ## Section Title
