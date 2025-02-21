@@ -4,7 +4,7 @@ image: "/images/life-blog/2025-aurora-live/aurora-2.jpg"
 description: "2025年2月17(月)に東京ガーデンシアターで行われたAURORAのライブコンサートに行って来た"
 published: "2025-02-20"
 category: "life"
-tags: ["音楽", "AURORA"]
+tags: ["music", "AURORA"]
 ---
 
 ## ライブコンサートというものを経験したことがない
