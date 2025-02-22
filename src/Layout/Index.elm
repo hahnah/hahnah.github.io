@@ -14,7 +14,7 @@ updatedAt =
 
 
 view : List Metadata -> List (Html msg)
-view blogpostMetadata =
+view _ =
     [ Html.div [ Attrs.class "space-y-6 md:space-y-8 pb-8 pt-6" ]
         [ Html.div [ Attrs.class "flex justify-center" ] [ Route.link [] [ author ] Route.About ]
         , Html.h1 [ Attrs.class "flex justify-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:leading-14" ] [ Html.text Settings.title ]
