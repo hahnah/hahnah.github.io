@@ -13422,14 +13422,16 @@
             $elm$html$Html$text("Code")
         ]))
     ]));
-    var $author$project$Layout$Index$view = function (blogpostMetadata) {
+    var $author$project$Layout$Index$view = function (_v0) {
         return _List_fromArray([
             $elm$html$Html$div_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "space-y-6 md:space-y-8 pb-8 pt-6")
             ]), _List_fromArray([
-                $author$project$Route$link_fn(_List_fromArray([
+                $elm$html$Html$div_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex justify-center")
-                ]), _List_fromArray([$author$project$Layout$Index$author]), $author$project$Route$About),
+                ]), _List_fromArray([
+                    $author$project$Route$link_fn(_List_Nil, _List_fromArray([$author$project$Layout$Index$author]), $author$project$Route$About)
+                ])),
                 $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex justify-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:leading-14")
                 ]), _List_fromArray([
