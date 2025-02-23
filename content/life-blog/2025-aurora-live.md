@@ -1,6 +1,6 @@
 ---
 title: "人生初ライブ！AURORAのライブコンサートに行って来た"
-image: "/images/life-blog/2025-aurora-live/aurora-2.jpg"
+image: "/images/life-blog/2025-aurora-live/aurora-2.avif"
 description: "2025年2月17(月)に東京ガーデンシアターで行われたAURORAのライブコンサートに行って来た"
 published: "2025-02-20"
 updated: "2025-02-22"
@@ -26,7 +26,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 
 ## 会場に到着
 
-![AURORAライブのポスターディスプレイ](/images/life-blog/2025-aurora-live/poster.jpg)
+![AURORAライブのポスターディスプレイ](/images/life-blog/2025-aurora-live/poster.avif)
 
 開催は2025年2月17(月)、東京ガーデンシアターにて。
 
@@ -60,7 +60,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 この曲以外でも、大道具や小道具が結構凝ってた。  
 衣装もライティングが仕込まれてそうで、ステージでかなり目立った。
 
-![水曜日のカンパネラ](/images/life-blog/2025-aurora-live/suiyoubi-no-campanella.jpg)
+![水曜日のカンパネラ](/images/life-blog/2025-aurora-live/suiyoubi-no-campanella.avif)
 
 ## いよいよAURORA登場
 
@@ -70,7 +70,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 この曲で始まるのは、正直鳥肌が立つ。  
 とにかく神秘的で美しく、穏やかながらも徐々に盛り上がるような曲。
 
-![AURORA登場](/images/life-blog/2025-aurora-live/aurora-1.jpg)
+![AURORA登場](/images/life-blog/2025-aurora-live/aurora-1.avif)
 
 ## 曲の内容を理解したくなる
 
@@ -93,7 +93,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 他にも「これも歌われてた気がする」って曲がいっぱいあるが間違ってたら嫌なので書かないでおく。  
 本当にたくさん歌ってくれた。
 
-![AURORA](/images/life-blog/2025-aurora-live/aurora-3.jpg)
+![AURORA](/images/life-blog/2025-aurora-live/aurora-3.avif)
 
 ## アンコール1曲目で新しい学校のリーダーズとコラボ
 
@@ -108,7 +108,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 曲は "Some Type Of Skin"。  
 これも盛り上がるやつで好き。
 
-![新しい学校のリーダーズ](/images/life-blog/2025-aurora-live/aurora-with-atarashii-gakkou-no-leaders.jpg)
+![AURORAと新しい学校のリーダーズ](/images/life-blog/2025-aurora-live/aurora-with-atarashii-gakko.avif)
 
 ## 最後の曲はやっぱりこれ
 
@@ -118,7 +118,7 @@ AURORAというアーティストはたまたま知っていて、詳しくは�
 この曲でAURORAのことを知ったし、今でもこの曲が一番好き。  
 これが聴けて幸せだ。
 
-![Cure For Me を歌うAURORA](/images/life-blog/2025-aurora-live/aurora-4.jpg)
+![Cure For Me を歌うAURORA](/images/life-blog/2025-aurora-live/aurora-4.avif)
 
 ## おわりに
 
@@ -129,4 +129,4 @@ AURORAの歌声も、パフォーマンスも、全てが美しくて癒され�
 最後の方に、AURORAが日本語でそう言っていた。  
 そうだよ。ありがとう。
 
-![AURORA](/images/life-blog/2025-aurora-live/aurora-5.jpg)
+![AURORA](/images/life-blog/2025-aurora-live/aurora-5.avif)
