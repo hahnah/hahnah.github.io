@@ -27,7 +27,7 @@ view _ =
 author : Html msg
 author =
     Html.img
-        [ Attrs.src "/images/authors/natsuki-harai.jpg"
+        [ Attrs.src "/images/authors/natsuki-harai.avif"
         , Attrs.alt "Natsuki Harai"
         , Attrs.width 144
         , Attrs.height 144

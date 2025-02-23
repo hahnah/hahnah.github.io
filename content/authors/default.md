@@ -1,6 +1,6 @@
 ---
 name: 原井 夏樹
-avatar: /images/authors/natsuki-harai.jpg
+avatar: /images/authors/natsuki-harai.avif
 occupation: Webフルスタックエンジニア
 # company:
 socials:
@@ -66,7 +66,7 @@ Chronicle は "年代記" という意味で、歴史上の出来事を年代順
 アサが生まれて3ヶ月目くらいから一緒に暮らし始めて、今ではかけがえのない家族です。  
 アサをなでたり、アサと遊んだりする時間は至福です。
 
-![アサ](/images/about/asa.jpg)
+![アサ](/images/about/asa.avif)
 
 ## 性格
 
@@ -81,7 +81,7 @@ Chronicle は "年代記" という意味で、歴史上の出来事を年代順
 
 MBTI診断での性格タイプは、INTP-T (論理学者) です。
 
-![INTP-T](/images/about/intp-t.jpg)
+![INTP-T](/images/about/intp-t.avif)
 
 **内向型: 93%** という、とんでもない偏りに目がいくと思います。  
 人と接することが苦手なのかというと、そんなことはないのでご安心を。人並みには外交的です。実際、交友関係は広い方だと言われたことがあります。  
