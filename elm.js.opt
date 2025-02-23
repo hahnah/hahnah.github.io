@@ -12076,7 +12076,7 @@
                         $elm$virtual_dom$VirtualDom$attribute_fn("decoding", "async"),
                         $elm$virtual_dom$VirtualDom$attribute_fn("data-nimg", "1"),
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "h-48 w-48 rounded-full"),
-                        $elm$html$Html$Attributes$src("/images/authors/natsuki-harai.jpg"),
+                        $elm$html$Html$Attributes$src("/images/authors/natsuki-harai.avif"),
                         _VirtualDom_style_fn("color", "transparent")
                     ]), _List_Nil),
                     $elm$html$Html$h3_fn(_List_fromArray([
@@ -13347,7 +13347,7 @@
         ]))
     ]), $author$project$Route$About);
     var $author$project$Layout$Index$author = $elm$html$Html$img_fn(_List_fromArray([
-        $elm$html$Html$Attributes$src("/images/authors/natsuki-harai.jpg"),
+        $elm$html$Html$Attributes$src("/images/authors/natsuki-harai.avif"),
         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$alt_a0, "Natsuki Harai"),
         $elm$html$Html$Attributes$width(144),
         $elm$html$Html$Attributes$height(144),
