@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://hahnah.github.io/life-blog/2025-normale-people</loc>
+<lastmod>2025-03-19T00:00:00.000Z</lastmod>
+</url>
+<url>
 <loc>https://hahnah.github.io/life-blog/2025-aurora-live</loc>
 <lastmod>2025-02-22T00:00:00.000Z</lastmod>
 </url>
@@ -12,7 +16,13 @@
 <loc>https://hahnah.github.io/tags/aurora</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/drama</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/hahnah-chronicle</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/human-relationship</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/music</loc>
@@ -23,11 +33,11 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog</loc>
-<lastmod>2025-02-22T00:00:00.000Z</lastmod>
+<lastmod>2025-03-19T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog</loc>
-<lastmod>2025-02-22T00:00:00.000Z</lastmod>
+<lastmod>2025-03-19T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags</loc>
