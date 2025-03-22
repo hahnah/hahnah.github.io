@@ -137,7 +137,7 @@ Apex Legends, VALORANT, Splatoon, Life is Strange, Outer Wilds, Minecraft, ゼ�
 
 好きなドラマ:  
 NORMAL PEOPLE, Mr. Robot, Silicon Valley, ラブホスピタルへようこそ, Upload, プラッシュアップライフ, TEH BOYS, 三体  
-(特に [NORMAL POPEOPLE は気に入りすぎて感想文を書いた](/life-blog/2025-normale-people)ほどです。)
+(特に [NORMAL PEOPLE は気に入りすぎて感想文を書いた](/life-blog/2025-normale-people)ほどです。)
 
 好きな映画:  
 ベンジャミン・バトン 数奇な人生, Before Sunset, ハリーポッター, インセプション, きみの色, ハンガー・ゲーム, 時をかける少女
