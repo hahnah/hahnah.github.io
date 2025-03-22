@@ -10,7 +10,7 @@ import Settings
 
 updatedAt : String
 updatedAt =
-    "2025-02-16T00:00:00Z"
+    "2025-02-16T00:00:00.000Z"
 
 
 view : List Metadata -> List (Html msg)
