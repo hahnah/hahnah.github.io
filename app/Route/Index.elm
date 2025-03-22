@@ -1,7 +1,6 @@
 module Route.Index exposing (ActionData, Data, Model, Msg, RouteParams, route)
 
 import BackendTask exposing (BackendTask)
-import Content.AllBlogpost
 import Content.BlogpostCommon exposing (Metadata)
 import FatalError exposing (FatalError)
 import Head
@@ -46,8 +45,7 @@ route =
 
 data : BackendTask FatalError Data
 data =
-    Content.AllBlogpost.allBlogposts
-        |> BackendTask.map (\allBlogposts -> List.map .metadata allBlogposts |> (\allMetadata -> { blogpostMetadata = allMetadata }))
+    BackendTask.succeed { blogpostMetadata = [] }
 
 
 head :
