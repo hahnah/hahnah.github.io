@@ -12,7 +12,7 @@ Using [https://github.com/hahnah/elm-pages-blog-template](https://github.com/hah
 
 - [Elm](https://elm-lang.org/) language v0.19
 - [Elm Pages](https://elm-pages.com/) v3
-- [Tailwind CSS](https://tailwindcss.com/) v3
+- [Tailwind CSS](https://tailwindcss.com/) v4
 
 See package.json for more details.
 
