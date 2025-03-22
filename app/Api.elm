@@ -4,6 +4,7 @@ import ApiRoute exposing (ApiRoute)
 import BackendTask exposing (BackendTask)
 import Content.About
 import Content.AllBlogpost
+import Content.Apps
 import Content.BlogpostCommon exposing (Status(..))
 import Content.LifeBlogpost
 import Content.TechBlogpost
@@ -81,6 +82,9 @@ makeSitemapEntries getStaticRoutes =
                     Just <|
                         BackendTask.andThen routeSource <|
                             BackendTask.map identity Content.About.updatedAt
+
+                Apps ->
+                    Just <| routeSource <| Just <| Content.Apps.updatedAt
 
                 Blog ->
                     Just <|

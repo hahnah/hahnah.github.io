@@ -10,7 +10,7 @@ socials:
   instagram: https://www.instagram.com/hahnah8787
   youtube: https://www.youtube.com/@hahnahgaming
   twitch: https://www.twitch.tv/hahnah87
-updated: "2025-02-23T00:00:00Z"
+updated: "2025-02-23T00:00:00.000Z"
 ---
 
 ## 私は誰?

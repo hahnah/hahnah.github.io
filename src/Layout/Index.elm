@@ -10,7 +10,7 @@ import Settings
 
 updatedAt : String
 updatedAt =
-    "2025-02-16T00:00:00Z"
+    "2025-02-16T00:00:00.000Z"
 
 
 view : List Metadata -> List (Html msg)
@@ -46,8 +46,7 @@ appsLink =
             |> Phosphor.toHtml []
         , Html.div [ Attrs.class "text-2xl font-semibold text-white align-middle" ] [ Html.text "Apps" ]
         ]
-        -- TODO: Replace with apps route
-        Route.About
+        Route.Apps
 
 
 codeLink : Html msg

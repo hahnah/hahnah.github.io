@@ -1,11 +1,11 @@
-module Route.Index exposing (ActionData, Data, Model, Msg, RouteParams, route)
+module Route.Apps exposing (ActionData, Data, Model, Msg, RouteParams, route)
 
 import BackendTask exposing (BackendTask)
 import Content.BlogpostCommon exposing (Metadata)
 import FatalError exposing (FatalError)
 import Head
 import Head.Seo as Seo
-import Layout.Index
+import Layout.Apps
 import PagesMsg exposing (PagesMsg)
 import RouteBuilder exposing (App, StatelessRoute)
 import Settings
@@ -56,9 +56,9 @@ head _ =
         { canonicalUrlOverride = Nothing
         , siteName = Settings.title
         , image = Settings.symbolAndLogoForSeo
-        , description = Settings.subtitle
+        , description = "List of Apps."
         , locale = Settings.locale
-        , title = Settings.title
+        , title = "Apps"
         }
         |> Seo.website
 
@@ -69,5 +69,5 @@ view :
     -> View (PagesMsg Msg)
 view app _ =
     { title = Settings.title
-    , body = Layout.Index.view app.data.blogpostMetadata
+    , body = Layout.Apps.view app.data.blogpostMetadata
     }
