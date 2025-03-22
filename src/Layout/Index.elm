@@ -46,8 +46,7 @@ appsLink =
             |> Phosphor.toHtml []
         , Html.div [ Attrs.class "text-2xl font-semibold text-white align-middle" ] [ Html.text "Apps" ]
         ]
-        -- TODO: Replace with apps route
-        Route.About
+        Route.Apps
 
 
 codeLink : Html msg
