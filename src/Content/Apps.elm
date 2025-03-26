@@ -25,7 +25,7 @@ allApps =
       , imagePath = "/images/apps/color-stew.avif"
       , url = "https:/hahnah.github.io/color-stew"
       , documentUrl = Just "https:/hahnah.github.io/tech-blog/2019-color-stew"
-      , technologyUrl = Nothing -- TODO: Add technology URL
+      , technologyUrl = Just "https:/hahnah.github.io/tech-blog/2019-color-stew-technology"
       , codeUrl = Just "https://github.com/hahnah/color-stew"
       , isAvailable = True
       }
