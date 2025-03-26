@@ -1,6 +1,7 @@
 module Route.Apps exposing (ActionData, Data, Model, Msg, RouteParams, route)
 
 import BackendTask exposing (BackendTask)
+import Content.Apps
 import Content.BlogpostCommon exposing (Metadata)
 import FatalError exposing (FatalError)
 import Head
@@ -56,9 +57,9 @@ head _ =
         { canonicalUrlOverride = Nothing
         , siteName = Settings.title
         , image = Settings.symbolAndLogoForSeo
-        , description = "List of Apps."
+        , description = "Apps created by Natsuki Harai"
         , locale = Settings.locale
-        , title = "Apps"
+        , title = "Hahnah's Apps"
         }
         |> Seo.website
 
@@ -67,7 +68,7 @@ view :
     App Data ActionData RouteParams
     -> Shared.Model
     -> View (PagesMsg Msg)
-view app _ =
+view _ _ =
     { title = Settings.title
-    , body = Layout.Apps.view app.data.blogpostMetadata
+    , body = Layout.Apps.view Content.Apps.allApps
     }
