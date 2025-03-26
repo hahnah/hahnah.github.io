@@ -23,9 +23,9 @@ allApps =
     [ { name = "Color Stew"
       , description = "カラースキーマの理論に基づいて美しいカラーパレットの作成を補助します。"
       , imagePath = "/images/apps/color-stew.avif"
-      , url = "https:/hahnah.github.io/color-stew"
-      , documentUrl = Just "https:/hahnah.github.io/tech-blog/2019-color-stew"
-      , technologyUrl = Just "https:/hahnah.github.io/tech-blog/2019-color-stew-technology"
+      , url = "https://hahnah.github.io/color-stew/"
+      , documentUrl = Just "/tech-blog/2019-color-stew"
+      , technologyUrl = Just "/tech-blog/2019-color-stew-technology"
       , codeUrl = Just "https://github.com/hahnah/color-stew"
       , isAvailable = True
       }
