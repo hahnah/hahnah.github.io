@@ -3,7 +3,7 @@ title: "Color Stew で簡単カラースキーム作成"
 image: "/images/tech-blog/2019-color-stew/color-stew-screen.avif"
 description: 'カラースキーマの理論に基づいた美しいカラーパレットを簡単に作成できるWebアプリ "Color Stew" を開発した。'
 published: "2019-08-03"
-updated: "2025-03-26"
+updated: "2025-03-27"
 category: "tech"
 tags: ["color-stew", "indie-app", "design", "color-theory", "elm"]
 ---
@@ -46,4 +46,4 @@ Color Stew のソースコードは MITライセンスのもと GitHub で公開
 [https://github.com/hahnah/color-stew](https://github.com/hahnah/color-stew)
 
 以下の記事で実装についても少しだけ説明している。  
-[https://hahnah.github.io/tech-blob/2019-color-stew-technology](https://hahnah.github.io/tech-blob/2019-color-stew-technology)
+[https://hahnah.github.io/tech-blog/2019-color-stew-technology](https://hahnah.github.io/tech-blog/2019-color-stew-technology)
