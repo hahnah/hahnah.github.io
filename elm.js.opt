@@ -12142,14 +12142,88 @@
         {
             eL: $elm$core$Maybe$Just("https://github.com/hahnah/color-stew"),
             jx: "\u30AB\u30E9\u30FC\u30B9\u30AD\u30FC\u30DE\u306E\u7406\u8AD6\u306B\u57FA\u3065\u3044\u3066\u7F8E\u3057\u3044\u30AB\u30E9\u30FC\u30D1\u30EC\u30C3\u30C8\u306E\u4F5C\u6210\u3092\u88DC\u52A9\u3057\u307E\u3059\u3002",
-            eS: $elm$core$Maybe$Just("https:/hahnah.github.io/tech-blog/2019-color-stew"),
+            eS: $elm$core$Maybe$Just("2019-color-stew"),
             eZ: "/images/apps/color-stew.avif",
             e_: true,
             ko: "Color Stew",
-            fL: $elm$core$Maybe$Just("https:/hahnah.github.io/tech-blog/2019-color-stew-technology"),
-            fS: "https:/hahnah.github.io/color-stew"
+            fL: $elm$core$Maybe$Just("2019-color-stew-technology"),
+            fS: "https://hahnah.github.io/color-stew/"
         }
     ]);
+    var $author$project$Route$TechBlog__Slug_ = function (a) {
+        return { $: 2, a: a };
+    };
+    var $author$project$Route$baseUrl = "/";
+    var $author$project$Route$baseUrlAsPath = $elm$core$List$filter_fn(function (item) {
+        return !$elm$core$String$isEmpty(item);
+    }, $elm$core$String$split_fn("/", $author$project$Route$baseUrl));
+    var $author$project$Route$routeToPath = function (route) {
+        return $elm$core$List$concat(function () {
+            switch (route.$) {
+                case 0:
+                    var params = route.a;
+                    return _List_fromArray([
+                        _List_fromArray(["life-blog"]),
+                        _List_fromArray([params.fz])
+                    ]);
+                case 1:
+                    var params = route.a;
+                    return _List_fromArray([
+                        _List_fromArray(["tags"]),
+                        _List_fromArray([params.fz])
+                    ]);
+                case 2:
+                    var params = route.a;
+                    return _List_fromArray([
+                        _List_fromArray(["tech-blog"]),
+                        _List_fromArray([params.fz])
+                    ]);
+                case 3:
+                    return _List_fromArray([
+                        _List_fromArray(["about"])
+                    ]);
+                case 4:
+                    return _List_fromArray([
+                        _List_fromArray(["apps"])
+                    ]);
+                case 5:
+                    return _List_fromArray([
+                        _List_fromArray(["blog"])
+                    ]);
+                case 6:
+                    return _List_fromArray([
+                        _List_fromArray(["life-blog"])
+                    ]);
+                case 7:
+                    return _List_fromArray([
+                        _List_fromArray(["tags"])
+                    ]);
+                case 8:
+                    return _List_fromArray([
+                        _List_fromArray(["tech-blog"])
+                    ]);
+                default:
+                    return _List_fromArray([_List_Nil]);
+            }
+        }());
+    };
+    var $author$project$Route$toPath = function (route) {
+        return $dillonkearns$elm_pages$UrlPath$fromString($elm$core$String$join_fn("/", _Utils_ap($author$project$Route$baseUrlAsPath, $author$project$Route$routeToPath(route))));
+    };
+    var $author$project$Route$toString = function (route) {
+        return $dillonkearns$elm_pages$UrlPath$toAbsolute($author$project$Route$toPath(route));
+    };
+    var $author$project$Route$toLink_fn = function (toAnchorTag, route) {
+        return toAnchorTag(_List_fromArray([
+            $elm$html$Html$Attributes$href($author$project$Route$toString(route)),
+            $elm$virtual_dom$VirtualDom$attribute_fn("elm-pages:prefetch", "")
+        ]));
+    }, $author$project$Route$toLink = F2($author$project$Route$toLink_fn);
+    var $author$project$Route$link_fn = function (attributes, children, route) {
+        return $author$project$Route$toLink_fn(function (anchorAttrs) {
+            return $elm$html$Html$a_fn(_Utils_ap(anchorAttrs, attributes), children);
+        }, route);
+    }, $author$project$Route$link = F3($author$project$Route$link_fn);
     var $author$project$Layout$Apps$appVeiw = function (app) {
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "my-8 w-full h-32 flex flex-row rounded-xl shadow-md bg-white dark:bg-gray-900 relative")
@@ -12182,13 +12256,12 @@
                     function () {
                         var _v0 = app.eS;
                         if (!_v0.$) {
-                            var url = _v0.a;
-                            return $elm$html$Html$a_fn(_List_fromArray([
-                                $elm$html$Html$Attributes$href(url),
+                            var slug = _v0.a;
+                            return $author$project$Route$link_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "rounded-full px-4 bg-rose-300 hover:bg-rose-500 dark:bg-rose-200 dark:hover:bg-rose-50 text-sm md:text-base text-white dark:text-gray-500 z-1")
                             ]), _List_fromArray([
                                 $elm$html$Html$text("Doc")
-                            ]));
+                            ]), $author$project$Route$TechBlog__Slug_({ fz: slug }));
                         }
                         else {
                             return $elm$html$Html$text("");
@@ -12197,13 +12270,12 @@
                     function () {
                         var _v1 = app.fL;
                         if (!_v1.$) {
-                            var url = _v1.a;
-                            return $elm$html$Html$a_fn(_List_fromArray([
-                                $elm$html$Html$Attributes$href(url),
+                            var slug = _v1.a;
+                            return $author$project$Route$link_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "rounded-full px-4 bg-teal-400 hover:bg-teal-600 dark:bg-teal-300 dark:hover:bg-fuchsia-50 text-sm md:text-base text-white dark:text-gray-500 z-1")
                             ]), _List_fromArray([
                                 $elm$html$Html$text("Tech")
-                            ]));
+                            ]), $author$project$Route$TechBlog__Slug_({ fz: slug }));
                         }
                         else {
                             return $elm$html$Html$text("");
@@ -12280,82 +12352,8 @@
     var $elm$html$Html$Attributes$classList = function (classes) {
         return $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, $elm$core$String$join_fn(" ", $elm$core$List$map_fn($elm$core$Tuple$first, $elm$core$List$filter_fn($elm$core$Tuple$second, classes))));
     };
-    var $author$project$Route$baseUrl = "/";
-    var $author$project$Route$baseUrlAsPath = $elm$core$List$filter_fn(function (item) {
-        return !$elm$core$String$isEmpty(item);
-    }, $elm$core$String$split_fn("/", $author$project$Route$baseUrl));
-    var $author$project$Route$routeToPath = function (route) {
-        return $elm$core$List$concat(function () {
-            switch (route.$) {
-                case 0:
-                    var params = route.a;
-                    return _List_fromArray([
-                        _List_fromArray(["life-blog"]),
-                        _List_fromArray([params.fz])
-                    ]);
-                case 1:
-                    var params = route.a;
-                    return _List_fromArray([
-                        _List_fromArray(["tags"]),
-                        _List_fromArray([params.fz])
-                    ]);
-                case 2:
-                    var params = route.a;
-                    return _List_fromArray([
-                        _List_fromArray(["tech-blog"]),
-                        _List_fromArray([params.fz])
-                    ]);
-                case 3:
-                    return _List_fromArray([
-                        _List_fromArray(["about"])
-                    ]);
-                case 4:
-                    return _List_fromArray([
-                        _List_fromArray(["apps"])
-                    ]);
-                case 5:
-                    return _List_fromArray([
-                        _List_fromArray(["blog"])
-                    ]);
-                case 6:
-                    return _List_fromArray([
-                        _List_fromArray(["life-blog"])
-                    ]);
-                case 7:
-                    return _List_fromArray([
-                        _List_fromArray(["tags"])
-                    ]);
-                case 8:
-                    return _List_fromArray([
-                        _List_fromArray(["tech-blog"])
-                    ]);
-                default:
-                    return _List_fromArray([_List_Nil]);
-            }
-        }());
-    };
-    var $author$project$Route$toPath = function (route) {
-        return $dillonkearns$elm_pages$UrlPath$fromString($elm$core$String$join_fn("/", _Utils_ap($author$project$Route$baseUrlAsPath, $author$project$Route$routeToPath(route))));
-    };
-    var $author$project$Route$toString = function (route) {
-        return $dillonkearns$elm_pages$UrlPath$toAbsolute($author$project$Route$toPath(route));
-    };
-    var $author$project$Route$toLink_fn = function (toAnchorTag, route) {
-        return toAnchorTag(_List_fromArray([
-            $elm$html$Html$Attributes$href($author$project$Route$toString(route)),
-            $elm$virtual_dom$VirtualDom$attribute_fn("elm-pages:prefetch", "")
-        ]));
-    }, $author$project$Route$toLink = F2($author$project$Route$toLink_fn);
-    var $author$project$Route$link_fn = function (attributes, children, route) {
-        return $author$project$Route$toLink_fn(function (anchorAttrs) {
-            return $elm$html$Html$a_fn(_Utils_ap(anchorAttrs, attributes), children);
-        }, route);
-    }, $author$project$Route$link = F3($author$project$Route$link_fn);
     var $author$project$Route$LifeBlog__Slug_ = function (a) {
         return { $: 0, a: a };
-    };
-    var $author$project$Route$TechBlog__Slug_ = function (a) {
-        return { $: 2, a: a };
     };
     var $elm$html$Html$article = _VirtualDom_nodeNS_fn(_VirtualDom_node_a0, "article"), $elm$html$Html$article_fn = $elm$html$Html$article.a2;
     var $elm$html$Html$Attributes$datetime_a0 = "datetime", $elm$html$Html$Attributes$datetime = _VirtualDom_attribute($elm$html$Html$Attributes$datetime_a0);
