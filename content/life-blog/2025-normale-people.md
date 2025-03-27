@@ -3,7 +3,7 @@ title: "ドラマ「ノーマル・ピープル」(NORMAL PEOPLE) が面白か�
 # image: "/images/life-blog/slug/image.jpg"
 description: "親密な関係性が崩れ去り、再形成され、保たれ、また崩れ去り、その繰り返しが起こる様を、自分の人生に重ねて観ていた。"
 published: "2025-03-19"
-# updated: "2025-02-20"
+updated: "2025-03-27"
 category: "life"
 tags: ["drama", "human-relationship"]
 ---
