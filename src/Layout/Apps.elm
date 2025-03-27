@@ -3,6 +3,7 @@ module Layout.Apps exposing (view)
 import Content.Apps exposing (App)
 import Html exposing (Html)
 import Html.Attributes as Attrs
+import Route
 
 
 view : List App -> List (Html msg)
@@ -53,23 +54,23 @@ appVeiw app =
                 ]
                 [ Html.text app.description ]
             , Html.div [ Attrs.class "mt-auto mb-2 flex gap-1 sm:gap-3" ]
-                [ case app.documentUrl of
-                    Just url ->
-                        Html.a
-                            [ Attrs.href url
-                            , Attrs.class "rounded-full px-4 bg-rose-300 hover:bg-rose-500 dark:bg-rose-200 dark:hover:bg-rose-50 text-sm md:text-base text-white dark:text-gray-500 z-1"
+                [ case app.documentSlug of
+                    Just slug ->
+                        Route.link
+                            [ Attrs.class "rounded-full px-4 bg-rose-300 hover:bg-rose-500 dark:bg-rose-200 dark:hover:bg-rose-50 text-sm md:text-base text-white dark:text-gray-500 z-1"
                             ]
                             [ Html.text "Doc" ]
+                            (Route.TechBlog__Slug_ { slug = slug })
 
                     Nothing ->
                         Html.text ""
-                , case app.technologyUrl of
-                    Just url ->
-                        Html.a
-                            [ Attrs.href url
-                            , Attrs.class "rounded-full px-4 bg-teal-400 hover:bg-teal-600 dark:bg-teal-300 dark:hover:bg-fuchsia-50 text-sm md:text-base text-white dark:text-gray-500 z-1"
+                , case app.technologySlug of
+                    Just slug ->
+                        Route.link
+                            [ Attrs.class "rounded-full px-4 bg-teal-400 hover:bg-teal-600 dark:bg-teal-300 dark:hover:bg-fuchsia-50 text-sm md:text-base text-white dark:text-gray-500 z-1"
                             ]
                             [ Html.text "Tech" ]
+                            (Route.TechBlog__Slug_ { slug = slug })
 
                     Nothing ->
                         Html.text ""
