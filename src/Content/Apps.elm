@@ -29,4 +29,13 @@ allApps =
       , codeUrl = Just "https://github.com/hahnah/color-stew"
       , isAvailable = True
       }
+    , { name = "Unfair Roulette"
+      , description = "悪用厳禁！出目を思いのままに操作できるルーレットです。"
+      , imagePath = "/images/apps/unfair-roulette.avif"
+      , url = "https://hahnah.github.io/unfair-roulette/"
+      , documentSlug = Just "2018-unfair-roulette"
+      , technologySlug = Just "2018-unfair-roulette-technology"
+      , codeUrl = Just "https://github.com/hahnah/unfair-roulette"
+      , isAvailable = True
+      }
     ]
