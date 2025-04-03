@@ -20,7 +20,7 @@ view apps =
                 [ Html.text "Hahnah's Apps" ]
             ]
         , Html.div
-            [ Attrs.class "flex flex-wrap justify-center gap-x-8 gap-y-8"
+            [ Attrs.class "flex flex-wrap justify-center my-8 gap-8"
             ]
             (List.map appVeiw apps)
         ]
@@ -30,10 +30,10 @@ view apps =
 appVeiw : App -> Html msg
 appVeiw app =
     Html.div
-        [ Attrs.class "my-8 w-full h-32 flex flex-row rounded-xl shadow-md bg-white dark:bg-gray-900 relative"
+        [ Attrs.class "w-full h-32 flex flex-row rounded-xl shadow-md bg-white dark:bg-gray-900 relative"
         ]
         [ Html.div
-            [ Attrs.class "flex justify-center items-center rounded-l-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-32 h-32 min-w-[128px] "
+            [ Attrs.class "flex justify-center items-center border-t-1 border-gray-200 dark:border-gray-800 rounded-l-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-32 h-32 min-w-[128px] "
             ]
             [ Html.img
                 [ Attrs.src app.imagePath
@@ -43,7 +43,7 @@ appVeiw app =
                 []
             ]
         , Html.div
-            [ Attrs.class "px-2 w-full flex flex-col gap-1 justify-end rounded-r-xl border-1 border-gray-200 dark:border-gray-800"
+            [ Attrs.class "px-2 w-full flex flex-col gap-1 justify-end rounded-r-xl border-t-1 border-r-1 border-gray-200 dark:border-gray-800"
             ]
             [ Html.h2
                 [ Attrs.class "mt-2 text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100"
