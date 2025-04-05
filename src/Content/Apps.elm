@@ -3,7 +3,7 @@ module Content.Apps exposing (App, allApps, updatedAt)
 
 updatedAt : String
 updatedAt =
-    "2025-03-25T00:00:00.000Z"
+    "2025-04-05T00:00:00.000Z"
 
 
 type alias App =
@@ -36,6 +36,15 @@ allApps =
       , documentSlug = Just "2018-unfair-roulette"
       , technologySlug = Just "2018-unfair-roulette-technology"
       , codeUrl = Just "https://github.com/hahnah/unfair-roulette"
+      , isAvailable = True
+      }
+    , { name = "Game of Life"
+      , description = "ライフゲームと呼ばれる、生命集団の盛衰シミュレーションを見て楽しむものです。"
+      , imagePath = "/images/apps/game-of-life.avif"
+      , url = "https://hahnah.github.io/Elm-GameOfLife/"
+      , documentSlug = Nothing
+      , technologySlug = Nothing
+      , codeUrl = Just "https://github.com/hahnah/Elm-GameOfLife"
       , isAvailable = True
       }
     ]
