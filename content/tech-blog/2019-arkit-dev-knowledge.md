@@ -6,14 +6,15 @@ published: "2019-07-02"
 updated: "2025-04-06"
 category: "tech"
 tags: ["ar-photoplay", "ar", "ios", "swift", "arkit"]
-status: "draft"
 ---
 
 ## 制作物概要
 
 こちらの記事にある **AR Photoplay** というアプリを作った。
 
-https://superhahnah.com/ar-photopay/
+[\[iOS App\] AR Photoplay -- 写真を飾るかのように動画を飾ろう](https://hahnah.github.io/tech-blog/2019-ar-photoplay/)
+
+![AR Photoplay](/images/tech-blog/2019-arkit-dev-knowledge/lauch.avif)
 
 簡単にいうと、
 
@@ -27,10 +28,7 @@ https://superhahnah.com/ar-photopay/
 
 ## 環境情報
 
-- XCode 10.2.1
-- Swift 5.0
-- ARKit 2.0
-- iOS 12.2
+- XCode 10.2.1 Swift 5.0 ARKit 2.0 iOS 12.2
 
 ## 気にかけたこと
 
@@ -119,7 +117,7 @@ ARKitでの画像認識に使えない画像が認識画像セットに含まれ
 **AR Photoplay** のアプリでは、ARセッション実行時のランタイムエラーを拾い（アプリはクラッシュさせない）、エラー内容を解析して原因となっているコンテンツとエラーの理由を特定している。  
 その詳細な方法は以下の記事にまとめた。
 
-https://superhahnah.com/arkit-invalid-reference-image/
+[ARKitでのイメージトラッキング/画像認識において Invalid Reference Image を特定する](https://hahnah.github.io/tech-blog/2019-arkit-invalid-reference-image/)
 
 エラーのあるコンテンツとその理由をユーザーに提示し、エラーを取り除くための対処を促すようにしている(↓画像)。
 
@@ -143,12 +141,13 @@ https://superhahnah.com/arkit-invalid-reference-image/
 
 #### 余談
 
-この撮影機能は単体でも使えそうだと思ったので、ライブラリ化した。[FlexibleAVCapture - CocoaPods](https://cocoapods.org/pods/FlexibleAVCapture)
+この撮影機能は単体でも使えそうだと思ったので、ライブラリ化した。  
+[FlexibleAVCapture - CocoaPods](https://cocoapods.org/pods/FlexibleAVCapture)
 
-https://superhahnah.com/swift-flexibleavcapture/
+このライブラリについては以下の記事で解説している。  
+[\[Swift\] FlexibleAVCapture で 縦長/横長/正方形 など自由なサイズの動画を撮影する](https://hahnah.github.io/tech-blog/2019-swift-flexible-av-capture/)
 
-このライブラリの利用例を示すため(と自分が使うため)に、オープンソースなアプリも作った。
-
-https://superhahnah.com/flex-camera/
+このライブラリの利用例を示すため(と自分が使うため)に、オープンソースなアプリも作った。以下がその紹介記事だ。  
+[\[iOS App\] Flex Camera で好きな形に iPhone の動画撮影を](https://hahnah.github.io/tech-blog/2019-flex-camera/)
 
 #### おわり
