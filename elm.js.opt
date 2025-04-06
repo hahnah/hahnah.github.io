@@ -12346,7 +12346,7 @@
                 _VirtualDom_attribute_fn($elm$html$Html$Attributes$rel_a0, "noopener noreferrer"),
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "absolute inset-0 z-0")
             ]), _List_Nil) : $elm$html$Html$div_fn(_List_fromArray([
-                $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "absolute inset-0 z-0 flex justify-center items-center bg-gray-800 text-4xl sm:text-7xl text-white  opacity-40 sm:opacity-20")
+                $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "absolute inset-0 z-0 flex justify-center items-center bg-gray-800 text-4xl sm:text-7xl text-white  opacity-40 sm:opacity-20 rounded-xl")
             ]), _List_fromArray([
                 $elm$html$Html$text("Unavailable")
             ]))
