@@ -2,7 +2,7 @@
 title: "ARKitでのイメージトラッキング/画像認識において Invalid Reference Image を特定する"
 image: "/images/tech-blog/2019-arkit-invalid-reference-image/staggered-arkit.avif"
 description: "ARKitでの画像認識時に発生する Invalid reference image というエラーの原因を実行時に特定し対処する方法の紹介"
-published: "2025-02-19"
+published: "2019-07-04"
 updated: "2025-04-06"
 category: "tech"
 tags: ["ar", "ios", "arkit", "swift"]
