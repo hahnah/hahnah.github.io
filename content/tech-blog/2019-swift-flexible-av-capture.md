@@ -6,7 +6,6 @@ published: "2019-03-16"
 updated: "2025-04-06"
 category: "tech"
 tags: ["swift", "ios", "flexible-av-capture", "video", "flex-camera"]
-status: "draft"
 ---
 
 **iPhoneで好きな形の動画が撮れたら面白いのにな**
@@ -123,7 +122,7 @@ FlexibleAVCaptureを使って簡単な iOSアプリ を作成し、AppStoreに�
 どんなものが作れるのか、参考として触ってみるのも良いだろう。
 
 Flex Camera アプリはこちらの紹介記事はこちら:  
-[https://superhahnah.com/flex-camera/](https://superhahnah.com/flex-camera/)
+[https://hahnah.github.io/tech-blog/2019-flex-camera/](https://hahnah.github.io/tech-blog/2019-flex-camera/)
 
 アプリダウンロードURL:  
 ~~https://itunes.apple.com/us/app/flex-camera/id1455345286~~  
