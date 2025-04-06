@@ -34,15 +34,15 @@ You can download Flex Camera app from App Store for FREE!
 
 NOTE: Currently, it is not available on App Store in 2025.
 
-## Development Information
+### Development Information
 
 Flex Camera is an Open Source Software.
 
-### Source
+#### Source
 
 [https://github.com/hahnah/FlexCamera](https://github.com/hahnah/FlexCamera)
 
-### Dependent Library
+#### Dependent Library
 
 FlexibleAVCapture is made with FlexibleAVCapture whichi is a library I created.  
 [FlexibleAVCapture](https://cocoapods.org/pods/FlexibleAVCapture)
