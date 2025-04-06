@@ -41,7 +41,7 @@ NOTE: Currently, it is not available on App Store in 2025, but you can still see
 ![flex camera](/images/tech-blog/2019-swift-flexible-av-capture-en/flex-camera-icon.avif)
 
 See the fllowing post for its summary.  
-[https://hahnah.github.io/tech-blog/2019-flex-camera-en/](https://hahnah.github.io/tech-blog/2019-flex-camera-en/)
+[\[iOS App\] Flex Camera - Take videos with unique shape!](https://hahnah.github.io/tech-blog/2019-flex-camera-en/)
 
 And here is the source code of Flex Camera.  
 [https://github.com/hahnah/FlexCamera](https://github.com/hahnah/FlexCamera)
