@@ -99,7 +99,7 @@ appVeiw app =
 
           else
             Html.div
-                [ Attrs.class "absolute inset-0 z-0 flex justify-center items-center bg-gray-800 text-4xl sm:text-7xl text-white  opacity-40 sm:opacity-20"
+                [ Attrs.class "absolute inset-0 z-0 flex justify-center items-center bg-gray-800 text-4xl sm:text-7xl text-white  opacity-40 sm:opacity-20 rounded-xl"
                 ]
                 [ Html.text "Unavailable" ]
         ]
