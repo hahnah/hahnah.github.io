@@ -14,7 +14,6 @@ tags:
     "video",
     "flex-camera",
   ]
-status: "draft"
 ---
 
 [FlexibleAVCapture](https://cocoapods.org/pods/FlexibleAVCapture) provides a kind of AV capture view controller with flexible camera frame. It includes default capture settings, preview layer, buttons, tap-gesture focusing, pinch-gesture zooming, and so on.
@@ -42,7 +41,7 @@ NOTE: Currently, it is not available on App Store in 2025, but you can still see
 ![flex camera](/images/tech-blog/2019-swift-flexible-av-capture-en/flex-camera-icon.avif)
 
 See the fllowing post for its summary.  
-https://superhahnah.com/flexcamera-en
+[https://hahnah.github.io/tech-blog/2019-flex-camera-en/](https://hahnah.github.io/tech-blog/2019-flex-camera-en/)
 
 And here is the source code of Flex Camera.  
 [https://github.com/hahnah/FlexCamera](https://github.com/hahnah/FlexCamera)
