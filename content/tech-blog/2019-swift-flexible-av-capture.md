@@ -5,7 +5,15 @@ description: "iPhoneで好きな形状の動画を撮影するためのライブ
 published: "2019-03-16"
 updated: "2025-04-06"
 category: "tech"
-tags: ["swift", "ios", "flexible-av-capture", "video", "flex-camera"]
+tags:
+  [
+    "hahnah's-library",
+    "swift",
+    "ios",
+    "flexible-av-capture",
+    "video",
+    "flex-camera",
+  ]
 ---
 
 **iPhoneで好きな形の動画が撮れたら面白いのにな**
