@@ -1,4 +1,4 @@
-��
+��
 ## 好きな形に動画を撮ろう
 
 iPhone で動画を撮る時、決まった形でしか撮影ができませんよね？
@@ -37,7 +37,7 @@ Flex Camera はオープンソースソフトウェアです。
 [FlexibleAVCapture](https://cocoapods.org/pods/FlexibleAVCapture)
 
 FlexibleAVCaptureについては以下の記事で紹介していますのでご覧ください。  
-[\[Swift\] FlexibleAVCapture で 縦長/横長/正方形 など自由なサイズの動画を撮影する](https://hahnah.github.io/swift-flexible-av-capture/)
+[\[Swift\] FlexibleAVCapture で 縦長/横長/正方形 など自由なサイズの動画を撮影する](https://hahnah.github.io/tech-blog/swift-flexible-av-capture/)
 D/images/authors/natsuki-harai.avif�T�
 ## 私は誰?
 
@@ -205,7 +205,7 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Flex Camera を使えば、正方形の動画でも、細長い動画でも思いのままに`/images/tech-blog/2019-flex-camera/eyecatch.avif  �~� 2019-flex-camera �~� ��&flex-cameraindie-appios
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Flex Camera を使えば、正方形の動画でも、細長い動画でも思いのままに`/images/tech-blog/2019-flex-camera/eyecatch.avif  �~� 2019-flex-camera �~� ��&flex-camerahahnah's-appios
 video�[iOS App] Flex Camera で好きな形に iPhone の動画撮影を  ��&D/images/authors/natsuki-harai.avif�T�
 ## 私は誰?
 
@@ -544,4 +544,4 @@ Elm は私の最も好きなプログラミング言語です。
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�nUnfair Roulette は止まる目を操作することができる、そんなルーレットだ。それをElmがどのように実装したのかを解説する。|/images/tech-blog/2018-unfair-roulette-technology/with-pc.avif  �~
 >2018-unfair-roulette-technology �~
- �� unfair-rouletteindie-appelmrElmで開発したルーレットアプリの実装解説  ��  
+ ��&unfair-roulettehahnah's-appelmrElmで開発したルーレットアプリの実装解説  ��& 
