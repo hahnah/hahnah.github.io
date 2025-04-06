@@ -47,4 +47,22 @@ allApps =
       , codeUrl = Just "https://github.com/hahnah/Elm-GameOfLife"
       , isAvailable = True
       }
+    , { name = "AR Photoplay"
+      , description = "写真を飾るかのように動画を飾ろう。AR技術を使った革新的なムービーアルバムです。"
+      , imagePath = "/images/apps/ar-photoplay.avif"
+      , url = ""
+      , documentSlug = Just "2019-ar-photoplay"
+      , technologySlug = Just "2019-arkit-dev-knowledge"
+      , codeUrl = Nothing
+      , isAvailable = False
+      }
+    , { name = "Flex Camera"
+      , description = "自由な形でiPhoneの動画撮影を。正方形の動画も細長い動画も思いのままに。"
+      , imagePath = "/images/apps/flex-camera.avif"
+      , url = ""
+      , documentSlug = Just "2019-flex-camera"
+      , technologySlug = Just "2019-swift-flexible-av-capture"
+      , codeUrl = Just "https://github.com/hahnah/FlexCamera"
+      , isAvailable = False
+      }
     ]
