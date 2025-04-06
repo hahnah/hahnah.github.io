@@ -36,11 +36,11 @@ Flex Camera は App Store で 無料ダウンロードできます。
 
 Flex Camera はオープンソースソフトウェアです。
 
-##### ソースコード
+#### ソースコード
 
 [https://github.com/hahnah/FlexCamera](https://github.com/hahnah/FlexCamera)
 
-##### 利用ライブラリ
+#### 利用ライブラリ
 
 私が開発した FlexibleAVCapture というライブラリを利用しています。  
 [FlexibleAVCapture](https://cocoapods.org/pods/FlexibleAVCapture)
