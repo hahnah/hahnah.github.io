@@ -5,7 +5,7 @@ description: "AR Photoplay はAR(拡張現実)の技術を利用したムービ�
 published: "2019-07-02"
 updated: "2025-04-06"
 category: "tech"
-tags: ["ar-photoplay", "indie-app", "ios"]
+tags: ["ar-photoplay", "hahnah's-app", "ios"]
 ---
 
 ~~App Store からインストールして iPhone で利用できます。~~  

@@ -5,7 +5,7 @@ description: "Flex Camera を使えば、正方形の動画でも、細長い動
 published: "2019-03-16"
 updated: "2025-04-06"
 category: "tech"
-tags: ["flex-camera", "indie-app", "ios", "video"]
+tags: ["flex-camera", "hahnah's-app", "ios", "video"]
 ---
 
 ## 好きな形に動画を撮ろう
@@ -46,4 +46,4 @@ Flex Camera はオープンソースソフトウェアです。
 [FlexibleAVCapture](https://cocoapods.org/pods/FlexibleAVCapture)
 
 FlexibleAVCaptureについては以下の記事で紹介していますのでご覧ください。  
-[\[Swift\] FlexibleAVCapture で 縦長/横長/正方形 など自由なサイズの動画を撮影する](https://hahnah.github.io/swift-flexible-av-capture/)
+[\[Swift\] FlexibleAVCapture で 縦長/横長/正方形 など自由なサイズの動画を撮影する](https://hahnah.github.io/tech-blog/swift-flexible-av-capture/)

@@ -5,7 +5,7 @@ description: "Use Flex Camera to take square videos, tall videos, and more!"
 published: "2019-03-17"
 updated: "2025-04-06"
 category: "tech"
-tags: ["flex-camera", "indie-app", "ios", "video"]
+tags: ["flex-camera", "hahnah's-app", "ios", "video"]
 ---
 
 ## Take videos with unique shape!
@@ -48,4 +48,4 @@ FlexibleAVCapture is made with FlexibleAVCapture whichi is a library I created.
 [FlexibleAVCapture](https://cocoapods.org/pods/FlexibleAVCapture)
 
 I posted about FlexibleAVCapture in the following article, so please check it out.  
-[FlexibleAVCapture: An Swift/iOS library for taking videos with any rectangular frame.](https://hahnah.github.io/swift-flexible-av-capture-en/)
+[FlexibleAVCapture: An Swift/iOS library for taking videos with any rectangular frame.](https://hahnah.github.io/tech-blog/swift-flexible-av-capture-en/)
