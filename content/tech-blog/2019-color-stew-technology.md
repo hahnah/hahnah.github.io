@@ -3,9 +3,9 @@ title: "[Elm] Color Stew という Webアプリを作った話"
 image: "/images/tech-blog/2019-color-stew-technology/color-stew-screen.avif"
 description: "Color Stew というデザイン用のWebアプリを作った。この記事では作る際の苦労や所感を紹介する。"
 published: "2019-08-18"
-updated: "2025-03-26"
+updated: "2025-04-06"
 category: "tech"
-tags: ["color-stew", "indie-app", "design", "color-theory", "elm"]
+tags: ["color-stew", "hahnah's-app", "design", "color-theory", "elm"]
 ---
 
 アプリの概要や使い方は以下の記事で紹介している。  

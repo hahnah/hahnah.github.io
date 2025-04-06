@@ -5,7 +5,7 @@ description: "AR Photoplay is an unique video album application with Augmented R
 published: "2019-07-02"
 updated: "2025-04-06"
 category: "tech"
-tags: ["ar-photoplay", "indie-app", "ios"]
+tags: ["ar-photoplay", "hahnah's-app", "ios"]
 ---
 
 By using AR Photoplay, you can record scenes of your life with better clarity than ordinary photos and easier accessibility than ordinary videos.

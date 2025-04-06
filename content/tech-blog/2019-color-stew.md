@@ -3,9 +3,9 @@ title: "Color Stew で簡単カラースキーム作成"
 image: "/images/tech-blog/2019-color-stew/color-stew-screen.avif"
 description: 'カラースキーマの理論に基づいた美しいカラーパレットを簡単に作成できるWebアプリ "Color Stew" を開発した。'
 published: "2019-08-03"
-updated: "2025-03-27"
+updated: "2025-04-06"
 category: "tech"
-tags: ["color-stew", "indie-app", "design", "color-theory", "elm"]
+tags: ["color-stew", "hahnah's-app", "design", "color-theory", "elm"]
 ---
 
 以下のURLから利用できる。  

@@ -3,9 +3,9 @@ title: "Unfair Roulette : インチキできるルーレットアプリを作成
 image: "/images/tech-blog/2018-unfair-roulette/unfair-roulette.avif"
 description: "ルーレットの止まる目を操作することができる、そんなルーレットだ。悪事や人を傷つけることには使わないこと。"
 published: "2018-11-18"
-updated: "2025-04-03"
+updated: "2025-04-06"
 category: "tech"
-tags: ["unfair-roulette", "indie-app"]
+tags: ["unfair-roulette", "hahnah's-app"]
 ---
 
 こちらのリンクから利用できる。  

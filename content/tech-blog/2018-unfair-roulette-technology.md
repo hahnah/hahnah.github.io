@@ -3,9 +3,9 @@ title: "Elmで開発したルーレットアプリの実装解説"
 image: "/images/tech-blog/2018-unfair-roulette-technology/with-pc.avif"
 description: "Unfair Roulette は止まる目を操作することができる、そんなルーレットだ。それをElmがどのように実装したのかを解説する。"
 published: "2018-12-01"
-updated: "2025-04-03"
+updated: "2025-04-06"
 category: "tech"
-tags: ["unfair-roulette", "indie-app", "elm"]
+tags: ["unfair-roulette", "hahnah's-app", "elm"]
 ---
 
 以下の記事で説明しているルーレットアプリをElmで作成した。  

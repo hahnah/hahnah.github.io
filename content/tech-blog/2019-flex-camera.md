@@ -5,7 +5,7 @@ description: "Flex Camera を使えば、正方形の動画でも、細長い動
 published: "2019-03-16"
 updated: "2025-04-06"
 category: "tech"
-tags: ["flex-camera", "indie-app", "ios", "video"]
+tags: ["flex-camera", "hahnah's-app", "ios", "video"]
 ---
 
 ## 好きな形に動画を撮ろう

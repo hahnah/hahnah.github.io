@@ -5,7 +5,7 @@ description: "Use Flex Camera to take square videos, tall videos, and more!"
 published: "2019-03-17"
 updated: "2025-04-06"
 category: "tech"
-tags: ["flex-camera", "indie-app", "ios", "video"]
+tags: ["flex-camera", "hahnah's-app", "ios", "video"]
 ---
 
 ## Take videos with unique shape!
