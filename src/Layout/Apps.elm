@@ -88,11 +88,18 @@ appVeiw app =
                         Html.text ""
                 ]
             ]
-        , Html.a
-            [ Attrs.href app.url
-            , Attrs.target "_blank"
-            , Attrs.rel "noopener noreferrer"
-            , Attrs.class "absolute inset-0 z-0"
-            ]
-            []
+        , if app.isAvailable then
+            Html.a
+                [ Attrs.href app.url
+                , Attrs.target "_blank"
+                , Attrs.rel "noopener noreferrer"
+                , Attrs.class "absolute inset-0 z-0"
+                ]
+                []
+
+          else
+            Html.div
+                [ Attrs.class "absolute inset-0 z-0 flex justify-center items-center bg-gray-800 text-4xl sm:text-7xl text-white  opacity-40 sm:opacity-20"
+                ]
+                [ Html.text "Unavailable" ]
         ]
