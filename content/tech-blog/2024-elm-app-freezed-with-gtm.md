@@ -5,7 +5,8 @@ description: "GTMやブラウザ拡張によって引き起こされるElmアプ
 published: "2024-11-09"
 updated: "2025-04-08"
 category: "tech"
-tags: ["elm", "google-tag-manager", "browser-extension"]
+tags:
+  ["elm", "google-tag-manager", "browser-extension", "javascript", "typescript"]
 ---
 
 ## Elmなのにランタイムエラーでアプリがフリーズ
