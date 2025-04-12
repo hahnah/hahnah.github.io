@@ -12193,6 +12193,9 @@
     var $author$project$Route$TechBlog__Slug_ = function (a) {
         return { $: 2, a: a };
     };
+    var $author$project$CustomRoute$ensureTrailingSlash = function (url) {
+        return (_String_endsWith_fn("/", url) || (url === "/")) ? url : (url + "/");
+    };
     var $author$project$Route$baseUrl = "/";
     var $author$project$Route$baseUrlAsPath = $elm$core$List$filter_fn(function (item) {
         return !$elm$core$String$isEmpty(item);
@@ -12253,17 +12256,20 @@
     var $author$project$Route$toString = function (route) {
         return $dillonkearns$elm_pages$UrlPath$toAbsolute($author$project$Route$toPath(route));
     };
-    var $author$project$Route$toLink_fn = function (toAnchorTag, route) {
+    var $author$project$CustomRoute$toString = function (route) {
+        return $author$project$CustomRoute$ensureTrailingSlash($author$project$Route$toString(route));
+    };
+    var $author$project$CustomRoute$toLink_fn = function (toAnchorTag, route) {
         return toAnchorTag(_List_fromArray([
-            $elm$html$Html$Attributes$href($author$project$Route$toString(route)),
+            $elm$html$Html$Attributes$href($author$project$CustomRoute$toString(route)),
             $elm$virtual_dom$VirtualDom$attribute_fn("elm-pages:prefetch", "")
         ]));
-    }, $author$project$Route$toLink = F2($author$project$Route$toLink_fn);
-    var $author$project$Route$link_fn = function (attributes, children, route) {
-        return $author$project$Route$toLink_fn(function (anchorAttrs) {
+    }, $author$project$CustomRoute$toLink = F2($author$project$CustomRoute$toLink_fn);
+    var $author$project$CustomRoute$linkWithTrailingSlash_fn = function (attributes, children, route) {
+        return $author$project$CustomRoute$toLink_fn(function (anchorAttrs) {
             return $elm$html$Html$a_fn(_Utils_ap(anchorAttrs, attributes), children);
         }, route);
-    }, $author$project$Route$link = F3($author$project$Route$link_fn);
+    }, $author$project$CustomRoute$linkWithTrailingSlash = F3($author$project$CustomRoute$linkWithTrailingSlash_fn);
     var $author$project$Layout$Apps$appVeiw = function (app) {
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "w-full h-32 flex flex-row rounded-xl shadow-md bg-white dark:bg-gray-900 relative")
@@ -12297,7 +12303,7 @@
                         var _v0 = app.bY;
                         if (!_v0.$) {
                             var slug = _v0.a;
-                            return $author$project$Route$link_fn(_List_fromArray([
+                            return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "rounded-full px-4 bg-rose-300 hover:bg-rose-500 dark:bg-rose-200 dark:hover:bg-rose-50 text-sm md:text-base text-white dark:text-gray-500 z-1")
                             ]), _List_fromArray([
                                 $elm$html$Html$text("Doc")
@@ -12311,7 +12317,7 @@
                         var _v1 = app.ci;
                         if (!_v1.$) {
                             var slug = _v1.a;
-                            return $author$project$Route$link_fn(_List_fromArray([
+                            return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "rounded-full px-4 bg-teal-400 hover:bg-teal-600 dark:bg-teal-300 dark:hover:bg-fuchsia-50 text-sm md:text-base text-white dark:text-gray-500 z-1")
                             ]), _List_fromArray([
                                 $elm$html$Html$text("Tech")
@@ -13323,7 +13329,7 @@
         return $kuon$elm_string_normalize$String$Normalize$cleanup_fn($elm$core$Set$empty, "-", str);
     };
     var $author$project$Layout$Tags$viewTag = function (slug) {
-        return $author$project$Route$link_fn(_List_fromArray([
+        return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-sm font-medium uppercase text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400")
         ]), _List_fromArray([
             $elm$html$Html$text(slug)
@@ -13343,7 +13349,7 @@
                     $elm$html$Html$h2_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-2xl font-bold leading-8 tracking-tight")
                     ]), _List_fromArray([
-                        $author$project$Route$link_fn(_List_fromArray([
+                        $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100")
                         ]), _List_fromArray([
                             $elm$html$Html$text(metadata.lh)
@@ -13393,7 +13399,7 @@
         }();
         var allPostsLink = function () {
             if (!selectedTag.$) {
-                return $author$project$Route$link_fn(_List_Nil, _List_fromArray([
+                return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_Nil, _List_fromArray([
                     $elm$html$Html$h3_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase")
                     ]), _List_fromArray([
@@ -13427,7 +13433,7 @@
                             return $elm$html$Html$li_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "my-3")
                             ]), _List_fromArray([
-                                $author$project$Route$link_fn(_List_fromArray([
+                                $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "py-2 px-3 uppercase text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"),
                                     $elm$html$Html$Attributes$classList(_List_fromArray([
                                         _Utils_Tuple2("text-primary-700 dark:text-primary-500", _Utils_eq($elm$core$Maybe$Just(tag.fB), $elm$core$Maybe$map_fn(function ($) {
@@ -13517,7 +13523,7 @@
         }();
         return $phosphor_icons$phosphor_elm$Phosphor$makeBuilder(elements);
     };
-    var $author$project$Layout$Index$appsLink = $author$project$Route$link_fn(_List_fromArray([
+    var $author$project$Layout$Index$appsLink = $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex gap-2 justify-center items-center bg-sky-500 hover:bg-sky-600 rounded-full w-full py-3 md:w-auto md:px-10")
     ]), _List_fromArray([
         $phosphor_icons$phosphor_elm$Phosphor$toHtml_fn(_List_Nil, $phosphor_icons$phosphor_elm$Phosphor$withClass_fn("fill-current text-white h-8 w-8", $phosphor_icons$phosphor_elm$Phosphor$appStoreLogo(2))),
@@ -13581,7 +13587,7 @@
         }();
         return $phosphor_icons$phosphor_elm$Phosphor$makeBuilder(elements);
     };
-    var $author$project$Layout$Index$blogLink = $author$project$Route$link_fn(_List_fromArray([
+    var $author$project$Layout$Index$blogLink = $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex gap-2 justify-center items-center bg-teal-500 hover:bg-teal-600 rounded-full w-full py-3 md:w-auto md:px-10")
     ]), _List_fromArray([
         $phosphor_icons$phosphor_elm$Phosphor$toHtml_fn(_List_Nil, $phosphor_icons$phosphor_elm$Phosphor$withClass_fn("fill-current text-white h-8 w-8", $phosphor_icons$phosphor_elm$Phosphor$books(2))),
@@ -13611,7 +13617,7 @@
                 $elm$html$Html$div_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex justify-center")
                 ]), _List_fromArray([
-                    $author$project$Route$link_fn(_List_Nil, _List_fromArray([$author$project$Layout$Index$author]), $author$project$Route$About)
+                    $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_Nil, _List_fromArray([$author$project$Layout$Index$author]), $author$project$Route$About)
                 ])),
                 $elm$html$Html$h1_fn(_List_fromArray([
                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "flex justify-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:leading-14")
@@ -13656,7 +13662,7 @@
                     $elm$html$Html$h2_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-2xl font-bold leading-8 tracking-tight")
                     ]), _List_fromArray([
-                        $author$project$Route$link_fn(_List_fromArray([
+                        $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100")
                         ]), _List_fromArray([
                             $elm$html$Html$text(metadata.lh)
@@ -13696,7 +13702,7 @@
         }();
         var allPostsLink = function () {
             if (!selectedTag.$) {
-                return $author$project$Route$link_fn(_List_Nil, _List_fromArray([
+                return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_Nil, _List_fromArray([
                     $elm$html$Html$h3_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase")
                     ]), _List_fromArray([
@@ -13730,7 +13736,7 @@
                             return $elm$html$Html$li_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "my-3")
                             ]), _List_fromArray([
-                                $author$project$Route$link_fn(_List_fromArray([
+                                $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "py-2 px-3 uppercase text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"),
                                     $elm$html$Html$Attributes$classList(_List_fromArray([
                                         _Utils_Tuple2("text-primary-700 dark:text-primary-500", _Utils_eq($elm$core$Maybe$Just(tag.fB), $elm$core$Maybe$map_fn(function ($) {
@@ -18294,7 +18300,7 @@
         var body = _v0.ge;
         var metadata = _v0.cG;
         var bottomLink = F2(function (slug, title) {
-            return $author$project$Route$link_fn(_List_fromArray([
+            return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400")
             ]), _List_fromArray([
                 $elm$html$Html$text(title)
@@ -18451,7 +18457,7 @@
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "mb-2 mr-5 mt-2")
         ]), _List_fromArray([
-            $author$project$Route$link_fn(_List_fromArray([
+            $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-sm font-medium uppercase text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"),
                 $elm$virtual_dom$VirtualDom$attribute_fn("aria-label", "View posts tagged " + title)
             ]), _List_fromArray([
@@ -18795,7 +18801,7 @@
                     $elm$html$Html$h2_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-2xl font-bold leading-8 tracking-tight")
                     ]), _List_fromArray([
-                        $author$project$Route$link_fn(_List_fromArray([
+                        $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100")
                         ]), _List_fromArray([
                             $elm$html$Html$text(metadata.lh)
@@ -18835,7 +18841,7 @@
         }();
         var allPostsLink = function () {
             if (!selectedTag.$) {
-                return $author$project$Route$link_fn(_List_Nil, _List_fromArray([
+                return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_Nil, _List_fromArray([
                     $elm$html$Html$h3_fn(_List_fromArray([
                         $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase")
                     ]), _List_fromArray([
@@ -18869,7 +18875,7 @@
                             return $elm$html$Html$li_fn(_List_fromArray([
                                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "my-3")
                             ]), _List_fromArray([
-                                $author$project$Route$link_fn(_List_fromArray([
+                                $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                                     $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "py-2 px-3 uppercase text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"),
                                     $elm$html$Html$Attributes$classList(_List_fromArray([
                                         _Utils_Tuple2("text-primary-700 dark:text-primary-500", _Utils_eq($elm$core$Maybe$Just(tag.fB), $elm$core$Maybe$map_fn(function ($) {
@@ -19046,7 +19052,7 @@
         var body = _v0.ge;
         var metadata = _v0.cG;
         var bottomLink = F2(function (slug, title) {
-            return $author$project$Route$link_fn(_List_fromArray([
+            return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400")
             ]), _List_fromArray([
                 $elm$html$Html$text(title)
@@ -22550,7 +22556,7 @@
     var $author$project$Layout$viewMainMenuItem = function (_v0) {
         var route = _v0.cd;
         var label = _v0.b8;
-        return $author$project$Route$link_fn(_List_fromArray([
+        return $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "hidden sm:block font-medium text-gray-900 dark:text-gray-100 hover:underline decoration-primary-500")
         ]), _List_fromArray([
             $elm$html$Html$text(label)
@@ -22562,7 +22568,7 @@
         return $elm$html$Html$div_fn(_List_fromArray([
             $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "px-12 py-4")
         ]), _List_fromArray([
-            $author$project$Route$link_fn(_List_fromArray([
+            $author$project$CustomRoute$linkWithTrailingSlash_fn(_List_fromArray([
                 $elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$class_a0, "text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"),
                 $elm$html$Html$Events$onClick(onMenuToggle)
             ]), _List_fromArray([
