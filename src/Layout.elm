@@ -1,5 +1,6 @@
 module Layout exposing (view)
 
+import CustomRoute
 import Html exposing (Html)
 import Html.Attributes as Attrs
 import Html.Events as Events
@@ -31,7 +32,7 @@ symbol =
 
 viewMainMenuItem : { label : String, route : Route } -> Html msg
 viewMainMenuItem { label, route } =
-    Route.link
+    CustomRoute.linkWithTrailingSlash
         [ Attrs.class "hidden sm:block font-medium text-gray-900 dark:text-gray-100 hover:underline decoration-primary-500"
         ]
         [ Html.text label ]
@@ -43,7 +44,7 @@ viewSideMainMenuItem onMenuToggle { label, route } =
     Html.div
         [ Attrs.class "px-12 py-4"
         ]
-        [ Route.link
+        [ CustomRoute.linkWithTrailingSlash
             [ Attrs.class "text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
             , Events.onClick onMenuToggle
             ]

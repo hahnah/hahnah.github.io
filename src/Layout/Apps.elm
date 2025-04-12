@@ -1,6 +1,7 @@
 module Layout.Apps exposing (view)
 
 import Content.Apps exposing (App)
+import CustomRoute
 import Html exposing (Html)
 import Html.Attributes as Attrs
 import Route
@@ -56,7 +57,7 @@ appVeiw app =
             , Html.div [ Attrs.class "mt-auto mb-2 flex gap-1 sm:gap-3" ]
                 [ case app.documentSlug of
                     Just slug ->
-                        Route.link
+                        CustomRoute.linkWithTrailingSlash
                             [ Attrs.class "rounded-full px-4 bg-rose-300 hover:bg-rose-500 dark:bg-rose-200 dark:hover:bg-rose-50 text-sm md:text-base text-white dark:text-gray-500 z-1"
                             ]
                             [ Html.text "Doc" ]
@@ -66,7 +67,7 @@ appVeiw app =
                         Html.text ""
                 , case app.technologySlug of
                     Just slug ->
-                        Route.link
+                        CustomRoute.linkWithTrailingSlash
                             [ Attrs.class "rounded-full px-4 bg-teal-400 hover:bg-teal-600 dark:bg-teal-300 dark:hover:bg-fuchsia-50 text-sm md:text-base text-white dark:text-gray-500 z-1"
                             ]
                             [ Html.text "Tech" ]

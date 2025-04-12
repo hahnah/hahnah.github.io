@@ -1,6 +1,7 @@
 module Layout.Tags exposing (view, viewTag)
 
 import Content.BlogpostCommon exposing (TagWithCount)
+import CustomRoute
 import Html exposing (Html)
 import Html.Attributes as Attrs
 import Route
@@ -13,7 +14,7 @@ viewTagWithCount { slug, title, count } =
         [ Attrs.class "mb-2 mr-5 mt-2"
         ]
         [ Route.Tags__Slug_ { slug = String.Normalize.slug slug }
-            |> Route.link
+            |> CustomRoute.linkWithTrailingSlash
                 [ Attrs.class "text-sm font-medium uppercase text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 , Attrs.attribute "aria-label" ("View posts tagged " ++ title)
                 ]
@@ -29,7 +30,7 @@ viewTagWithCount { slug, title, count } =
 viewTag : String -> Html msg
 viewTag slug =
     Route.Tags__Slug_ { slug = String.Normalize.slug slug }
-        |> Route.link
+        |> CustomRoute.linkWithTrailingSlash
             [ Attrs.class "text-sm font-medium uppercase text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             ]
             [ Html.text slug ]

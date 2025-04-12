@@ -5,6 +5,7 @@ module Layout.TechBlogpost exposing
     )
 
 import Content.BlogpostCommon exposing (Blogpost, Metadata, Status(..), TagWithCount)
+import CustomRoute
 import Html exposing (Html)
 import Html.Attributes as Attrs
 import Html.Extra
@@ -52,7 +53,7 @@ viewBlogpost { metadata, body, previousPost, nextPost } =
                     )
 
         bottomLink slug title =
-            Route.link
+            CustomRoute.linkWithTrailingSlash
                 [ Attrs.class "text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" ]
                 [ Html.text title ]
                 (Route.TechBlog__Slug_ { slug = slug })
@@ -188,7 +189,7 @@ viewBlogpostMetadata metadata =
                     [ Attrs.class "text-2xl font-bold leading-8 tracking-tight"
                     ]
                     [ Route.TechBlog__Slug_ { slug = metadata.slug }
-                        |> Route.link
+                        |> CustomRoute.linkWithTrailingSlash
                             [ Attrs.class "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100"
                             ]
                             [ Html.text metadata.title ]
@@ -229,7 +230,7 @@ viewListItem metadata =
                             [ Attrs.class "text-2xl font-bold leading-8 tracking-tight"
                             ]
                             [ Route.TechBlog__Slug_ { slug = metadata.slug }
-                                |> Route.link
+                                |> CustomRoute.linkWithTrailingSlash
                                     [ Attrs.class "text-gray-900 hover:underline decoration-primary-600 dark:text-gray-100"
                                     ]
                                     [ Html.text metadata.title ]
@@ -252,7 +253,7 @@ viewListItem metadata =
                     [ Attrs.class "text-base font-medium leading-6"
                     ]
                     [ Route.TechBlog__Slug_ { slug = metadata.slug }
-                        |> Route.link
+                        |> CustomRoute.linkWithTrailingSlash
                             [ Attrs.class "text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             , Attrs.attribute "aria-label" ("Read more about \"" ++ metadata.title ++ "\"")
                             ]
@@ -284,7 +285,7 @@ viewPostList tags metadata selectedTag =
             case selectedTag of
                 Just _ ->
                     Route.TechBlog
-                        |> Route.link
+                        |> CustomRoute.linkWithTrailingSlash
                             []
                             [ Html.h3
                                 [ Attrs.class "text-gray-900 dark:text-gray-100 hover:text-primary-500 font-bold uppercase"
@@ -312,7 +313,7 @@ viewPostList tags metadata selectedTag =
                                 [ Attrs.class "my-3"
                                 ]
                                 [ Route.Tags__Slug_ { slug = tag.slug }
-                                    |> Route.link
+                                    |> CustomRoute.linkWithTrailingSlash
                                         [ Attrs.class "py-2 px-3 uppercase text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"
                                         , Attrs.classList [ ( "text-primary-700 dark:text-primary-500", Just tag.slug == Maybe.map .slug selectedTag ) ]
                                         , Attrs.attribute "aria-label" <| "View posts tagged " ++ tag.title
