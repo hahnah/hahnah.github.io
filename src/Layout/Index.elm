@@ -1,6 +1,7 @@
 module Layout.Index exposing (updatedAt, view)
 
 import Content.BlogpostCommon exposing (Metadata)
+import CustomRoute
 import Html exposing (Html)
 import Html.Attributes as Attrs
 import Phosphor
@@ -16,7 +17,7 @@ updatedAt =
 view : List Metadata -> List (Html msg)
 view _ =
     [ Html.div [ Attrs.class "space-y-6 md:space-y-8 pb-8 pt-6" ]
-        [ Html.div [ Attrs.class "flex justify-center" ] [ Route.link [] [ author ] Route.About ]
+        [ Html.div [ Attrs.class "flex justify-center" ] [ CustomRoute.linkWithTrailingSlash [] [ author ] Route.About ]
         , Html.h1 [ Attrs.class "flex justify-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:leading-14" ] [ Html.text Settings.title ]
         , Html.p [ Attrs.class "flex justify-center text-lg leading-10 text-gray-600 dark:text-gray-400" ] [ Html.text Settings.subtitle ]
         , Html.div [ Attrs.class "flex flex-wrap justify-center gap-x-8 gap-y-8" ] [ appsLink, codeLink, blogLink ]
@@ -38,7 +39,7 @@ author =
 
 appsLink : Html msg
 appsLink =
-    Route.link
+    CustomRoute.linkWithTrailingSlash
         [ Attrs.class "flex gap-2 justify-center items-center bg-sky-500 hover:bg-sky-600 rounded-full w-full py-3 md:w-auto md:px-10"
         ]
         [ Phosphor.appStoreLogo Phosphor.Regular
@@ -64,7 +65,7 @@ codeLink =
 
 blogLink : Html msg
 blogLink =
-    Route.link
+    CustomRoute.linkWithTrailingSlash
         [ Attrs.class "flex gap-2 justify-center items-center bg-teal-500 hover:bg-teal-600 rounded-full w-full py-3 md:w-auto md:px-10"
         ]
         [ Phosphor.books Phosphor.Regular
