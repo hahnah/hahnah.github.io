@@ -1,5 +1,5 @@
 ---
-title: 肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜④キーマップ設定編〜"
+title: "肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜④キーマップ設定編〜"
 image: "/images/tech-blog/2024-build-corne-chocolate-4/keymap-layer-0.avif"
 description: "自作した Corne Chocolate のキーマップを自分好みにカスタマイズしていきます。"
 published: "2024-05-07"
