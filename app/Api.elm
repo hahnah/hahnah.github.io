@@ -53,10 +53,8 @@ sitemap entriesSource =
         (entriesSource
             |> BackendTask.map
                 (\entries ->
-                    [ """<?xml version="1.0" encoding="UTF-8"?>"""
-                    , Sitemap.build { siteUrl = Settings.baseUrl } entries
-                    ]
-                        |> String.join "\n"
+                    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                        ++ Sitemap.build { siteUrl = Settings.baseUrl } entries
                 )
         )
         |> ApiRoute.literal "sitemap.xml"
