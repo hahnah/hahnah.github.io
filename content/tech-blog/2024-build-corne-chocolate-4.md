@@ -3,7 +3,7 @@ title: "肩こり解消のために無線分割キーボード Corne Chocolate �
 image: "/images/tech-blog/2024-build-corne-chocolate-4/keymap-layer-0.avif"
 description: "自作した Corne Chocolate のキーマップを自分好みにカスタマイズしていきます。"
 published: "2024-05-07"
-updated: "2025-04-12"
+updated: "2025-04-13"
 category: "tech"
 tags: ["keyboard", "self-made-keyboard", "corne"]
 status: "draft"
@@ -111,3 +111,9 @@ Remapで設定した画像になるのですが、最終的にこんなキーマ
 
 不満もまあないわけではないです。  
 使い続けて1周年になったら、継続利用の感想・満足・不満などをまた記事にしたいと思います。
+
+## 読者からのコメント
+
+> この商品の購入を悩んでいました。
+> 少ないキー数で数字や記号の入力に不安がありましたが、レイヤー切り替えで代替できるしホームポジションから動かずにできるので却って安定感がありそうですね。
+> この記事を参考に購入することにしました。ありがとうございます。
