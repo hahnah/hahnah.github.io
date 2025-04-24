@@ -49,6 +49,9 @@
 <loc>https://hahnah.github.io/tags/corne</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/database</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/design</loc>
 </url>
 <url>
@@ -92,6 +95,9 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/music</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/mysql</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/roc</loc>
@@ -160,6 +166,10 @@
 <lastmod>2025-04-13T00:00:00.000Z</lastmod>
 </url>
 <url>
+<loc>https://hahnah.github.io/tech-blog/2023-mysql8-collation</loc>
+<lastmod>2025-04-24T00:00:00.000Z</lastmod>
+</url>
+<url>
 <loc>https://hahnah.github.io/tech-blog/2019-color-stew-technology</loc>
 <lastmod>2025-04-06T00:00:00.000Z</lastmod>
 </url>
@@ -221,7 +231,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog</loc>
-<lastmod>2025-04-13T00:00:00.000Z</lastmod>
+<lastmod>2025-04-24T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog</loc>
@@ -232,7 +242,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog</loc>
-<lastmod>2025-04-13T00:00:00.000Z</lastmod>
+<lastmod>2025-04-24T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/</loc>
