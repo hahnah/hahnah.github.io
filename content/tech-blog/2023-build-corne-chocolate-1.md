@@ -6,7 +6,6 @@ published: "2023-08-21"
 updated: "2025-04-24"
 category: "tech"
 tags: ["keyboard", "self-made-keyboard", "corne"]
-status: "draft"
 ---
 
 ## 背景
@@ -184,7 +183,7 @@ Corne Chocolate は42個しかキーがないので、JIS配列でもUS配列で
 
 初心者すぎる、かつ下調べもあまりしていない状態で組み立て始めたのでかなり苦労することになるのですが、よければ続きも読んでみてください。
 
-https://superhahnah.com/build-corne-chocolate-2/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜②作成失敗編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-2/)
 
 ## おまけ情報
 
