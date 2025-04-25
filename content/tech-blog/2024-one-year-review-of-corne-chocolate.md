@@ -6,7 +6,6 @@ published: "2024-07-18"
 updated: "2025-04-10"
 category: "tech"
 tags: ["keyboard", "self-made-keyboard", "corne"]
-status: "draft"
 ---
 
 ## Corne Chocolate とは
@@ -28,7 +27,7 @@ Corne Cherry というキーボードが元々あるのだが、それの「Choc
 詳しくは以前の記事を見てもらいたいのだが、  
 肩こりに悩まされていてそれの解消のために Corne Chocolate を使い始めた。
 
-https://superhahnah.com/build-corne-chocolate-1/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜①選定・準備編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-1/)
 
 通常のキーボードを使う際には肩を中央にすくめるような感じになってしまい、これが巻き肩を引き起こし慢性的な肩こり症状が出てしまう。
 
@@ -102,7 +101,7 @@ https://superhahnah.com/build-corne-chocolate-1/
 ![キーマップレイヤー0](/images/tech-blog/2024-one-year-review-of-corne-chocolate/keymap-layer0.avif)
 
 **レイヤー1**
-![キーマップレイヤー1](https://superhahnah.com/wp-content/uploads/2024/07/keymap-layer1.png)
+![キーマップレイヤー1](/images/tech-blog/2024-one-year-review-of-corne-chocolate/keymap-layer1.avif)
 
 #### このキーマップの良い点
 

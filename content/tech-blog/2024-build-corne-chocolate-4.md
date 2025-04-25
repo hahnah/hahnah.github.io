@@ -6,18 +6,17 @@ published: "2024-05-07"
 updated: "2025-04-13"
 category: "tech"
 tags: ["keyboard", "self-made-keyboard", "corne"]
-status: "draft"
 ---
 
 ## 前回のあらすじ
 
 前回までで、BLE Micro Pro で 無線化した Corne Chocolate が出来上がりました。
 
-https://superhahnah.com/build-corne-chocolate-1/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜①選定・準備編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-1/)
 
-https://superhahnah.com/build-corne-chocolate-2/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜②作成失敗編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-2/)
 
-https://superhahnah.com/build-corne-chocolate-3/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜③再挑戦編〜](https://hahnah.github.io/tech-blog/2024-build-corne-chocolate-3/)
 
 今回は最終回で、キーマップを自分好みにカスタマイズしていきます。
 

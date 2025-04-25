@@ -6,16 +6,15 @@ published: "2024-04-29"
 updated: "2025-04-12"
 category: "tech"
 tags: ["keyboard", "self-made-keyboard", "corne"]
-status: "draft"
 ---
 
 ## 前回までのあらすじ
 
 前回までの記事はこちらです。
 
-https://superhahnah.com/build-corne-chocolate-1/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜①選定・準備編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-1/)
 
-https://superhahnah.com/build-corne-chocolate-2/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜②作成失敗編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-2/)
 
 肩こり解消のために左右分割の無線接続キーボードを組み立てようとしました。  
 Corne Chocolate にマイクロコントローラーとして BLE Micro Pro を使った構成です。
@@ -400,4 +399,4 @@ Corne Chocolate では 1U のキーキャップが40個、1.5U のキーキャ�
 
 次で最後です。自分好みのキーマップを考えて、設定します。
 
-https://superhahnah.com/build-corne-chocolate-4/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜④キーマップ設定編〜](https://hahnah.github.io/tech-blog/2024-build-corne-chocolate-4/)

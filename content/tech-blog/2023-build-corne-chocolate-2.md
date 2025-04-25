@@ -6,7 +6,6 @@ published: "2023-09-25"
 updated: "2025-04-20"
 category: "tech"
 tags: ["keyboard", "self-made-keyboard", "corne"]
-status: "draft"
 ---
 
 肩こり解消のために左右分割型の Corne Chocolate 自作することにしました。
@@ -17,7 +16,7 @@ status: "draft"
 
 Corne Chocolate を選んだ理由や、揃えたパーツ・道具については前回の記事をご覧ください。
 
-https://superhahnah.com/build-corne-chocolate-1/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜①選定・準備編〜](https://hahnah.github.io/tech-blog/2023-build-corne-chocolate-1/)
 
 ## まずは表裏を決めて目印をつける
 
@@ -452,7 +451,7 @@ BLE Micro Pro をじっくり眺めて、同じような部品を見つけまし
 
 ダメにしてしまった BLE Micro PRo や PCB などを買い足して再挑戦します。
 
-https://superhahnah.com/build-corne-chocolate-3/
+[肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜③再挑戦編〜](https://hahnah.github.io/tech-blog/2024-build-corne-chocolate-3/)
 
 ## 参考
 
