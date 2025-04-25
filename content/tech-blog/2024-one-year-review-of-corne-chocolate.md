@@ -101,7 +101,7 @@ Corne Cherry というキーボードが元々あるのだが、それの「Choc
 ![キーマップレイヤー0](/images/tech-blog/2024-one-year-review-of-corne-chocolate/keymap-layer0.avif)
 
 **レイヤー1**
-![キーマップレイヤー1](https://superhahnah.com/wp-content/uploads/2024/07/keymap-layer1.png)
+![キーマップレイヤー1](/images/tech-blog/2024-one-year-review-of-corne-chocolate/keymap-layer1.avif)
 
 #### このキーマップの良い点
 
