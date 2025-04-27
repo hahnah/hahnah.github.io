@@ -37,7 +37,7 @@ basePath =
 
 baseUrl : String
 baseUrl =
-    "https://" ++ domain ++ basePath
+    "https://" ++ domain
 
 
 symbolPath : String
