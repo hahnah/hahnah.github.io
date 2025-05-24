@@ -3,7 +3,7 @@ title: "elm-pages-blog-template | GitHubとMarkdownで記事管理するブロ�
 image: "/images/tech-blog/2025-elm-pages-blog-template/elm-pages-blog-template.avif"
 description: "ブログサイトを構築のテンプレートを elm-pages で作りました。よければ使ってみてください。"
 published: "2025-05-22"
-updated: "2025-05-22"
+updated: "2025-05-24"
 category: "tech"
 tags: ["elm-pages-blog-template", "elm", "elm-pages"]
 ---
@@ -57,8 +57,7 @@ elm-pages-blog-template で追加した機能は、elm-pages-blog-starter には
 |            | 記事一覧ページ                                |
 |            | タグごとの記事一覧ページ                      |
 |            | ➕ カテゴリー別の記事一覧ページ               |
-|            | ➕ 全カテゴリーの記事一覧ページ               |
-|            | デフォルト著者のページ                        |
+|            | ➕ 全カテゴリーの記事一覧ページ(トップページ) |
 |            | Aboutページ                                   |
 | 記事管理   | 記事をMarkdownで記述                          |
 |            | 記事にカバー画像を設定可能                    |
@@ -153,11 +152,37 @@ developmentモードではそのようなディレクトリ構成で問題なか
 
 どうやらproductionモードでは画像ファイルを `public/` 配下に配置する必要がありそうで、やむなくそのようにしました。
 
+##### やりたかった構成
+
+```
+/
+┗ content/
+    ┗ tech-blog/
+        ┗ 2025-sample-post.md   # 記事ファイル
+        ┗ 2025-sample-post/     # 記事に使う画像のディレクトリ
+            ┗ sample-image.avif # 記事に使う画像ファイル
+```
+
+##### 仕方なくやった構成
+
+```
+/
+┣ content/
+┃  ┗ tech-blog/
+┃      ┗ 2025-sample-post.md        # 記事ファイル
+┃
+┗ public/
+    ┗ images/
+        ┗ tech-blog/
+            ┗ 2025-sample-post/     # 記事に使う画像のディレクトリ
+                ┗ sample-image.avif # 記事に使う画像ファイル
+```
+
 #### 例: productionモードでビルドした時に、ページがリダイレクトされる
 
 elm-pages は productionモードの場合のみ、 トレイリングスラッシュなしURLへのランディングを、トレイリングスラッシュ付きURLにリダイレクトします。
 
-これは elm-sitemap の仕様と相性が非常に悪く、サイトのページを Google にインデックスさせなくします。  
+これは elm-sitemap の仕様と相性が非常に悪く、サイトのページを Google にインデックスさせなくします。
 詳しくは次で述べます。
 
 ### 3. Google にインデックスされない問題に悩まされた
