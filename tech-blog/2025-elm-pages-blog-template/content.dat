@@ -71,8 +71,7 @@ elm-pages-blog-template で追加した機能は、elm-pages-blog-starter には
 
 ```
 /
-┣ app/
-┃  ┗ Route/
+┣ app/ ┃  ┗ Route/
 ┃     ┗ NewPage.elm # 新しくページを作る場合はここにモジュールを追加するのが必須
 ┃
 ┣ src/
@@ -151,7 +150,7 @@ developmentモードではそのようなディレクトリ構成で問題なか
 ┗ content/
     ┗ tech-blog/
         ┗ 2025-sample-post.md   # 記事ファイル
-        ┗ 2025-sample-post/     # 記事に使う画像のディレクトリ
+        ┗ images/               # 記事に使う画像のディレクトリ
             ┗ sample-image.avif # 記事に使う画像ファイル
 ```
 
