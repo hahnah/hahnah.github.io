@@ -1,4 +1,4 @@
-�m�
+�r
 ## elm-pages-blog-template を作った
 
 [elm-pages-blog-template](https://github.com/hahnah/elm-pages-blog-template)は、ブログサイトを作るための Elm のテンプレートです。  
@@ -48,8 +48,7 @@ elm-pages-blog-template で追加した機能は、elm-pages-blog-starter には
 |            | 記事一覧ページ                                |
 |            | タグごとの記事一覧ページ                      |
 |            | ➕ カテゴリー別の記事一覧ページ               |
-|            | ➕ 全カテゴリーの記事一覧ページ               |
-|            | デフォルト著者のページ                        |
+|            | ➕ 全カテゴリーの記事一覧ページ(トップページ) |
 |            | Aboutページ                                   |
 | 記事管理   | 記事をMarkdownで記述                          |
 |            | 記事にカバー画像を設定可能                    |
@@ -144,11 +143,37 @@ developmentモードではそのようなディレクトリ構成で問題なか
 
 どうやらproductionモードでは画像ファイルを `public/` 配下に配置する必要がありそうで、やむなくそのようにしました。
 
+##### やりたかった構成
+
+```
+/
+┗ content/
+    ┗ tech-blog/
+        ┗ 2025-sample-post.md   # 記事ファイル
+        ┗ 2025-sample-post/     # 記事に使う画像のディレクトリ
+            ┗ sample-image.avif # 記事に使う画像ファイル
+```
+
+##### 仕方なくやった構成
+
+```
+/
+┣ content/
+┃  ┗ tech-blog/
+┃      ┗ 2025-sample-post.md        # 記事ファイル
+┃
+┗ public/
+    ┗ images/
+        ┗ tech-blog/
+            ┗ 2025-sample-post/     # 記事に使う画像のディレクトリ
+                ┗ sample-image.avif # 記事に使う画像ファイル
+```
+
 #### 例: productionモードでビルドした時に、ページがリダイレクトされる
 
 elm-pages は productionモードの場合のみ、 トレイリングスラッシュなしURLへのランディングを、トレイリングスラッシュ付きURLにリダイレクトします。
 
-これは elm-sitemap の仕様と相性が非常に悪く、サイトのページを Google にインデックスさせなくします。  
+これは elm-sitemap の仕様と相性が非常に悪く、サイトのページを Google にインデックスさせなくします。
 詳しくは次で述べます。
 
 ### 3. Google にインデックスされない問題に悩まされた
@@ -409,7 +434,7 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�"ブログサイトを構築のテンプレートを elm-pages で作りました。よければ使ってみてください。�/images/tech-blog/2025-elm-pages-blog-template/elm-pages-blog-template.avif  ���82025-elm-pages-blog-template ��� ���.elm-pages-blog-templateelmelm-pages�elm-pages-blog-template | GitHubとMarkdownで記事管理するブログサイトテンプレートをElmで作った  ��� D/images/authors/natsuki-harai.avif�T�
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�"ブログサイトを構築のテンプレートを elm-pages で作りました。よければ使ってみてください。�/images/tech-blog/2025-elm-pages-blog-template/elm-pages-blog-template.avif  ���82025-elm-pages-blog-template ��� ���.elm-pages-blog-templateelmelm-pages�elm-pages-blog-template | GitHubとMarkdownで記事管理するブログサイトテンプレートをElmで作った  ��� D/images/authors/natsuki-harai.avif�T�
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
