@@ -68,35 +68,27 @@ makeSitemapEntries getStaticRoutes =
     let
         build route =
             let
-                routeSource lastMod needsTrailingSlash =
-                    let
-                        trailingString =
-                            if needsTrailingSlash then
-                                "/"
-
-                            else
-                                ""
-                    in
+                routeSource lastMod =
                     BackendTask.succeed
-                        { path = String.join "/" (Route.routeToPath route) ++ trailingString
+                        { path = String.join "/" (Route.routeToPath route) ++ "/"
                         , lastMod = lastMod
                         }
             in
             case route of
                 Index ->
-                    Just <| routeSource (Just Layout.Index.updatedAt) False
+                    Just <| routeSource (Just Layout.Index.updatedAt)
 
                 About ->
                     Just <|
-                        BackendTask.andThen (\lastMod -> routeSource lastMod True) <|
+                        BackendTask.andThen (\lastMod -> routeSource lastMod) <|
                             Content.About.updatedAt
 
                 Apps ->
-                    Just <| routeSource (Just Content.Apps.updatedAt) True
+                    Just <| routeSource (Just Content.Apps.updatedAt)
 
                 Blog ->
                     Just <|
-                        BackendTask.andThen (\lastMod -> routeSource lastMod True) <|
+                        BackendTask.andThen (\lastMod -> routeSource lastMod) <|
                             BackendTask.map
                                 (\blogposts ->
                                     blogposts
@@ -107,7 +99,7 @@ makeSitemapEntries getStaticRoutes =
 
                 TechBlog ->
                     Just <|
-                        BackendTask.andThen (\lastMod -> routeSource lastMod True) <|
+                        BackendTask.andThen (\lastMod -> routeSource lastMod) <|
                             BackendTask.map
                                 (\blogposts ->
                                     blogposts
@@ -118,7 +110,7 @@ makeSitemapEntries getStaticRoutes =
 
                 TechBlog__Slug_ routeParams ->
                     Just <|
-                        BackendTask.andThen (\lastMod -> routeSource lastMod True) <|
+                        BackendTask.andThen (\lastMod -> routeSource lastMod) <|
                             BackendTask.map
                                 (\blogposts ->
                                     case List.filter (\post -> post.metadata.slug == routeParams.slug) blogposts of
@@ -132,7 +124,7 @@ makeSitemapEntries getStaticRoutes =
 
                 LifeBlog ->
                     Just <|
-                        BackendTask.andThen (\lastMod -> routeSource lastMod True) <|
+                        BackendTask.andThen (\lastMod -> routeSource lastMod) <|
                             BackendTask.map
                                 (\blogposts ->
                                     blogposts
@@ -143,7 +135,7 @@ makeSitemapEntries getStaticRoutes =
 
                 LifeBlog__Slug_ routeParams ->
                     Just <|
-                        BackendTask.andThen (\lastMod -> routeSource lastMod True) <|
+                        BackendTask.andThen (\lastMod -> routeSource lastMod) <|
                             BackendTask.map
                                 (\blogposts ->
                                     case List.filter (\post -> post.metadata.slug == routeParams.slug) blogposts of
@@ -156,10 +148,10 @@ makeSitemapEntries getStaticRoutes =
                                 Content.LifeBlogpost.allBlogposts
 
                 Tags ->
-                    Just <| routeSource Nothing True
+                    Just <| routeSource Nothing
 
                 Tags__Slug_ _ ->
-                    Just <| routeSource Nothing True
+                    Just <| routeSource Nothing
     in
     getStaticRoutes
         |> BackendTask.map (List.filterMap build)
