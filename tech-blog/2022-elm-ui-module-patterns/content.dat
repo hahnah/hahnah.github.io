@@ -1,596 +1,169 @@
-��P
-アプリの概要や使い方は以下の記事で紹介している。  
-[https://hahnah.github.io/tech-blog/2019-color-stew](https://hahnah.github.io/tech-blog/2019-color-stew)
+�&�
+(サンプルコードは Elm 0.19)
 
-## 開発に用いた言語やツールなど
+## 汎用的なUIや類似のUI群の場合
 
-- Elm 0.19: 言語/フレームワークとして。
-- elm-format: Elm用のフォーマッター。
-- elm-live: Dev Server を立ててくれるやつ。Elmのコードを変更すると自動でページリロードされるので便利。
-- elm-ui: ElmでUIを組み立てやすくする Elmパッケージ。
-- dnd-list: ドラッグ&ドロップのための Elmパッケージ。
-- elm-color, elm-color-extra: 色関連の Elmパッケージ。
+前提として、基本的にはUIは単なるビューの関数として利用モジュール内にそのまま定義するだけで十分である。
+それを踏まえた上で、以下のいずれかに当てはまる場合にはUIのビュー関数を別モジュールに切り出すようにしている:
 
-[Color Stew のソースコードはこちら (記事執筆時点の Color Stew 1.0.0)。](https://github.com/hahnah/color-stew/tree/1.0.0)
+- 再利用性の高いUIである 類似性のあるビュー関数(例えばボタンUIのパターン違いなど)をひとまとまりにすることで見通しをよくしたい
 
-以下、苦労した実装の説明がしばらく続く。  
-最後に所感を述べる。
+例えば以下のような `MyUi` モジュールとして実装する。
 
-## カラーピッカーの実装
-
-### ゴール
-
-ユーザーがカラーピッカーから１色を選択し、その色を状態に保持する(elm-colorのrColor`型の値として)。
-
-### アプローチ
-
-`<input type="color">`に相当するもを実装し、カラーピッカーからユーザーが1つの色を選択するようにした。
+**MyUi.elm**
 
 ```elm
-            Element.html
-                (Html.input
-                    [ Element.Attributes.type_ "color"
-                    , Element.Attributes.value <| Color.Convert.colorToHex model.pickedColor
-                    , Element.Events.onInput PickColor
-                    ]
-                    []
-                )
+module MyUi exposing(myUi, myUiWithOptions)
+
+import Html exposing (Html)
+
+type alias Props =
+	{ ... } -- (記述省略)
+
+myUi : Props -> Html msg
+myUi props =
+	... -- (記述省略)
+
+type alias Options =
+	{ ... } -- (記述省略)
+
+myUiWithOptions : Props -> Options -> Html msg
+myUiWithOptions props options =
+	... -- (記述省略)
 ```
 
-ユーザーが色を選択すると例えば`PickColor "#ffffff"`といったようなメッセージが送られる。  
-上記に現れる(elm-color-extra の)`Color.Convert.colorToHex`関数は、`Color`型の値を`String`型の16進カラーコードへと変換してくれる。
+## 専用的なUIや複雑なUIの場合
 
-`update`関数では、elm-color-extraの`Color.Convert.hexToColor`関数を使うことで elm-colorの`Color`型の値に変換し、状態(`model.pickedColor`)を更新する。
+以下のいずれかに当てはまるときには Nested TEA (後述) の設計パターンでUIモジュールを作るようにしている:
+
+- 特殊な仕様を盛り込んだ専用的なUIであり、汎用性を持たせて再利用できるようなモジュールとして作ることが難しい
+- そのUIについての状態管理が複雑あるいはコードの分量があまりにも多く、もしそのUIの利用側(典型的にはMainモジュール)でその状態管理の詳細を定義しようとするとコードの見通しが悪くなる
+
+以下のサンプルコードに示す `MyUi` モジュールのように実装する
+
+- MyUi に関連する状態を MyUi モジュール内に定義 (`Model`)
+- MyUi に関連するメッセージを MyUi モジュール内に定義 (`Msg`)
+- MyUi に関連する状態更新を MyUi モジュール内に定義 (`update`)
+- MyUi のビューを MyUi モジュール内に定義 (`view`)
+
+**MyUi.elm**
 
 ```elm
-update : Msg -> Model -> ( Model, Cmd Msg )
+module MyUi exposing (Model, Msg, update, view)
+
+import Html exposing (Html)
+import Html.Events
+
+
+type alias Model =
+    { hoge : Bool
+    , fuga : Int
+    , piyo : String
+    }
+
+
+type Msg
+    = Msg1
+    | Msg2
+    | Msg3
+    | Msg4
+
+
+update : Msg -> Model -> Model
 update msg model =
     case msg of
-        PickColor colorHex ->
-            ( { model
-                | pickedColor =
-                    case Color.Convert.hexToColor colorHex of
-                        Ok color ->
-                            color
+        Msg1 ->
+            aNewModel -- (記述省略。以下も同様。)
 
-                        Err _ ->
-                            model.pickedColor
-              }
-            , Cmd.none
-            )
--- (他caseは省略)
-```
+        Msg2 ->
+            anotherNewModel
 
-## 色空間の変換
+        Msg3 ->
+            yetAnotherNewModel
 
-### ゴール
-
-以下の3つの用途にそれぞれ合った色空間で色を表現できるように、変換する方法を用意すること。
-
-- カラーピッカーのための色空間
-- elm-ui で着色するための色空間
-- カラースキーム生成のための色空間
-
-### アプローチ
-
-#### カラーピッカーのための色空間 へ/から 変換する
-
-既に触れているが、カラーピッカーの値は`String`型であり、HEX(16進カラーコード)である。
-
-`Color`型の値を HEX へ変換するには`Color.Convert.colorToHex`関数を、  
-逆に HEX を `Color`型へ変換するには`Color.Convert.hexToColor`関数を使えば良い。
-
-#### elm-ui で着色するための色空間 へ 変換する
-
-elm-ui で配色するためには、**elm-ui の**`Element.Color`値が求められる。`Element.Color`値を作るには、その色の RGB もしくは RGBA 空間での値が必要となる。
-
-elm-color-extra の`Color.Convert.colorToCssRgb`関数を使えば、`"rgb(255, 0, 0)"`といった具合に RGB 空間での値を文字列で得られるが、R, G, B の各値を取り出すために Parser を用いる。  
-すると、次の`toElmUIColor`関数のようにして`Element.Color`への変換ができる。
-
-```elm
-toElmUIColor : Color -> Element.Color
-toElmUIColor color =
-    let
-        colorRgb_ : Result (List DeadEnd) Rgb
-        colorRgb_ =
-            color
-                |> Color.Convert.colorToCssRgb
-                |> Parser.run rgb
-    in
-    case colorRgb_ of
-        Ok colorRgb ->
-            Element.rgb (colorRgb.r / 255) (colorRgb.g / 255) (colorRgb.b / 255)
-
-        Err _ ->
-            toElmUIColor defaultColor -- 何かしらのデフォルト色
+        Msg4 ->
+            yetYetAnotherNewModel
 
 
-type alias Rgb =
-    { r : Float
-    , g : Float
-    , b : Float
-    }
-
-
-rgb : Parser Rgb
-rgb =
-    succeed Rgb
-        |. symbol "rgb("
-        |= float
-        |. symbol ","
-        |. spaces
-        |= float
-        |. symbol ","
-        |. spaces
-        |= float
-        |. symbol ")"
-```
-
-ちなみに、逆方向の変換は利用シーンがないので実装しない。
-
-#### カラースキーム生成のための色空間 へ/から 変換する
-
-まずは、カラースキーム生成のためにはどの色空間を使えばよいのかを考えてみる。  
-Color Stew で生成するカラースキームは以下のとおりである:
-
-- Monochromatic (Shades ともいう)
-- Dyad (Complementary ともいう)
-- Triad
-- Compound (Split Complementary ともいう)
-- Tetrad
-- Pentad
-- 上記カラースキームに明るい色や暗い色を加えたもの
-
-Monochromatic の生成にはベースカラーに対して明度を変えた色を作れば良く、  
-また、Dyad/Triad/Compound/Tetrad/Pentad の生成にはベースカラーに対して色相を変えた色を作れば良い。  
-明るい色/暗い色というのは、単にベースカラーの明度を調整した色とする。
-
-よって、色相と明度を指定して色を生成したいので、それらを扱えるような色空間であればよいとわかる。  
-となると、候補としては HSL や HSB(HSV) などが挙がる。
-
-[elm-color](https://package.elm-lang.org/packages/avh4/elm-color/latest) というパッケージの `Color` 型なら HSL色空間を扱えるので、これを使う。  
-(elm-color というパッケージは複数あるが、ここでは avh4/elm-color のこと。)  
-ちなみにHSLというのは、H: Hue(色相)、S: Saturation(彩度)、L: Lightness(明度) をそれぞれ表す。
-
-ここまでで既に登場しているが、HSL、RGB、HEX(16進カラーコード)間の変換のために [elm-color-extra](https://package.elm-lang.org/packages/noahzgordon/elm-color-extra/latest/) というパッケージも使う。
-
-`Color`値から HSL の値への変換は RGB のときと同様で、`Color.Convert.colotToCssHsl`関数とParserを使い、H, S, L の各値を取り出すようにした。
-
-```elm
-type alias Hsl =
-    { h : Float
-    , s : Float
-    , l : Float
-    }
-
-
-hsl : Parser Hsl
-hsl =
-    succeed Hsl
-        |. symbol "hsl("
-        |. spaces
-        |= float
-        |. symbol ","
-        |. spaces
-        |= float
-        |. symbol "%,"
-        |. spaces
-        |= float
-        |. symbol "%)"
-```
-
-例えば以下のように使えばよい。
-
-```elm
-    color
-        |> Color.Convert.colorToCssHsl
-        |> Parser.run hsl
-```
-
-また、`Hsl`型の値から`Color`型の値を作るには、定義域の違いを考慮して次のようにする。
-
-```elm
--- 前提として、 hsl_ : Hsl の値とする
-
-Color.hsl (hsl_.h / 360) (hsl_.s / 100) (hsl_.l / 100)
-```
-
-#### 補足
-
-ここまで、`Color`から RGB や HSL の値を取り出すために、`Color.Convert.colorToCssXxx`と Parser を組み合わせて実装したが、  
-よく見ると avh4/elm-color には`Color.toRgba`、`Color.toHsla`関数があり、これらを使えば Parser なしでもっと単純にできたはず。
-
-しかしこのおかげで Elm の Parser に初めて触れれたので後悔はない。  
-もし今後 Color Stew のバージョンアップがあれば合わせてリファクタリングしたい。
-
-**P.S.** [リファクタリングした。150行ほど短くなった。](https://github.com/hahnah/color-stew/commit/7bdb06c848b62891ce9032b5ab418d8c0b8d0737)
-
-## カラースキーム自動生成機能の実装
-
-### ゴール
-
-ユーザーが決めたベースカラーをもとにして、Color Stew が次のカラースキームを自動生成する:
-
-- Monochromatic (Shades ともいう)
-  - 明度だけが異なるような色の組み合わせ
-- Dyad (Complementary ともいう)
-  - 色相環を2等分するように並んだ色の組み合わせ。すべての色が同一彩度、同一明度。
-- Triad
-  - 色相環を3等分するように並んだ色の組み合わせ。すべての色が同一彩度、同一明度。
-- Compound (Split Complementary ともいう)
-  - ベースカラーと、色相環上で対極の位置から前後に少し(今回は&plusmn;30°とした)だけずらした色の組み合わせ。すべての色が同一彩度、同一明度。
-- Tetrad (Tetrad ではなく Square と呼ぶ場合もあるらしい)
-  - 色相環を4等分するように並んだ色の組み合わせ。すべての色が同一彩度、同一明度。
-- Pentad
-  - 色相環を5等分するように並んだ色の組み合わせ。すべての色が同一彩度、同一明度。
-- 上記カラースキームに明るい色や暗い色を加えたもの
-  - Dyad + ベースカラーの明度を下げた/上げた色の組み合わせ など
-
-![hues](/images/tech-blog/2019-color-stew-technology/hues.avif)
-
-### アプローチ
-
-ベースカラーに対して Hue(色相) と Lightness(明度) を変えた色を作ることで、カラースキームを自動生成する。
-
-まずは、色相環間を m 等分したときのベースカラーの n 個隣に位置する色を計算する関数`pickNthNext`を作る。
-
-例えば`pickNthNext baseColor 2 1`とすると、  
-`baseColor`(Color値) を基準として色相環を2等分したときの、ベースカラーの1つ隣の色(つまり baseColorと合わせて Dyad を構成するような色) が得られる。
-
-```elm
-pickNthNext : Color -> Int -> Int -> Result (List DeadEnd) Color
-pickNthNext baseColor total n =
-    let
-        hueDifferenceUnit : Float
-        hueDifferenceUnit =
-            1 / toFloat total
-
-        baseColorHslWithDegreeHue : Result (List DeadEnd) Hsl
-        baseColorHslWithDegreeHue =
-            baseColor
-                |> Color.Convert.colorToCssHsl
-                |> Parser.run hsl
-
-        baseColorHsl : Result (List DeadEnd) Hsl
-        baseColorHsl =
-            case baseColorHslWithDegreeHue of
-                Ok colorHsl ->
-                    Ok
-                        {- Change HSL formart from {h: 0-360[deg], s: 0-100[%], l: 0-100[%]} to {h: 0-1, s: 0-1, l: 0-1} -}
-                        { colorHsl
-                            | h = colorHsl.h / 360
-                            , s = colorHsl.s / 100
-                            , l = colorHsl.l / 100
-                        }
-
-                Err msg ->
-                    Err msg
-    in
-    case baseColorHsl of
-        Ok colorHsl ->
-            let
-                gainedHue =
-                    colorHsl.h + toFloat n * hueDifferenceUnit
-
-                pickedHue =
-                    if gainedHue >= 1 then
-                        gainedHue - 1
-
-                    else
-                        gainedHue
-            in
-            Ok <| Color.hsl pickedHue colorHsl.s colorHsl.l
-
-        Err _ ->
-            Err [ DeadEnd 1 1 <| Parser.Problem "Failed pickNthNext" ]
-```
-
-Dyad を得るには、`pickNthNext baseColor 2 0`と`pickNthNext baseColor 2 1`を合わせればよいし、  
-Triad ならば `pickNthNext baseColor 3 0`と`pickNthNext baseColor 3 1`と`pickNthNext baseColor 3 2`を組み合わせればできる。  
-それを組み合わせてカラースキームを返してくれる関数`pickPolyad`を作る。
-
-```elm
-pickPolyad : Color -> Int -> List Color
-pickPolyad baseColor dimension =
-    List.range 0 (dimension - 1)
-        |> List.map (pickNthNext baseColor dimension)
-        |> List.foldr
-            (\resultColor ->
-                \acc ->
-                    case resultColor of
-                        Ok color ->
-                            color :: acc
-
-                        Err _ ->
-                            acc
-            )
-            []
-```
-
-Dyad: `pickPolyad baseColor 2`  
-Triad: `pickPolyad baseColor 3`  
-Tetrad: `pickPolyad baseColor 4`  
-Pentad: `pickPolyad baseColor 5`  
-その先の Hexad なんかを作りたくなったときも、`pickPolyad baseColor 6`とすればできる。
-
-ちなみに Compound は`pickPolyad`で作れない。  
-`baseColor`,`pickNthNext color 12 5`,`pickNthNext color 12 7`を組み合わせる。
-
-また、Monochromatic については`baseColor`の明度を等差(20%とした)で変化させて作成するものとした。
-
-```elm
-pickMonochromatic : Color -> List Color
-pickMonochromatic baseColor =
-    let
-        baseColorHsl : Result (List DeadEnd) Hsl
-        baseColorHsl =
-            baseColor
-                |> Color.Convert.colorToCssHsl
-                |> Parser.run hsl
-
-        makeOverflow : Float -> Float -> Float
-        makeOverflow num max =
-            if num <= max then
-                num
+view : Model -> Html Msg
+view model =
+    Html.div
+        [ Html.Events.onClick <|
+            if model.hoge then
+                Msg1
 
             else
-                num - max
-    in
-    case baseColorHsl of
-        Ok colorHsl ->
-            List.range 0 4
-                |> List.map toFloat
-                |> List.map (\index -> Hsl (colorHsl.h / 360) (colorHsl.s / 100) (makeOverflow (colorHsl.l / 100 + index * 0.2) 1))
-                |> List.sortBy .l
-                |> List.map (\hsl_ -> Color.hsl hsl_.h hsl_.s hsl_.l)
+                Msg2
+        , Html.Events.onMouseEnter Msg3
+        , Html.Events.onMouseLeave Msg4
+        ]
+        [ Html.text "Hello!" ]
 
-        Err _ ->
-            []
 ```
 
-## クリップボードへのコピー機能の実装
+そして `MyUi` の利用側(ここでは `Main`) は次のように書ける。
 
-### ゴール
-
-ユーザーがボタンを押すと、カラーコードがクリップボードへコピーされる。
-
-### アプローチ
-
-この機能を実装には、**Port** を用いて JavaScript を利用した。  
-ここでは Port の基本的な使い方は割愛するが、JavaScript側のコードは次のようにし、受け取った任意の文字列をクリップボードへコピーするようになっている。Elm側ではその文字列にカラーコードを指定する。
-
-```javascript
-const app = Elm.Main.init({
-  node: document.getElementById("elm-node"),
-});
-
-app.ports.copyString.subscribe((str) => {
-  let tempDiv = document.createElement("div");
-  let tempPre = document.createElement("pre");
-  tempDiv.appendChild(tempPre).textContent = str;
-  tempDiv.style.position = "fixed";
-  tempDiv.style.right = "200%";
-  document.body.appendChild(tempDiv);
-  document.getSelection().selectAllChildren(tempDiv);
-  document.execCommand("copy");
-  document.body.removeChild(tempDiv);
-});
-```
+**Main.elm**
 
 ```elm
--- Elm側 copyString
-port copyString : String -> Cmd msg
+module Main exposing (main)
+
+import Browser
+import Html exposing (Html)
+import Html.Events
+import MyUi
+
+
+main =
+    Browser.sandbox
+        { init = init
+        , update = update
+        , view = view
+        }
+
+
+type alias Model =
+    { count : Int
+    , myUi : MyUi.Model
+    }
+
+
+init : Model
+init =
+    { count = 0
+    , myUi = { hoge = False, fuga = 0, piyo = "" }
+    }
+
+
+type Msg
+    = Increment
+    | MyUi MyUi.Msg
+
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        Increment ->
+            { model | count = model.count + 1 }
+
+        MyUi myUiMsg ->
+            { model | myUi = MyUi.update myUiMsg model.myUi }
+
+
+view : Model -> Html Msg
+view model =
+    Html.div []
+        [ Html.button [ Html.Events.onClick Increment ] [ Html.text <| String.fromInt model.count ]
+        , MyUi.view model.myUi |> Html.map MyUi
+        ]
 ```
 
-JavaScript で`document.execCommand('copy');`とすることで、選択されている文字列がクリップボードにコピーされる。**コピーしたい文字列が選択されている必要がある**というのが、面倒な点だ。  
-このために、受け取った文字列`str`をもつDOM要素を画面外に作成し、その文字列を` document.getSelection().selectAllChildren(tempDiv);`で選択した後に`document.execCommand('copy');`でコピーしている。最後にこのDOM要素を削除する。
+Main モジュールにおける `Model`, `Msg`, `update`, `view` は、`MyUi.Model`, `MyUi.Msg`, `MyUi.update`, `MyUi.view` をそれぞれ利用しており、MyUi に関わる詳細は Main モジュール内では一切触れていない。詳細は全て MyUi モジュールに隠蔽されており、外からは詳細を意識しなくていいようになっている。
 
-## ドラッグ&ドロップによる配色変更機能の実装
+そして、Main モジュールが　TEA (The Elm Architecture) の設計になっているのはもちろんのこと、そのパターンが MyUi モジュールにも現れている。親子に入れ子となって TEA　が現れるこのような設計パターンは `Nested TEA` と呼ばれる。
 
-### ゴール
-
-プレビューのどの領域をどの色で着色するか。というのは、Color Stew の右下に並ぶ色の順番で決まる。例えば、「背景とタイトルの色を入れ替えたい」という場合には、左から1番目と2番目の色をドラッグ&ドロップで入れ替えるように操作する。
-
-![color-order](/images/tech-blog/2019-color-stew-technology/color-stew-color-oder.avif)
-
-### アプローチ
-
-この実装には [dnd-list](https://package.elm-lang.org/packages/annaghi/dnd-list/latest/) というパッケージを利用した。
-
-dnd-list は、ドラッグ&ドロップしたい対象のデータ構造が **List** である場合に使うことが想定されたパッケージだ。ドラッグ&ドロップ操作の結果に合わせて、ソート済みの List を作ってくれる。  
-Elmにはドラッグ&ドロップのためのパッケージはいくつかあるが、今回はまさに dnd-list が威力を発揮するケースだったのでこれを採用した。また、dnd-list は [サンプル](https://annaghi.github.io/dnd-list/) がとても豊富でわかりやすいので簡単に試せた。
-
-[このサンプルコード](https://annaghi.github.io/dnd-list/introduction/basic) を参考に実装しただけなので、特筆するものはない。
-
-## 所感
-
-**elm-ui は良い。**  
-elm-ui を使うのは初めてだったが、CSS弱者の私でも簡単に思い通りのレイアウトが組めてしまった。elm-ui では`row`と`column`を使って縦/横に画面分割していくようなレイアウトの組み方が基本になるのだが、この考え方が結構好きかもしれない。また普通のCSSと比べて、あるレイアウトを実現するために指定しなければならない属性の組み合わせや値が、elm-ui ではより単純になっていて私にとってはストレスが少なかった。CSS弱者の私にとっては CSSは思い通りに扱えないことが多いが、elm-ui は明快で使っていて楽しい。何というか、ピッタリはまる感じがする。  
-Color Stew では CSS を一切使っていないが、カーソルホバー時の背景色変更なんかは、CSSでやったほうが良さそう。本記事では触れていない実装だが、今回はマウスイベントを拾って updateで状態更新・viewで背景色をグレーにするような実装をしている。これだけの処理をそのためだけに記述するのも面倒なので、CSS と適切に併用したいと思った。**(追記: あとで知ったが elm-ui の`Element.mouseOver`でも簡単にホバー時の色変更を設定できるので、どちらでもいいかも。もしアニメーションつける場合は CSS の方が面倒な状態管理なく楽に実装できると思う。)**  
-elm-ui は楽しくレイアウトを組めて個人的には好きになったが、不満点もある。elm-ui の`Elemet.Color`は機能が貧弱という点だ。`Element.Color`は実際、RGB(A)の値からしか作成できなかったり、RGB(A)値への変換にしか対応していなかったりしていたため、Color Stew の実装では他のパッケージで HEX や HSL に対応するはめになった。(ただ、HEX や HSL のニーズってどれくらいあるの? というのはよく知らないので、elm-ui の欠点とまで言うつもりはない。)
-
-**elm-live も良い。**  
-elm reactor と違い、更新してもリロードボタンを押す必要がなくなる。それだけなのだが、これが結構楽に感じる。  
-ただし elm-live を起動したままの状態で Mac をシャットダウンしようとすると、ターミナルが終了されなくて Mac を強制終了するはめになったので、そこだけは注意だ (バージョンが関係あるのか分からないが elm-live 3.4.1 での話)。
-
-**dnd-list も良い。**  
-とにかくサンプルが豊富な点はすばらしく、dnd-list を使ったドラッグ&ドロップの実装は簡単だった。  
-ただしタッチイベントはサポートしていない(dnd-list 5.0.0時点)ようで、モバイルデバイス(iPhone/iPadで試した)ではドラッグ&ドロップ(っていうの?)が機能しなかった。  
-なのでモバイルデバイスでは Color Stew の一部機能が使えない。  
-ちなみにタッチイベントをサポートしている Elmパッケージとしては [elm-pointer-events](https://package.elm-lang.org/packages/mpizenberg/elm-pointer-events/latest) があるようだ。
-
-**Color Stew は良い?**  
-私はデザインについてほとんど何も知らないレベルなので、今回取り扱った Triad や Compound などがどれほど役立つものなのかよく知らないし、存在を知ったのもつい最近のことだ。「デザインに無知な自分に役立つかもしれない」 という思いから Color Stew を作ってみたので、しばらく自分で使ってみたいと思う。  
-自分のデザイン知識がアップデートされたら Color Stew もアップデートするかも。
+1つコードの補足をしておくと、`view` 関数で `MyUi.view model.myUi |> Html.map MyUi` としているように `Html.map` を用いることで、 `MyUi.view` から発行される `MyUi.Msg` が (Mainモジュールにおける) `MyUi` でラップされて `MyUi MyUi.Msg` となる。(ちなみにラップするバリアントは何でもよく、`Foo` でラップすれば `Foo MyUI.Msg` となる)
 D/images/authors/natsuki-harai.avif�T�
-## 私は誰?
-
-原井 夏樹 (はらい なつき) といいます。  
-英語表記では Natsuki Harai です。
-
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
-
-### ニックネーム
-
-エンジニア界隈やゲーム界隈では "Hahnah" と名乗っています。  
-これは "はーなー" と読みます。本名の頭文字「は」と「な」を繋ぎ合わせたものです。  
-このサイトのアイコンになっている黒猫は、Hahnah としてのアバターです。
-
-![Hahnah Avatar](/images/about/hahnah-avatar.avif)
-
-また、学生時代の友人からは "なっちゃん" と呼ばれたり、  
-社会人になってからは "ナッツ" と呼ばれることが多いです。
-
-## Hahnah Choronicle とは?
-
-Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なるべく長く世に残すためのサイトです。
-原井夏樹という人間が存在し、どんな人で何を経験し考えたのか、後世の人に見つけてもらいたいのです。
-
-私が死んでシステム料金の支払い等ができない状況になっても、このサイトは残り続けるはずです。そうなるように設計し管理しています。出来るだけ長く、自分の生きた証が残るようにしたいです。
-
-Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
-ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
-
-## 出身と居住地
-
-香川県の最東部である、東かがわ市(当時は大川郡)に生まれ、高校卒業まで過ごしました。  
-そこそこの田舎で、海と山が近く、自然に囲まれた環境で育ちました。
-
-大学・大学院(修士)時代は兵庫県の神戸市に住んでいました。  
-これは私にとって初めての都会暮らしで、本当に夢のように感じながら過ごしました。  
-神戸は海と山が近いという点は故郷に似ていますが、そこには都会の活気があり、関西弁も私にとって心地よかったです。
-
-社会人になってからは千葉、静岡、神奈川と転々とし、現在は東京都杉並区に住んでいます。
-千葉と静岡は、最初に入社した会社での長期研修の地でした。
-
-東京は人の多さに圧倒されますが、多様性があり、何でもあるような感じがします。  
-イベントや施設が多いので、自分の興味にあったものを見つけて楽しむことができる点が好きです。
-
-## 家族
-
-愛猫の "アサ" と2人暮らしです。  
-(1人暮らしとも言いますが、アサは大切な家族です)
-
-アサは2022年7月6日生まれのサイベリアンです。サイベリアンはシベリア地方原産の猫で、毛がとてつもなくモフモフです。  
-アサが生まれて3ヶ月目くらいから一緒に暮らし始めて、今ではかけがえのない家族です。  
-アサをなでたり、アサと遊んだりする時間は至福です。
-
-![アサ](/images/about/asa.avif)
-
-## 性格
-
-人からは、穏やかで優しい性格だと言われることが多いです。  
-恐れ多いですが、私のことを "聖人" と言ってくれる人もいます。  
-流石にそこまでではないですが、自分の性格を誇りに思っています。
-
-気持ちを察することを求められるような、遠回しなコミュニケーションを嫌います。  
-そういったコミュニケーションを不誠実に感じるので、できるだけ避けるようにしています。  
-私は率直でありながらも誠実なコミュニケーションを好みます。  
-ここで言う "誠実" とは、"ただ直接的に伝えるのではなく、相手を思いやって伝え方を考える姿勢" を意味しています。
-
-MBTI診断での性格タイプは、INTP-T (論理学者) です。
-
-![INTP-T](/images/about/intp-t.avif)
-
-**内向型: 93%** という、とんでもない偏りに目がいくと思います。  
-人と接することが苦手なのかというと、そんなことはないのでご安心を。人並みには外交的です。実際、交友関係は広い方だと言われることもあります。  
-ただし私は多くの人と繋がることよりも、一部の人と深く繋がるような交友関係を好むので、それが内向性として表れます。  
-また、私は物事を考えすぎるきらいがあり、これも内向性を強く示します。考えすぎることは長所でもあり短所でもあります。  
-特に対人関係においては、前述の "気持ちを察することを求められるような、遠回しなコミュニケーション" をされた際には、私は相手の気持ちを考え得る限りのパターンだけ熟考します。  
-これが空回ったり、自分の心をすり減らしたりすることに繋がる場合があります。  
-よく物思いにふけっていて、起きている時間は常に頭の中で何かを考えいるような状態です。
-意識が内に向いている時間が長いので、孤独を好むものと誤解されることがあります。しかし実際にはそうではなく、人との交流を楽しみます。
-その外交性の十数倍だけ、内向性を持ち合わせています。
-
-**探索型: 72%** というのも、私の性格を表していると思います。  
-自分を成長させてくれるものや、新たな発見・学習を好みます。そういったものは探索的な試行や行動がもたらしてくれると考えています。  
-また、休日の過ごし方にしてみても、事前に計画を立てて行動するよりも、その時の気分や興味に従って何かをすることを好みます。
-
-## 趣味
-
-趣味をいくつか紹介します。
-
-### ゲーム
-
-ゲームが1番の趣味です。多くの時間をゲームに費やします。  
-これまでにのめり込んだゲームは:  
-Apex Legends, VALORANT, Splatoon, Life is Strange, Outer Wilds, Minecraft, ゼルダの伝説 Breath of the Wild, ポケットモンスターシリーズ  
-などです。
-
-カジュアル寄りなFPSやTPSが好きです。上級者になるまでプレイすることが多く、最も遊んでいるジャンルです。  
-また、映画に入り込んだかのような没入感がある、秀逸なアドベンチャーゲームも好きです。  
-探索型のゲームにもお気に入りのものが多く、自分のペースで世界を探検し、発見や試行錯誤から得られる喜びを味わうことが好きです。
-
-### ボードゲーム
-
-人とボードゲームで遊ぶことが好きで、数十個のボードゲームを所有しています。  
-友人を自宅に招いてボードゲームで遊んだりします。  
-特に好きなのは、協力型のボードゲームと、探索型のボードゲームです。
-
-以前在籍していた企業にはボードゲーム部という部活動があり、在籍当時にはその部長を務めていました。  
-ボードゲームの専門家として、新聞社から取材を受けたこともあります。
-
-### スキー
-
-25歳ごろにスキーを始め、それからは毎年冬が来るのを楽しみにしています。  
-フリーライドに憧れていて、いつかバックカントリースキーに挑戦したいと思っています。  
-最近楽しんでいるのはサイドカントリーでのツリーランです。特にパウダースノーが好きです。  
-また、スキー場のパークでジャンプしたり、グラウンドトリックをしたりするなど、フリースタイルスキーも練習中です。
-
-### 漫画・アニメ・ドラマ・映画
-
-特に20代前半まではよく見ていました。
-
-好きな漫画・アニメ:  
-進撃の巨人, ワールドトリガー, ツバサ, xxxHOLIC, 攻殻機動隊, 左利きのエレン, プラネテス, ゼーガペイン, 鋼の錬金術師, 蟲師, 聲の形, サマータイムレンダ, 電脳コイル, ファイアパンチ, 風の谷のナウシカ
-
-好きなドラマ:  
-NORMAL PEOPLE, Mr. Robot, Silicon Valley, ラブホスピタルへようこそ, Upload, プラッシュアップライフ, TEH BOYS, 三体  
-(特に [NORMAL PEOPLE は気に入りすぎて感想文を書いた](/life-blog/2025-normale-people)ほどです。)
-
-好きな映画:  
-ベンジャミン・バトン 数奇な人生, Before Sunset, ハリーポッター, インセプション, きみの色, ハンガー・ゲーム, 時をかける少女
-
-特に、人の一生を描いた作品や、自他の気持ちや立場を考えさせられる作品が好きです。  
-また、SFやファンタジーの世界観に魅了されることが多いです。
-
-### 音楽
-
-実は音楽はあまり聴かないのですが、好きなアーティストは:  
-AURORA, ずっと真夜中でいいのに, Lady Gaga  
-です。  
-この3人はそれなりに聞き込んだ時期があります。
-
-AURORA はライブコンサートに行ったことがあり、その感動が忘れられません。  
-(この1度しかライブに行ったことはないのですが)
-
-他には、ゲームのサウンドトラックが好きでよく聴きます。  
-Splatoon 2 のサウンドトラックは特にお気に入りです。
-
-### プログラミング
-
-プログラミングは大学生時代からの趣味です。
-学生時代はPCゲームの製作に没頭していました。
-
-現在は、Webサイト、Webアプリケーション、iOSアプリケーションなどを趣味で作っています。
-
-この Hahnah Chronicle のサイトも私が作り、それには Elm というプログラミング言語を使っています。
-Elm は私の最も好きなプログラミング言語です。
-
-## 職業
-
-プログラミングは趣味でもあり、仕事でもあります。
-趣味だから仕事にしたようなものです。この職業がこの世に存在していて良かったです。
-
-つまり職業はプログラマーですね。プログラマーの中でも、より詳細には "Webフルスタックエンジニア" と呼ばれる職業です。
-
-プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
-
-ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�(Color Stew というデザイン用のWebアプリを作った。この記事では作る際の苦労や所感を紹介する。�/images/tech-blog/2019-color-stew-technology/color-stew-screen.avif  ��42019-color-stew-technology �� ��&
-color-stewhahnah's-appdesigncolor-theoryelml[Elm] Color Stew という Webアプリを作った話  ��&D/images/authors/natsuki-harai.avif�T�
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -926,5 +499,172 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Lカラースキーマの理論に基づいた美しいカラーパレットを簡単に作成できるWebアプリ "Color Stew" を開発した。p/images/tech-blog/2019-color-stew/color-stew-screen.avif  ��2019-color-stew �� ��&
-color-stewhahnah's-appdesigncolor-theoryelm^Color Stew で簡単カラースキーム作成  ��& 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�B関数型プログラミングの特徴の一つであるカリー化やパプライン演算子を一連の流れで学ベル記事です。   ���@2022-introduce-pipeline-operator ��� ���,functional-programmingjavascriptelm�高階関数、カリー化、部分適用からパイプライン演算子までを理解する  ���D/images/authors/natsuki-harai.avif�T�
+## 私は誰?
+
+原井 夏樹 (はらい なつき) といいます。  
+英語表記では Natsuki Harai です。
+
+1991年8月24日生まれの男性です。  
+身長は163cm、体重は55kg前後です。
+
+### ニックネーム
+
+エンジニア界隈やゲーム界隈では "Hahnah" と名乗っています。  
+これは "はーなー" と読みます。本名の頭文字「は」と「な」を繋ぎ合わせたものです。  
+このサイトのアイコンになっている黒猫は、Hahnah としてのアバターです。
+
+![Hahnah Avatar](/images/about/hahnah-avatar.avif)
+
+また、学生時代の友人からは "なっちゃん" と呼ばれたり、  
+社会人になってからは "ナッツ" と呼ばれることが多いです。
+
+## Hahnah Choronicle とは?
+
+Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なるべく長く世に残すためのサイトです。
+原井夏樹という人間が存在し、どんな人で何を経験し考えたのか、後世の人に見つけてもらいたいのです。
+
+私が死んでシステム料金の支払い等ができない状況になっても、このサイトは残り続けるはずです。そうなるように設計し管理しています。出来るだけ長く、自分の生きた証が残るようにしたいです。
+
+Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
+ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+## 出身と居住地
+
+香川県の最東部である、東かがわ市(当時は大川郡)に生まれ、高校卒業まで過ごしました。  
+そこそこの田舎で、海と山が近く、自然に囲まれた環境で育ちました。
+
+大学・大学院(修士)時代は兵庫県の神戸市に住んでいました。  
+これは私にとって初めての都会暮らしで、本当に夢のように感じながら過ごしました。  
+神戸は海と山が近いという点は故郷に似ていますが、そこには都会の活気があり、関西弁も私にとって心地よかったです。
+
+社会人になってからは千葉、静岡、神奈川と転々とし、現在は東京都杉並区に住んでいます。
+千葉と静岡は、最初に入社した会社での長期研修の地でした。
+
+東京は人の多さに圧倒されますが、多様性があり、何でもあるような感じがします。  
+イベントや施設が多いので、自分の興味にあったものを見つけて楽しむことができる点が好きです。
+
+## 家族
+
+愛猫の "アサ" と2人暮らしです。  
+(1人暮らしとも言いますが、アサは大切な家族です)
+
+アサは2022年7月6日生まれのサイベリアンです。サイベリアンはシベリア地方原産の猫で、毛がとてつもなくモフモフです。  
+アサが生まれて3ヶ月目くらいから一緒に暮らし始めて、今ではかけがえのない家族です。  
+アサをなでたり、アサと遊んだりする時間は至福です。
+
+![アサ](/images/about/asa.avif)
+
+## 性格
+
+人からは、穏やかで優しい性格だと言われることが多いです。  
+恐れ多いですが、私のことを "聖人" と言ってくれる人もいます。  
+流石にそこまでではないですが、自分の性格を誇りに思っています。
+
+気持ちを察することを求められるような、遠回しなコミュニケーションを嫌います。  
+そういったコミュニケーションを不誠実に感じるので、できるだけ避けるようにしています。  
+私は率直でありながらも誠実なコミュニケーションを好みます。  
+ここで言う "誠実" とは、"ただ直接的に伝えるのではなく、相手を思いやって伝え方を考える姿勢" を意味しています。
+
+MBTI診断での性格タイプは、INTP-T (論理学者) です。
+
+![INTP-T](/images/about/intp-t.avif)
+
+**内向型: 93%** という、とんでもない偏りに目がいくと思います。  
+人と接することが苦手なのかというと、そんなことはないのでご安心を。人並みには外交的です。実際、交友関係は広い方だと言われることもあります。  
+ただし私は多くの人と繋がることよりも、一部の人と深く繋がるような交友関係を好むので、それが内向性として表れます。  
+また、私は物事を考えすぎるきらいがあり、これも内向性を強く示します。考えすぎることは長所でもあり短所でもあります。  
+特に対人関係においては、前述の "気持ちを察することを求められるような、遠回しなコミュニケーション" をされた際には、私は相手の気持ちを考え得る限りのパターンだけ熟考します。  
+これが空回ったり、自分の心をすり減らしたりすることに繋がる場合があります。  
+よく物思いにふけっていて、起きている時間は常に頭の中で何かを考えいるような状態です。
+意識が内に向いている時間が長いので、孤独を好むものと誤解されることがあります。しかし実際にはそうではなく、人との交流を楽しみます。
+その外交性の十数倍だけ、内向性を持ち合わせています。
+
+**探索型: 72%** というのも、私の性格を表していると思います。  
+自分を成長させてくれるものや、新たな発見・学習を好みます。そういったものは探索的な試行や行動がもたらしてくれると考えています。  
+また、休日の過ごし方にしてみても、事前に計画を立てて行動するよりも、その時の気分や興味に従って何かをすることを好みます。
+
+## 趣味
+
+趣味をいくつか紹介します。
+
+### ゲーム
+
+ゲームが1番の趣味です。多くの時間をゲームに費やします。  
+これまでにのめり込んだゲームは:  
+Apex Legends, VALORANT, Splatoon, Life is Strange, Outer Wilds, Minecraft, ゼルダの伝説 Breath of the Wild, ポケットモンスターシリーズ  
+などです。
+
+カジュアル寄りなFPSやTPSが好きです。上級者になるまでプレイすることが多く、最も遊んでいるジャンルです。  
+また、映画に入り込んだかのような没入感がある、秀逸なアドベンチャーゲームも好きです。  
+探索型のゲームにもお気に入りのものが多く、自分のペースで世界を探検し、発見や試行錯誤から得られる喜びを味わうことが好きです。
+
+### ボードゲーム
+
+人とボードゲームで遊ぶことが好きで、数十個のボードゲームを所有しています。  
+友人を自宅に招いてボードゲームで遊んだりします。  
+特に好きなのは、協力型のボードゲームと、探索型のボードゲームです。
+
+以前在籍していた企業にはボードゲーム部という部活動があり、在籍当時にはその部長を務めていました。  
+ボードゲームの専門家として、新聞社から取材を受けたこともあります。
+
+### スキー
+
+25歳ごろにスキーを始め、それからは毎年冬が来るのを楽しみにしています。  
+フリーライドに憧れていて、いつかバックカントリースキーに挑戦したいと思っています。  
+最近楽しんでいるのはサイドカントリーでのツリーランです。特にパウダースノーが好きです。  
+また、スキー場のパークでジャンプしたり、グラウンドトリックをしたりするなど、フリースタイルスキーも練習中です。
+
+### 漫画・アニメ・ドラマ・映画
+
+特に20代前半まではよく見ていました。
+
+好きな漫画・アニメ:  
+進撃の巨人, ワールドトリガー, ツバサ, xxxHOLIC, 攻殻機動隊, 左利きのエレン, プラネテス, ゼーガペイン, 鋼の錬金術師, 蟲師, 聲の形, サマータイムレンダ, 電脳コイル, ファイアパンチ, 風の谷のナウシカ
+
+好きなドラマ:  
+NORMAL PEOPLE, Mr. Robot, Silicon Valley, ラブホスピタルへようこそ, Upload, プラッシュアップライフ, TEH BOYS, 三体  
+(特に [NORMAL PEOPLE は気に入りすぎて感想文を書いた](/life-blog/2025-normale-people)ほどです。)
+
+好きな映画:  
+ベンジャミン・バトン 数奇な人生, Before Sunset, ハリーポッター, インセプション, きみの色, ハンガー・ゲーム, 時をかける少女
+
+特に、人の一生を描いた作品や、自他の気持ちや立場を考えさせられる作品が好きです。  
+また、SFやファンタジーの世界観に魅了されることが多いです。
+
+### 音楽
+
+実は音楽はあまり聴かないのですが、好きなアーティストは:  
+AURORA, ずっと真夜中でいいのに, Lady Gaga  
+です。  
+この3人はそれなりに聞き込んだ時期があります。
+
+AURORA はライブコンサートに行ったことがあり、その感動が忘れられません。  
+(この1度しかライブに行ったことはないのですが)
+
+他には、ゲームのサウンドトラックが好きでよく聴きます。  
+Splatoon 2 のサウンドトラックは特にお気に入りです。
+
+### プログラミング
+
+プログラミングは大学生時代からの趣味です。
+学生時代はPCゲームの製作に没頭していました。
+
+現在は、Webサイト、Webアプリケーション、iOSアプリケーションなどを趣味で作っています。
+
+この Hahnah Chronicle のサイトも私が作り、それには Elm というプログラミング言語を使っています。
+Elm は私の最も好きなプログラミング言語です。
+
+## 職業
+
+プログラミングは趣味でもあり、仕事でもあります。
+趣味だから仕事にしたようなものです。この職業がこの世に存在していて良かったです。
+
+つまり職業はプログラマーですね。プログラマーの中でも、より詳細には "Webフルスタックエンジニア" と呼ばれる職業です。
+
+プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
+
+ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
+より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�(Color Stew というデザイン用のWebアプリを作った。この記事では作る際の苦労や所感を紹介する。�/images/tech-blog/2019-color-stew-technology/color-stew-screen.avif  ��42019-color-stew-technology �� ��&
+color-stewhahnah's-appdesigncolor-theoryelml[Elm] Color Stew という Webアプリを作った話  ��& 
