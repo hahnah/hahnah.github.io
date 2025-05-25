@@ -1,7 +1,7 @@
 ---
 title: "高階関数、カリー化、部分適用からパイプライン演算子までを理解する"
 # image: "/images/tech-blog/slug/image.jpg"
-description: "Description are shwon below the image"
+description: "関数型プログラミングの特徴の一つであるカリー化やパプライン演算子を一連の流れで学ベル記事です。"
 published: "2022-04-13"
 updated: "2025-05-24"
 category: "tech"
