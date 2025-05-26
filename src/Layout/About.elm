@@ -9,6 +9,7 @@ import Html.Extra
 import Layout.Markdown as Markdown
 import Pages.Url
 import Phosphor
+import Route
 import Settings
 import UrlPath
 
@@ -22,7 +23,7 @@ seoHeaders author =
                 |> Maybe.withDefault Settings.symbolAndLogoUrl
     in
     Seo.summary
-        { canonicalUrlOverride = Nothing
+        { canonicalUrlOverride = Route.About |> Route.toPath |> UrlPath.toRelative |> (\path -> Settings.baseUrl ++ path ++ "/") |> Just
         , siteName = Settings.title
         , image =
             { url = imageUrl
