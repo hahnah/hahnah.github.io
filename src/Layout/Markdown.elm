@@ -89,6 +89,35 @@ blogpostRenderer =
 
                 Block.H6 ->
                     Html.h6 [ Attrs.id id ]
+
+        parseImageAttributes : String -> ( String, List (Html.Attribute msg) )
+        parseImageAttributes src =
+            case String.split "#" src of
+                [ base ] ->
+                    ( base, [] )
+
+                base :: fragment :: _ ->
+                    let
+                        kvPairs =
+                            String.split "&" fragment
+
+                        parseParam param =
+                            case String.split "=" param of
+                                [ "width", val ] ->
+                                    String.toInt val
+                                        |> Maybe.map Attrs.width
+
+                                [ "height", val ] ->
+                                    String.toInt val
+                                        |> Maybe.map Attrs.height
+
+                                _ ->
+                                    Nothing
+                    in
+                    ( base, List.filterMap parseParam kvPairs )
+
+                _ ->
+                    ( src, [] )
     in
     { defaultHtmlRenderer
         | heading =
@@ -112,6 +141,26 @@ blogpostRenderer =
         , codeBlock =
             \block ->
                 syntaxHighlight block
+        , image =
+            \{ alt, src, title } ->
+                let
+                    ( baseSrc, extraAttrs ) =
+                        parseImageAttributes src
+
+                    titleAttr =
+                        case title of
+                            Just t ->
+                                [ Attrs.title t ]
+
+                            Nothing ->
+                                []
+                in
+                Html.img
+                    ([ Attrs.src baseSrc, Attrs.alt alt ]
+                        ++ titleAttr
+                        ++ extraAttrs
+                    )
+                    []
     }
 
 
