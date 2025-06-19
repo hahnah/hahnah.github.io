@@ -67,6 +67,9 @@
 <loc>https://hahnah.github.io/tags/design/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/directory-structure/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/drama/</loc>
 </url>
 <url>
@@ -149,6 +152,12 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/pwa/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/react/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/redux/</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/roc/</loc>
@@ -303,6 +312,10 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/2019-try-wip-elm-3d-scene/</loc>
+<lastmod>2025-06-13T00:00:00.000Z</lastmod>
+</url>
+<url>
+<loc>https://hahnah.github.io/tech-blog/2019-redux-directory-petterns/</loc>
 <lastmod>2025-06-13T00:00:00.000Z</lastmod>
 </url>
 <url>
