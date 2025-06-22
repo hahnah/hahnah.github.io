@@ -149,14 +149,13 @@ re-ducks では新しく`operations.js`と`selectors.js`が登場するが、こ
 ducks の構成でプロダクトを始め、成長にあわせて re-ducks に切り替えるのが良さそうだ。
 
 また、Redux を使う場合に限らず、 ディレクトリ構成を考える際には **分割** と **分散** の度合いを意識することでより良い構成へ近づけるだろう。
-D/images/authors/natsuki-harai.avif�T�
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
 英語表記では Natsuki Harai です。
 
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
+1991年8月24日生まれの男性です。
 
 ### ニックネーム
 
@@ -178,6 +177,9 @@ Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なる�
 
 Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
 ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+より詳しくはこちらの記事に書きました。  
+[Hahnah Chronicle を始めます](/life-blog/2025-start-hahnah-chronicle/)
 
 ## 出身と居住地
 
@@ -318,14 +320,13 @@ Elm は私の最も好きなプログラミング言語です。
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��Reduxを使う場合に限らず、ディレクトリ構成を考える際には「分割」と「分散」の度合いを意識することが役に立つ。これについて例を示しながら解説する。|/images/tech-blog/2019-redux-directory-petterns/baby-duck.avif  ��`:2019-redux-directory-petterns ��` ���frontend
 react
-redux&directory-structure�Reduxでのディレクトリ構成3パターンに見る「分割」と「分散」  ���D/images/authors/natsuki-harai.avif�T�
+redux&directory-structure�Reduxでのディレクトリ構成3パターンに見る「分割」と「分散」  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
 英語表記では Natsuki Harai です。
 
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
+1991年8月24日生まれの男性です。
 
 ### ニックネーム
 
@@ -347,6 +348,9 @@ Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なる�
 
 Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
 ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+より詳しくはこちらの記事に書きました。  
+[Hahnah Chronicle を始めます](/life-blog/2025-start-hahnah-chronicle/)
 
 ## 出身と居住地
 
@@ -486,14 +490,13 @@ Elm は私の最も好きなプログラミング言語です。
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�elm-3d-scene を使って 3DCGプログラミングをやってみた記録。   ���22019-try-wip-elm-3d-scene ��� ���elm
-3d-cgZ[Elm] WIP の elm-3d-scene を使ってみる  ���D/images/authors/natsuki-harai.avif�T�
+3d-cgZ[Elm] WIP の elm-3d-scene を使ってみる  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
 英語表記では Natsuki Harai です。
 
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
+1991年8月24日生まれの男性です。
 
 ### ニックネーム
 
@@ -515,6 +518,9 @@ Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なる�
 
 Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
 ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+より詳しくはこちらの記事に書きました。  
+[Hahnah Chronicle を始めます](/life-blog/2025-start-hahnah-chronicle/)
 
 ## 出身と居住地
 

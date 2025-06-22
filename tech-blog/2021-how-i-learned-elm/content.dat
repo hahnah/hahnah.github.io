@@ -85,14 +85,13 @@ X でも時々検索する。ある Elm Package を使った感想や課題の�
 
 これもあるなーと思った。今度ここで検索してみよう。
 Reddit [https://www.reddit.com/r/elm/](https://www.reddit.com/r/elm/)
-D/images/authors/natsuki-harai.avif�T�
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
 英語表記では Natsuki Harai です。
 
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
+1991年8月24日生まれの男性です。
 
 ### ニックネーム
 
@@ -114,6 +113,9 @@ Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なる�
 
 Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
 ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+より詳しくはこちらの記事に書きました。  
+[Hahnah Chronicle を始めます](/life-blog/2025-start-hahnah-chronicle/)
 
 ## 出身と居住地
 
@@ -252,14 +254,13 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��自分がどんな風にElmというプログラミング言語を学んできたか、何をみて情報を集めているかまとめてみる。Elm を学び始めた人の参考になれば幸いだ。j/images/tech-blog/2021-how-i-learned-elm/monkeys.avif  ��|,2021-how-i-learned-elm ��| ���elmJElm をこんな風に学んでいる  ���D/images/authors/natsuki-harai.avif�T�
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��自分がどんな風にElmというプログラミング言語を学んできたか、何をみて情報を集めているかまとめてみる。Elm を学び始めた人の参考になれば幸いだ。j/images/tech-blog/2021-how-i-learned-elm/monkeys.avif  ��|,2021-how-i-learned-elm ��| ���elmJElm をこんな風に学んでいる  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
 英語表記では Natsuki Harai です。
 
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
+1991年8月24日生まれの男性です。
 
 ### ニックネーム
 
@@ -281,6 +282,9 @@ Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なる�
 
 Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
 ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+より詳しくはこちらの記事に書きました。  
+[Hahnah Chronicle を始めます](/life-blog/2025-start-hahnah-chronicle/)
 
 ## 出身と居住地
 
@@ -421,14 +425,13 @@ Elm は私の最も好きなプログラミング言語です。
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�私が Elm を書く際に UI をどのようにモジュール化しているか、そのパターンを書いてみる。   ��
 62022-elm-ui-module-patterns ��
- ���elmuinested-teajElmにおけるUIモジュールの構成パターン  ���D/images/authors/natsuki-harai.avif�T�
+ ���elmuinested-teajElmにおけるUIモジュールの構成パターン  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
 英語表記では Natsuki Harai です。
 
-1991年8月24日生まれの男性です。  
-身長は163cm、体重は55kg前後です。
+1991年8月24日生まれの男性です。
 
 ### ニックネーム
 
@@ -450,6 +453,9 @@ Hahnah Chronicle とは、Hahnah (原井 夏樹) の人生を記録し、なる�
 
 Chronicle は "年代記" という意味で、歴史上の出来事を年代順に記録したものをいいます。  
 ただしこのサイトでは年代順ではなく私の思いつく順で記事を書いているので、厳密な年代記ではありません。
+
+より詳しくはこちらの記事に書きました。  
+[Hahnah Chronicle を始めます](/life-blog/2025-start-hahnah-chronicle/)
 
 ## 出身と居住地
 
