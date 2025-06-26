@@ -1,4 +1,177 @@
-	D/images/authors/natsuki-harai.avif�U:
+�5z
+## コード全体
+
+**ViewController.swift**
+
+```swift
+import UIKit
+import AVFoundation
+
+class ViewController: UIViewController {
+
+    private var videoDevice: AVCaptureDevice?
+    private var captureSession: AVCaptureSession? = nil
+    private var videoLayer: AVCaptureVideoPreviewLayer? = nil
+
+    private var baseZoomFanctor: CGFloat = 1.0
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupCamera()
+        self.setupPinchGestureRecognizer()
+    }
+
+    private func setupCamera() {
+        self.videoDevice = AVCaptureDevice.default(for: .video)
+        let audioDevice = AVCaptureDevice.default(for: .audio)
+
+        self.captureSession = AVCaptureSession()
+
+        // add video input to a capture session
+        let videoInput = try! AVCaptureDeviceInput(device: self.videoDevice!)
+        self.captureSession?.addInput(videoInput)
+
+        // add audio input to a capture session
+        let audioInput = try! AVCaptureDeviceInput(device: audioDevice!)
+        self.captureSession?.addInput(audioInput)
+
+        // preview layer
+        self.videoLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+        self.videoLayer?.frame = self.view.bounds
+        self.videoLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.view.layer.addSublayer(self.videoLayer!)
+
+        self.captureSession?.startRunning()
+    }
+
+    private func setupPinchGestureRecognizer() {
+        // pinch recognizer for zooming
+        let pinchGestureRecognizer: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(self.onPinchGesture(_:)))
+        self.view.addGestureRecognizer(pinchGestureRecognizer)
+    }
+
+    @objc private func onPinchGesture(_ sender: UIPinchGestureRecognizer) {
+        if sender.state == .began {
+            self.baseZoomFanctor = (self.videoDevice?.videoZoomFactor)!
+        }
+
+        let tempZoomFactor: CGFloat = self.baseZoomFanctor * sender.scale
+        let newZoomFactdor: CGFloat
+        if tempZoomFactor < (self.videoDevice?.minAvailableVideoZoomFactor)! {
+            newZoomFactdor = (self.videoDevice?.minAvailableVideoZoomFactor)!
+        } else if (self.videoDevice?.maxAvailableVideoZoomFactor)! < tempZoomFactor {
+            newZoomFactdor = (self.videoDevice?.maxAvailableVideoZoomFactor)!
+        } else {
+            newZoomFactdor = tempZoomFactor
+        }
+
+        do {
+            try self.videoDevice?.lockForConfiguration()
+            self.videoDevice?.ramp(toVideoZoomFactor: newZoomFactdor, withRate: 32.0)
+            self.videoDevice?.unlockForConfiguration()
+        } catch {
+            print("Failed to change zoom factor.")
+        }
+    }
+}
+```
+
+[https://github.com/hahnah/til-swift/tree/master/CameraZoom](https://github.com/hahnah/til-swift/tree/master/CameraZoom)
+
+## 概説
+
+### 1. ピンチイン/ピンチアウトのジェスチャー認識をさせる
+
+```swift
+    private func setupPinchGestureRecognizer() {
+        // pinch recognizer for zooming
+        let pinchGestureRecognizer: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(self.onPinchGesture(_:)))
+        self.view.addGestureRecognizer(pinchGestureRecognizer)
+    }
+```
+
+これだけだ。  
+`action`の部分には後述で定義する`onPinchGesture`メソッドを指定しており、ピンチジェスチャーが行われるとそれが呼び出される。  
+(ちなみにジェスチャーの開始や終了時だけでなく、ジェスチャーの途中でも変化する度に呼び出される)。
+
+### 2. ピンチイン/ピンチアウト時の処理としてズームを実装する
+
+`onPinchGesture`メソッドにおいて、前半ではズームの倍率を計算し、後半ではズーム処理を行っている。
+
+```swift
+    private var baseZoomFanctor: CGFloat = 1.0
+
+    @objc private func onPinchGesture(_ sender: UIPinchGestureRecognizer) {
+        if sender.state == .began {
+            self.baseZoomFanctor = (self.videoDevice?.videoZoomFactor)!
+        }
+
+        let tempZoomFactor: CGFloat = self.baseZoomFanctor * sender.scale
+        let newZoomFactdor: CGFloat
+        if tempZoomFactor < (self.videoDevice?.minAvailableVideoZoomFactor)! {
+            newZoomFactdor = (self.videoDevice?.minAvailableVideoZoomFactor)!
+        } else if (self.videoDevice?.maxAvailableVideoZoomFactor)! < tempZoomFactor {
+            newZoomFactdor = (self.videoDevice?.maxAvailableVideoZoomFactor)!
+        } else {
+            newZoomFactdor = tempZoomFactor
+        }
+
+        do {
+            try self.videoDevice?.lockForConfiguration()
+            self.videoDevice?.ramp(toVideoZoomFactor: newZoomFactdor, withRate: 32.0)
+            self.videoDevice?.unlockForConfiguration()
+        } catch {
+            print("Failed to change zoom factor.")
+        }
+    }
+```
+
+#### 2-1. ズーム倍率の計算
+
+ズーム倍率の計算には、`sender.scale`を使う。  
+この`scale`プロパティは、ピンチジェスチャー開始時を基準とした拡縮倍率を表す。
+
+`baseZoomFanctor`プロパティにピンチジェスチャー開始時の拡縮倍率を格納している。
+
+```swift
+        if sender.state == .began {
+            self.baseZoomFanctor = (self.videoDevice?.videoZoomFactor)!
+        }
+```
+
+次に、基準の拡縮倍率とジェスチャーによる拡縮倍率をかけ合わせ、新しい拡縮倍率を計算する(`tempZoomFactor`としておく)。  
+ただし、これは拡縮倍率の下限〜上限の範囲内に収まっていない可能性がある。
+
+```swift
+        let tempZoomFactor: CGFloat = self.baseZoomFanctor * sender.scale
+```
+
+最後に、拡縮倍率の下限と上限の範囲内に収まるように調整する(`newZoomFactdor`)。
+
+```swift
+        let newZoomFactdor: CGFloat
+        if tempZoomFactor < (self.videoDevice?.minAvailableVideoZoomFactor)! {
+            newZoomFactdor = (self.videoDevice?.minAvailableVideoZoomFactor)!
+        } else if (self.videoDevice?.maxAvailableVideoZoomFactor)! < tempZoomFactor {
+            newZoomFactdor = (self.videoDevice?.maxAvailableVideoZoomFactor)!
+        } else {
+            newZoomFactdor = tempZoomFactor
+        }
+```
+
+#### 2-2. ズーム処理
+
+先程計算した`newZoomFactdor`を新たな拡縮倍率として、ズーム処理を行う。
+
+```swift
+            try self.videoDevice?.lockForConfiguration()
+            self.videoDevice?.ramp(toVideoZoomFactor: newZoomFactdor, withRate: 32.0)
+            self.videoDevice?.unlockForConfiguration()
+```
+
+ズーム処理については次の記事に説明があるので参照すると役に立つかもしれない。  
+[[Swift] AVFoundation による動画撮影の設定: カメラ種類 / ズーム / 録画時間 / 画質](https://hahnah.github.io/tech-blog/2019-swift-avcapture-settings/)
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,10 +340,8 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�*ARKit を使ってアプリを作ったので、それに際し気にかけたことやノウハウを雑にまとめておく。j/images/tech-blog/2019-arkit-dev-knowledge/cover.avif  ��02019-arkit-dev-knowledge �� ��&
-ar-photoplayarios
-swift
-arkitvARKitを使ったアプリ開発時に気にかけたこと  ��&D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��AVCaptureSession を使ってカメラを利用するシーンにおいて、ピンチイン/ピンチアウトのジェスチャーで ズームイン/ズームアウト させる方法を紹介する。   �~�T2019-swift-camera-zoom-using-pinch-gesture �~� ���ios
+swiftcamera�[Swift] ピンチイン/ピンチアウトのジェスチャーでカメラをズームする  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -339,7 +510,8 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�AR Photoplay はAR(拡張現実)の技術を利用したムービーアルバムのアプリです。x/images/tech-blog/2019-ar-photoplay/repeat-ar-photoplay.avif  ��"2019-ar-photoplay �� ��&ar-photoplayhahnah's-appios�[iOS App] AR Photoplay --  写真を飾るかのように動画を飾ろう  ��&D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��iOSでフロントカメラとバックカメラを切り替える方法を紹介する。しかも切り替えの際、カメラ画面がくるっと 回転するカッコイイアニメーション付きだ。   �~�,2019-swift-camera-flip �~� ���ios
+swiftcamera�[Swift] フロント/バックカメラを切り替える with 回転アニメーション  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -508,28 +680,5 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�AR Photoplay is an unique video album application with Augmented Reality technology.x/images/tech-blog/2019-ar-photoplay/repeat-ar-photoplay.avif  ��(2019-ar-photoplay-en �� ��&ar-photoplayhahnah's-appiosd[iOS App] AR Photoplay — Let photos play videos!  ��&ar-photoplayar-photoplay�
-3d-cg
-3d-cgaiaialacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connectararar-photoplayar-photoplay
-arkit
-arkitauroraaurora"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracamera
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-developmentiosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learningmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancephysicsphysicspwapwa
-react
-react
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg
-swift
-swifttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-video
-videoweb-rtcweb-rtcwritingwritingzellijzellij 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��AVCaptureSession を使ってカメラを利用するシーンにおいて、ピンチイン/ピンチアウトのジェスチャーで ズームイン/ズームアウト させる方法を紹介する。   �~�:2019-swift-avcapture-settings �~� ���ios
+swiftcamera�[Swift] AVFoundation による動画撮影の設定: カメラ種類 / ズーム / 録画時間 / 画質  ��� 
