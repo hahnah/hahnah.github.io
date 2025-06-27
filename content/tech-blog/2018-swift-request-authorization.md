@@ -1,7 +1,7 @@
 ---
 title: "[Swift] カメラやユーザーデータへのアクセス許可を促す (一度拒否された後でも)"
 # image: "/images/tech-blog/slug/image.jpg"
-description: "Description are shwon below the image"
+description: "iOS アプリでカメラやフォトライブラリなどへのアクセス許可を促す方法を紹介する。ユーザーが一度拒否した後でも、設定アプリから許可できるようにする。"
 published: "2018-10-18"
 updated: "2025-06-27"
 category: "tech"
