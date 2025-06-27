@@ -3,7 +3,7 @@ title: "[Swift] 正方形の動画を撮影する (動画の加工)"
 # image: "/images/tech-blog/slug/image.jpg"
 description: "iOSで正方形の動画を撮影する方法を紹介する。実際には正方形の動画を撮影しているわけではなく、動画を正方形に加工している。"
 published: "2018-10-19"
-updated: "2025-06-20"
+updated: "2025-06-27"
 category: "tech"
 tags: ["ios", "swift", "camera"]
 ---
