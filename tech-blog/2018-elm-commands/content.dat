@@ -1,4 +1,176 @@
-	D/images/authors/natsuki-harai.avif�U:
+��
+対象バージョン： Elm 0.19
+
+### init
+
+```
+$ elm init
+```
+
+コマンドを実行するとカレントディレクトリに以下が作成される。
+
+- `src`フォルダ
+- `elm.json`ファイル (任意。作成するかどうか聞かれるが、基本的に Yes でいい)
+
+プロジェクトディレクトリの作成まではしてくれないので、予め作っておく。  
+(`elm init <プロジェクト名>`のような使い方は出来ない)
+
+```
+$ mkdir <プロジェクト名>
+$ cd <プロジェクト名>
+$ elm init
+```
+
+### repl
+
+```
+$ elm repl
+```
+
+コマンドを実行するとターミナル上で REPL が始まる。  
+変数や関数を作ってちょっとした動作を試したいとき、型を確かめたいときなどに使う。
+
+以下のように、対話的なインターフェースでプログラムを動かす。
+
+```
+$ elm repl
+---- Elm 0.19.0 ----------------------------------------------------------------
+Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
+--------------------------------------------------------------------------------
+> "Hello " ++ "Elm"
+"Hello Elm" : String
+>
+```
+
+REPL から抜けるときは`:exit`と打つか、ctrl + c 。
+
+```
+> :exit
+```
+
+### install
+
+```
+$ elm install <package>
+```
+
+Elmパッケージをプロジェクトにインストールする。  
+パッケージは [https://package.elm-lang.org/](https://package.elm-lang.org/) で検索できる。
+
+```
+$ elm install elm/http
+=> elm/http のパッケージをインストールする
+```
+
+ちなみに、プロジェクトが依存する Elmパッケージは`elm.json`ファイルで確認できる。
+
+### reactor
+
+```
+$ elm reactor
+```
+
+コマンドを実行すると、 elm ファイルをコンパイルして http://localhost:8000 表示するサーバーを立ててくれる。開発時の動作確認に用いる。
+
+ちなみに、プロジェクトに変更を加えた際に`elm reactor`とわざわざ打ち直す必要はない。  
+ブラウザでページをリロードするだけで変更が反映される。
+
+##### オプション
+
+- \-\-port=<port> : ポート番号を指定する (デフォルトは 8000)
+
+```
+$ elm reactor --port=8888
+```
+
+### make
+
+```
+$ elm make <elm-files>
+```
+
+`.elm`ファイルをコンパイルして`.html`または`.js`のファイルを作成する
+
+```
+$ elm make src/Mainl.elm
+=> src/Main.elm をコンパイルして index.html を作成
+```
+
+##### オプション
+
+- \-\-debug : タイムトラベリングデバッガーを有効にする (イベントを巻き戻して当時の状態とビューを確認できるようになる)
+- \-\-optimize : 最適化を有効にする （軽量で高速なファイルにコンパイルされる）
+- \-\-output=<output-file> : output されるファイル名を指定する
+  ```
+  $ elm make --output="module1.js" src/Module1.elm
+  => src/Module1.elm をコンパイルして module1.js を作成
+  ```
+
+### diff
+
+```
+$ elm diff <package> <version> <version>
+```
+
+Elmパッケージの差分を確認する。APIの増減を教えてくれる。
+
+```
+$ elm diff elm/browser 1.0.0 1.0.1
+No API changes detected, so this is a PATCH change.
+```
+
+```
+$ elm diff arsduo/elm-ui-drag-drop 1.0.0 2.0.0
+This is a MAJOR change.
+
+---- ADDED MODULES - MINOR ----
+
+    Dom.DragDrop
+
+
+---- REMOVED MODULES - MAJOR ----
+
+    Ui.DragDrop
+```
+
+### publish
+
+```
+$ elm publish
+```
+
+自分で作成した Elmパッケージを [https://package.elm-lang.org](https://package.elm-lang.org) に公開する。
+
+公開するには以下のような条件を満たす必要があるらしい。
+
+- `elm.json`に必要な情報が記載されていること
+- ドキュメントファイルが用意されていること
+
+「GitHubにソースがあること」「テストが書かれていること」など、他にも条件がありそう。私自身が publish する機会があれば調べてみる。
+
+### bump
+
+```
+$ elm bump
+```
+
+[https://package.elm-lang.org](https://package.elm-lang.org) に公開した Elmパッケージをローカルで変更した際、セマンティックバージョニングのルールに基づいて、ローカルの Elmパッケージのバージョン情報を更新してくれる。
+
+### \-\-help オプション {#help}
+
+本記事では、あまり使わなさそうだと私が思ったオプションについては省略したが、  
+`--help`を使えばそれらも含めて確認できるだろう。
+
+```
+$ elm --help
+=> elm のコマンド一覧を教えてくれる
+```
+
+```
+$ elm make --help
+=> make コマンドの使い方やオプションについて教えてくれる
+```
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,9 +339,7 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�nUnfair Roulette は止まる目を操作することができる、そんなルーレットだ。それをElmがどのように実装したのかを解説する。|/images/tech-blog/2018-unfair-roulette-technology/with-pc.avif  �~
->2018-unfair-roulette-technology �~
- ��&unfair-roulettehahnah's-appelmrElmで開発したルーレットアプリの実装解説  ��&D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�プログラミング言語Elmの基本コマンドをまとめて紹介する。   �}�"2018-elm-commands �}� ���elm0[Elm] 基本コマンド  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -338,28 +508,5 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�`ルーレットの止まる目を操作することができる、そんなルーレットだ。悪事や人を傷つけることには使わないこと。v/images/tech-blog/2018-unfair-roulette/unfair-roulette.avif  �}�(2018-unfair-roulette �}� ��&unfair-roulettehahnah's-app�Unfair Roulette : インチキできるルーレットアプリを作成した  ��&unfair-rouletteunfair-roulette�
-3d-cg
-3d-cgaiaialacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connectararar-photoplayar-photoplay
-arkit
-arkitauroraaurora"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracamera
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-developmentiosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learningmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancephysicsphysicspwapwa
-react
-react
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg
-swift
-swifttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-video
-videoweb-rtcweb-rtcwritingwritingzellijzellij 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Elm で SVG を使って円グラフを表示する方法を紹介する。j/images/tech-blog/2018-elm-svg-piechart/piechart.avif  �}�*2018-elm-svg-piechart �}� �� elmsvg
+chartZ[Elm] SVGで円グラフを表示する方法  ��   
