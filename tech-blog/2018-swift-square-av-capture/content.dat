@@ -1,4 +1,215 @@
-	D/images/authors/natsuki-harai.avif�U:
+�K�
+本記事の方法では、次の処理によって正方形の動画撮影を実現している。
+
+1. 撮影のプレビュー画面を正方形にする
+2. 動画を撮影する (長方形で撮影される)
+3. 撮影した動画を正方形にクロッピングする
+4. 動画をフォトライブラリに保存する
+
+## 実装環境
+
+- Swift 4.2
+- iOS 12.0
+- Xcode 10.0
+
+## 準備
+
+動画を撮影する際には次の２つのプライバシーの設定を info.plist に記述する必要がある。
+
+- Privacy - Camera Usage Description
+- Privacy - Microphone Usage Description
+
+また、フォトライブラリに保存するためには次のものが必要になる。
+
+- Privacy - Photo Library Usage Description
+
+## サンプルコード
+
+[GitHub](https://github.com/hahnah/til-swift/tree/master/SquareAVCapture)にプロジェクトごと置いてあるので、そちらで試すこともできる。
+
+**ViewController.swift**
+
+```swift
+import UIKit
+import AVFoundation
+import Photos
+
+class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
+    let fileOutput = AVCaptureMovieFileOutput()
+
+    var recordButton: UIButton!
+    var isRecording = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .black
+        self.setUpCamera()
+    }
+
+    func setUpCamera() {
+        let videoDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)
+        let captureSession = AVCaptureSession()
+
+        // 映像入力を設定
+        let videoInput = try! AVCaptureDeviceInput(device: videoDevice!)
+        captureSession.addInput(videoInput)
+
+        // 音声入力を設定
+        let audioInput = try! AVCaptureDeviceInput(device: audioDevice!)
+        captureSession.addInput(audioInput)
+
+        // 動画の最大時間を 60秒 に設定
+        self.fileOutput.maxRecordedDuration = CMTimeMake(value: 60, timescale: 1)
+        captureSession.addOutput(fileOutput)
+
+        // ★★★ 1. 撮影のプレビュー画面を正方形にする ★★★
+        let videoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoLayer.frame = CGRect(x: 0, y: (self.view.bounds.height - self.view.bounds.width) / 2, width: self.view.bounds.width, height: self.view.bounds.width)
+        videoLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.view.layer.addSublayer(videoLayer)
+
+        // カメラ(とマイク)のセッションを開始
+        captureSession.startRunning()
+
+        // 録画ボタンを配置
+        self.recordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 120, height: 50))
+        self.recordButton.backgroundColor = UIColor.gray
+        self.recordButton.layer.masksToBounds = true
+        self.recordButton.setTitle("Record", for: .normal)
+        self.recordButton.layer.cornerRadius = 20
+        self.recordButton.layer.position = CGPoint(x: self.view.bounds.width / 2, y:self.view.bounds.height - 100)
+        self.recordButton.addTarget(self, action: #selector(self.onClickRecordButton(sender:)), for: .touchUpInside)
+        self.view.addSubview(recordButton)
+    }
+
+    @objc func onClickRecordButton(sender: UIButton) {
+        // ★★★ 2. 動画を撮影する (長方形で撮影される) ★★★
+        if !self.isRecording {
+            // 録画を開始
+            let tempDirectory: URL = URL(fileURLWithPath: NSTemporaryDirectory())
+            let fileURL: URL = tempDirectory.appendingPathComponent("mytemp1.mov")
+            fileOutput.startRecording(to: fileURL, recordingDelegate: self)
+
+            self.isRecording = true
+            self.recordButton.backgroundColor = .red
+            self.recordButton.setTitle("●Recording", for: .normal)
+        } else {
+            // 録画を終了
+            fileOutput.stopRecording()
+
+            self.isRecording = false
+            self.recordButton.backgroundColor = .gray
+            self.recordButton.setTitle("Record", for: .normal)
+        }
+    }
+
+    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+        let tempDirectory: URL = URL(fileURLWithPath: NSTemporaryDirectory())
+        let croppedMovieFileURL: URL = tempDirectory.appendingPathComponent("mytemp2.mov")
+
+        // 録画された動画を正方形にクロッピングする
+        MovieCropper.exportSquareMovie(sourceURL: outputFileURL, destinationURL: croppedMovieFileURL, fileType: .mov, completion: {
+            // 正方形にクロッピングされた動画をフォトライブラリに保存
+            self.saveToPhotoLibrary(fileURL: croppedMovieFileURL)
+        })
+    }
+
+    func saveToPhotoLibrary(fileURL: URL) {
+        // ★★★ 4. 動画をフォトライブラリに保存する ★★★
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: fileURL)
+        }) { saved, error in
+            let success = saved && (error == nil)
+            let title = success ? "Success" : "Error"
+            let message = success ? "Video saved." : "Failed to save video."
+
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
+}
+```
+
+**MovieCropper.swift**
+
+```swift
+import Foundation
+import UIKit
+import AVKit
+
+final class MovieCropper {
+
+    // ★★★ 3. 撮影した動画を正方形にクロッピングする ★★★
+    static func exportSquareMovie(sourceURL: URL, destinationURL: URL, fileType: AVFileType, completion: (() -> Void)?) {
+
+        let avAsset: AVAsset = AVAsset(url: sourceURL)
+
+        let videoTrack: AVAssetTrack = avAsset.tracks(withMediaType: AVMediaType.video)[0]
+        let audioTracks: [AVAssetTrack] = avAsset.tracks(withMediaType: AVMediaType.audio)
+        let audioTrack: AVAssetTrack? =  audioTracks.count > 0 ? audioTracks[0] : nil
+
+        let mixComposition : AVMutableComposition = AVMutableComposition()
+
+        let compositionVideoTrack: AVMutableCompositionTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)!
+        let compositionAudioTrack: AVMutableCompositionTrack? = audioTrack != nil
+            ? mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
+            : nil
+
+        try! compositionVideoTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: avAsset.duration), of: videoTrack, at: CMTime.zero)
+        try! compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: avAsset.duration), of: audioTrack!, at: CMTime.zero)
+
+        compositionVideoTrack.preferredTransform = videoTrack.preferredTransform
+
+        var croppedVideoComposition: AVMutableVideoComposition? = nil
+
+        let squareEdgeLength: CGFloat = videoTrack.naturalSize.height
+        let croppingRect: CGRect = CGRect(x: (videoTrack.naturalSize.width - squareEdgeLength) / 2, y: 0, width: squareEdgeLength, height: squareEdgeLength)
+        let transform: CGAffineTransform = videoTrack.preferredTransform.translatedBy(x: -croppingRect.minX, y: -croppingRect.minY)
+
+        // layer instruction を正方形に
+        let layerInstruction: AVMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction.init(assetTrack: compositionVideoTrack)
+        layerInstruction.setCropRectangle(croppingRect, at: CMTime.zero)
+        layerInstruction.setTransform(transform, at: CMTime.zero)
+
+        // instruction に、先程の layer instruction を設定する
+        let instruction: AVMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
+        instruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: avAsset.duration)
+        instruction.layerInstructions = [layerInstruction]
+
+        // video composition に、先程の instruction を設定する。また、レンダリングの動画サイズを正方形に設定する
+        croppedVideoComposition = AVMutableVideoComposition()
+        croppedVideoComposition?.instructions = [instruction]
+        croppedVideoComposition?.frameDuration = CMTimeMake(value: 1, timescale: 30)
+        croppedVideoComposition?.renderSize = CGSize(width: squareEdgeLength, height: squareEdgeLength)
+
+        // エクスポートの設定。先程の video compsition をエクスポートに使うよう設定する。
+        let assetExport = AVAssetExportSession.init(asset: mixComposition, presetName: AVAssetExportPresetMediumQuality)
+        assetExport?.outputFileType = fileType
+        assetExport?.outputURL = destinationURL
+        if let videoComposition = croppedVideoComposition {
+            assetExport?.videoComposition = videoComposition
+        }
+
+        // エクスポート先URLに既にファイルが存在していれば、削除する (上書きはできないので)
+        if FileManager.default.fileExists(atPath: (assetExport?.outputURL?.path)!) {
+            try! FileManager.default.removeItem(atPath: (assetExport?.outputURL?.path)!)
+        }
+
+        // クロップした動画をエクスポート
+        assetExport?.exportAsynchronously(completionHandler: {
+            if let completionHandler = completion {
+                completionHandler()
+            }
+        })
+
+    }
+
+}
+```
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,7 +378,8 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Zellijを使っている際に、どうすれば選択範囲をコピーできるのか紹介する。p/images/tech-blog/2024-copy-command-on-zellij/cover.avif  ���62024-copy-command-on-zellij ��� ��2clizellijrZellijでコピーのショートカットをするには  ��2D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z؊iOSで正方形の動画を撮影する方法を紹介する。実際には正方形の動画を撮影しているわけではなく、動画を正方形に加工している。   �}�82018-swift-square-av-capture �}� ���ios
+swiftcamerav[Swift] 正方形の動画を撮影する (動画の加工)  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -336,28 +548,4 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�CLI環境を見直して整えたので、その備忘録。AlacrittyとZellijの組み合わせが良かった。   ���D2024-cli-with-alacritty-and-zellij ��� ��2clialacrittyzellij�Alacritty + Zellij などで最高にクールなCLI環境を整える  ��2clicli�
-3d-cg
-3d-cgaiaialacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connectararar-photoplayar-photoplay
-arkit
-arkitauroraaurora"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracamera
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-developmentiosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learningmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancephysicsphysicspwapwa
-react
-react
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg
-swift
-swifttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-video
-videoweb-rtcweb-rtcwritingwritingzellijzellij 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�プログラミング言語Elmの基本コマンドをまとめて紹介する。   �}�"2018-elm-commands �}� ���elm0[Elm] 基本コマンド  ���  
