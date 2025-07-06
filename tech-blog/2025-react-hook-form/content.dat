@@ -1,4 +1,263 @@
-	D/images/authors/natsuki-harai.avif�U:
+�E�
+## useForm パターン
+
+まずは最も単純な、`useForm` だけを使うパターン。
+
+useForm を使うコンポーネント内でHTML英ティブの `input` 要素などを扱っている場合に使える。
+
+`input` 要素など(ネイティブなフォーム入力要素)に、`useForm` から得られる `register` メソッドを渡すことで、その `input` 要素を React Hook Form の管理下に置くことができる。
+
+```tsx
+import { useForm } from "react-hook-form"
+
+export const MyUI = () => {
+  // useForm から register などを得る。これらを使ってフォームの制御をする
+  const { register, handleSubmit } = useForm<{
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      category: "",
+    },
+  })
+
+  // input や select などの要素に register を渡すことどで、React Hook Form の管理下に置く
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <input
+        {...register("firstName", { required: true })}
+        placeholder="First name"
+      />
+
+      <input
+        {...register("lastName", { minLength: 2 })}
+        placeholder="Last name"
+      />
+
+      <select {...register("category")}>
+        <option value="">Select...</option>
+        <option value="A">Category A</option>
+        <option value="B">Category B</option>
+      </select>
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+## useForm + propsでformMethodsを渡す パターン
+
+これは、`input` 要素などが フォームコンポーネントの小要素にある場合に使えるパターン。
+
+`useForm` で得られる `register` などのメソッドを子コンポーネントに渡す。
+子コンポーネント内では、受け取った `register` などを使って、HTMLネイティブの`input` 要素などを React Hook Form の管理下に置く。
+
+```tsx
+import { useForm } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
+
+export const MyUI = () => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      category: "",
+    },
+  });
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <SubUI register={register} />
+      <input type="submit" />
+    </form>
+  );
+};
+
+const SubUI = ({ register }) => {
+  return (
+    <>
+      <input
+        {...register("firstName", { required: true })}
+        placeholder="First name"
+      />
+
+      <input
+        {...register("lastName", { minLength: 2 })}
+        placeholder="Last name"
+      />
+
+      <select {...register("category")}>
+        <option value="">Select...</option>
+        <option value="A">Category A</option>
+        <option value="B">Category B</option>
+      </select>
+    </>
+  );
+};
+```
+
+## useForm + Controller + propsでformMethodsを渡す パターン
+
+小要素が制御コンポーネントの場合に使えるパターン。  
+制御コンポーネントを React Hook Form の管理下に置くために、`Controller` コンポーネントを使う。  
+ここで、制御コンポーネントとその逆の非制御コンポーネントについては、以下のようなものである:
+
+- 非制御コンポーネント: 入力の状態をDOMが管理しているコンポーネント。`register`を使用するコンポーネントはこれに当てはまる
+- 制御コンポーネント: useStateとonChangeで状態管理をしているコンポーネント。サードパーティのフォーム用コンポーネントは大体これに当てはまる
+
+```tsx
+import { useForm, Controller } from "react-hook-form";
+import { useState } from "react";
+
+export const MyUI = () => {
+  const { handleSubmit, control } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+    },
+  });
+
+  // Controller要素にcontrolを渡し、子コンポーネントはrenderに書く
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <Controller
+        name="firstName"
+        control={control}
+        rules={{ required: true }}
+        render={({ field: { onChange, value } }) => (
+          <MyInput placeholder="First name" value={value} onChange={onChange} />
+        )}
+      />
+      <Controller
+        name="lastName"
+        control={control}
+        rules={{ required: true }}
+        render={({ field: { onChange, value } }) => (
+          <MyInput placeholder="Last name" value={value} onChange={onChange} />
+        )}
+      />
+      <input type="submit" />
+    </form>
+  );
+};
+
+const MyInput = ({ placeholder, value, onChange }) => {
+  const [localValue, setLocalValue] = useState(value);
+
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setLocalValue(newValue);
+    // React Hook Form の onChang を呼び出す
+    onChange(newValue);
+  };
+
+  return (
+    <input
+      value={localValue}
+      onChange={handleChange}
+      placeholder={placeholder}
+    />
+  );
+};
+```
+
+## useForm + FormProvider + Controller + useFormContext パターン
+
+これも、小要素が制御コンポーネントの場合に使えるパターン。  
+そして、`useForm`で得た関数を引数で渡すのではなくコンテキストで渡すようにするパターンである。  
+`FormProvider`と`useFormContext`を使うことで、引数からではなく、`useFormContext`から、コンテキストに格納された値を呼び出すことができる。深いコンポーネント階層であってもフォームの状態にアクセスできる。
+
+使い方の注意点として、`useFormContext`を使用するコンポーネントは必ず`FormProvider`の子孫である必要がある。
+
+このパターンはpropsでの受け渡しを減らすことができコード記述量が減るメリットがある。  
+しかし一方で、入力だけでなくコンテキストに依存して出力が決まるため、UIコンポーネントの参照透過性が失われ、挙動の把握が難しくなるのと、テストコードの書きやすさが損なわれる。
+
+```tsx
+import {
+  useForm,
+  FormProvider,
+  Controller,
+  useFormContext,
+} from "react-hook-form";
+import { useState } from "react";
+
+export const MyUI = () => {
+  const formMethods = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+    },
+  });
+
+  // useFromから得た関数たちFormProviderに渡せば、子孫要素からuseFormContextで呼び出せる
+  return (
+    <FormProvider {...formMethods}>
+      <form onSubmit={formMethods.handleSubmit(console.log)}>
+        <Controller
+          name="firstName"
+          control={formMethods.control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <MyInput placeholder="First name" name="firstName" />
+          )}
+        />
+        <Controller
+          name="lastName"
+          control={formMethods.control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <MyInput placeholder="Last name" name="lastName" />
+          )}
+        />
+        <input type="submit" />
+      </form>
+    </FormProvider>
+  );
+};
+
+const MyInput = ({ placeholder, name }) => {
+  const { register, watch, setValue } = useFormContext();
+  const value = watch(name);
+  const [localValue, setLocalValue] = useState(value);
+
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setLocalValue(newValue);
+    setValue(name, newValue);
+  };
+
+  return (
+    <input
+      value={localValue}
+      onChange={handleChange}
+      placeholder={placeholder}
+    />
+  );
+};
+```
+
+## 様々な判断基準
+
+### register を使うか control を使うか
+
+子要素が input などのネイティブな非制御要素の場合は register を使う。  
+子要素が UIライブラリによるコンポーネントなどの非標準の制御コンポーネントの場合は control を使う。  
+controlの場合はControllerにname, controlとrenderを渡す感じのコード。
+
+### propsで渡すかコンテキストで渡すか問題
+
+原則はコンテキストで渡した方がいい。  
+UIコンポーネントが、React Hook Form を使う場合とそうでない場合の両方で機能するように設計する場合は props で渡す設計になる。
+
+#### 原則コンテキストで渡すことが良いとされる理由
+
+props drillingを避けられる。  
+必要な関数だけをコンテキストから取り出せるので、コードの変更が楽。(props増減のリレーを実装しなくていい）。  
+フォームがある程度大きいor将来拡張されるのであればコンテキストを渡すようにした方がいい。  
+実装の統一性の観点から、使い分けるのではなくコンテキストに統一した方がいい。
+
+しかし参照透過性がなくなるデメリットも大きいので、どちらが良いかは意見が分かれるところだろう。
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,9 +426,8 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�HARKitでの画像認識時に発生する Invalid reference image というエラーの原因を実行時に特定し対処する方法の紹介�/images/tech-blog/2019-arkit-invalid-reference-image/staggered-arkit.avif  ��D2019-arkit-invalid-reference-image �� ��&arios
-arkit
-swift�ARKitでのイメージトラッキング/画像認識において Invalid Reference Image を特定する  ��&D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��React Hook Form は React でフォームを扱うためのライブラリだ。React Hook Form に複数の使い方が存在するが、どういう場合にどの使い方を選ぶべきかについえ解説する。   ���(2025-react-hook-form ���typescript
+reactreact-hook-formVReact Hook Form の使い方・使い分け  D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -338,44 +596,4 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�*ARKit を使ってアプリを作ったので、それに際し気にかけたことやノウハウを雑にまとめておく。j/images/tech-blog/2019-arkit-dev-knowledge/cover.avif  ��02019-arkit-dev-knowledge �� ��&
-ar-photoplayarios
-swift
-arkitvARKitを使ったアプリ開発時に気にかけたこと  ��&
-arkit
-arkit�
-3d-cg
-3d-cgaiaiairprintairprintalacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connect
-apple
-appleararar-photoplayar-photoplay
-arkit
-arkitauroraauroraauthorizationauthorization"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracamera
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-development*iosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learning
-macos
-macosmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancephysicsphysicsprintingprintingpwapwa
-react
-reactreact-hook-formreact-hook-form
-realm
-realm
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg
-swift
-swift
-toast
-toasttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-
-video
-videoweb-rtcweb-rtcwritingwriting
-xcode
-xcodezellijzellij 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�"Markdown記法では画像の表示サイズを指定できない場合がある。表示サイズを指定し、Markdownライブラリにそれを解析・表示させるようカスタムすることで、簡単に実現する方法を紹介する。   ���62025-image-size-in-markdown ���elmmarkdown�[Elm] Markdown記法で画像表示サイズを指定する方法  

@@ -184,6 +184,9 @@
 <loc>https://hahnah.github.io/tags/react/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/react-hook-form/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/realm/</loc>
 </url>
 <url>
@@ -233,6 +236,10 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/zellij/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tech-blog/2025-react-hook-form/</loc>
+<lastmod>2025-07-06T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/2025-image-size-in-markdown/</loc>
@@ -480,7 +487,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog/</loc>
-<lastmod>2025-07-02T00:00:00.000Z</lastmod>
+<lastmod>2025-07-06T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog/</loc>
@@ -491,7 +498,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/</loc>
-<lastmod>2025-07-02T00:00:00.000Z</lastmod>
+<lastmod>2025-07-06T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/</loc>
