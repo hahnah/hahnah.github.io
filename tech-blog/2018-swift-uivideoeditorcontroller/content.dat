@@ -1,4 +1,122 @@
-	D/images/authors/natsuki-harai.avif�U:
+�<
+## 概要
+
+UIVideoEditorController を使うことで、動画をトリミングすることができる。
+
+スクリーンショットの "Edit Video" という文字の下にある横長の枠で、トリミング範囲を選択する。
+
+![動画エディター](/images/tech-blog/2018-swift-uivideoeditorcontroller/video-editor.avif)
+
+## 実装方法
+
+### 必須の実装
+
+- UIVideoEditorController の delegate となるクラスに`UIVideoEditorControllerDelegate`と`UINavigationControllerDelegate`を継承させる
+  `swift
+class ViewController: UIViewController, UIVideoEditorControllerDelegate, UINavigationControllerDelegate {
+...
+}
+    `
+- `videoPath`と`delegate`を設定する
+  `swift
+let videoEditor: UIVideoEditorController = UIVideoEditorController()
+let videoPath: String = Bundle.main.path(forResource: "video", ofType: "mov")!
+videoEditor.videoPath = videoPath
+videoEditor.delegate = self
+    `
+- UIVideoEditorController の view へ画面遷移する
+  `swift
+self.present(videoEditor, animated: true, completion: nil)
+    `
+- 実機でアプリを起動する (シミュレーターでは UIVideoEditorController を使えない)
+
+### オプション
+
+- 編集の保存完了時の処理の実装 (実質必須)
+  `videoEditorController(_:didSaveEditedVideoToPath:)`メソッドを実装する
+  `swift
+func videoEditorController(_ editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String) {
+    // CODE
+}
+    `
+- 編集キャンセル時の処理の実装 (実質必須)
+  `videoEditorControllerDidCancel(_:)`メソッドを実装する
+  `swift
+func videoEditorControllerDidCancel(_ editor: UIVideoEditorController) {
+    // CODE
+}
+    `
+- 動画の読込/保存時のエラーハンドリングの実装
+  `videoEditorController(_ editor: UIVideoEditorController, didFailWithError error: Error)`メソッドを実装する
+  `swift
+func videoEditorController(_ editor: UIVideoEditorController, didFailWithError error: Error) {
+    // CODE
+}
+    `
+- 動画が編集可能かを調べる
+  `swift
+if UIVideoEditorController.canEditVideo(atPath: videoPath) {
+    // editable
+} else {
+    // uneditable
+}
+    `
+- 保存する画質を指定する
+  次の画質から指定できる + typeLow (デフォルト) + typeMidium + typeHigh + type640x480 + typeIFrame960x540 + typeIFrame1280x720
+  `swift
+videoEditor.videoQuality = UIImagePickerController.QualityType.typeHigh
+    `
+- 編集後動画の最大の長さを指定する
+  次のコードでは最大を5.0秒に指定している。
+  `swift
+videoEditor.videoMaximumDuration = 5.0
+    `
+
+## ソースコード
+
+編集画面を表示するだけのコード
+
+```swift
+import UIKit
+
+class ViewController: UIViewController, UIVideoEditorControllerDelegate, UINavigationControllerDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let videoEditor: UIVideoEditorController = UIVideoEditorController()
+        let videoPath: String = Bundle.main.path(forResource: "video", ofType: "mov")!
+        guard UIVideoEditorController.canEditVideo(atPath: videoPath) else { return }
+        videoEditor.videoPath = videoPath
+        videoEditor.delegate = self
+        self.present(videoEditor, animated: true, completion: nil)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    func videoEditorController(_ editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String) {
+        // CODE
+        print(editedVideoPath)
+    }
+
+}
+```
+
+## 注意事項
+
+記事執筆時点の UIVideoEditorControllerDelegate には バグ？ があり、  
+一度の保存に対して`videoEditorController(_:didSaveEditedVideoToPath:)`メソッドが2度呼ばれる。  
+(XCode 9.4.1, Swift 4.1.2 で再現することを確認済み)  
+[https://stackoverflow.com/questions/50795848/uivideoeditorcontroller-delegate-method-called-twice](https://stackoverflow.com/questions/50795848/uivideoeditorcontroller-delegate-method-called-twice)
+
+単純な対処として、既に呼ばれたかどうかを管理するフラグを用意するといいだろう。
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,8 +285,9 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�(Color Stew というデザイン用のWebアプリを作った。この記事では作る際の苦労や所感を紹介する。�/images/tech-blog/2019-color-stew-technology/color-stew-screen.avif  ��42019-color-stew-technology �� ��&
-color-stewhahnah's-appdesigncolor-theoryelml[Elm] Color Stew という Webアプリを作った話  ��&D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000ZJDescription are shwon below the image   �}\D2018-swift-uivideoeditorcontroller �}\ ���
+swiftios
+video�[Swift] 動画をトリミングする (UIVideoEditorController)  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -337,39 +456,6 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Lカラースキーマの理論に基づいた美しいカラーパレットを簡単に作成できるWebアプリ "Color Stew" を開発した。p/images/tech-blog/2019-color-stew/color-stew-screen.avif  ��2019-color-stew �� ��&
-color-stewhahnah's-appdesigncolor-theoryelm^Color Stew で簡単カラースキーム作成  ��&color-stewcolor-stew�
-3d-cg
-3d-cgaiaiairprintairprintalacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connect
-apple
-appleararar-photoplayar-photoplay
-arkit
-arkitasaasaauroraauroraauthorizationauthorization"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracameracatcat
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-development,iosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learning
-macos
-macosmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancepetpetphysicsphysicsprintingprintingpwapwa
-react
-reactreact-hook-formreact-hook-form
-realm
-realm
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�~Realm Swift で Auto increment ID を実装する方法を紹介する。削除されたオブジェクトのIDを再利用しないようにする方法も紹介する。   �}dD2018-swift-realm-auto-increment-id �}d ���ios
 swift
-swift
-toast
-toasttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-video
-videoweb-rtcweb-rtcwritingwriting
-xcode
-xcodezellijzellij 
+realm�[Swift] Realm での Auto increment ID + 削除オブジェクトのID再利用防止  ���  
