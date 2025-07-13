@@ -1,4 +1,30 @@
-	D/images/authors/natsuki-harai.avif�U:
+ޮ
+## モックとスタブの例
+
+テストにおいて、例えばHTTPリクエストとHTTPレスポンスをテストダブルに置き換えることを考えてみる。
+
+- **HTTPリクエストを置き換えたものはモックであり、**
+- **HTTPレスポンスを置き換えたものはスタブである。**
+
+また、**データベースから得るデータを置き換えて使う場合、それはスタブである**
+
+## モックとスタブとは
+
+モックとスタブでは、テスト対象システムから見たときのコミュニケーションの方向が異なる。  
+以下のそれぞれ説明する。
+
+### モック
+
+モックは、**テスト対象システムから**その依存に向かって行われる**出力**を模倣したもの。
+
+### スタブ
+
+スタブは、依存から**テスト対象システムへ**向かって行われる**入力**を模倣したもの。
+
+## 終わり
+
+意外と簡単でしょう？
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,8 +193,7 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�(Color Stew というデザイン用のWebアプリを作った。この記事では作る際の苦労や所感を紹介する。�/images/tech-blog/2019-color-stew-technology/color-stew-screen.avif  ��42019-color-stew-technology �� ��&
-color-stewhahnah's-appdesigncolor-theoryelml[Elm] Color Stew という Webアプリを作った話  ��&D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�>テストダブルはモックとスタブの2種類に大別できるが、何がモックで何がスタブかを簡単に説明する。   ���$2025-mock-and-stub ���testrどっちがモックでどっちがスタブだっけ？  D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -337,39 +362,5 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Lカラースキーマの理論に基づいた美しいカラーパレットを簡単に作成できるWebアプリ "Color Stew" を開発した。p/images/tech-blog/2019-color-stew/color-stew-screen.avif  ��2019-color-stew �� ��&
-color-stewhahnah's-appdesigncolor-theoryelm^Color Stew で簡単カラースキーム作成  ��&color-theorycolor-theory�
-3d-cg
-3d-cgaiaiairprintairprintalacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connect
-apple
-appleararar-photoplayar-photoplay
-arkit
-arkitasaasaauroraauroraauthorizationauthorization"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracameracatcat
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-development,iosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learning
-macos
-macosmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancepetpetphysicsphysicsprintingprintingpwapwa
-react
-reactreact-hook-formreact-hook-form
-realm
-realm
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg 
-swift
-swifttesttest
-toast
-toasttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-video
-videoweb-rtcweb-rtcwritingwriting
-xcode
-xcodezellijzellij 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z��React Hook Form は React でフォームを扱うためのライブラリだ。React Hook Form に複数の使い方が存在するが、どういう場合にどの使い方を選ぶべきかについて解説する。   ���(2025-react-hook-form ��� ���typescript
+reactreact-hook-formVReact Hook Form の使い方・使い分け  ��� 
