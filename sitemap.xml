@@ -71,6 +71,9 @@
 <loc>https://hahnah.github.io/tags/cat/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/cdn/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/chart/</loc>
 </url>
 <url>
@@ -262,6 +265,10 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/2025-mock-and-stub/</loc>
+<lastmod>2025-07-13T00:00:00.000Z</lastmod>
+</url>
+<url>
+<loc>https://hahnah.github.io/tech-blog/2025-img-fallback/</loc>
 <lastmod>2025-07-13T00:00:00.000Z</lastmod>
 </url>
 <url>
