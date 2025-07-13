@@ -5,7 +5,7 @@ description: "imgタグのsrc画像が取得できない場合にフォールバ
 published: "2025-07-13"
 # updated: "2025-02-20"
 category: "tech"
-tags: ["react", "image", cdn"]
+tags: ["react", "image", "cdn"]
 ---
 
 ## imgタグのsrc画像が取得できない場合にフォールバックしたい
