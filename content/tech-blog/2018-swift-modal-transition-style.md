@@ -5,8 +5,7 @@ description: "Swiftのpresentで画面遷移する際のアニメーションを
 published: "2018-09-02"
 updated: "2025-07-13"
 category: "tech"
-tags: ["elm", "static-site"]
-status: "draft"
+tags: ["ios", "swift"]
 ---
 
 ## 概要
