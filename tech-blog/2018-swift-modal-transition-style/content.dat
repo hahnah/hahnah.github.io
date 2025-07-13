@@ -1,4 +1,148 @@
-	D/images/authors/natsuki-harai.avif�U:
+�.�
+## 概要
+
+present で画面遷移する際のアニメーションには、次の4種類が用意されている。
+
+- `coverVertical`: 下から上 (デフォルト)
+- `crossDissolve`: ふわっと登場
+- `flipHorizontal`: くるっと反転
+- `partialCurl`: ページめくり
+
+![demo](/images/tech-blog/2018-swift-modal-transition-style/demo.webp)
+
+## 実装方法
+
+画面遷移先のコントローラーである`secondViewController`の`modalTransitionStyle`を設定することで、画面遷移（行きと戻りの両方）のアニメーションを設定できる。
+
+```swift
+/* どれかに設定する */
+secondViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+// secondViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+// secondViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+// secondViewController.modalTransitionStyle = .UIModalTransitionStylepartialCurl
+```
+
+ちなみに、firstView &rArr; secondView へと画面遷移するためのコードは、
+
+```swift
+firstViewController.present(secondViewController, animated: true, completion: nil)
+```
+
+で、 secondView &rArr; firstView へと戻るには、
+
+```swift
+secondViewController.dismiss(animated: true, completion: nil)
+```
+
+とすればよい。
+
+## サンプルコード
+
+冒頭の動画のソースコード全体は次の通りだ。  
+同じものを [GitHub](https://github.com/hahnah/til-swift/tree/modal-animation) にも置いておいた。
+
+###### ViewController.swift
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let coverVerticalModalButton: UIButton = UIButton(frame: CGRect(x: 0, y: self.view.bounds.height * 0, width: self.view.frame.width, height: self.view.bounds.height * 0.25))
+        coverVerticalModalButton.setTitle("coverVertical", for: .normal)
+        coverVerticalModalButton.setTitleColor(UIColor.white, for: .normal)
+        coverVerticalModalButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        coverVerticalModalButton.backgroundColor = UIColor.red
+        coverVerticalModalButton.addTarget(self, action: #selector(self.showSecondView(_:)), for: .touchUpInside)
+        self.view.addSubview(coverVerticalModalButton)
+
+        let crossDissolveModalButton: UIButton = UIButton(frame: CGRect(x: 0, y: self.view.bounds.height * 0.25, width: self.view.frame.width, height: self.view.bounds.height * 0.25))
+        crossDissolveModalButton.setTitle("crossDissolve", for: .normal)
+        crossDissolveModalButton.setTitleColor(UIColor.white, for: .normal)
+        crossDissolveModalButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        crossDissolveModalButton.backgroundColor = UIColor.orange
+        crossDissolveModalButton.addTarget(self, action: #selector(self.showSecondView(_:)), for: .touchUpInside)
+        self.view.addSubview(crossDissolveModalButton)
+
+        let flipHorizontalButton: UIButton = UIButton(frame: CGRect(x: 0, y: self.view.bounds.height * 0.5, width: self.view.frame.width, height: self.view.bounds.height * 0.25))
+        flipHorizontalButton.setTitle("flipHorizontal", for: .normal)
+        flipHorizontalButton.setTitleColor(UIColor.white, for: .normal)
+        flipHorizontalButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        flipHorizontalButton.backgroundColor = UIColor.brown
+        flipHorizontalButton.addTarget(self, action: #selector(self.showSecondView(_:)), for: .touchUpInside)
+        self.view.addSubview(flipHorizontalButton)
+
+        let partialCurlButton: UIButton = UIButton(frame: CGRect(x: 0, y: self.view.bounds.height * 0.75, width: self.view.frame.width, height: self.view.bounds.height * 0.25))
+        partialCurlButton.setTitle("partialCurl", for: .normal)
+        partialCurlButton.setTitleColor(UIColor.white, for: .normal)
+        partialCurlButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        partialCurlButton.backgroundColor = UIColor.blue
+        partialCurlButton.addTarget(self, action: #selector(self.showSecondView(_:)), for: .touchUpInside)
+        self.view.addSubview(partialCurlButton)
+
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    @objc func showSecondView(_ sender: UIButton) {
+        let secondViewController = SecondViewController()
+        secondViewController.view.backgroundColor = sender.backgroundColor
+
+        switch sender.title(for: .normal) {
+        case "coverVertical":
+            secondViewController.modalTransitionStyle = .coverVertical
+        case "crossDissolve":
+            secondViewController.modalTransitionStyle = .crossDissolve
+        case "flipHorizontal":
+            secondViewController.modalTransitionStyle = .flipHorizontal
+        case "partialCurl":
+            secondViewController.modalTransitionStyle = .partialCurl
+        default:
+            secondViewController.modalTransitionStyle = .coverVertical
+        }
+
+        self.present(secondViewController, animated: true, completion: nil)
+    }
+
+}
+```
+
+###### SecondViewController.swift
+
+```swift
+import UIKit
+
+class SecondViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let closeButton: UIButton = UIButton(frame: self.view.frame)
+        closeButton.layer.position = self.view.layer.position
+        closeButton.setTitle("Close", for: .normal)
+        closeButton.setTitleColor(UIColor.white, for: .normal)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        closeButton.backgroundColor = UIColor.clear
+        closeButton.addTarget(self, action: #selector(self.close(_:)), for: .touchUpInside)
+        self.view.addSubview(closeButton)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    @objc func close(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+}
+```
+D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -167,9 +311,8 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z؄imgタグのsrc画像が取得できない場合にフォールバックの画像を設定する方法を解説する。HTMLとReactの両方の実装方法を紹介する。   ���"2025-img-fallback ���
-react
-imagecdn�imgタグのsrc画像が取得できない場合のフォールバック方法 D/images/authors/natsuki-harai.avif�U:
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z؆Swiftのpresentで画面遷移する際のアニメーションを4種類紹介する。coverVertical, crossDissolve, flipHorizontal, partialCurlの使い方を解説する。   �}VB2018-swift-modal-transition-style �}V ���ios
+swift�[Swift] 画面遷移アニメーション4種 (modalTransitionStyle)  ���D/images/authors/natsuki-harai.avif�U:
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -338,41 +481,6 @@ Elm は私の最も好きなプログラミング言語です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
 より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�近年ではPCもスマートフォンも、HiDPIのディスプレイが当たり前になってきた。Webページに画像を表示する際、HiDPIディスプレイで粗く見えないようにするための方法を紹介する。   ��>22021-web-images-for-hidpr ��> ���frontend
-image�[Web] Retina 等の HiDPI ディスプレイで画像が粗くみえてしまわないように  ���
-image
-image�
-3d-cg
-3d-cgaiaiairprintairprintalacrittyalacrittyampampandroidandroid"app-store-connect"app-store-connect
-apple
-appleararar-photoplayar-photoplay
-arkit
-arkitasaasaauroraauroraauthorizationauthorization"brilliant-monocle"brilliant-monocle"browser-extension"browser-extensioncameracameracatcatcdncdn
-chart
-chartcliclicolor-stewcolor-stewcolor-theorycolor-theory
-corne
-cornedatabasedatabasedeep-learningdeep-learningdesigndesign&directory-structure&directory-structure
-drama
-dramaelmelmelm-pageselm-pages.elm-pages-blog-template.elm-pages-blog-templateflex-cameraflex-camera&flexible-av-capture&flexible-av-capturefrontendfrontend,functional-programming,functional-programming$google-tag-manager$google-tag-manager hahnah-chronicle hahnah-chroniclehahnah-s-apphahnah's-app hahnah-s-library hahnah's-library$human-relationship$human-relationship
-image
-image"indie-development"indie-development.iosiosjavascriptjavascriptkeyboardkeyboard machine-learning machine-learning
-macos
-macosmarkdownmarkdown2mathematical-optimization2mathematical-optimizationmicro-pythonmicro-python
-music
-music
-mysql
-mysqlnested-teanested-teaoss-licenseoss-licenseperformanceperformancepetpetphysicsphysicsprintingprintingpwapwaradix-uiradix-ui
-react
-reactreact-hook-formreact-hook-form
-realm
-realm
-redux
-reduxrocroc$self-made-keyboard$self-made-keyboardsmart-glassessmart-glassessoftware-designsoftware-designsvgsvg"
-swift
-swifttesttest
-toast
-toasttypescripttypescriptuiuiunfair-rouletteunfair-roulette
-video
-videoweb-rtcweb-rtcwritingwriting
-xcode
-xcodezellijzellij 
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000ZJDescription are shwon below the image   �}\D2018-swift-uivideoeditorcontroller �}\ ���
+swiftios
+video�[Swift] 動画をトリミングする (UIVideoEditorController)  ���  
