@@ -1,7 +1,7 @@
 ---
 title: "[Swift] 動画をトリミングする (UIVideoEditorController)"
 # image: "/images/tech-blog/slug/image.jpg"
-description: "Description are shwon below the image"
+description: "UIVideoEditorController を使って動画をトリミングする方法を解説する。"
 published: "2018-09-05"
 updated: "2025-07-08"
 category: "tech"
