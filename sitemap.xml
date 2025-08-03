@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://hahnah.github.io/life-blog/2025-what-made-my-personality/</loc>
+<lastmod>2025-08-03T00:00:00.000Z</lastmod>
+</url>
+<url>
 <loc>https://hahnah.github.io/life-blog/2025-broke-up-with-fiance/</loc>
 <lastmod>2025-08-02T00:00:00.000Z</lastmod>
 </url>
@@ -178,6 +182,9 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/music/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/my-life/</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/mysql/</loc>
@@ -571,7 +578,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog/</loc>
-<lastmod>2025-08-02T00:00:00.000Z</lastmod>
+<lastmod>2025-08-03T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/</loc>
