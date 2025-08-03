@@ -147,6 +147,9 @@
 <loc>https://hahnah.github.io/tags/image/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/image-processing/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/indie-development/</loc>
 </url>
 <url>
@@ -531,6 +534,10 @@
 <lastmod>2025-07-15T00:00:00.000Z</lastmod>
 </url>
 <url>
+<loc>https://hahnah.github.io/tech-blog/2018-swift-thumbnail-generator/</loc>
+<lastmod>2025-08-03T00:00:00.000Z</lastmod>
+</url>
+<url>
 <loc>https://hahnah.github.io/about/</loc>
 <lastmod>2025-02-23T00:00:00.000Z</lastmod>
 </url>
@@ -540,7 +547,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog/</loc>
-<lastmod>2025-08-02T00:00:00.000Z</lastmod>
+<lastmod>2025-08-03T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog/</loc>
@@ -551,7 +558,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/</loc>
-<lastmod>2025-07-15T00:00:00.000Z</lastmod>
+<lastmod>2025-08-03T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/</loc>
