@@ -5,7 +5,7 @@ description: "婚約者との別れについての振り返りと感謝の気持
 published: "2025-08-02"
 # updated: "2025-02-20"
 category: "life"
-tags: ["human-relationship", "personal-story"]
+tags: ["human-relationship", "personal-story", "my-life"]
 ---
 
 ## 婚約者との幸せな日々
