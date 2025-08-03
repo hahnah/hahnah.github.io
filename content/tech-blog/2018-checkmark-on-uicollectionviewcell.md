@@ -46,7 +46,7 @@ CollectionView の Cell として 上記で定義した CustomCell を使う。
 
 複数選択を開始する用ボタンをタスクバーにつけたバージョンも作った。
 
-![複数選択開始ボタンをつけたバージョン](/images/tech-blog/2018-checkmark-on-uicollectionviewcell/checkmark-demo2.gif)
+![複数選択開始ボタンをつけたバージョン](/images/tech-blog/2018-checkmark-on-uicollectionviewcell/checkmark-demo2.webp)
 
 タスクバーを用意して、Select / Cancel ボタンで 複数選択モードと そうでないモードを切り替えるように実装している。
 
