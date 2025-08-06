@@ -133,6 +133,9 @@
 <loc>https://hahnah.github.io/tags/functional-programming/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/google-analytics/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/google-tag-manager/</loc>
 </url>
 <url>
@@ -275,6 +278,10 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/zellij/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tech-blog/2025-setup-ga4-for-elm-pages/</loc>
+<lastmod>2025-08-06T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/2025-radix-ui-based-common-ui-directory-strategy/</loc>
@@ -574,7 +581,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog/</loc>
-<lastmod>2025-08-04T00:00:00.000Z</lastmod>
+<lastmod>2025-08-06T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog/</loc>
@@ -585,7 +592,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/</loc>
-<lastmod>2025-08-03T00:00:00.000Z</lastmod>
+<lastmod>2025-08-06T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/</loc>
