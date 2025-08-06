@@ -4,6 +4,7 @@ export default {
   vite: defineConfig({}),
   headTagsTemplate(context) {
     return `
+<link rel="stylesheet" href="/style.css" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-43J055Y1KK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,5 +13,8 @@ export default {
   gtag('config', 'G-43J055Y1KK');
 </script>
 `;
+  },
+  preloadTagForFile(file) {
+    return !file.endsWith(".css");
   },
 };
