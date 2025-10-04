@@ -43,6 +43,11 @@ Then open `http://localhost:1234` in your browser.
 Add a new markdown file in `content/tech-blog/<any slug what to want>.md` or `content/life-blog/<any slug what to want>.md`.  
 Palce images for posts in public/images/tech-blog/<slug>/ or public/images/life-blog/<slug>/ directory.
 
+## Recommended Image size
+
+Recommended 800x600 px images for landscape orientation.
+If portrait images, recommended 600 px height images.
+
 ## Deploying on GitHub Pages
 
 1. Make sure your repositgory name is same as `<your github username>.github.io`. If not, change it.
