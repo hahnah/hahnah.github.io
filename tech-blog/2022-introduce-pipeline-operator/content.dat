@@ -240,7 +240,7 @@ a |> func1 |> func2 |> func3
 - 部分的用によって関数の再利用がしやすくなったり、コードを綺麗にかけたりする
 - Elmなどの言語でパイプライン演算子を使うとメソッドーチェーンのように次々に処理をつなげて書くことができ、処理の段階がわかりやすくなる
 - パイプライン演算子は高階関数、カリー化、部分的用に支えられている
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -408,8 +408,10 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�B関数型プログラミングの特徴の一つであるカリー化やパプライン演算子を一連の流れで学ベル記事です。   ���@2022-introduce-pipeline-operator ��� ���,functional-programmingjavascriptelm�高階関数、カリー化、部分適用からパイプライン演算子までを理解する  ���D/images/authors/natsuki-harai.avif�U�
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�B関数型プログラミングの特徴の一つであるカリー化やパプライン演算子を一連の流れで学ベル記事です。   ���@2022-introduce-pipeline-operator ��� ���,functional-programmingjavascriptelm�高階関数、カリー化、部分適用からパイプライン演算子までを理解する  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -577,8 +579,10 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Dこの記事はAIとは何か、AIに使われる手法にどんなものがあるかが大まかに把握するための備忘録である。   ��V2022-ai-methods ��V ��Xai machine-learningdeep-learning2mathematical-optimizationpAIの意味から手法までをざっくり把握する  ��XD/images/authors/natsuki-harai.avif�U�
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Dこの記事はAIとは何か、AIに使われる手法にどんなものがあるかが大まかに把握するための備忘録である。   ��V2022-ai-methods ��V ��Xai machine-learningdeep-learning2mathematical-optimizationpAIの意味から手法までをざっくり把握する  ��XD/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -746,7 +750,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�私が Elm を書く際に UI をどのようにモジュール化しているか、そのパターンを書いてみる。   ��
 62022-elm-ui-module-patterns ��
  ���elmuinested-teajElmにおけるUIモジュールの構成パターン  ��� 

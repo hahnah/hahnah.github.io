@@ -193,7 +193,7 @@ zellij
 ```
 
 とコマンドを打つ。
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -361,8 +361,10 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�CLI環境を見直して整えたので、その備忘録。AlacrittyとZellijの組み合わせが良かった。   ���D2024-cli-with-alacritty-and-zellij ��� ��2clialacrittyzellij�Alacritty + Zellij などで最高にクールなCLI環境を整える  ��2D/images/authors/natsuki-harai.avif�U�
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�CLI環境を見直して整えたので、その備忘録。AlacrittyとZellijの組み合わせが良かった。   ���D2024-cli-with-alacritty-and-zellij ��� ��2clialacrittyzellij�Alacritty + Zellij などで最高にクールなCLI環境を整える  ��2D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -530,9 +532,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�自作した Corne Chocolate のキーマップを自分好みにカスタマイズしていきます。�/images/tech-blog/2024-build-corne-chocolate-4/keymap-layer-0.avif  ���82024-build-corne-chocolate-4 ��� ��4keyboard$self-made-keyboard
-corne�肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜④キーマップ設定編〜  ��4D/images/authors/natsuki-harai.avif�U�
+corne�肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜④キーマップ設定編〜  ��4D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -700,6 +704,8 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�失敗した無線化Corne Chocolateの自作に再挑戦しました。�/images/tech-blog/2024-build-corne-chocolate-3/key-switches-set.avif  ��z82024-build-corne-chocolate-3 ��z ��2keyboard$self-made-keyboard
 corne�肩こり解消のために無線分割キーボード Corne Chocolate を自作する〜③再挑戦編〜  ��2 

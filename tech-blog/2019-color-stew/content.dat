@@ -38,7 +38,7 @@ Color Stew のソースコードは MITライセンスのもと GitHub で公開
 
 以下の記事で実装についても少しだけ説明している。  
 [https://hahnah.github.io/tech-blog/2019-color-stew-technology](https://hahnah.github.io/tech-blog/2019-color-stew-technology)
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -206,9 +206,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Lカラースキーマの理論に基づいた美しいカラーパレットを簡単に作成できるWebアプリ "Color Stew" を開発した。p/images/tech-blog/2019-color-stew/color-stew-screen.avif  ��2019-color-stew �� ��&
-color-stewhahnah's-appdesigncolor-theoryelm^Color Stew で簡単カラースキーム作成  ��&D/images/authors/natsuki-harai.avif�U�
+color-stewhahnah's-appdesigncolor-theoryelm^Color Stew で簡単カラースキーム作成  ��&D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -376,9 +378,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�(Color Stew というデザイン用のWebアプリを作った。この記事では作る際の苦労や所感を紹介する。�/images/tech-blog/2019-color-stew-technology/color-stew-screen.avif  ��42019-color-stew-technology �� ��&
-color-stewhahnah's-appdesigncolor-theoryelml[Elm] Color Stew という Webアプリを作った話  ��&D/images/authors/natsuki-harai.avif�U�
+color-stewhahnah's-appdesigncolor-theoryelml[Elm] Color Stew という Webアプリを作った話  ��&D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -546,7 +550,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�HARKitでの画像認識時に発生する Invalid reference image というエラーの原因を実行時に特定し対処する方法の紹介�/images/tech-blog/2019-arkit-invalid-reference-image/staggered-arkit.avif  ��D2019-arkit-invalid-reference-image �� ��&arios
 arkit
 swift�ARKitでのイメージトラッキング/画像認識において Invalid Reference Image を特定する  ��& 

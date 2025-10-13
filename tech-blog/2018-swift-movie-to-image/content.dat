@@ -114,7 +114,7 @@ func captureImage(movieURL: URL, capturingTime: CMTime) -> CGImage? {
 
 - [[Swift]CMTimeを使う | nackpan Blog](https://nackpan.net/blog/2015/10/15/swift-cmtime/)
 - [005 動画から静止画を取り出す | Swift Docs](http://docs.fabo.io/swift/avfoundation/005_avfoundation.html)
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -282,10 +282,12 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�動画中の指定した秒数の部分を静止画像として取り出す方法について調べたので紹介する。   �}$22018-swift-movie-to-image �}$ ��
 swift
-image^[Swift] 動画から静止画像を取り出す  ��D/images/authors/natsuki-harai.avif�U�
+image^[Swift] 動画から静止画像を取り出す  ��D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -453,9 +455,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Swiftで画像から正方形のサムネイルを生成する方法を紹介する。   �}.<2018-swift-thumbnail-generator �}. ��
-swift image-processingd[Swift] 画像からサムネイルを作成する  ��D/images/authors/natsuki-harai.avif�U�
+swift image-processingd[Swift] 画像からサムネイルを作成する  ��D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -623,7 +627,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�
 iOS アプリでカメラ映像を全画面表示するための UINavigationBar と UIToolbar の透明化方法   �}"T2018-transparent-uinavigationbar-uitoolbar �}" ��
 swiftj[Swift] UINavigationBar, UIToolbar を透明にする  �� 

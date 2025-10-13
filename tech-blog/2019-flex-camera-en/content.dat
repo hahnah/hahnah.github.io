@@ -40,7 +40,7 @@ FlexibleAVCapture is made with FlexibleAVCapture whichi is a library I created.
 
 I posted about FlexibleAVCapture in the following article, so please check it out.  
 [FlexibleAVCapture: An Swift/iOS library for taking videos with any rectangular frame.](https://hahnah.github.io/tech-blog/2019-swift-flexible-av-capture-en/)
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -208,9 +208,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000ZzUse Flex Camera to take square videos, tall videos, and more!`/images/tech-blog/2019-flex-camera/eyecatch.avif  �~�&2019-flex-camera-en �~� ��&flex-camerahahnah's-appios
-videol[iOS App] Flex Camera - Take videos with unique shape!  ��&D/images/authors/natsuki-harai.avif�U�
+videol[iOS App] Flex Camera - Take videos with unique shape!  ��&D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -378,10 +380,12 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�I created a library FlexibleAVCapture to take any rectangular shaped videos.   �~�B2019-swift-flexible-av-capture-en �~� ��& hahnah's-library
 swiftios&flexible-av-capture
-videoflex-camera�FlexibleAVCapture: An Swift/iOS library for taking videos with any rectangular frame.  ��&D/images/authors/natsuki-harai.avif�U�
+videoflex-camera�FlexibleAVCapture: An Swift/iOS library for taking videos with any rectangular frame.  ��&D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -549,7 +553,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�iPhoneで好きな形状の動画を撮影するためのライブラリ FlexibleAVCapture を作成した   �~�<2019-swift-flexible-av-capture �~� ��& hahnah's-library
 swiftios&flexible-av-capture
 videoflex-camera�[Swift] FlexibleAVCapture で 縦長/横長/正方形 など自由なサイズの動画を撮影する  ��& 

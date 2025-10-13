@@ -38,7 +38,7 @@
 
 - [Apple の開発者向けツールや 旧版/β版 の Xcode/OS/SDK などをダウンロードする方法](https://hahnah.github.io/tech-blog/2018-apple-download-more/)
 - [[Swift]UIPrinterPickerControllerを使ってAirPrint印刷する方法 | Qiita](https://qiita.com/SatoTakeshiX/items/264dd293efeae2fdef11)
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -206,10 +206,12 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�2Xcode の Printer Simulator を使って、実機のプリンターがなくても印刷機能を開発する方法を紹介する。   �}�82018-xcode-printer-simulator �}� ���ios
 swift
-xcodeprinting�[Xcode] Printer Simulator を導入して プリンターの実機なしで印刷機能を開発する  ���D/images/authors/natsuki-harai.avif�U�
+xcodeprinting�[Xcode] Printer Simulator を導入して プリンターの実機なしで印刷機能を開発する  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -377,9 +379,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�>iOS で印刷する機能を実装する方法について紹介する。AirPrint を利用して簡単に印刷機能を実装できる。   �}�&2018-swift-airprint �}� ���ios
-swiftairprintprinting�[Swift] UIPrintInteractionController を利用して AirPrint で印刷する  ���D/images/authors/natsuki-harai.avif�U�
+swiftairprintprinting�[Swift] UIPrintInteractionController を利用して AirPrint で印刷する  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -547,7 +551,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�Apple が公開している開発者向けツールのダウンロード方法を紹介する。   �}x02018-apple-download-more �}x ���
 apple
 xcodeios

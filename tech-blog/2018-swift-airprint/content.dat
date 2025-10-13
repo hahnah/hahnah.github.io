@@ -101,7 +101,7 @@ AirPrint 対応のプリンターを持っていない場合でも、プリン�
 
 - [https://developer.apple.com/documentation/uikit/uiprintinteractioncontroller](https://developer.apple.com/documentation/uikit/uiprintinteractioncontroller)
 - [https://www.ioscreator.com/tutorials/airprint-ios-tutorial-ios11](https://www.ioscreator.com/tutorials/airprint-ios-tutorial-ios11)
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -269,9 +269,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�>iOS で印刷する機能を実装する方法について紹介する。AirPrint を利用して簡単に印刷機能を実装できる。   �}�&2018-swift-airprint �}� ���ios
-swiftairprintprinting�[Swift] UIPrintInteractionController を利用して AirPrint で印刷する  ���D/images/authors/natsuki-harai.avif�U�
+swiftairprintprinting�[Swift] UIPrintInteractionController を利用して AirPrint で印刷する  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -439,9 +441,11 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�PiOSでよくある Activity のシェア機能を実装する方法を紹介する。UIActivityViewControllerを使うと簡単に実装できる。   �}�F2018-swift-uiactivityviewcontroller �}� ���ios
-swift�0[Swift] UIActivityViewController を使って Facebook/Twitter でシェアしたりカメラロールに保存したりする方法  ���D/images/authors/natsuki-harai.avif�U�
+swift�0[Swift] UIActivityViewController を使って Facebook/Twitter でシェアしたりカメラロールに保存したりする方法  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -609,7 +613,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�2Xcode の Printer Simulator を使って、実機のプリンターがなくても印刷機能を開発する方法を紹介する。   �}�82018-xcode-printer-simulator �}� ���ios
 swift
 xcodeprinting�[Xcode] Printer Simulator を導入して プリンターの実機なしで印刷機能を開発する  ��� 

@@ -271,7 +271,7 @@ class ViewController: UIViewController {
 - [GitHub](https://github.com/hahnah/til-swift/tree/master/RealmAutoIncrementalID)
 - [Realm Swift 3.8.0 公式ドキュメント](https://realm.io/docs/swift/3.8.0/)
 - [https://qiita.com/jkr_2255/items/5a71ff5f8569c5e0f24d](https://qiita.com/jkr_2255/items/5a71ff5f8569c5e0f24d)
-D/images/authors/natsuki-harai.avif�U�
+D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -439,10 +439,12 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�~Realm Swift で Auto increment ID を実装する方法を紹介する。削除されたオブジェクトのIDを再利用しないようにする方法も紹介する。   �}dD2018-swift-realm-auto-increment-id �}d ���ios
 swift
-realm�[Swift] Realm での Auto increment ID + 削除オブジェクトのID再利用防止  ���D/images/authors/natsuki-harai.avif�U�
+realm�[Swift] Realm での Auto increment ID + 削除オブジェクトのID再利用防止  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -610,10 +612,12 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�iPhone のフォトアルバムにある動画をアプリ内に保存する方法を紹介する。   �}t.2018-swift-export-movie �}t ���ios
 swift
-videod[Swift] 動画をエクスポート・保存する  ���D/images/authors/natsuki-harai.avif�U�
+videod[Swift] 動画をエクスポート・保存する  ���D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -781,7 +785,9 @@ Elm は私の最も好きなプログラミング言語です。
 プログラミングをして、WebサイトやWebアプリケーションを作り、運用するのが仕事です。
 
 ここで詳細に述べてもほとんどの人には伝わらないと思うので省きます。  
-より詳しい情報を知りたい方は、職務経歴書を公開する予定なのでそちらをお待ちください。
+より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
+
+[原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
  原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�UIVideoEditorController を使って動画をトリミングする方法を解説する。   �}\D2018-swift-uivideoeditorcontroller �}\ ���
 swiftios
 video�[Swift] 動画をトリミングする (UIVideoEditorController)  ��� 
