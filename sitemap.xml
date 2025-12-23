@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://hahnah.github.io/life-blog/2025-mbti-personality-test/</loc>
+<lastmod>2025-12-23T00:00:00.000Z</lastmod>
+</url>
+<url>
 <loc>https://hahnah.github.io/life-blog/2025-my-resume/</loc>
 <lastmod>2025-10-13T00:00:00.000Z</lastmod>
 </url>
@@ -192,6 +196,9 @@
 <loc>https://hahnah.github.io/tags/mathematical-optimization/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/mbti/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/micro-python/</loc>
 </url>
 <url>
@@ -214,6 +221,9 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/personal-story/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/personality/</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/pet/</loc>
@@ -598,11 +608,11 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog/</loc>
-<lastmod>2025-10-13T00:00:00.000Z</lastmod>
+<lastmod>2025-12-23T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog/</loc>
-<lastmod>2025-10-13T00:00:00.000Z</lastmod>
+<lastmod>2025-12-23T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/</loc>
