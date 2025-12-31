@@ -1,72 +1,74 @@
-�J
-**Information Collection and Use**
+�4
+## 情報の収集および利用について
 
-The Application does not collect, transmit, or process personal information or usage data on servers managed by the Service Provider.
+本アプリケーションは、サービス提供者が管理するサーバー上で、個人情報や利用状況データを収集・送信・処理することはありません。
 
-The Application stores limited data only for the purpose of providing its core functionality. The following information is stored locally on the user’s device and synchronized using Apple’s iCloud service (CloudKit):
+本アプリケーションは、機能提供に必要な最小限のデータのみを扱います。以下の情報は、ユーザーのデバイス上にローカル保存され、Apple の iCloud サービス（CloudKit）を通じて同期されます。
 
-- Content identifiers used to manage items created within the Application
-- Internal identifiers used solely for application-level data management
+- 本アプリケーション内で作成された項目を管理するためのコンテンツ識別子
+- アプリケーション内部のデータ管理のみに使用される内部識別子
 
-This data is used exclusively to enable application functionality, device backup, and synchronization across the user’s own devices.
+これらのデータは、アプリケーションの機能提供、デバイスのバックアップ、ならびにユーザー自身のデバイス間での同期の目的にのみ使用されます。
 
-## CloudKit (iCloud)
+## CloudKit（iCloud）について
 
-The Application uses Apple’s CloudKit (iCloud) to store and synchronize application data.
+本アプリケーションは、Apple が提供する CloudKit（iCloud）を使用して、アプリケーションデータの保存および同期を行います。
 
-- Data is stored in the user’s own iCloud account
-- The Service Provider does not have access to, and cannot view, retrieve, or analyze user data stored in CloudKit
-- Apple acts as the infrastructure provider for CloudKit
+- データはユーザー自身の iCloud アカウント内に保存されます
+- サービス提供者は、CloudKit に保存されたユーザーデータにアクセスすることはできず、閲覧・取得・分析を行うことはありません
+- CloudKit におけるインフラストラクチャの提供者は Apple です
 
-The handling of data within CloudKit is governed by Apple’s own privacy policies.
+CloudKit 内のデータの取り扱いについては、Apple が定めるプライバシーポリシーが適用されます。
 
-## Information Not Collected
+## 収集しない情報
 
-The Application does not collect, track, or transmit any of the following information:
+本アプリケーションは、以下の情報を収集・追跡・送信することはありません。
 
-- Names, email addresses, contact details, or other personal information
-- IP addresses
-- Application usage history, page views, or time spent
-- Location or precise geographic information
-- Advertising identifiers or tracking data
-- Analytics, marketing, or profiling data
+- 氏名、メールアドレス、連絡先などの個人情報
+- IP アドレス
+- アプリケーションの利用履歴、閲覧ページ、利用時間
+- 位置情報または正確な地理的位置情報
+- 広告識別子やトラッキングデータ
+- 分析、マーケティング、プロファイリングに関するデータ
 
-## Third-Party Access
+## 第三者への情報提供について
 
-The Application does not use third-party analytics, advertising, or marketing services.  
-User data is not shared, sold, or disclosed to third parties.
+本アプリケーションは、第三者による分析、広告、マーケティングサービスを使用していません。  
+ユーザーデータが第三者に共有、販売、または開示されることはありません。
 
-Apple’s CloudKit service is used solely as a data storage and synchronization mechanism and does not grant the Service Provider access to user data.
+Apple の CloudKit は、あくまでデータ保存および同期の仕組みとして利用されており、これによりサービス提供者がユーザーデータへアクセスできることはありません。
 
-## Data Retention and Deletion
+## データの保持および削除
 
-- Data stored on the device is removed when the Application is uninstalled
-- Data stored in iCloud can be deleted by the user through their iCloud settings
+- デバイスに保存されたデータは、本アプリケーションをアンインストールすることで削除されます
+- iCloud に保存されたデータは、ユーザー自身が iCloud の設定から削除できます
 
-The Service Provider does not retain copies of user data.
+サービス提供者がユーザーデータのコピーを保持することはありません。
 
-## Children
+## お子様の利用について
 
-The Application may be used by users of any age.  
-The Application does not knowingly collect personal information from children or adults.
+本アプリケーションは、年齢を問わず利用することができます。  
+本アプリケーションは、児童または成人を問わず、個人情報を意図的に収集することはありません。
 
-## Security
+## セキュリティおよびポリシーの変更
 
-This Privacy Policy may be updated from time to time for any reason.
-Any changes will be reflected by updating this page with the revised Privacy Policy. Continued use of the Application constitutes acceptance of the updated policy.
+本プライバシーポリシーは、必要に応じて予告なく更新される場合があります。  
+変更があった場合は、本ページにて改訂版のプライバシーポリシーを掲載します。
 
-This privacy policy is effective as of January 1st 2026.
+本アプリケーションの継続利用は、変更後のプライバシーポリシーに同意したものとみなされます。
 
-## Your Consent
+本プライバシーポリシーは、**2026年1月1日**より有効です。
 
-By using the Application, you consent to this Privacy Policy.
+## 同意について
 
-## Contact Us
+本アプリケーションを利用することで、本プライバシーポリシーに同意したものとみなされます。
 
-If you have any questions regarding privacy while using the Application, please contact the Service Provider:
+## お問い合わせ
 
-- X (formerly Twitter): [@superhahnah](https://x.com/superhahnah)
-- Email: superhahnah@gmail.com
+本アプリケーションの利用におけるプライバシーに関するご質問は、以下までご連絡ください。
+
+- X：[@superhahnah](https://x.com/superhahnah)
+- メール：superhahnah@gmail.com
 D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
@@ -238,7 +240,7 @@ Elm は私の最も好きなプログラミング言語です。
 より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
 
 [原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�JThis privacy policy applies to the MemoriaR app (hereby referred to as the "Application") for mobile devices that was created by Natsuki Harai (hereby referred to as the "Service Provider"). The Application is provided as a Freemium service and is intended for use "AS IS".   ��B82026-memoriar-privacy-policy ��Bmemoriarhahnah's-appiPhoneiPadiosipados2MemoriaR's Privacy Policy  D/images/authors/natsuki-harai.avif�VV
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z� 本プライバシーポリシーは、Natsuki Harai（以下「サービス提供者」）が提供するモバイルアプリケーション「MemoriaR」（以下「本アプリケーション」）に適用されます。本アプリケーションはフリーミアム形式で提供され、「現状有姿（AS IS）」で利用されることを前提としています。   ��B>2026-memoriar-privacy-policy-jp ��Bmemoriarhahnah's-appiPhoneiPadiosipadosNMemoriaR プライバシーポリシー  D/images/authors/natsuki-harai.avif�VV
 ## 私は誰?
 
 原井 夏樹 (はらい なつき) といいます。  
@@ -409,4 +411,4 @@ Elm は私の最も好きなプログラミング言語です。
 より詳しい情報を知りたい方は、以下に職務経歴書を公開しているのでそちらをご覧ください。
 
 [原井夏樹の職務経歴書](https://hahnah.github.io/life-blog/2025-my-resume/)
- 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000ZؐMemoriaR は、写真を使って動画を現実の空間と結びつけるアプリです。日常の思い出を、飾って、いつでも呼び起こせる形で残せます。p/images/tech-blog/2026-memoriar-en/memoriar-eyecatch.png  ��B 2026-memoriar-ja ��Bmemoriarhahnah's-appiPhoneiPadiosipados\MemoriaR ― 動画を、飾れる思い出に  
+ 原井 夏樹HWebフルスタックエンジニアdefaultgithub2https://github.com/hahnahx2https://x.com/superhahnahfacebookRhttps://www.facebook.com/share/1T9KiWmfrLinstagramHhttps://www.instagram.com/hahnah8787youtubeJhttps://www.youtube.com/@hahnahgamingtwitch<https://www.twitch.tv/hahnah8702025-02-23T00:00:00.000Z�JThis privacy policy applies to the MemoriaR app (hereby referred to as the "Application") for mobile devices that was created by Natsuki Harai (hereby referred to as the "Service Provider"). The Application is provided as a Freemium service and is intended for use "AS IS".   ��B>2026-memoriar-privacy-policy-en ��Bmemoriarhahnah's-appiPhoneiPadiosipados2MemoriaR's Privacy Policy  
