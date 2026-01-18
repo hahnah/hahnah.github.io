@@ -3,7 +3,7 @@ title: "MemoriaR ― 動画を、飾れる思い出に"
 image: "/images/tech-blog/2026-memoriar-en/memoriar-eyecatch.png"
 description: "MemoriaR は、写真を使って動画を現実の空間と結びつけるアプリです。日常の思い出を、飾って、いつでも呼び起こせる形で残せます。"
 published: "2026-01-01"
-# updated: "2025-04-06"
+updated: "2026-01-18"
 category: "tech"
 tags: ["memoriar", "hahnah's-app", "iPhone", "iPad", "ios", "ipados"]
 ---

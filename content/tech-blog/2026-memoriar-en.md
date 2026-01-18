@@ -3,7 +3,7 @@ title: "MemoriaR: Turn Your Videos into Memories You Can Display"
 image: "/images/tech-blog/2026-memoriar-en/memoriar-eyecatch.png"
 description: "MemoriaR is an app that lets you connect videos to real places using photos. Turn everyday moments into memories you can display and revisit in your own space."
 published: "2026-01-01"
-# updated: "2025-04-06"
+updated: "2026-01-18"
 category: "tech"
 tags: ["memoriar", "hahnah's-app", "iPhone", "iPad", "ios", "ipados"]
 ---
