@@ -18,10 +18,12 @@ tags: ["memoriar", "hahnah's-app", "iPhone", "iPad", "ios", "ipados"]
 もし動画も、写真のように残せたら。  
 **特定の場所と結びついた形で、思い出として置いておけたら**どうでしょうか。
 
-その発想から生まれたのが **MemoriaR** です。
+その発想から生まれたのが **MemoriaR** (メモリア) です。
 
 | ![AR Session Capture](/images/tech-blog/2026-memoriar-en/ar-session-capture.gif) | ![AR Session](/images/tech-blog/2026-memoriar-en/ar-session.avif) | ![Album](/images/tech-blog/2026-memoriar-en/album.avif) |
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------- |
+
+⭐️ [MemoriaR をインストールする](https://apps.apple.com/jp/app/memoriar/id6751318419) ⭐️
 
 ## MemoriaR が生まれた理由
 
@@ -116,8 +118,8 @@ MemoriaR は、写真や動画を置き換えるアプリではありません�
 
 ## MemoriaR を始める
 
-MemoriaR は、iPhone / iPad 向けに App Store で配信予定です。
-
 もし、  
 「動画も写真のように残せたらいいのに」  
 そう感じたことがあるなら、MemoriaR はその答えになるかもしれません。
+
+⭐️ [MemoriaR をインストールする](https://apps.apple.com/jp/app/memoriar/id6751318419) ⭐️
