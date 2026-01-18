@@ -22,6 +22,8 @@ That question became the starting point for **MemoriaR**.
 | ![AR Session Capture](/images/tech-blog/2026-memoriar-en/ar-session-capture.gif) | ![AR Session](/images/tech-blog/2026-memoriar-en/ar-session.avif) | ![Album](/images/tech-blog/2026-memoriar-en/album.avif) |
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------- |
 
+⭐️ [Install MemoriaR](https://apps.apple.com/us/app/memoriar/id6751318419) ⭐️
+
 ## Why MemoriaR Was Created
 
 Photos have always had a special role in how we remember.  
@@ -109,6 +111,6 @@ By tying videos to physical space, MemoriaR helps keep your memories close—not
 
 ## Get Started with MemoriaR
 
-MemoriaR will be available soon on the App Store for iPhone and iPad.
-
 If you’ve ever wished your videos could feel as tangible and meaningful as photos, MemoriaR offers a simple, thoughtful way to make that possible.
+
+⭐️ [Install MemoriaR](https://apps.apple.com/us/app/memoriar/id6751318419) ⭐️
