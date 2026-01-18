@@ -20,7 +20,16 @@ type alias App =
 
 allApps : List App
 allApps =
-    [ { name = "Color Stew"
+    [ { name = "MemoriaR"
+      , description = "動画を、飾れる思い出に"
+      , imagePath = "/images/apps/memoriar.avif"
+      , url = "https://apps.apple.com/jp/app/memoriar/id6751318419"
+      , documentSlug = Just "2026-memoriar-ja"
+      , technologySlug = Nothing
+      , codeUrl = Nothing
+      , isAvailable = True
+      },
+      { name = "Color Stew"
       , description = "カラースキーマの理論に基づいて美しいカラーパレットの作成を補助します。"
       , imagePath = "/images/apps/color-stew.avif"
       , url = "https://hahnah.github.io/color-stew/"
