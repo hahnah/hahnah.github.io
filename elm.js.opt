@@ -12219,7 +12219,7 @@
             bD: "/images/apps/memoriar.avif",
             bF: true,
             kn: "MemoriaR",
-            bQ: $elm$core$Maybe$Nothing,
+            bQ: $elm$core$Maybe$Just("2026-memoriar-technology"),
             bT: "https://apps.apple.com/jp/app/memoriar/id6751318419"
         },
         {

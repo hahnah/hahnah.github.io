@@ -108,10 +108,16 @@
 <loc>https://hahnah.github.io/tags/cli/</loc>
 </url>
 <url>
+<loc>https://hahnah.github.io/tags/cloudkit/</loc>
+</url>
+<url>
 <loc>https://hahnah.github.io/tags/color-stew/</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/color-theory/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/coredata/</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/corne/</loc>
@@ -169,6 +175,9 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/human-relationship/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tags/icloud/</loc>
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/image/</loc>
@@ -328,6 +337,10 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tags/zellij/</loc>
+</url>
+<url>
+<loc>https://hahnah.github.io/tech-blog/2026-memoriar-technology/</loc>
+<lastmod>2026-01-27T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/2026-memoriar-privacy-policy-ja/</loc>
@@ -647,7 +660,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/blog/</loc>
-<lastmod>2026-01-18T00:00:00.000Z</lastmod>
+<lastmod>2026-01-27T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/life-blog/</loc>
@@ -658,7 +671,7 @@
 </url>
 <url>
 <loc>https://hahnah.github.io/tech-blog/</loc>
-<lastmod>2026-01-18T00:00:00.000Z</lastmod>
+<lastmod>2026-01-27T00:00:00.000Z</lastmod>
 </url>
 <url>
 <loc>https://hahnah.github.io/</loc>
