@@ -38,7 +38,7 @@ allApps =
       , codeUrl = Just "https://github.com/hahnah/FlexCamera"
       , isAvailable = True
       }
-     , { name = "Color Stew"
+    , { name = "Color Stew"
       , description = "カラースキーマの理論に基づいて美しいカラーパレットの作成を補助します。"
       , imagePath = "/images/apps/color-stew.avif"
       , url = "https://hahnah.github.io/color-stew/"
