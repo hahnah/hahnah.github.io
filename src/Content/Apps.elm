@@ -28,8 +28,17 @@ allApps =
       , technologySlug = Nothing
       , codeUrl = Nothing
       , isAvailable = True
-      },
-      { name = "Color Stew"
+      }
+    , { name = "Flex Camera"
+      , description = "自由な形でiPhoneの動画撮影を。正方形の動画も細長い動画も思いのままに。"
+      , imagePath = "/images/apps/flex-camera.avif"
+      , url = "https://apps.apple.com/jp/app/flex-camera/id1455345286"
+      , documentSlug = Just "2019-flex-camera"
+      , technologySlug = Just "2019-swift-flexible-av-capture"
+      , codeUrl = Just "https://github.com/hahnah/FlexCamera"
+      , isAvailable = True
+      }
+     , { name = "Color Stew"
       , description = "カラースキーマの理論に基づいて美しいカラーパレットの作成を補助します。"
       , imagePath = "/images/apps/color-stew.avif"
       , url = "https://hahnah.github.io/color-stew/"
@@ -63,15 +72,6 @@ allApps =
       , documentSlug = Just "2019-ar-photoplay"
       , technologySlug = Just "2019-arkit-dev-knowledge"
       , codeUrl = Nothing
-      , isAvailable = False
-      }
-    , { name = "Flex Camera"
-      , description = "自由な形でiPhoneの動画撮影を。正方形の動画も細長い動画も思いのままに。"
-      , imagePath = "/images/apps/flex-camera.avif"
-      , url = ""
-      , documentSlug = Just "2019-flex-camera"
-      , technologySlug = Just "2019-swift-flexible-av-capture"
-      , codeUrl = Just "https://github.com/hahnah/FlexCamera"
       , isAvailable = False
       }
     ]
