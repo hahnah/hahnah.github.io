@@ -25,7 +25,7 @@ allApps =
       , imagePath = "/images/apps/memoriar.avif"
       , url = "https://apps.apple.com/jp/app/memoriar/id6751318419"
       , documentSlug = Just "2026-memoriar-ja"
-      , technologySlug = Nothing
+      , technologySlug = Just "2026-memoriar-technology"
       , codeUrl = Nothing
       , isAvailable = True
       }
