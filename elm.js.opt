@@ -21328,7 +21328,8 @@
         return _Bytes_read_f64(!endianness);
     };
     var $lamdera$codecs$Lamdera$Wire3$decodeFloat64 = $elm$bytes$Bytes$Decode$float64($lamdera$codecs$Lamdera$Wire3$endianness);
-    var $lamdera$codecs$Lamdera$Wire3$identityFloatToInt = $elm$core$Basics$floor;
+    var $elm$core$Basics$isInfinite = _Basics_isInfinite;
+    var $elm$core$Basics$isNaN = _Basics_isNaN;
     var $lamdera$codecs$Lamdera$Wire3$intDivBy_fn = function (b, a) {
         var v = a / b;
         return (v < 0) ? (-$elm$core$Basics$floor(-v)) : $elm$core$Basics$floor(v);
@@ -21347,7 +21348,9 @@
                 return (((b0 * 256) + b1) * 256) + b2;
             })))))) : ((n0 === 254) ? $elm$bytes$Bytes$Decode$map_fn($lamdera$codecs$Lamdera$Wire3$unsignedToSigned, d(d(d(d($elm$bytes$Bytes$Decode$succeed(F4(function (b0, b1, b2, b3) {
                 return (((((b0 * 256) + b1) * 256) + b2) * 256) + b3;
-            }))))))) : $elm$bytes$Bytes$Decode$map_fn($lamdera$codecs$Lamdera$Wire3$identityFloatToInt, $lamdera$codecs$Lamdera$Wire3$decodeFloat64)))));
+            }))))))) : $elm$bytes$Bytes$Decode$andThen_fn(function (n1) {
+                return ($elm$core$Basics$isNaN(n1) || $elm$core$Basics$isInfinite(n1)) ? $elm$bytes$Bytes$Decode$fail : $elm$bytes$Bytes$Decode$succeed($elm$core$Basics$floor(n1));
+            }, $lamdera$codecs$Lamdera$Wire3$decodeFloat64)))));
         }, $elm$bytes$Bytes$Decode$unsignedInt8);
     }();
     var $lamdera$codecs$Lamdera$Wire3$decodeList = function (decoder) {
