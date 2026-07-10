@@ -3,7 +3,7 @@ title: "Hahnah Chronicle を始めます"
 image: "/images/symbols-and-logos/symbol-and-logo.png"
 description: "Hahnah Chronicle に原井夏樹の生きた証を残し、「未来の誰かに私を見つけてもらいたい」"
 published: "2025-02-19"
-updated: "2025-06-22"
+updated: "2026-07-10"
 category: "life"
 tags: ["hahnah-chronicle"]
 ---
@@ -39,7 +39,7 @@ Hahnah Chronicle が遥か先の未来まで残ることを願います。
 
 このサイトでは大きく分けて Tech Blog と Life Blog の2つのカテゴリの記事を書いていきます。
 
-Tech Blog では主にソフトウェアエンジニアといての活動や知見、技術的無ことについて書いていきます。  
+Tech Blog では主にソフトウェアエンジニアといての活動や知見、技術的なことについて書いていきます。  
 これは私のエンジニアとしての活動に役立ちます。私の知識や技量を示すものとなり、また他のエンジニアの役にも立つことでしょう。  
 Tech Blog に関しては元々 "Super Hahnah" という名前で運営していたのですが、Hahnah Chronicle はそれを引き継いでいます。  
 なのでTech Blog 記事には、公開日が Hahnah Chronicle の開設日よりも古いものがあります。そういった記事は Super Hahnah から引き継いだものです。
