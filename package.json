@@ -23,5 +23,8 @@
   "volta": {
     "node": "22.13.1",
     "npm": "11.0.0"
+  },
+  "allowScripts": {
+    "elm-json@0.2.13": true
   }
 }
