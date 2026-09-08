@@ -3,7 +3,7 @@ title: "キュウコン+受けループ構築〜ポケモンチャンピオン[M
 image: "/images/life-blog/2026-pokemon-ninetailes-party/party-info-1.webp"
 description: "自分の好きなポケモンと戦術で、勝てるように頑張る。キュウコンと受けループ戦術で勝つためのパーティ構築をしました。対応できない相手はなく、完成度は高いと思います。この記事ではその構築について解説します。"
 published: "2026-08-30"
-updated: "2026-09-07"
+updated: "2026-09-09"
 category: "life"
 tags: ["game", "pokemon", "pokemon-champions"]
 ---
